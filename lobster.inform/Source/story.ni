@@ -484,13 +484,20 @@ Check wanding at:
 		say "You don't have the magic wand in hand.".
 
 
+The player carries a banana.  The description is "Quite golden."
+
 [The wand basically cycles through all known spells each time it is used -- it initiates one of the spell verbs]
 	
 The wand counter is a number that varies.  The wand counter is 0.
 	
-Carry out wanding at:
+Carry out wanding at something (called the target):
+	Say "The wand glows with energy as you flick it...[paragraph break]";
 	if the remainder after dividing the wand counter by 5 is:
-		-- 0: say "wand #0";
+		-- 0: 
+			say "A bolt of icy-blue lightning shoots from the wand towards [the target], freezing it solid.";
+			now the target is frozen;
+			now the currently-frozen-object is not frozen;
+			now the currently-frozen-object is the target;
 		-- 1: say "wand #1";
 		-- 2: say "wand #2";
 		-- 3: say "wand #3";
@@ -502,7 +509,19 @@ Chapter Spells
 
 Section Freeze
 
+A thing can be frozen.  Things are usually not frozen.
 
+The currently-frozen-object is a thing that varies.
+
+Instead of doing something with something (called the item):
+	if the item is not frozen:
+		continue the action;
+	otherwise if the current action is examining:
+		say "It appears to be frozen.";
+	otherwise if the current action is smelling or dropping:  [or other verbs...]
+		continue the action;
+	otherwise:
+		say "You can't do that;  [the item] appears to be frozen in place.".
 
 
 
