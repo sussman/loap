@@ -1,6 +1,6 @@
 "Lobsters On A Plane" by Ben and Jack
 
-The story headline is "Parboiled crustaceans at 10,000 feet".
+The story headline is "Parboiled crustaceans at 30,000 feet".
 The release number is 1.
 The story creation year is 2010.
 The story genre is "Disaster".
@@ -83,8 +83,6 @@ A fardrop is a kind of backdrop.
 Conclusion is a kind of value. The conclusions are lost and won.  
 
 Endgame is a conclusion that varies. The endgame is usually won.
-
-A latch is a kind of thing. A latch can be openable. A latch can be open. A latch can be lockable. A latch can be locked. A latch is usually openable, lockable, closed and locked.
 
 Chapter General Routines
 		
@@ -379,25 +377,67 @@ Book 2 Places
 
 Chapter Bathroom
 
-The Lavatory is a room. The description of the lavatory is "[one of]A claustrophobic vertical coffin, lit by blue-tinted fluorescent bulbs and smelling of disinfectant. A uselessly small vestigial sink, a unisex toilet, and a mirror are the only furnishings in the room[or]A tight, poorly lit, aircraft bathroom. Ordinarily, a welcome refuge from the demanding mortal customers who need to use planes to move from one place to another, but now a safe haven from the carnivorous lobsters infesting the plane[stopping]." Understand "bathroom" as the lavatory.
+The Lavatory is a room. The description of the lavatory is "[one of]A claustrophobic vertical coffin, lit by blue-tinted fluorescent bulbs and smelling of disinfectant. A uselessly small vestigial sink, a unisex toilet, and a mirror are the only furnishings in the room[or]A tight, poorly lit, aircraft bathroom. Ordinarily, a welcome refuge from the demanding mortal customers who need to use planes to move from one place to another, but now a safe haven from the carnivorous lobsters infesting the plane[stopping]. Your uncanny, yet always useful, sense of direction tells you that the bathroom is to the west." Understand "bathroom" as the lavatory.
 
-The Bathroom Door is a door. The bathroom door is openable, lockable, closed, and locked. The bathroom door is west from the lavatory and east from tail section. The description of the door is "A folding door, with a latch that reads [quotation mark][if the door is locked]OCCUPIED[otherwise]VACANT[end if][quotation mark]." 
+The sink is a furniture in the lavatory. The description of the sink is "A small metal bowl with two knobs, marked [quotation mark]hot[quotation mark] and [quotation mark]cold[quotation mark], and a faucet. The sink is bone dry." The cold knob is part of the the sink. The hot knob is part of the sink. The faucet is part of the sink. 
+
+Instead of switching on or switching off something that is part of the sink:
+	say "[sink-disabled]."
+	
+Instead of switching on or switching off the sink:
+	say "[sink-disabled]."
+	
+To say sink-disabled:
+	say "As a security precaution, the TSA has disabled in-flight use of devices involving water. If you wash your hands, the terrorists win."
+	
+The mirror is a furniture in the lavatory. The description of the mirror is "A small, slightly smeared mirror. In it, you see your own, bedraggled image."
+
+The toilet is a furniture in the lavatory. The description of the toilet is "A vaguely seat-like bump on the wall of the bathroom. The hole leads nowhere, of course, as toilets were banned on planes years ago as a security precaution." The hole is part of the toilet. The hole is a container. The carrying capacity of the hole is 1. Understand "unisex" as the toilet.
+
+Instead of inserting something into the hole:
+	say "Yech."
+
+The bathroom door is a door. The bathroom door is openable and closed. The bathroom door is west from the lavatory and east from Tail Section. The description of the door is "A folding door, with a small latch." 
+
+The latch is part of the bathroom door. The latch can be vacant or occupied. The description of the latch is "The latch reads [if the latch is vacant]VACANT[otherwise]OCCUPIED[end if]."
+
+Instead of opening the bathroom door when the latch is not vacant:
+	say "You rattle the door, but it won't open."
+	
+Instead of opening the latch:
+	if the latch is vacant:
+		say "The latch is not engaged.";
+	otherwise:
+		say "The latch slips to the side.";
+		now the latch is vacant.
 
 Chapter Tail Section
 
-The Tail Section is a room.  The description of the tail section is "A cramped storage section in the rear of the plane, where, if you remember correctly, some emergency supplies are supposed to be stored." The tail section is down from the galley.
+The Tail Section is a room.  The description of the tail section is "A cramped storage section in the rear of the plane, where, if you remember correctly, some emergency supplies are supposed to be stored. The floor slopes upward to the coach section. The emergency escape hatch is inset into the wall." The tail section is down from the galley.
+
+The equipment bin is a closed container in the tail section. The description of the equipment bin is "A composite module built into the side panel of the plane. The bin is labeled [quotation mark]Emergency Equipment[quotation mark]."
+
+After opening the equipment bin for the first time:
+	say "As you open the equipment bin, you wonder if you should have played the role of flight attendant more carefully. Following the standard procedures of the airline would have meant that you would have made sure that the emergency equipment bin was full of, well, emergency equipment."
+	
+The memo is a prop in the equipment bin. The description of the memo is "A handwritten note on TRANSGLOBAL AIRWAYS stationary." The inscription of the memo is "Flight crew: please be sure that this compartment contains the following items prior to departure:[paragraph break]* First Aid Kit[line break]* Flare Gun[line break]* Emergency Radio[line break]* Crustacean Repellant[line break]* Mountain Climbing Gear[line break]* Shark Defense Cage[line break]* Personal Jet Pack[line break]* Personal Entertainment System, Mark V".
+
+The emergency exit is a furniture in the Tail Section. The emergency exit can be open. The emergency exit is closed.
+
+Instead of opening the emergency exit:
+	say "The exit only pushes outward, but thousands of tons of ocean water hold it closed against your feeble attempts."
 
 Chapter Galley
 
-The Galley is a room. The description of the galley is "A stainless steel compartment between the self-absorbed slobs in business class and the unwashed masses and screaming babies in coach." The galley is down from the business section.
+The Galley is a room. The description of the galley is "A stainless steel compartment between the self-absorbed slobs in business class up ahead and the unwashed masses and screaming babies in coach down below." The galley is down from the business section.
 
 Chapter Business Section
 
-The Business Section is a room. The description of the business section is "Rows of seats that are spaced the way coach seats used to be spaced about five years ago. It is enough to make the gullible mortals feel superior to those in coach, while still stripping them subtly of their humanity. It is your favorite section of the plane.[paragraph break]There is a small, spiral staircase upwards to the first class section." The business section is down from the bulkhead.
+The Business Section is a room. The description of the business section is "Rows of seats that are spaced the way coach seats used to be spaced about five years ago. It is enough to make the gullible mortals feel superior to those in coach, while still stripping them subtly of their humanity. It is your favorite section of the plane.[paragraph break]Northward, a narrow, spiral staircase upwards to the first class section. Just above the business section is the bulkhead that leads to the cockpit." The business section is down from the bulkhead.
 
 Chapter Cockpit
 
-The Cockpit is a room. The cockpit is up from the bulkhead.
+The Cockpit is a room. The cockpit is up from the bulkhead. The description of the cockpit is "A cone-shaped room bristling with those blinking lights and other technical knick-knacks that mortals consider fancy."
 
 The bulkhead is a door. The bulkhead is up from the business section.
 
