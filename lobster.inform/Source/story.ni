@@ -466,3 +466,52 @@ Rule for printing the player's obituary:
 						
 Rule for amusing a victorious player:
 say "Amusing stuff".
+
+
+Book 6 Magic
+
+
+Chapter Magic Wand
+
+The magic wand is carried by the player.  The description of the wand is "[one of]Your wand is a mid-19th century Celtic model, passed down to you on your Father's side (who used it to conjure food during the great Irish Potato Famine).  It appears to be broken in the disaster, though;  you'll have to take a second look.[or]Once capable of casting nearly any class-N spell, the spell-selector switch seems jammed.  You're unsure what will happen when you USE WAND ON SOMETHING.[stopping]".  Understand "wand" as the magic wand.
+
+Wanding at is an action applying to one visible thing.  Understand "Use wand on [something]" as wanding at.
+
+Check wanding at:
+	if the player carries the wand:
+		continue the action;
+	otherwise:
+		say "You don't have the magic wand in hand.".
+
+
+[The wand basically cycles through all known spells each time it is used -- it initiates one of the spell verbs]
+	
+The wand counter is a number that varies.  The wand counter is 0.
+	
+Carry out wanding at:
+	if the remainder after dividing the wand counter by 5 is:
+		-- 0: say "wand #0";
+		-- 1: say "wand #1";
+		-- 2: say "wand #2";
+		-- 3: say "wand #3";
+		-- 4: say "wand #4";
+	increase the wand counter by one.
+	
+
+Chapter Spells
+
+Section Freeze
+
+
+
+
+
+
+
+
+
+
+
+
+
+
