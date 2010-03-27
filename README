@@ -1,29 +1,11 @@
-HOW TO USE THIS TEMPLATE:
-
-1. Replace XXX with the game's name below.  Edit as needed.
-
-2. Rename 'game.inform' to the real game-name.
-
-3. Put everything at the top level under version control.
-
-4. Put only game.inform/Source/story.ni and game.inform/uuid.txt under
-   version control;  nothing else in the game.inform/ folder.
-
-5. Remove these instructions.  Commit to version control.
-
-6. Push the project up to a version control server.
-
-
-*********************************
-
 What is this?
 -------------
 
-This is the source code to "XXX", an interactive fiction
-game (or more commonly known as "text adventure".)
+This is the source code to "Lobsters on a Plane", an interactive
+fiction game (or more commonly known as "text adventure".)
 
-It was originally written by Jack Welch and Ben Collins-Sussman on XXX
-DATE..  The code is now released under the "Creative Commons
+It was originally written by Jack Welch and Ben Collins-Sussman on
+March 27, 2010.  The code is now released under the "Creative Commons
 Attribution - Noncommercial - Share Alike 3.0" license, which you can
 find in the LICENSE file.
 
@@ -57,7 +39,7 @@ To build the game:
 
 1. Create a working Inform project from your source tree:
 
-  $ hg clone URL XXX
+  $ hg clone URL
   $ cd XXX
   $ mv XXX.inform/ temp.inform/
 
