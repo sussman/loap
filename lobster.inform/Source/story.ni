@@ -483,7 +483,7 @@ Check wanding at:
 		say "You don't have the magic wand in hand.".
 
 
-The player carries a banana.  The description is "Quite golden."
+The player wears some high-heeled shoes.  [TODO]
 
 [The wand basically cycles through all known spells each time it is used -- it initiates one of the spell verbs]
 	
@@ -492,15 +492,19 @@ The wand counter is a number that varies.  The wand counter is 0.
 Carry out wanding at something (called the target):
 	Say "The wand glows with energy as you flick it...[paragraph break]";
 	if the remainder after dividing the wand counter by 5 is:
-		-- 0: 
-			say "A bolt of icy-blue lightning shoots from the wand towards [the target], freezing it solid.";
+		-- 0:  [freeze]
+			say "A bolt of icy-blue lightning shoots from the wand towards [the target], freezing [pronoun-accusative] in place.";
 			now the target is frozen;
 			now the currently-frozen-object is not frozen;
 			now the currently-frozen-object is the target;
-		-- 1: say "wand #1";
-		-- 2: say "wand #2";
-		-- 3: say "wand #3";
-		-- 4: say "wand #4";
+		-- 1:  [push]
+			try magic-pushing the target;
+		-- 2:  [knock]
+			say "wand #2";
+		-- 3:  []
+			say "wand #3";
+		-- 4: [pop]
+			try magic-popping the target;
 	increase the wand counter by one.
 	
 
@@ -516,16 +520,37 @@ Instead of doing something with something (called the item):
 	if the item is not frozen:
 		continue the action;
 	otherwise if the current action is examining:
-		say "It appears to be frozen.";
+		say " appears to be frozen.";
 	otherwise if the current action is smelling or dropping:  [or other verbs...]
 		continue the action;
 	otherwise:
-		say "You can't do that;  [the item] appears to be frozen in place.".
+		say "You can't do that;  [the item] appears to be frozen!".
 
 
+Section Push-Pop
 
+Limbo is a room.  "You are lost somewhere between universes."   A banana is a prop in Limbo.  The description of the banana is "Quite golden.".
 
+The limboed-thing is a thing that varies.  The limboed-thing is the banana.
 
+Magic-pushing is an action applying to one thing.
+
+Carry out magic-pushing something (called the target):
+	if the target is a door:
+		say "[The target] flickers a moment, but doesn't change.";
+	otherwise:
+		say "[The target] suddenly blinks out of existence!";
+		move the target to Limbo;
+		now the limboed-thing is the target.
+
+Magic-popping is an action applying to one thing.
+
+Carry out magic-popping:
+	if the limboed-thing is in Limbo:
+		say "Out of nowhere, [the limboed-thing] suddenly appears!";
+		move the limboed-thing to the location;
+	otherwise:
+		say "Nothing happens.".
 
 
 
