@@ -1,17 +1,13 @@
-                                                                     
-                                                                     
-                                                                     
-                                             
-"Lobster" by Ben and Jack
+"Lobsters On A Plane" by Ben and Jack
 
-The story headline is "Scaffold".
+The story headline is "Parboiled crustaceans at 10,000 meters".
 The release number is 1.
 The story creation year is 2010.
-The story genre is "Scaffold".
+The story genre is "Disaster".
 
-The story description is "Something happens, and then there is an aha moment when the player realizes that this is the game that they have been waiting their entire life to play. Indeed, the generations before them were mere stepping stones on the way to this, their ultimate destiny."
+The story description is "Lobsters on a plane. What more needs be said."
 
-The intro-text is a text that varies.  Intro-text is "Before other test prints, this text prints. Hence its name, eh?[paragraph break]".
+The intro-text is a text that varies.  Intro-text is "There is an actinic flash. The seat belt lamp illuminates. On the overhead speakers, the pilot reassures the passengers that the minor turbulence is no cause for concern. A second, more abrupt crash and the plane lurches. Air masks drop. An overhead baggage bin flies open, and lobsters pour out. Ignoring the passengers in your section, you let the food cart topple forward, the potatoes au gratin mixing with the fettuccine and mango compote. You climb towards the lavatory and throw the latch from vacant to occupied. The plane revolves slowly pushing you towards the wall, even as the sudden loss of altitude makes you feel lighter.[paragraph break]".
 
 
 [Include Menus by Emily Short.]
@@ -446,7 +442,7 @@ Chapter Default Messages
 
 Section Boxted Text
 
-Book 2  Scenes
+Book 5  Scenes
  
 Chapter Introduction
 
