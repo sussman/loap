@@ -8,7 +8,10 @@
 		<true/>
 	</dict>
 	<key>IFInform6Extensions</key>
-	<dict/>
+	<dict>
+		<key>menus</key>
+		<false/>
+	</dict>
 	<key>IFLibrarySettings</key>
 	<dict>
 		<key>IFSettingLibraryToUse</key>
