@@ -1,6 +1,6 @@
 "Lobsters On A Plane" by Ben and Jack
 
-The story headline is "Parboiled crustaceans at 10,000 meters".
+The story headline is "Parboiled crustaceans at 10,000 feet".
 The release number is 1.
 The story creation year is 2010.
 The story genre is "Disaster".
@@ -49,37 +49,6 @@ Carry out time-checking:
 	[consider adding a check to make sure that a time-telling device is in the room, or that the player would reasonable know the time of day.]
 	say "It is [time of day + 1 minute]."
 		
-
-Section Fixing Room Capitalization
-[This particular bit of Inform voodoo came from a timely usenet post by Erik Temple dated Wed, Jan 13, 2010]
-
-A room has some text called the capped room name. The capped room name property translates into I6 as "cap_short_name". 
-
-The new room description heading rule is listed instead of the room description heading rule in the carry out looking rules. 
-
-Carry out looking (this is the new room description heading rule): 
-	say bold type; 
-	if the visibility level count is 0: 
-		begin the printing the name of a dark room activity; 
-		if handling the printing the name of a dark room activity, 
-			issue miscellaneous library message number 71; 
-		end the printing the name of a dark room activity; 
-	otherwise if the visibility ceiling is the location: 
-		say "[capped room name of the visibility ceiling]";
-	otherwise: 
-		if the visibility ceiling is a room: 
-			say "[The capped room name of the visibility ceiling]"; 
-		otherwise: 
-			say "[The visibility ceiling]"; 
-	say roman type; 
-	let intermediate level be the visibility-holder of the actor; 
-	repeat with intermediate level count running from 2 to the visibility   
-level count: 
-		issue library message looking action number 8 for the intermediate level; 
-		let the intermediate level be the visibility-holder of the intermediate   
-level; 
-	say line break; 
-	say run paragraph on with special look spacing. 
 
 Section Award the Escape
 
@@ -172,7 +141,6 @@ To adjust points by (amount - a number):
 		say "up";
 	say " by [amount in words][close bracket][paragraph break]";
 	change the score to the score plus amount.
-
 
 Chapter Verbs
 
@@ -328,7 +296,7 @@ The maximum score is 100. [TODO:  change this later]
 When play begins:
 	say the intro-text;
 	change the time of day to 09:00 AM;
-        	change the left hand status line to "[capped room name of the location]";
+        	change the left hand status line to "[location]";
         	change right hand status line to "Score: [score]/[maximum score]";
 			try silently switching score notification off;
 			[puts the onus on us to display messags about score updates]
@@ -409,15 +377,44 @@ times-used		verbage
 
 Book 2 Places
 
-Chapter The Lab
+Chapter Bathroom
 
-The lab is a room. "A big white room." The capped room name of the lab is "Laboratory". The player is in the lab.
+The Lavatory is a room. The description of the lavatory is "[one of]A claustrophobic vertical coffin, lit by blue-tinted fluorescent bulbs and smelling of disinfectant. A uselessly small vestigial sink, a unisex toilet, and a mirror are the only furnishings in the room[or]A tight, poorly lit, aircraft bathroom. Ordinarily, a welcome refuge from the demanding mortal customers who need to use planes to move from one place to another, but now a safe haven from the carnivorous lobsters infesting the plane[stopping]." Understand "bathroom" as the lavatory.
+
+The Bathroom Door is a door. The bathroom door is openable, lockable, closed, and locked. The bathroom door is west from the lavatory and east from tail section. The description of the door is "A folding door, with a latch that reads [quotation mark][if the door is locked]OCCUPIED[otherwise]VACANT[end if][quotation mark]." 
+
+Chapter Tail Section
+
+The Tail Section is a room.  The description of the tail section is "A cramped storage section in the rear of the plane, where, if you remember correctly, some emergency supplies are supposed to be stored." The tail section is down from the galley.
+
+Chapter Galley
+
+The Galley is a room. The description of the galley is "A stainless steel compartment between the self-absorbed slobs in business class and the unwashed masses and screaming babies in coach." The galley is down from the business section.
+
+Chapter Business Section
+
+The Business Section is a room. The description of the business section is "Rows of seats that are spaced the way coach seats used to be spaced about five years ago. It is enough to make the gullible mortals feel superior to those in coach, while still stripping them subtly of their humanity. It is your favorite section of the plane.[paragraph break]There is a small, spiral staircase upwards to the first class section." The business section is down from the bulkhead.
+
+Chapter Cockpit
+
+The Cockpit is a room. The cockpit is up from the bulkhead.
+
+The bulkhead is a door. The bulkhead is up from the business section.
+
+Chapter Staircase
+
+The Staircase is a door. The staircase is north from the business section.
+
+Chapter First Class
+
+First Class is a room. The description of first class is "A posh, nightclub-like bubble on the front of the plane. Through the transparent ceiling, green light filters down and you can see fish swimming by."
 
 Chapter Limbo
 
 [A place for offstage stuff]
 
-Limbo is a room.
+Limbo is a room. 
+
 
 Book 3 Characters
 
@@ -447,6 +444,8 @@ Book 5  Scenes
 Chapter Introduction
 
 Introduction is a scene. Introduction begins when play begins. 
+
+The player is in the lavatory.
 
 Chapter Denouement
 
