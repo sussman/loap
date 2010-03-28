@@ -7,7 +7,7 @@ The story genre is "Disaster".
 
 The story description is "Lobsters on a plane. What more needs be said."
 
-The intro-text is a text that varies.  Intro-text is "There is an actinic flash. The seat belt lamp illuminates. On the overhead speakers, the pilot reassures the passengers that the minor turbulence is no cause for concern. A second, more abrupt crash and the plane lurches. Air masks drop. An overhead baggage bin flies open, and lobsters pour out. Ignoring the passengers in your section, you let the food cart topple forward, the potatoes au gratin mixing with the fettuccine and mango compote. You climb towards the lavatory and throw the latch from vacant to occupied. The plane revolves slowly pushing you towards the wall, even as the sudden loss of altitude makes you feel lighter.[paragraph break]".
+The intro-text is a text that varies.  Intro-text is "There is an actinic flash. The seat belt lamp illuminates. On the overhead speakers, the pilot reassures the passengers that the minor turbulence is no cause for concern. A second, more abrupt crash and the plane lurches. Air masks drop. An overhead baggage bin flies open, and lobsters pour out. Ignoring the passengers in your section, you let the food cart topple forward, the potatoes au gratin mixing with the fettuccine and mango compote. You climb towards the lavatory and throw the latch from 'vacant' to 'occupied.' The plane revolves slowly -- pushing you towards the wall -- even as the sudden loss of altitude makes you feel lighter.[paragraph break]".
 
 
 [Include Menus by Emily Short.]
@@ -533,16 +533,19 @@ Carry out wanding at something (called the target):
 	Say "The wand glows with energy as you flick it...[paragraph break]";
 	if the remainder after dividing the wand counter by 5 is:
 		-- 0:  [freeze]
-			say "A bolt of icy-blue lightning shoots from the wand towards [the target], freezing [pronoun-accusative] in place.";
+			say "A bolt of icy-blue lightning shoots from the wand towards [the target], freezing [pronoun-accusative] in place.[paragraph break]";
 			now the target is frozen;
 			now the currently-frozen-object is not frozen;
+			if the currently-frozen-object is visible:
+				let localverb be "thaw";
+				say "[The currently-frozen-object] [localverb in correct agreement] out.";
 			now the currently-frozen-object is the target;
 		-- 1:  [push]
 			try magic-pushing the target;
-		-- 2:  [knock]
-			say "wand #2";
-		-- 3:  []
-			say "wand #3";
+		-- 2:  [summon cod]
+			try cod-summoning;
+		-- 3:  [knock]
+			try unjamming the target;
 		-- 4: [pop]
 			try magic-popping the target;
 	increase the wand counter by one.
@@ -560,7 +563,8 @@ Instead of doing something with something (called the item):
 	if the item is not frozen:
 		continue the action;
 	otherwise if the current action is examining:
-		say " appears to be frozen.";
+		let localverb be "appear";
+		say "[The item] [localverb in correct agreement] to be frozen.";
 	otherwise if the current action is smelling or dropping:  [or other verbs...]
 		continue the action;
 	otherwise:
@@ -593,8 +597,35 @@ Carry out magic-popping:
 		say "Nothing happens.".
 
 
+Section Cod
+
+The cod is an animal.  The description of the cod is "A three-foot long, reddish-brown predatory fish.  You guess it weighs at least 25 pounds, and it appears fairly mean and hungry.  Crustaceans are its main food."  The cod is in Limbo.
+
+Instead of eating the cod, say "Now is not the time for sashimi.  Besides, these guys are endangered.".
+
+Instead of taking the cod, say "You're sure it would snap your fingers off if you tried!".
+
+Cod-summoning is an action applying to nothing.
+
+Carry out cod-summoning:
+	if the cod is in the location:
+		say "The cod sparks a bit, but nothing happens.";
+	otherwise:
+		move the cod to the location;
+		say "You hear a strange tingling sound;  a large cod fish suddenly materializes, swimming in the water around your ankles."
 
 
+Section Unjamming
 
+A thing can be jammed.  Things are usually not jammed.
 
+Unjamming is an action applying to one thing.
 
+Carry out unjamming something (called the item):
+	let localverb be "vibrate";
+	if the item is not jammed:
+		say "[The item] [localverb in correct agreement] a bit, but nothing else happens.";
+	otherwise:
+		let localverb2 be "come";
+		say "[The item] [localverb in correct agreement] for a moment, and suddenly [localverb2 in correct agreement] unstuck!".
+		
