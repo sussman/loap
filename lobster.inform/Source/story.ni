@@ -612,28 +612,22 @@ The player wears some high-heeled shoes. The description of the shoes is "Shiny,
 The wand counter is a number that varies.  The wand counter is 0.
 	
 Carry out wanding at something (called the target):
-	Say "The wand glows with energy as you flick it...";
+	Say "The wand glows with energy as you flick it... [no line break]";
 	if the remainder after dividing the wand counter by 5 is:
 		-- 0:  [freeze]
-			say "and you instantly recognize the FREEZE spell, which magically holds things fixed in place.[paragraph break]";
-			say "A bolt of icy-blue lightning shoots from the wand towards [the target], freezing [pronoun-accusative] instantly.[paragraph break]";
-			now the target is frozen;
-			now the currently-frozen-object is not frozen;
-			if the currently-frozen-object is visible:
-				let localverb be "thaw";
-				say "You see [the currently-frozen-object] [localverb in correct agreement] out.";
-			now the currently-frozen-object is the target;
+			say "and you quickly recognize the FREEZE spell, which magically holds things fixed in place.[paragraph break]";
+			try freezing the target;
 		-- 1:  [push]
-			say "and you instantly recognize the PUSH spell, which sends things to limbo.[paragraph break]";
+			say "and you witness the PUSH spell, which sends things to limbo.[paragraph break]";
 			try magic-pushing the target;
 		-- 2:  [summon cod]
-			say "and you instantly recognize the BALANCE spell, which summons elements to even out a situation.[paragraph break]";
+			say "and you realize it's the BALANCE spell, which summons elements to even out a situation.[paragraph break]";
 			try cod-summoning;
 		-- 3:  [knock]
-			say "and you instantly recognize the JIGGER spell, which un-jams things.[paragraph break]";
+			say "and you discover it's the JIGGER spell, which un-jams things.[paragraph break]";
 			try unjamming the target;
 		-- 4: [pop]
-			say "and you instantly recognize the POP spell, which returns things from limbo.[paragraph break]";
+			say "and you watch the POP spell surface, which returns things from limbo.[paragraph break]";
 			try magic-popping the target;
 	increase the wand counter by one.
 	
@@ -645,6 +639,17 @@ Section Freeze
 A thing can be frozen.  Things are usually not frozen.
 
 The currently-frozen-object is a thing that varies.  The currently-frozen-object is the statuette.
+
+Freezing is an action applying to one thing.
+
+Carry out freezing something (called the target):
+	say "A bolt of icy-blue lightning shoots from the wand towards [the target], freezing [pronoun-accusative] instantly.[paragraph break]";
+	now the target is frozen;
+	now the currently-frozen-object is not frozen;
+	if the currently-frozen-object is visible:
+		let localverb be "thaw";
+		say "In response, [the currently-frozen-object] [localverb in correct agreement] out.";
+	now the currently-frozen-object is the target;
 
 Instead of doing something with something (called the item):
 	if the item is not frozen:
@@ -675,9 +680,11 @@ Magic-pushing is an action applying to one thing.
 
 Carry out magic-pushing something (called the target):
 	if the target is a door:
-		say "[The target] flickers a moment, but doesn't change.";
+		let localverb be "flicker";
+		say "[The target] [localverb in correct agreement] a moment, but nothing else happens.";
 	otherwise:
-		say "[The target] suddenly blinks out of existence!";
+		let localverb be "blink";
+		say "[The target] suddenly [localverb in correct agreement] out of existence!";
 		move the target to Limbo;
 		now the limboed-thing is the target.
 
@@ -685,7 +692,8 @@ Magic-popping is an action applying to one thing.
 
 Carry out magic-popping:
 	if the limboed-thing is in Limbo:
-		say "Out of nowhere, [the limboed-thing] suddenly appears!";
+		let localverb be "appear";
+		say "Out of nowhere, [the limboed-thing] suddenly [localverb in correct agreement]!";
 		move the limboed-thing to the location;
 	otherwise:
 		say "Nothing happens.".
