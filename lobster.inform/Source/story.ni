@@ -362,7 +362,7 @@ This is the block all stage business rule:
 The block stage business while-raising the stakes rule is listed after the endgame block stage business rule in the stage business rules.
 
 This is the block stage business while-raising the stakes rule:
-	if disaster strikes is happening:
+	if disaster strikes is happening and the player is not in Limbo:
 		increase the stakes by one;
 		if the stakes is:
 			-- 2: say "Obviously, someone from Kovyn got wind of Meretzko's presence on this flight. Apparently, you guessed wrong about them wanting to recover him alive."; 
@@ -407,6 +407,7 @@ times-used		verbage
 0		"Perhaps this is karmic revenge for last Friday's surf-and-turf dinner"
 0		"They say a man can bleed to death in three minutes, if sliced on the leg just so.  Let's not verify this"
 0		"Snap, crackle, pop!  The big ones are molting.  And advancing."
+0		"A lobster scuttles towards your foot, but you quickly punt it back"
 
 Book 2 Places
 
@@ -475,10 +476,13 @@ Coach is a room. The description of coach is "Row after row of tightly packed se
 
 The movie screen is a furniture in the coach. The description of the movie screen is "A dirty gray panel mounted on the dirtier and grayer panels of the coach section. Movies are shown here to take people's minds off how very unpleasant it is to fly coach."
 
-The cart is a supporter in coach. The cart can be jammed. The cart is jammed. The description of the cart is "A food cart, meant to be pushed Sisyphus-fashion up and down the aisles of this plane until your penance is complete."  
+The cart is a supporter in coach. The cart can be jammed. The cart is jammed. The description of the cart is "A food cart, meant to be pushed Sisyphus-fashion up and down the aisles of this plane until your penance is complete.[if the cart is jammed] It appears to be tilted and solldly wedged against the seats, unmoving.[end if]"  
 
-Instead of going up when the player is in coach and the cart is jammed:
-	say "The cart is wedged across the aisle, blocking your path. You can't get around it, nor will it budge."
+Instead of going up when the player is in coach:
+	if the cart is in coach and the cart is jammed:
+		say "The cart is wedged across the aisle, blocking your path. You can't get around it, nor will it budge.";
+	otherwise:
+		continue the action.
 
 
 Chapter Galley
@@ -555,7 +559,7 @@ Chapter Introduction
 
 Introduction is a scene. Introduction begins when play begins. 
 
-The player is in the lavatory. The description of the player is "Four-hundred and eighty-six years, and you look like a super model. That's partly due to your inherently superior breeding, and partly attributable to the plastic surgery, cybernetic implants and magical enhancements thanks to The Circle."
+The player is in the lavatory. The description of the player is "Four-hundred and eighty-six years, and you look like a supermodel. That's partly due to your inherently superior breeding, and partly attributable to the plastic surgery, cybernetic implants and magical enhancements thanks to The Circle."
 
 Chapter Disaster Strikes
 
@@ -594,7 +598,7 @@ Book 6 Magic
 
 Chapter Magic Wand
 
-The magic wand is carried by the player.  The description of the wand is "[one of]Your wand is a mid-19th century Celtic model, passed down to you on your Father's side (who used it to conjure food during the great Irish Potato Famine).  It appears to be broken in the disaster, though;  you'll have to take a second look.[or]Once capable of casting nearly any class-N spell, the spell-selector switch seems jammed.  You're unsure what will happen when you USE WAND ON SOMETHING.[stopping]".  Understand "wand" as the magic wand.
+The magic wand is carried by the player.  The description of the wand is "[one of]Your wand is a mid-19th century Celtic model, passed down to you on your Father's side (who used it to conjure food during the great Irish Potato Famine).  It appears to be broken in the disaster, though;  you'll have to take a second look.[or]Once capable of casting nearly any class-N spell, the spell-selector switch seems utterly broken.  You're unsure what will happen when you USE WAND ON SOMETHING.[stopping]".  Understand "wand" as the magic wand.
 
 Wanding at is an action applying to one visible thing.  Understand "Use wand on [something]" as wanding at.
 
@@ -664,7 +668,7 @@ Instead of doing something with something (called the item):
 		continue the action;
 	otherwise:
 		let localverb be "appear";
-		say "You can't do that;  [the item] [localverb in correct agreement] to be frozen!".
+		say "You can't do that;  [the item] [localverb in correct agreement] to be frozen, and thus impervious to all interaction.".
 	
 
 
