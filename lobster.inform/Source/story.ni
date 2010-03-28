@@ -459,6 +459,10 @@ The Cockpit is a room. The cockpit is up from the bulkhead. The description of t
 
 The bulkhead is a door. The bulkhead is up from the business section. The bulkhead is closed and locked.
 
+The yoke is a furniture in the cockpit. The description of the yoke is "A semicircular steering wheel mounted on a stick. You have seen the pilot move it back and forth to steer the direction of the plane."
+
+The control panel is a furniture in the cockpit. The description of the control panel is "A flat U-shaped panel that wraps around the forward section of the aircraft and sports all kinds of controls, dials, switched and other doo-hickeys."
+
 
 
 Chapter Staircase
