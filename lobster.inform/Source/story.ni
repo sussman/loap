@@ -80,7 +80,7 @@ A thing has some text called the inscription. The inscription of something is us
 
 A fardrop is a kind of backdrop.
 
-Conclusion is a kind of value. The conclusions are lost and won.  
+Conclusion is a kind of value. The conclusions are drowned,lost and won.  
 
 Endgame is a conclusion that varies. The endgame is usually won.
 
@@ -141,6 +141,11 @@ To adjust points by (amount - a number):
 	change the score to the score plus amount.
 
 Chapter Verbs
+
+Helping is an action out of world. Understand "help" as helping.
+
+Carry out helping:
+	say "You are utterly cut off from help until the Wise Masters of the Ineffable get off their lazy butts and write it. For now, just watch out for carnivorous lobsters."
 
 Section Answering
 
@@ -418,17 +423,21 @@ Chapter Tail Section
 
 The Tail Section is a room.  The description of the tail section is "A cramped storage section in the rear of the plane, where, if you remember correctly, some emergency supplies are supposed to be stored. The floor slopes upward to the coach section. The emergency escape hatch is inset into the wall." The tail section is down from Coach.
 
-The equipment bin is a closed openable container in the tail section. The description of the equipment bin is "A composite module built into the side panel of the plane. The bin is labeled [quotation mark]Emergency Equipment[quotation mark]." 
+The equipment bin is a closed openable container in the tail section. The description of the equipment bin is "A carbon-composite module built into the side panel of the plane. The bin is labeled [quotation mark]Emergency Equipment[quotation mark]." 
 
 After opening the equipment bin for the first time:
-	say "As you open the equipment bin, you wonder if you should have played the role of flight attendant more carefully. Following the standard procedures of the airline would have meant that you would have made sure that the emergency equipment bin was full of, well, emergency equipment."
+	say "As you open the equipment bin, you wonder if you should have played the role of flight attendant more carefully. Following the standard procedures of the airline would have meant that you would have made sure that the emergency equipment bin was full of, well, emergency equipment.[paragraph break]A small piece of paper lies on the bottom of the bin."
 	
-The memo is a prop in the equipment bin. The description of the memo is "A handwritten note on TRANSGLOBAL AIRWAYS stationary." The inscription of the memo is "Flight crew: please be sure that this compartment contains the following items prior to departure:[paragraph break]* First Aid Kit[line break]* Flare Gun[line break]* Emergency Radio[line break]* Crustacean Repellant[line break]* Mountain Climbing Gear[line break]* Shark Defense Cage[line break]* Personal Jet Pack[line break]* Personal Entertainment System, Mark V".
+The memo is a prop in the equipment bin. The description of the memo is "A handwritten note on TRANSGLOBAL AIRWAYS stationary." The inscription of the memo is "Flight crew: please be sure that this compartment contains the following items prior to departure:[paragraph break]* First Aid Kit[line break]* Flare Gun[line break]* Emergency Radio[line break]* Crustacean Repellent[line break]* Mountain Climbing Gear[line break]* Shark Defense Cage[line break]* Personal Jet Pack[line break]* Entertainment System, Mark V". Understand "small" and "paper" as memo.
 
-The emergency exit is a furniture in the Tail Section. The emergency exit can be open. The emergency exit is closed.
+The emergency escape hatch is a furniture in the Tail Section. The emergency escape hatch can be open. The emergency escape hatch is closed. Understand "exit" as the emergency escape hatch. "A sturdy curved door mounted on heavy internal hinges. For emergency use only, as it says."
 
-Instead of opening the emergency exit:
+Instead of opening the emergency escape hatch:
 	say "The exit only pushes outward, but thousands of tons of ocean water hold it closed against your feeble attempts."
+	
+After magic-pushing the emergency escape hatch:
+	change the endgame to drowned;
+	end the game in death.
 
 Chapter Coach 
 
@@ -513,8 +522,16 @@ Chapter Introduction
 
 Introduction is a scene. Introduction begins when play begins. 
 
-The player is in the lavatory.
+The player is in the lavatory. The description of the player is "Four-hundred and eighty-six years, and you look like a super model. That's partly due to your inherently superior breeding, and partly attributable to the plastic surgery, cybernetic implants and magical enhancements thanks to The Circle."
 
+Chapter Disaster Strikes
+
+Disaster Strikes is a scene. Disaster strikes begins when the player is in the Tail Section.
+
+When disaster strikes begins:
+	say "The plane slams into the ocean, skipping like a rock, before sinking like one.[paragraph break]The heavy rear of the plane pitches downward, flipping you sideways. Water jets into the cabin from seams that are not as tight as you had hoped. Moments later, you are ankle-deep in frigid salt water."
+	
+	
 Chapter Denouement
 
 [using enclosure here because climbing the stool means that Rick is not in the jail cell]
@@ -526,6 +543,8 @@ The Finale is a scene.
 
 Rule for printing the player's obituary:
 	if the endgame is:
+		-- drowned:
+			say "A tidal bore of cold ocean water slams into the cabin like pile driver, smearing you on the opposite wall like a toddler with craypas in a heat wave.";
 		-- lost:
 			say "*** LOST ***";
 		-- won:
@@ -551,7 +570,7 @@ Check wanding at:
 		say "You don't have the magic wand in hand.".
 
 
-The player wears some high-heeled shoes.  [TODO]
+The player wears some high-heeled shoes. The description of the shoes is "Shiny, stewardess shoes." The shoes are plural-named. The indefinite article of the shoes is "a pair of".[TODO]
 
 [The wand basically cycles through all known spells each time it is used -- it initiates one of the spell verbs]
 	
@@ -596,7 +615,8 @@ Instead of doing something with something (called the item):
 	otherwise if the current action is smelling or dropping:  [or other verbs...]
 		continue the action;
 	otherwise:
-		say "You can't do that;  [the item] appears to be frozen!".
+		say "You can't do that;  [the item] [localverb in correct agreement] to be frozen!".
+	
 
 
 Section Push-Pop
