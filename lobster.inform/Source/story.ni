@@ -367,7 +367,10 @@ This is the block stage business while-raising the stakes rule:
 		if the stakes is:
 			-- 2: say "Obviously, someone from Kovyn got wind of Meretzko's presence on this flight. Apparently, you guessed wrong about them wanting to recover him alive."; 
 				the rule succeeds;
+			-- 3: say "Lobsters scuttle along the aisle, between seats, provoking screams of fear from the crash survivors.[paragraph break]How clichéd. This may have worked back in the day, but come on. Carnivorous lobsters? Have they no decency?";
+				the rule succeeds;
 			-- 4: say "You had worked your way through most of the coach and business class, but still hadn't located High Wizard Meretzko. You had assumed that he would not be so obvious as to fly first class, but this is not a good day for your assumptions."; 
+				the rule succeeds;
 			-- 6: say "Two years of deep cover as a stewardess. A bloody stewardess! Waiting hand and foot on these sink holes of attentions. And for what? The biggest failure of your career. If you lose Meretzko, it will be a death blow to The Circle, and nothing will be able to stop the Kovyn and their langustinian minions.";
 				the rule succeeds.
 			
@@ -472,12 +475,15 @@ Coach is a room. The description of coach is "Row after row of tightly packed se
 
 The movie screen is a furniture in the coach. The description of the movie screen is "A dirty gray panel mounted on the dirtier and grayer panels of the coach section. Movies are shown here to take people's minds off how very unpleasant it is to fly coach."
 
-The cart is a furniture in coach. The description of the cart is "A food cart, meant to be pushed Sisyphus-fashion up and down the aisles of this plane until your penance is complete."  
+The cart is a supporter in coach. The cart can be jammed. The cart is jammed. The description of the cart is "A food cart, meant to be pushed Sisyphus-fashion up and down the aisles of this plane until your penance is complete."  
+
+Instead of going up when the player is in coach and the cart is jammed:
+	say "The cart is wedged across the aisle, blocking your path. You can't get around it, nor will it budge."
 
 
 Chapter Galley
 
-The Galley is a room. The description of the galley is "A stainless steel compartment between the self-absorbed slobs in business class up ahead and the unwashed masses and screaming babies in coach down below." The galley is down from the business section.
+The Galley is a room. The description of the galley is "A stainless steel compartment between the self-absorbed slobs in business class up ahead and the unwashed masses and screaming babies in coach down below." The Galley is down from the business section.
 
 The counter is a furniture in the galley. The description of the counter is "A brushed aluminum counter where you have prepared countless platicky meals for unwitting passengers."
 
@@ -704,5 +710,6 @@ Carry out unjamming something (called the item):
 		say "[The item] [localverb in correct agreement] a bit, but nothing else happens.";
 	otherwise:
 		let localverb2 be "come";
-		say "[The item] [localverb in correct agreement] for a moment, and suddenly [localverb2 in correct agreement] unstuck!".
+		say "[The item] [localverb in correct agreement] for a moment, and suddenly [localverb2 in correct agreement] unstuck!";
+		now the item is not jammed.
 		
