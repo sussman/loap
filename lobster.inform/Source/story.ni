@@ -359,7 +359,19 @@ This is the block all stage business rule:
 	if the block stage business flag is true:
 		the rule succeeds.
 		
-The block stage business while-looking rule is listed after the block all stage business rule in the stage business rules.
+The block stage business while-raising the stakes rule is listed after the endgame block stage business rule in the stage business rules.
+
+This is the block stage business while-raising the stakes rule:
+	if disaster strikes is happening:
+		increase the stakes by one;
+		if the stakes is:
+			-- 2: say "Obviously, someone from Kovyn got wind of Meretzko's presence on this flight. Apparently, you guessed wrong about them wanting to recover him alive."; 
+				the rule succeeds;
+			-- 4: say "You had worked your way through most of the coach and business class, but still hadn't located High Wizard Meretzko. You had assumed that he would not be so obvious as to fly first class, but this is not a good day for your assumptions."; 
+			-- 6: say "Two years of deep cover as a stewardess. A bloody stewardess! Waiting hand and foot on these sink holes of attentions. And for what? The biggest failure of your career. If you lose Meretzko, it will be a death blow to The Circle, and nothing will be able to stop the Kovyn and their langustinian minions.";
+				the rule succeeds.
+			
+The block stage business while-looking rule is listed after the block stage business while-raising the stakes rule in the stage business rules.
 
 This is the block stage business while-looking rule:
 	if the current action is looking:
@@ -490,7 +502,7 @@ First Class is a room. The description of first class is "A posh, nightclub-like
 
 The billiards table is a furniture in first class. The description of the billiard table is "A hefty wood-paneled table, covered in dark green felt.[paragraph break]With the plane tilted at this angle, however, the balls and pool cues must have rolled off into the recesses of the room."
 
-Meretzko is a man in first class. The description of Meretzko is "A tall man, with an intelligent look about him." 
+Meretzko is a man in first class. The description of Meretzko is "A tall man, with an intelligent look about him." Understand "wizard" as Meretzko.
 
 Chapter Limbo
 
@@ -533,6 +545,8 @@ The player is in the lavatory. The description of the player is "Four-hundred an
 Chapter Disaster Strikes
 
 Disaster Strikes is a scene. Disaster strikes begins when the player is in the Tail Section.
+
+The stakes is a value that varies. The stakes is zero.
 
 When disaster strikes begins:
 	say "The plane slams into the ocean, skipping like a rock, before sinking like one.[paragraph break]The heavy rear of the plane pitches downward, flipping you sideways. Water jets into the cabin from seams that are not as tight as you had hoped. Moments later, you are ankle-deep in frigid salt water."
