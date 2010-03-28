@@ -368,15 +368,21 @@ This is the block stage business while-looking rule:
 The Environmental stage business rule is listed last in the stage business rules.
 
 This is the Environmental stage business rule:
-	if a random chance of 2 in 20 succeeds:
+	if a random chance of 7 in 20 succeeds:
 		pick a phrase from the Table of Environmental Stage Business;
 		say ".";
 		the rule succeeds.
 		
 Table of Environmental Stage Business
 times-used		verbage
-0			"A fly buzzes past your ear and lands on the ceiling"
-0			"A faint breeze wafts by"
+0			"You hear the clickety-clack of angry claws somewhere nearby."
+0			"Some water drips onto your head from a ceiling leak somewhere."
+0			"Distant screams echo from the main cabin;  the cracking of human skulls by vorpal claws."
+0			"The plane shutters, then angles downward just a bit more."
+0			"The lobsters scuttle and screetch in malicious glee."
+0			"The smell of malevolent arthropods burns your nose."
+0			"Sobs of the still-living reach your ears;  the cockpit radio burps static."
+0			"The hull creaks and groans from stress.  You wonder how much time you have."
 
 Book 2 Places
 
