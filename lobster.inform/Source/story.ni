@@ -410,12 +410,15 @@ Instead of opening the latch:
 	otherwise:
 		say "The latch slips to the side.";
 		now the latch is vacant.
+		
+Instead of pushing or pulling the latch:
+	say "You yank back and forth on the latch, when you realize that what you really want to do is just open or close it. Clearly, your mind is too powerful for the trivial devices that clutter the meaningless existence of mortals."
 
 Chapter Tail Section
 
-The Tail Section is a room.  The description of the tail section is "A cramped storage section in the rear of the plane, where, if you remember correctly, some emergency supplies are supposed to be stored. The floor slopes upward to the coach section. The emergency escape hatch is inset into the wall." The tail section is down from the galley.
+The Tail Section is a room.  The description of the tail section is "A cramped storage section in the rear of the plane, where, if you remember correctly, some emergency supplies are supposed to be stored. The floor slopes upward to the coach section. The emergency escape hatch is inset into the wall." The tail section is down from Coach.
 
-The equipment bin is a closed container in the tail section. The description of the equipment bin is "A composite module built into the side panel of the plane. The bin is labeled [quotation mark]Emergency Equipment[quotation mark]."
+The equipment bin is a closed openable container in the tail section. The description of the equipment bin is "A composite module built into the side panel of the plane. The bin is labeled [quotation mark]Emergency Equipment[quotation mark]." 
 
 After opening the equipment bin for the first time:
 	say "As you open the equipment bin, you wonder if you should have played the role of flight attendant more carefully. Following the standard procedures of the airline would have meant that you would have made sure that the emergency equipment bin was full of, well, emergency equipment."
@@ -427,9 +430,24 @@ The emergency exit is a furniture in the Tail Section. The emergency exit can be
 Instead of opening the emergency exit:
 	say "The exit only pushes outward, but thousands of tons of ocean water hold it closed against your feeble attempts."
 
+Chapter Coach 
+
+Coach is a room. The description of coach is "Row after row of tightly packed seats, with minimal padding, sharp corners, and ratty seat belts. Back in Greek times, there would have been three tiers of such seats, each with an oar and chains. Ah, for the old days." Coach is down from the galley.
+
+The movie screen is a furniture in the coach. The description of the movie screen is "A dirty gray panel mounted on the dirtier and grayer panels of the coach section. Movies are shown here to take people's minds off how very unpleasant it is to fly coach."
+
+The cart is a furniture in coach. The description of the cart is "A food cart, meant to be pushed Sisyphus-fashion up and down the aisles of this plane until your penance is complete."  
+
+
 Chapter Galley
 
 The Galley is a room. The description of the galley is "A stainless steel compartment between the self-absorbed slobs in business class up ahead and the unwashed masses and screaming babies in coach down below." The galley is down from the business section.
+
+The counter is a furniture in the galley. The description of the counter is "A brushed aluminum counter where you have prepared countless platicky meals for unwitting passengers."
+
+The microwave is a container. The carrying capacity of the microwave is one. The microwave can be open. The microwave is closed. The microwave can be switched on. The microwave is switched off. The microwave is fixed in place. The scent of the microwave is "like buttered popcorn". The description of the microwave is "A brown commercial microwave that has seen more than its fair share of activity over the years. There is a small red sticker on the microwave."
+
+The sticker is part of the microwave. The description of the sticker is "A picture of a black cat. There is a blue circle around the cat, and a diagonal slash extends through the cat."
 
 Chapter Business Section
 
@@ -439,15 +457,25 @@ Chapter Cockpit
 
 The Cockpit is a room. The cockpit is up from the bulkhead. The description of the cockpit is "A cone-shaped room bristling with those blinking lights and other technical knick-knacks that mortals consider fancy."
 
-The bulkhead is a door. The bulkhead is up from the business section.
+The bulkhead is a door. The bulkhead is up from the business section. The bulkhead is closed and locked.
+
+The yoke is a furniture in the cockpit. The description of the yoke is "A semicircular steering wheel mounted on a stick. You have seen the pilot move it back and forth to steer the direction of the plane."
+
+The control panel is a furniture in the cockpit. The description of the control panel is "A flat U-shaped panel that wraps around the forward section of the aircraft and sports all kinds of controls, dials, switched and other doo-hickeys."
+
+
 
 Chapter Staircase
 
-The Staircase is a door. The staircase is north from the business section.
+The Staircase is a door. The staircase is north from the business section. The description of the staircase is "A twisty, winding staircase connects the upper class deck with the more mundane decks below."
 
 Chapter First Class
 
 First Class is a room. The description of first class is "A posh, nightclub-like bubble on the front of the plane. Through the transparent ceiling, green light filters down and you can see fish swimming by."
+
+The billiards table is a furniture in first class. The description of the billiard table is "A hefty wood-paneled table, covered in dark green felt.[paragraph break]With the plane tilted at this angle, however, the balls and pool cues must have rolled off into the recesses of the room."
+
+Meretzko is a man in first class. The description of Meretzko is "A tall man, with an intelligent look about him." 
 
 Chapter Limbo
 
