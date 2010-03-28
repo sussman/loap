@@ -404,7 +404,7 @@ times-used		verbage
 0		"How did the Kovyn located this plane so quickly?  This is way above your pay grade"
 0		"Why lobsters?  Why now?  It's too much for one Retriever to handle"
 0		"Time is running out.  You can hear them splashing closer"
-0		"Perhaps this is karmic revenge for last Friday's surf-and-turf dinner"
+0		"You grumble to yourself.  Perhaps this whole lobster stunt is karmic revenge for last Friday's surf-and-turf dinner"
 0		"They say a man can bleed to death in three minutes, if sliced on the leg just so.  Let's not verify this"
 0		"Snap, crackle, pop!  The big ones are molting.  And advancing."
 0		"A lobster scuttles towards your foot, but you quickly punt it back"
