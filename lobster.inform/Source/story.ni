@@ -643,13 +643,16 @@ The currently-frozen-object is a thing that varies.  The currently-frozen-object
 Freezing is an action applying to one thing.
 
 Carry out freezing something (called the target):
-	say "A bolt of icy-blue lightning shoots from the wand towards [the target], freezing [pronoun-accusative] instantly.[paragraph break]";
-	now the target is frozen;
-	now the currently-frozen-object is not frozen;
-	if the currently-frozen-object is visible:
-		let localverb be "thaw";
-		say "In response, [the currently-frozen-object] [localverb in correct agreement] out.";
-	now the currently-frozen-object is the target;
+	if the target is the player:
+		say "Luckily, every novice mage learns to repel this effect in first year of academy.  The energy dissipates around you.";
+	otherwise:
+		say "A bolt of icy-blue lightning shoots from the wand towards [the target], freezing [pronoun-accusative] instantly.[paragraph break]";
+		now the target is frozen;
+		now the currently-frozen-object is not frozen;
+		if the currently-frozen-object is visible:
+			let localverb be "thaw";
+			say "In response, [the currently-frozen-object] [localverb in correct agreement] out.";
+		now the currently-frozen-object is the target;
 
 Instead of doing something with something (called the item):
 	if the item is not frozen:
@@ -670,21 +673,29 @@ Section Push-Pop
 Limbo is a room.  "[if unvisited]Uhoh.  Not good.[paragraph break][end if]Grey mists swirl around you.  You are lost somewhere between universes.".
 
 The banana is a prop in Limbo.  The description of the banana is "Quite golden.".
-The statuette is a prop in Limbo.  The description of the statuette is "It abstractly resembles a tornado of some sort.  On the bottom is some intricate inscription.".
 
-[TODO:  read inscription]
+The statuette is a prop in Limbo.  The description of the statuette is "It abstractly resembles a tornado of some sort.  On the bottom is some intricate inscription.".   The inscription of the statuette is "Welcome to Limbo!  You may be the unlucky target of an angry mage, but if you believe you arrived here in error, please don't hesitate to file a 951-EZ-5C report with your local dimensional constabulary.  Assuming you have a popping spell to exit this place, that is.  Have a great day.".
+
+Every turn when in Limbo:
+	change the block stage business flag to true.
 
 The limboed-thing is a thing that varies.  The limboed-thing is the banana.
 
 Magic-pushing is an action applying to one thing.
+
+The players-popped-location is a room that varies.
 
 Carry out magic-pushing something (called the target):
 	if the target is a door:
 		let localverb be "flicker";
 		say "[The target] [localverb in correct agreement] a moment, but nothing else happens.";
 	otherwise:
-		let localverb be "blink";
-		say "[The target] suddenly [localverb in correct agreement] out of existence!";
+		if the target is the player:
+			say "You feel sick as the world suddenly turns inside-out.";
+			now the players-popped-location is the location;
+		otherwise:
+			let localverb be "blink";
+			say "[The target] suddenly [localverb in correct agreement] out of existence!";
 		move the target to Limbo;
 		now the limboed-thing is the target.
 
@@ -692,9 +703,13 @@ Magic-popping is an action applying to one thing.
 
 Carry out magic-popping:
 	if the limboed-thing is in Limbo:
-		let localverb be "appear";
-		say "Out of nowhere, [the limboed-thing] suddenly [localverb in correct agreement]!";
-		move the limboed-thing to the location;
+		if the limboed-thing is the player:
+			say "Your head reels as everything turns outside-in again.";
+			move the player to the players-popped-location;
+		otherwise:
+			let localverb be "appear";
+			say "Out of nowhere, [the limboed-thing] suddenly [localverb in correct agreement]!";
+			move the limboed-thing to the location;
 	otherwise:
 		say "Nothing happens.".
 
@@ -725,7 +740,9 @@ Unjamming is an action applying to one thing.
 
 Carry out unjamming something (called the item):
 	let localverb be "vibrate";
-	if the item is not jammed:
+	if the item is the player:
+		say "This spell certainly won't get you out of this predicament.";
+	otherwise if the item is not jammed:
 		say "[The item] [localverb in correct agreement] a bit, but nothing else happens.";
 	otherwise:
 		let localverb2 be "come";
