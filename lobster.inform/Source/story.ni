@@ -412,7 +412,7 @@ Book 2 Places
 
 Chapter Bathroom
 
-The Lavatory is a room. The description of the lavatory is "[one of]A claustrophobic vertical coffin, lit by blue-tinted fluorescent bulbs and smelling of disinfectant. A uselessly small vestigial sink, a unisex toilet, and a mirror are the only furnishings in the room[or]A tight, poorly lit, aircraft bathroom. Ordinarily, a welcome refuge from the demanding mortal customers who need to use planes to move from one place to another, but now a safe haven from the carnivorous lobsters infesting the plane[stopping]. Your uncanny, yet always useful, sense of direction tells you that the bathroom is to the west." Understand "bathroom" as the lavatory.
+The Lavatory is a room. The description of the lavatory is "[one of]A claustrophobic vertical coffin, lit by blue-tinted fluorescent bulbs and smelling of disinfectant. A uselessly small vestigial sink, a unisex toilet, and a mirror are the only furnishings in the room[or]A tight, poorly lit, aircraft bathroom. Ordinarily, a welcome refuge from the demanding mortal customers who need to use planes to move from one place to another, but now a safe haven from the carnivorous lobsters infesting the plane[stopping]. Your uncanny (yet always useful) sense of direction tells you that the main tail section of the plane is to the west." Understand "bathroom" as the lavatory.
 
 The sink is a furniture in the lavatory. The description of the sink is "A small metal bowl with two knobs, marked [quotation mark]hot[quotation mark] and [quotation mark]cold[quotation mark], and a faucet. The sink is bone dry." The cold knob is part of the the sink. The hot knob is part of the sink. The faucet is part of the sink. 
 
@@ -612,23 +612,28 @@ The player wears some high-heeled shoes. The description of the shoes is "Shiny,
 The wand counter is a number that varies.  The wand counter is 0.
 	
 Carry out wanding at something (called the target):
-	Say "The wand glows with energy as you flick it...[paragraph break]";
+	Say "The wand glows with energy as you flick it...";
 	if the remainder after dividing the wand counter by 5 is:
 		-- 0:  [freeze]
-			say "A bolt of icy-blue lightning shoots from the wand towards [the target], freezing [pronoun-accusative] in place.[paragraph break]";
+			say "and you instantly recognize the FREEZE spell, which magically holds things fixed in place.[paragraph break]";
+			say "A bolt of icy-blue lightning shoots from the wand towards [the target], freezing [pronoun-accusative] instantly.[paragraph break]";
 			now the target is frozen;
 			now the currently-frozen-object is not frozen;
 			if the currently-frozen-object is visible:
 				let localverb be "thaw";
-				say "[The currently-frozen-object] [localverb in correct agreement] out.";
+				say "You see [the currently-frozen-object] [localverb in correct agreement] out.";
 			now the currently-frozen-object is the target;
 		-- 1:  [push]
+			say "and you instantly recognize the PUSH spell, which sends things to limbo.[paragraph break]";
 			try magic-pushing the target;
 		-- 2:  [summon cod]
+			say "and you instantly recognize the BALANCE spell, which summons elements to even out a situation.[paragraph break]";
 			try cod-summoning;
 		-- 3:  [knock]
+			say "and you instantly recognize the JIGGER spell, which un-jams things.[paragraph break]";
 			try unjamming the target;
 		-- 4: [pop]
+			say "and you instantly recognize the POP spell, which returns things from limbo.[paragraph break]";
 			try magic-popping the target;
 	increase the wand counter by one.
 	
@@ -639,7 +644,7 @@ Section Freeze
 
 A thing can be frozen.  Things are usually not frozen.
 
-The currently-frozen-object is a thing that varies.
+The currently-frozen-object is a thing that varies.  The currently-frozen-object is the statuette.
 
 Instead of doing something with something (called the item):
 	if the item is not frozen:
@@ -650,13 +655,19 @@ Instead of doing something with something (called the item):
 	otherwise if the current action is smelling or dropping:  [or other verbs...]
 		continue the action;
 	otherwise:
+		let localverb be "appear";
 		say "You can't do that;  [the item] [localverb in correct agreement] to be frozen!".
 	
 
 
 Section Push-Pop
 
-Limbo is a room.  "You are lost somewhere between universes."   A banana is a prop in Limbo.  The description of the banana is "Quite golden.".
+Limbo is a room.  "[if unvisited]Uhoh.  Not good.[paragraph break][end if]Grey mists swirl around you.  You are lost somewhere between universes.".
+
+The banana is a prop in Limbo.  The description of the banana is "Quite golden.".
+The statuette is a prop in Limbo.  The description of the statuette is "It abstractly resembles a tornado of some sort.  On the bottom is some intricate inscription.".
+
+[TODO:  read inscription]
 
 The limboed-thing is a thing that varies.  The limboed-thing is the banana.
 
