@@ -375,14 +375,23 @@ This is the Environmental stage business rule:
 		
 Table of Environmental Stage Business
 times-used		verbage
-0			"You hear the clickety-clack of angry claws somewhere nearby."
-0			"Some water drips onto your head from a ceiling leak somewhere."
-0			"Distant screams echo from the main cabin;  the cracking of human skulls by vorpal claws."
-0			"The plane shutters, then angles downward just a bit more."
-0			"The lobsters scuttle and screetch in malicious glee."
-0			"The smell of malevolent arthropods burns your nose."
-0			"Sobs of the still-living reach your ears;  the cockpit radio burps static."
-0			"The hull creaks and groans from stress.  You wonder how much time you have."
+0		"You hear the clickety-clack of angry claws somewhere nearby"
+0		"Some water drips onto your head from a ceiling leak somewhere"
+0		"Distant screams echo from elsewhere;  the cracking of human skulls by vorpal claws"
+0		"The plane shudders, then angles downward just a bit more"
+0		"The lobsters scuttle and screetch in malicious glee"
+0		"The smell of malevolent arthropods burns your nose"
+0		"Sobs of the still-living reach your ears;  moans you cannot bear to hear"
+0                                                  		"The cockpit radio crackles to life for a moment, burps static, then falls silent"
+0		"The hull creaks and groans from stress.  You wonder how much time you have"
+0		"A wave of nausea hits you;  the smell of human blood and melted butter"
+0		"Salt water rolls down your cheek and into your mouth"
+0		"How did the Kovyn located this plane so quickly?  This is way above your pay grade"
+0		"Why lobsters?  Why now?  It's too much for one Retriever to handle"
+0		"Time is running out.  You can hear them splashing closer"
+0		"Perhaps this is karmic revenge for last Friday's surf-and-turf dinner"
+0		"They say a man can bleed to death in three minutes, if sliced on the leg just so.  Let's not verify this"
+0		"Snap, crackle, pop!  The big ones are molting.  And advancing."
 
 Book 2 Places
 
