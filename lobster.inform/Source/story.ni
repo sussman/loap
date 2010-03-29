@@ -132,7 +132,7 @@ Chapter Verbs
 Helping is an action out of world. Understand "help" as helping.
 
 Carry out helping:
-	say "You are utterly cut off from help until the Wise Masters of the Ineffable get off their lazy butts and write it. For now, just watch out for carnivorous lobsters."
+	say "You make the sigil in the air with your wand...but nothing happens. You feel ."
 
 Section Answering
 
@@ -352,13 +352,13 @@ This is the block stage business while-raising the stakes rule:
 	if disaster strikes is happening and the player is not in Limbo:
 		increase the stakes by one;
 		if the stakes is:
-			-- 2: say "Obviously, someone from Kovyn got wind of Meretzko's presence on this flight. Apparently, you guessed wrong about them wanting to recover him alive."; 
+			-- 2: say "Obviously, someone from the KOVYN got wind of Meretzko's presence on this flight. Apparently, you guessed wrong about them wanting to recover him alive."; 
 				the rule succeeds;
 			-- 3: say "Lobsters scuttle along the aisle, between seats, provoking screams of fear from the crash survivors.[paragraph break]How clichéd. This may have worked back in the day, but come on. Carnivorous lobsters? Have they no decency?";
 				the rule succeeds;
 			-- 4: say "You had worked your way through most of the coach and business class, but still hadn't located High Wizard Meretzko. You had assumed that he would not be so obvious as to fly first class, but this is not a good day for your assumptions."; 
 				the rule succeeds;
-			-- 6: say "Two years of deep cover as a stewardess. A bloody stewardess! Waiting hand and foot on these sink holes of attentions. And for what? The biggest failure of your career. If you lose Meretzko, it will be a death blow to The Circle, and nothing will be able to stop the Kovyn and their langustinian minions.";
+			-- 6: say "Two years of deep cover as a stewardess. A bloody stewardess! Waiting hand and foot on these sink holes of attentions. And for what? The biggest failure of your career. If you lose Meretzko, it will be a death blow to The Circle, and nothing will be able to stop the KOVYN and their langustinian minions.";
 				the rule succeeds.
 			
 The block stage business while-looking rule is listed after the block stage business while-raising the stakes rule in the stage business rules.
@@ -388,7 +388,7 @@ times-used		verbage
 0		"The hull creaks and groans from stress.  You wonder how much time you have"
 0		"A wave of nausea hits you;  the smell of human blood and melted butter"
 0		"Salt water rolls down your cheek and into your mouth"
-0		"How did the Kovyn located this plane so quickly?  This is way above your pay grade"
+0		"How did the KOVYN located this plane so quickly?  This is way above your pay grade"
 0		"Why lobsters?  Why now?  It's too much for one Retriever to handle"
 0		"Time is running out.  You can hear them splashing closer"
 0		"You grumble to yourself.  Perhaps this whole lobster stunt is karmic revenge for last Friday's surf-and-turf dinner"
@@ -400,7 +400,7 @@ Book 2 Places
 
 Chapter Bathroom
 
-The Lavatory is a room. The description of the lavatory is "[one of]A claustrophobic vertical coffin, lit by blue-tinted fluorescent bulbs and smelling of disinfectant. A uselessly small vestigial sink, a unisex toilet, and a mirror are the only furnishings in the room[or]A tight, poorly lit, aircraft bathroom. Ordinarily, a welcome refuge from the demanding mortal customers who need to use planes to move from one place to another, but now a safe haven from the carnivorous lobsters infesting the plane[stopping]. Your uncanny (yet always useful) sense of direction tells you that the main tail section of the plane is to the west." Understand "bathroom" as the lavatory.
+The Lavatory is a room. The description of the lavatory is "[one of]A claustrophobic vertical coffin, lit by blue-tinted fluorescent bulbs and smelling of disinfectant. A uselessly small vestigial sink, a unisex toilet, and a mirror are the only furnishings in the room[or]A tight, poorly lit, aircraft bathroom. Ordinarily, a welcome refuge from the demanding mortal customers who need to use planes to move from one place to another, but now a safe haven from the carnivorous lobsters infesting the plane[stopping]. Your uncanny (yet invariably useful) sense of direction tells you that the tail compartment of the plane is to the west." Understand "bathroom" as the lavatory.
 
 The sink is a furniture in the lavatory. The description of the sink is "A small metal bowl with two knobs, marked [quotation mark]hot[quotation mark] and [quotation mark]cold[quotation mark], and a faucet. The sink is bone dry." The cold knob is part of the the sink. The hot knob is part of the sink. The faucet is part of the sink. 
 
@@ -476,7 +476,7 @@ Chapter Galley
 
 The Galley is a room. The description of the galley is "A stainless steel compartment between the self-absorbed slobs in business class up ahead and the unwashed masses and screaming babies in coach down below." The Galley is down from the business section.
 
-The counter is a furniture in the galley. The description of the counter is "A brushed aluminum counter where you have prepared countless platicky meals for unwitting passengers."
+The counter is a furniture in the galley. The description of the counter is "A brushed aluminum counter where you have prepared countless plasticky meals for unwitting passengers."
 
 The microwave is a container. The carrying capacity of the microwave is one. The microwave can be open. The microwave is closed. The microwave can be switched on. The microwave is switched off. The microwave is fixed in place. The scent of the microwave is "like buttered popcorn". The description of the microwave is "A brown commercial microwave that has seen more than its fair share of activity over the years. There is a small red sticker on the microwave."
 
@@ -546,7 +546,7 @@ Chapter Introduction
 
 Introduction is a scene. Introduction begins when play begins. 
 
-The player is in the lavatory. The description of the player is "Four-hundred and eighty-six years, and you look like a supermodel. That's partly due to your inherently superior breeding, and partly attributable to the plastic surgery, cybernetic implants and magical enhancements thanks to The Circle."
+The player is in the lavatory. The description of the player is "Four-hundred and eighty-six years, and you look like a supermodel. That's partly due to your inherently superior breeding, and partly attributable to the plastic surgery, cybernetic implants and magical enhancements all courtesty of The Circle."
 
 Chapter Disaster Strikes
 
@@ -555,7 +555,7 @@ Disaster Strikes is a scene. Disaster strikes begins when the player is in the T
 The stakes is a value that varies. The stakes is zero.
 
 When disaster strikes begins:
-	say "The plane slams into the ocean, skipping like a rock, before sinking like one.[paragraph break]The heavy rear of the plane pitches downward, flipping you sideways. Water jets into the cabin from seams that are not as tight as you had hoped. Moments later, you are ankle-deep in frigid salt water."
+	say "The plane slams into the ocean, skipping like a rock, before sinking like one.[paragraph break]The aft section of the plane pitches downward, flipping you sideways. Water jets into the cabin from seams that are not as tight as you had hoped. Moments later, you are ankle-deep in frigid salt water."
 	
 	
 Chapter Denouement
@@ -585,7 +585,7 @@ Book 6 Magic
 
 Chapter Magic Wand
 
-The magic wand is carried by the player.  The description of the wand is "[one of]Your wand is a mid-19th century Celtic model, passed down to you on your Father's side (who used it to conjure food during the great Irish Potato Famine).  It appears to be broken in the disaster, though;  you'll have to take a second look.[or]Once capable of casting nearly any class-N spell, the spell-selector switch seems utterly broken.  You're unsure what will happen when you USE WAND ON SOMETHING.[stopping]".  Understand "wand" as the magic wand.
+The magic wand is carried by the player.  The description of the wand is "[one of]Your wand is a mid-19th century Celtic model, passed down to you on your Father's side (who used it to conjure food during the great Irish Potato Famine). It appears to be broken in the disaster, though; you'll have to take a second look.[or]Once capable of casting nearly any class-N spell, the spell-selector switch seems utterly broken. You're unsure what will happen when you USE WAND ON SOMETHING.[stopping]".  Understand "wand" as the magic wand.
 
 Wanding at is an action applying to one visible thing.  Understand "Use wand on [something]" as wanding at.
 
@@ -598,7 +598,7 @@ Check wanding at:
 
 The player wears some high-heeled shoes. The description of the shoes is "Shiny, stewardess shoes." The shoes are plural-named. The indefinite article of the shoes is "a pair of".[TODO]
 
-[The wand basically cycles through all known spells each time it is used -- it initiates one of the spell verbs]
+[The wand basically cycles through all known spells each time it is used -- it initiates one of the spell verbs. The spells are a circular queue.]
 	
 The wand counter is a number that varies.  The wand counter is 0.
 	
@@ -661,11 +661,11 @@ Instead of doing something with something (called the item):
 
 Section Push-Pop
 
-Limbo is a room.  "[if unvisited]Uhoh.  Not good.[paragraph break][end if]Grey mists swirl around you.  You are lost somewhere between universes.".
+Limbo is a room. "[if unvisited]Uhoh. Not good.[paragraph break][end if]Grey mists swirl around you. You are lost somewhere between universes."
 
-The banana is a prop in Limbo.  The description of the banana is "Quite golden.".
+The banana is a prop in Limbo.  The description of the banana is "Quite golden."
 
-The statuette is a prop in Limbo.  The description of the statuette is "It abstractly resembles a tornado of some sort.  On the bottom is some intricate inscription.".   The inscription of the statuette is "Welcome to Limbo!  You may be the unlucky target of an angry mage, but if you believe you arrived here in error, please don't hesitate to file a 951-EZ-5C report with your local dimensional constabulary.  Assuming you have a popping spell to exit this place, that is.  Have a great day.".
+The statuette is a prop in Limbo.  The description of the statuette is "It abstractly resembles a tornado of some sort.  On the bottom is some intricate inscription." The inscription of the statuette is "Welcome to Limbo!  You may be the unlucky target of an angry mage, but if you believe you arrived here in error, please don't hesitate to file a 951-EZ-5C report with your local dimensional constabulary. Assuming you have a popping spell to exit this place, that is. Have a great day."
 
 Every turn when in Limbo:
 	change the block stage business flag to true.
@@ -707,9 +707,9 @@ Carry out magic-popping:
 
 Section Cod
 
-The cod is an animal.  The description of the cod is "A three-foot long, reddish-brown predatory fish.  You guess it weighs at least 25 pounds, and it appears fairly mean and hungry.  Crustaceans are its main food."  The cod is in Limbo.
+The cod is an animal.  The description of the cod is "A three-foot long, reddish-brown predatory fish. You guess it weighs at least 25 pounds, and it appears fairly mean and hungry. Crustaceans are its main food."  The cod is in Limbo.
 
-Instead of eating the cod, say "Now is not the time for sashimi.  Besides, these guys are endangered.".
+Instead of eating the cod, say "Now is not the time for sashimi. Besides, these guys are endangered."
 
 Instead of taking the cod, say "You're sure it would snap your fingers off if you tried!".
 
@@ -720,7 +720,7 @@ Carry out cod-summoning:
 		say "The cod sparks a bit, but nothing happens.";
 	otherwise:
 		move the cod to the location;
-		say "You hear a strange tingling sound;  a large cod fish suddenly materializes, swimming in the water around your ankles."
+		say "You hear a strange tingling sound; a large cod fish suddenly materializes, swimming in the water around your ankles."
 
 
 Section Unjamming
