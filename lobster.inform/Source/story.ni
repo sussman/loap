@@ -5,25 +5,11 @@ The release number is 1.
 The story creation year is 2010.
 The story genre is "Disaster".
 
-The story description is "Lobsters on a plane. What more needs be said."
+The story description is "A flying tube of riveted aluminum the length of a football field, a swarm of angry carnivorous lobsters, a seething mass of frightened mortal passengers, and traitorous wizard you are sworn to deliver to your masters. Hope you brought a bib."
 
 The intro-text is a text that varies.  Intro-text is "There is an actinic flash. The seat belt lamp illuminates. On the overhead speakers, the pilot reassures the passengers that the minor turbulence is no cause for concern. A second, more abrupt crash and the plane lurches. Air masks drop. An overhead baggage bin flies open, and lobsters pour out. Ignoring the passengers in your section, you let the food cart topple forward, the potatoes au gratin mixing with the fettuccine and mango compote. You climb towards the lavatory and throw the latch from 'vacant' to 'occupied.' The plane revolves slowly -- pushing you towards the wall -- even as the sudden loss of altitude makes you feel lighter.[paragraph break]".
 
-
-[Include Menus by Emily Short.]
-Include Plurality by Emily Short.
-
-[
-Include Default Messages by David Fisher.
-Include Adaptive Hints by Eric Eve.
-]
-
 Use full-length room descriptions, american dialect and the serial comma.
-
-[
-Use memory economy.
-
-Release along with cover art.]
 
 Book 1 Mechanics
 
@@ -74,13 +60,14 @@ A furniture is a kind of supporter. It is usually scenery and fixed in place. [I
 A thing can be large. A thing is usually not large.
 
 Everything has some text called texture. The texture of something is usually "".
+
 Everything has some text called scent. The scent of something is usually "". 
 
 A thing has some text called the inscription. The inscription of something is usually "".
 
 A fardrop is a kind of backdrop.
 
-Conclusion is a kind of value. The conclusions are drowned,lost and won.  
+Conclusion is a kind of value. The conclusions are drowned, lost and won.  
 
 Endgame is a conclusion that varies. The endgame is usually won.
 
