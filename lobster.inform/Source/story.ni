@@ -375,7 +375,7 @@ The stage Business rules is a rulebook.
 The endgame block stage Business rule is listed first in the stage Business rules.
 
 This is the endgame block stage Business rule:
-	if the denouement is happening or the finale is happening:
+	if the finale is happening:
 		the rule succeeds.
 
 The block all stage Business rule is listed after the endgame block stage Business rule in the stage Business rules. 
@@ -459,6 +459,10 @@ times-used		verbage
 0		"A lobster scuttles towards your foot, but you quickly punt it back"
 
 Book 2 Places
+
+Chapter The Plane! The Plane!
+
+The Plane Area is a region. The bathroom, tail section, economy, galley, business, cockpit, and first class are rooms in the Plane Area.
 
 Chapter Bathroom
 
@@ -611,6 +615,19 @@ Chapter Limbo
 
 Limbo is a room. 
 
+Chapter Whirling Vortex
+
+The Vortex Entrance is an open container. The Whirling Vortex is fixed in place.
+
+Chapter Hynes Convention Center
+
+The Hynes Convention Center is a room.
+
+Chapter Room 2305
+
+There is a room called Room 2305. 
+
+
 
 Book 3 Characters
 
@@ -621,6 +638,7 @@ Chapter Sidekick
 Chapter Antagonist
 
 Chapter Extras
+[not quite sure what to do with the extras at the moment. Likely, they'll get some behaviour and then be killed in interesting ways. For now, this isn't rigged up to the rest of the story and only serves as a template if we want to do something with extras.]
 
 Table of Passengers
 compartment		seat			appearance					behavior	
@@ -822,22 +840,21 @@ The player is in the lavatory. The description of the player is "Four-hundred an
 
 Chapter Disaster Strikes
 
-Disaster Strikes is a scene. Disaster strikes begins when the introduction ends.
+Disaster Strikes is a scene. Disaster strikes begins when the introduction ends. Disaster strikes ends when the player is in First Class.
 
 The stakes is a value that varies. The stakes is zero.
 
 When disaster strikes begins:
 	say "The plane slams into the ocean, skipping like a rock, before sinking like one.[paragraph break]The aft section of the plane pitches downward, flipping you sideways. Water jets into the cabin from seams that are not as tight as you had hoped. Moments later, you are ankle-deep in frigid salt water."
 	
-	
-Chapter Denouement
+Chapter Breakout
 
-[using enclosure here because climbing the stool means that Rick is not in the jail cell]
-Denouement is a scene. 
+Breakout is a scene. Breakout begins when Disaster Strikes ends. Breakout ends when the player is in the Hynes Convention Center.	
+	
 	
 Chapter Finale
 
-The Finale is a scene. 
+The Finale is a scene. The Finale begins when Breakout ends.
 
 Rule for printing the player's obituary:
 	if the endgame is:
