@@ -7,7 +7,7 @@ The story genre is "Disaster".
 
 The story description is "A flying tube of riveted aluminum the length of a football field, a swarm of angry carnivorous lobsters, a seething mass of frightened mortal passengers, and traitorous wizard you are sworn to deliver to your masters. Hope you brought a bib."
 
-The intro-text is a text that varies.  Intro-text is "There is an actinic flash. The seat belt lamp illuminates. On the overhead speakers, the pilot reassures the passengers that the minor turbulence is no cause for concern. A second, more abrupt crash and the plane lurches. Air masks drop. An overhead baggage bin flies open, and lobsters pour out. Ignoring the passengers in your section, you let the food cart topple forward, the potatoes au gratin mixing with the fettuccine and mango compote. You climb towards the lavatory and throw the latch from 'vacant' to 'occupied.' The plane revolves slowly -- pushing you towards the wall -- even as the sudden loss of altitude makes you feel lighter.[paragraph break]".
+The intro-text is a text that varies.  Intro-text is "There is an actinic flash. The seat belt signs illuminate. On the overhead speakers, the pilot reassures the passengers that the minor turbulence is no cause for concern. A second, more abrupt crash and the plane lurches. Air masks drop. An overhead baggage bin flies open, and lobsters pour out. Ignoring the passengers in your section, you let the food cart topple forward, the potatoes au gratin mixing with the fettuccine and mango compote. You climb towards the lavatory and throw the latch from 'vacant' to 'occupied.' The plane revolves slowly -- pushing you towards the wall -- even as the sudden loss of altitude makes you feel lighter.[paragraph break]".
 
 Use full-length room descriptions, american dialect and the serial comma.
 
@@ -140,6 +140,16 @@ Section Answering
 
 Section Asking
 
+Section Flushing
+
+Flushing is an action applying to one thing. Understand "flush [something]" as flushing.
+
+Check Flushing:
+	if the noun is not the toilet:
+		say "You can't flush [a noun]." instead;
+	otherwise:
+		say "The designers never anticipated that anyone would want to flush this toilet." instead.
+		
 Section Listening
 [Listen is implemented through insteads. Override this general instead rule with more specific ones as needed]
 
@@ -153,7 +163,6 @@ Table of Ambient Noise
 times-used		verbage
 0			"You hear yourself breathing"
 
-
 Section Looking Under
 
 Instead of looking under the noun:
@@ -163,6 +172,17 @@ Section Looking
 
 Understand "look [a visible thing]" as examining.
 ['Look outside' or 'look stool' should work.]
+
+Section Navigating
+
+Navigating is an action applying to nothing. Understand "port" or "starboard" or "aft" or "abaft" or "fore" as navigating.
+
+Carry out navigating:
+	say "You remember hearing all that fancy direction talk when you were training for this mission. Maybe you should have taken notes, but with your absolute sense of direction, you just couldn't be bothered to learn all that mortal jargon."
+
+Section Opening
+
+Understand "slide [something]" as opening.
 		
 Section Putting
 
@@ -466,10 +486,19 @@ To say sink-disabled:
 	
 The mirror is a furniture in the lavatory. The description of the mirror is "A small, slightly smeared mirror. In it, you see your tired self, worn down by this loathesomely boring (until the lobsters) assignment."
 
+Instead of rubbing the mirror:
+	say "You spread the smudges around a bit."
+
 The toilet is a furniture in the lavatory. The description of the toilet is "A vaguely seat-like bump on the wall of the bathroom. The hole leads nowhere, of course, as toilets were banned on planes years ago as a security precaution." The hole is part of the toilet. The hole is a container. The carrying capacity of the hole is 1. Understand "unisex" as the toilet.
 
+Instead of entering the toilet:
+	say "No way. Even with your level of magical warding, it's not worth chancing it."
+
 Instead of inserting something into the hole:
-	say "Yech."
+	say "Yech. Not even a consideration."
+	
+Instead of inserting something (called the item) into the toilet:
+	try inserting the item into the hole.
 
 The bathroom door is a door. The bathroom door is openable and closed. The bathroom door is west from the lavatory and east from Tail Section. The description of the door is "A folding door, with a small latch." 
 
@@ -487,6 +516,15 @@ Instead of opening the latch:
 		
 Instead of pushing or pulling the latch:
 	say "You yank back and forth on the latch, when you realize that what you really want to do is just open or close it. Clearly, your mind is too powerful for the trivial devices that clutter the meaningless existence of mortals."
+	
+The paper roll is a furniture in the lavatory. The description of the paper roll is "An empty roll that once supported toilet paper. It's been a long time, though, since there has been toilet paper in economy class."
+
+The smoke detector is a furniture in the lavatory. The description of the smoke detector is "A flat plastic panel on the ceiling with airvents and a small warning label."
+
+The small warning label is part of the smoke detector. The description of the small warning label is "A metallic sticker, with red writing. It looks official." The inscription of the small warning label is "[quotation mark]Warning: Federal Law Prohibits Tampering With...[quotation mark] the rest of the warning has been scratched off.[paragraph break]Which is just as good, considering that the smoke detectors were inactivated years ago to prevent people from being able to tamper with them."
+
+Instead of doing something with the smoke detector:
+	say "You tamper briefly with the smoke detector and enjoy the feeling of naughtiness."
 
 Chapter Tail Section
 
@@ -707,7 +745,7 @@ The players-popped-location is a room that varies.
 Carry out magic-pushing something (called the target):
 	if the target is a door:
 		let localverb be "flicker";
-		say "[The target] [localverb in correct agreement] a moment, but nothing else happens.";
+		say "[The target] [localverb in correct agreement] a moment, but seems immune to the spell. You figure it's probably some sort of built-in safeguard.";
 	otherwise:
 		if the target is the player:
 			say "You feel sick as the world suddenly turns inside-out.";
