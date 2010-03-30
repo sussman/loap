@@ -57,7 +57,9 @@ A prop is a kind of thing. It is usually portable. [If props can be carried out 
 
 A furniture is a kind of supporter. It is usually scenery and fixed in place. [In general, furniture descriptions should be integrated into room descriptions.] 
 
-A thing can be large. A thing is usually not large.
+Size is a kind of value. The sizes are large, medium, and small.
+
+Everything has a size. The size of something is usually medium.
 
 Everything has some text called texture. The texture of something is usually "".
 
@@ -400,9 +402,15 @@ Book 2 Places
 
 Chapter Bathroom
 
-The Lavatory is a room. The description of the lavatory is "[one of]A claustrophobic vertical coffin, lit by blue-tinted fluorescent bulbs and smelling of disinfectant. A uselessly small vestigial sink, a unisex toilet, and a mirror are the only furnishings in the room[or]A tight, poorly lit, aircraft bathroom. Ordinarily, a welcome refuge from the demanding mortal customers who need to use planes to move from one place to another, but now a safe haven from the carnivorous lobsters infesting the plane[stopping]. Your uncanny (yet invariably useful) sense of direction tells you that the tail compartment of the plane is to the west." Understand "bathroom" as the lavatory.
+The Lavatory is a room. The description of the lavatory is "[one of]A claustrophobic vertical coffin, lit by blue-tinted fluorescent bulbs and smelling of disinfectant. A uselessly small vestigial sink, a unisex toilet, and a mirror are the only furnishings in the room[or]A tight, poorly lit, aircraft bathroom. Ordinarily, a welcome refuge from the demanding mortal customers who need to use planes to move from one place to another, but now a safe haven from the carnivorous lobsters infesting the plane[stopping]. The [list of fixed in place things in the lavatory] are unremarkable. Your uncanny (yet invariably useful) sense of direction tells you that the tail compartment of the plane is to the west." Understand "bathroom" as the lavatory.
 
-The sink is a furniture in the lavatory. The description of the sink is "A small metal bowl with two knobs, marked [quotation mark]hot[quotation mark] and [quotation mark]cold[quotation mark], and a faucet. The sink is bone dry." The cold knob is part of the the sink. The hot knob is part of the sink. The faucet is part of the sink. 
+The sink is a container in the lavatory. The sink is fixed in place. The description of the sink is "A small metal bowl with two knobs, marked [quotation mark]hot[quotation mark] and [quotation mark]cold[quotation mark], and a faucet. The sink is bone dry." The cold knob is part of the the sink. The hot knob is part of the sink. The faucet is part of the sink. The carrying capacity of the sink is one.
+
+Instead of inserting something (called the item) into the sink:
+	if the item is not small:
+		say "[The item] [is-are] too big to fit in the undersized sink.";
+	otherwise:
+		continue the action.
 
 Instead of switching on or switching off something that is part of the sink:
 	say "[sink-disabled]."
@@ -413,7 +421,7 @@ Instead of switching on or switching off the sink:
 To say sink-disabled:
 	say "As a security precaution, the TSA has disabled in-flight use of devices involving water. If you wash your hands, the terrorists win."
 	
-The mirror is a furniture in the lavatory. The description of the mirror is "A small, slightly smeared mirror. In it, you see your own, bedraggled image."
+The mirror is a furniture in the lavatory. The description of the mirror is "A small, slightly smeared mirror. In it, you see your tired self, worn down by this loathesomely boring (until the lobsters) assignment."
 
 The toilet is a furniture in the lavatory. The description of the toilet is "A vaguely seat-like bump on the wall of the bathroom. The hole leads nowhere, of course, as toilets were banned on planes years ago as a security precaution." The hole is part of the toilet. The hole is a container. The carrying capacity of the hole is 1. Understand "unisex" as the toilet.
 
