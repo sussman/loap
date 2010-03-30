@@ -157,7 +157,7 @@ Instead of listening:
 	pick a phrase from the Table of Ambient Noise;
 	say ".";
 	[to avoid conflicting with some other sound-generating random event]
-	change the block stage business flag to true.
+	change the block stage Business flag to true.
 	
 Table of Ambient Noise
 times-used		verbage
@@ -201,6 +201,10 @@ Check reading:
 Carry out reading:
 	say the inscription of the noun;
 	say paragraph break.
+	
+Section Repairing
+
+[TODO -- add a fix/repair verb in case someone tries to fix the wand which is described as damaged]
 	
 [
 Section Showing
@@ -279,7 +283,7 @@ The xyzzy-flag is a truth state that varies. The xyzzy-flag is false.
 
 Carry out xyzzying:
 	if the xyzzy-flag is false:
-		say "Something arcanes happens, or so you think.";
+		say "Something arcane happens, or so you think.";
 		now the xyzzy-flag is true;
 	otherwise:
 		say "Absolutely nothing happens.".
@@ -291,7 +295,7 @@ Chapter Not Ready For Prime Time - Not for release
 
 Section Muting
 
-[To reduce the clutter during debugging; suppresses stage business]
+[To reduce the clutter during debugging; suppresses stage Business]
 Muting is an action out of world. Understand "mute" as muting.
 
 Carry out muting:
@@ -338,11 +342,11 @@ Every turn:
 	[avoid penalizing time for non-actions, a nuance]
 	if the current action is taking inventory or the current action is looking:
 		change the time of day to 1 minute before the time of day;
-		[stage business]
+		[stage Business]
 	if muted is false:
-		Consider the stage business rules;
-	[unblock stage business for next turn]
-	Change the block stage business flag to false.
+		Consider the stage Business rules;
+	[unblock stage Business for next turn]
+	Change the block stage Business flag to false.
 		
 Section Phrase Picker
 [To select a canned phrase from a table, choosing randomly amongst the less frequently said phrases. Tables need at least two entries.]
@@ -362,33 +366,33 @@ To pick a phrase from (source - a table-name):
 
 Section Stage Business
 
-[Set the block stage business flag to suppress stage business at the end of that turn sequence -- helpful for scenes with long dialogue and descriptions. To make something not come up until at least one cycle through, change the times-used to "1" in the table]
+[Set the block stage Business flag to suppress stage Business at the end of that turn sequence -- helpful for scenes with long dialogue and descriptions. To make something not come up until at least one cycle through, change the times-used to "1" in the table]
 
-The block stage business flag is a truth state that varies. The block stage business flag is false.
+The block stage Business flag is a truth state that varies. The block stage Business flag is false.
 
-The stage business rules is a rulebook.
+The stage Business rules is a rulebook.
 
-The endgame block stage business rule is listed first in the stage business rules.
+The endgame block stage Business rule is listed first in the stage Business rules.
 
-This is the endgame block stage business rule:
+This is the endgame block stage Business rule:
 	if the denouement is happening or the finale is happening:
 		the rule succeeds.
 
-The block all stage business rule is listed after the endgame block stage business rule in the stage business rules. 
+The block all stage Business rule is listed after the endgame block stage Business rule in the stage Business rules. 
 
-This is the block all stage business rule:
-	if the block stage business flag is true:
+This is the block all stage Business rule:
+	if the block stage Business flag is true:
 		the rule succeeds.
 		
-The block stage business while-looking rule is listed after the block all stage business rule in the stage business rules.
+The block stage Business while-looking rule is listed after the block all stage Business rule in the stage Business rules.
 
-This is the block stage business while-looking rule:
+This is the block stage Business while-looking rule:
 	if the current action is looking:
 		the rule succeeds.
 		
-The introduction stage business rule is listed after the block stage business while-looking rule in the stage business rules.
+The introduction stage Business rule is listed after the block stage Business while-looking rule in the stage Business rules.
 
-This is the introduction stage business rule:
+This is the introduction stage Business rule:
 	if the introduction is happening:
 		if a random chance of 6 in 20 succeeds:
 			pick a phrase from the Table of Introductory Stage Business;
@@ -409,9 +413,9 @@ times-used		verbage
 0					"From the cabin you hear someone trying to reason with a carnivorous lobster"
 
 		
-The block stage business while-raising the stakes rule is listed after the block stage business while-looking rule in the stage business rules.
+The block stage Business while-raising the stakes rule is listed after the block stage Business while-looking rule in the stage Business rules.
 
-This is the block stage business while-raising the stakes rule:
+This is the block stage Business while-raising the stakes rule:
 	if disaster strikes is happening and the player is not in Limbo:
 		increase the stakes by one;
 		if the stakes is:
@@ -426,9 +430,9 @@ This is the block stage business while-raising the stakes rule:
 			-- 7: say "Two years of deep cover as a stewardess. A bloody stewardess! Waiting hand and foot on these sink holes of attentions. And for what? The biggest failure of your career. If you lose Meretzko, it will be a death blow to The Circle, and nothing will be able to stop the KOVYN and their langustinian minions.";
 				the rule succeeds.
 		
-The Environmental stage business rule is listed last in the stage business rules.
+The Environmental stage Business rule is listed last in the stage Business rules.
 
-This is the Environmental stage business rule:
+This is the Environmental stage Business rule:
 	if a random chance of 4 in 20 succeeds:
 		pick a phrase from the Table of Environmental Stage Business;
 		say ".";
@@ -524,7 +528,10 @@ The smoke detector is a furniture in the lavatory. The description of the smoke 
 The small warning label is part of the smoke detector. The description of the small warning label is "A metallic sticker, with red writing. It looks official." The inscription of the small warning label is "[quotation mark]Warning: Federal Law Prohibits Tampering With...[quotation mark] the rest of the warning has been scratched off.[paragraph break]Which is just as good, considering that the smoke detectors were inactivated years ago to prevent people from being able to tamper with them."
 
 Instead of doing something with the smoke detector:
-	say "You tamper briefly with the smoke detector and enjoy the feeling of naughtiness."
+	if the current action is examining or smelling or listening:
+		continue the action;
+	otherwise:
+		say "You tamper briefly with the smoke detector and enjoy the feeling of naughtiness."
 
 Chapter Tail Section
 
@@ -535,7 +542,7 @@ The equipment bin is a closed openable container in the tail section. The descri
 After opening the equipment bin for the first time:
 	say "As you open the equipment bin, you wonder if you should have played the role of flight attendant more carefully. Following the standard procedures of the airline would have meant that you would have made sure that the emergency equipment bin was full of, well, emergency equipment.[paragraph break]A small piece of paper lies on the bottom of the bin."
 	
-The memo is a prop in the equipment bin. The description of the memo is "A handwritten note on TRANSGLOBAL AIRWAYS stationary." The inscription of the memo is "Flight crew: please be sure that this compartment contains the following items prior to departure:[paragraph break]* First Aid Kit[line break]* Flare Gun[line break]* Emergency Radio[line break]* Crustacean Repellent[line break]* Mountain Climbing Gear[line break]* Shark Defense Cage[line break]* Personal Jet Pack[line break]* Entertainment System, Mark V". Understand "small" and "paper" as memo.
+The memo is a prop in the equipment bin. The description of the memo is "A handwritten note on TRANSGLOBAL AIRWAYS stationary." The inscription of the memo is "Flight crew: please be sure that this compartment contains the following items prior to departure:[paragraph break]* First Aid Kit[line break]* Flare Gun[line break]* Emergency Radio[line break]* Crustacean Repellent[line break]* Mountain Climbing Gear[line break]* Shark Defense Cage[line break]* Personal Jet Pack[line break]* Entertainment System, Mark V". Understand "small" and "paper" and "note" as memo.
 
 The emergency escape hatch is a furniture in the Tail Section. The emergency escape hatch can be open. The emergency escape hatch is closed. Understand "exit" as the emergency escape hatch. "A sturdy curved door mounted on heavy internal hinges. For emergency use only, as it says."
 
@@ -548,7 +555,7 @@ After magic-pushing the emergency escape hatch:
 
 Chapter Economy 
 
-Economy is a room. The description of Economy is "Row after row of tightly packed seats, with minimal padding, sharp corners, and ratty seat belts. Back in Greek times, there would have been three tiers of such seats, each with an oar and chains. Ah, for the old days." Economy is down from the galley.
+Economy is a room. The description of Economy is "Row after row of tightly packed seats, with minimal padding, sharp corners, and ratty seat belts. Back in Greek times, there would have been three tiers of such seats, each with an oar and chains. Ah, for the old days." Economy is down from the Galley.
 
 The movie screen is a furniture in the Economy. The description of the movie screen is "A dirty gray panel mounted on the dirtier and grayer panels of the economy section. Movies are shown here to take people's minds off how very unpleasant it is to fly economy."
 
@@ -563,17 +570,17 @@ Instead of going up when the player is in Economy:
 
 Chapter Galley
 
-The Galley is a room. The description of the galley is "A stainless steel compartment between the self-absorbed slobs in business class up ahead and the unwashed masses and screaming babies in economy down below." The Galley is down from the business.
+The Galley is a room. The description of the Galley is "A stainless steel compartment between the self-absorbed slobs in business class up ahead and the unwashed masses and screaming babies in economy down below." The Galley is down from the Business.
 
-The counter is a furniture in the galley. The description of the counter is "A brushed aluminum counter where you have prepared countless plasticky meals for unwitting passengers."
+The counter is a furniture in the Galley. The description of the counter is "A brushed aluminum counter where you have prepared countless plasticky meals for unwitting passengers."
 
-The microwave is a container. The carrying capacity of the microwave is one. The microwave can be open. The microwave is closed. The microwave can be switched on. The microwave is switched off. The microwave is fixed in place. The scent of the microwave is "like buttered popcorn". The description of the microwave is "A brown commercial microwave that has seen more than its fair share of activity over the years. There is a small red sticker on the microwave."
+The microwave is a container. The microwave is on the counter. The carrying capacity of the microwave is one. The microwave can be open. The microwave is closed. The microwave can be switched on. The microwave is switched off. The microwave is fixed in place. The scent of the microwave is "like buttered popcorn". The description of the microwave is "A brown commercial microwave that has seen more than its fair share of activity over the years. There is a sticker on the microwave."
 
-The sticker is part of the microwave. The description of the sticker is "A picture of a black cat. There is a blue circle around the cat, and a diagonal slash extends through the cat."
+The sticker is part of the microwave. The description of the sticker is "A picture of a black cat. There is a red circle around the cat, and a diagonal slash extends through the cat."
 
 Chapter Business
 
-The Business is a room. The description of Business is "Rows of seats that are spaced the way economy seats used to be spaced about five years ago. It is enough to make the gullible mortals feel superior to those in economy, while still stripping them subtly of their humanity. It is your favorite section of the plane.[paragraph break]Northward, a narrow, spiral staircase upwards to the first class section. Just above the business is the bulkhead that leads to the cockpit." The Business is down from the bulkhead.
+The Business is a room. The description of Business is "Rows of seats that are spaced the way economy seats used to be spaced about five years ago. It is enough to make the gullible mortals feel superior to those in economy, while still stripping them subtly of their humanity. It is your favorite section of the plane.[paragraph break]Northward, a narrow, staircase spirals toward to the first class section. Just above the business is the bulkhead that leads to the cockpit." The Business is down from the bulkhead.
 
 Chapter Cockpit
 
@@ -586,10 +593,9 @@ The yoke is a furniture in the cockpit. The description of the yoke is "A semici
 The control panel is a furniture in the cockpit. The description of the control panel is "A flat U-shaped panel that wraps around the forward section of the aircraft and sports all kinds of controls, dials, switched and other doo-hickeys."
 
 
-
 Chapter Staircase
 
-The Staircase is a door. The staircase is north from Business. The description of the staircase is "A twisty, winding staircase connects the upper class deck with the more mundane decks below."
+The staircase is a door. The staircase is north from Business. The description of the staircase is "A twisty, winding staircase connects the upper class deck with the more mundane decks below." The staircase is open. The staircase is south from First Class.
 
 Chapter First Class
 
@@ -734,7 +740,7 @@ The banana is a prop in Limbo.  The description of the banana is "Quite golden."
 The statuette is a prop in Limbo.  The description of the statuette is "It abstractly resembles a tornado of some sort.  On the bottom is some intricate inscription." The inscription of the statuette is "Welcome to Limbo!  You may be the unlucky target of an angry mage, but if you believe you arrived here in error, please don't hesitate to file a 951-EZ-5C report with your local dimensional constabulary. Assuming you have a popping spell to exit this place, that is. Have a great day."
 
 Every turn when in Limbo:
-	change the block stage business flag to true.
+	change the block stage Business flag to true.
 
 The limboed-thing is a thing that varies.  The limboed-thing is the banana.
 
@@ -765,7 +771,7 @@ Carry out magic-popping:
 			move the player to the players-popped-location;
 		otherwise:
 			let localverb be "appear";
-			say "Out of nowhere, [a limboed-thing] suddenly [localverb in correct agreement]!";
+			say "Out of nowhere, [a limboed-thing] suddenly [localverb in correct agreement] next to [the noun]!";
 			move the limboed-thing to the location;
 	otherwise:
 		say "Nothing happens.".
