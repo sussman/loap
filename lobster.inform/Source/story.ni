@@ -134,7 +134,7 @@ Chapter Verbs
 Helping is an action out of world. Understand "help" as helping.
 
 Carry out helping:
-	say "You make the sigil in the air with your wand...but nothing happens. You feel ."
+	say "You make the sigil in the air with your wand...but nothing happens. It's like there is no resistance at all in the ethereal fabric. You are cut off. On your own.[paragraph break]Except for the carnivorous lobsters."
 
 Section Answering
 
@@ -271,7 +271,7 @@ Chapter Not Ready For Prime Time - Not for release
 
 Section Muting
 
-[To reduce the clutter during debugging; suppreses stage business]
+[To reduce the clutter during debugging; suppresses stage business]
 Muting is an action out of world. Understand "mute" as muting.
 
 Carry out muting:
@@ -280,6 +280,18 @@ Carry out muting:
 		change muted to false;
 	otherwise:
 		change muted to true;
+		
+Section Magic
+
+Understand "freeze [something visible]" as freezing.
+
+Understand "mpush [something visible]" as magic-pushing.
+
+Understand "mpop [something visible]" as magic-popping.
+
+Understand "mcod" as cod-summoning.
+
+Understand "knock [something visible]" as unjamming.
 	
 Chapter Initialize
 
@@ -348,7 +360,36 @@ This is the block all stage business rule:
 	if the block stage business flag is true:
 		the rule succeeds.
 		
-The block stage business while-raising the stakes rule is listed after the endgame block stage business rule in the stage business rules.
+The block stage business while-looking rule is listed after the block all stage business rule in the stage business rules.
+
+This is the block stage business while-looking rule:
+	if the current action is looking:
+		the rule succeeds.
+		
+The introduction stage business rule is listed after the block stage business while-looking rule in the stage business rules.
+
+This is the introduction stage business rule:
+	if the introduction is happening:
+		if a random chance of 6 in 20 succeeds:
+			pick a phrase from the Table of Introductory Stage Business;
+			say ".";
+		the rule succeeds.
+		
+Table of Introductory Stage Business
+times-used		verbage
+0					"The plane shudders and the strained airframe groans ominously under the strain"
+0					"In the cabin, the shrill of warning buzzers is barely audible over the frenzied panic in the passenger compartment"
+0					"You are thrown against the wall as the plane pitches over violently. The harried passengers are whipped to an ever more desperate state of alarm"
+0					"Above the chaos in the plane's cabin, you can just make out the automated message, [quotation mark][one of]We realize that you have choices, and thank you for making TRANSGLOBAL AIRLINES your...[paragraph break][italic type]Oh my God! Where's Jimmy? Where's my boy? Jimmy? The lobsters! They have Jimmy![roman type][paragraph break]...and wherever your journey may take you with its TRANSGLOBAL AWARDS program[or]Please turn off all electronic devices including cell phones and two-way pagers. The flight crew will instruct...[paragraph break][italic type]It's got my eye! My eye! I can't see! Get it off me! Get it off me![roman type][paragraph break]...thank you for complying with these regulations, which contribute to everyone's safety[or]First place the mask on your own face, and then pull down on the...[paragraph break][italic type]My seat belt is stuck. Someone help me. It's got my leg![roman type][paragraph break]...can be used as a life vest[at random].[quotation mark] The rest is lost in the screaming"
+0					"You hear the sound of metal scraping against metal"
+0					"The plane rolls, and you hear the dull thud of lifeless bodies hurled against the metal walls of the cabin"
+0					"There is a plaintive whine from the motors that are supposed to lower the landing gears"
+0					"The plane whips back and forth, as if the rudder controls are no longer working properly"
+0					"You almost slip as the plane pulls up suddenly. Good thing you had the mango compote for lunch and not the fettucine"
+0					"From the cabin you hear someone trying to reason with a carnivorous lobster"
+
+		
+The block stage business while-raising the stakes rule is listed after the block stage business while-looking rule in the stage business rules.
 
 This is the block stage business while-raising the stakes rule:
 	if disaster strikes is happening and the player is not in Limbo:
@@ -356,23 +397,19 @@ This is the block stage business while-raising the stakes rule:
 		if the stakes is:
 			-- 2: say "Obviously, someone from the KOVYN got wind of Meretzko's presence on this flight. Apparently, you guessed wrong about them wanting to recover him alive."; 
 				the rule succeeds;
-			-- 3: say "Lobsters scuttle along the aisle, between seats, provoking screams of fear from the crash survivors.[paragraph break]How clichéd. This may have worked back in the day, but come on. Carnivorous lobsters? Have they no decency?";
+			-- 3: say "Why lobsters? Why now? It's too much for one Retriever to handle.[paragraph break]Like there is [italic type]ever[roman type] a good time for lobsters...";
 				the rule succeeds;
-			-- 4: say "You had worked your way through most of the coach and business class, but still hadn't located High Wizard Meretzko. You had assumed that he would not be so obvious as to fly first class, but this is not a good day for your assumptions."; 
+			-- 4: say "Lobsters scuttle along the aisle, between seats, provoking screams of fear from the crash survivors.[paragraph break]How clichéd. This may have worked back in the day, but come on. Carnivorous lobsters? Have they no decency?";
 				the rule succeeds;
-			-- 6: say "Two years of deep cover as a stewardess. A bloody stewardess! Waiting hand and foot on these sink holes of attentions. And for what? The biggest failure of your career. If you lose Meretzko, it will be a death blow to The Circle, and nothing will be able to stop the KOVYN and their langustinian minions.";
+			-- 5: say "You had worked your way through most of the economy and business class, but still hadn't located High Wizard Meretzko. You had assumed that he would not be so obvious as to fly first class, but this is not a good day for your assumptions."; 
+				the rule succeeds;
+			-- 7: say "Two years of deep cover as a stewardess. A bloody stewardess! Waiting hand and foot on these sink holes of attentions. And for what? The biggest failure of your career. If you lose Meretzko, it will be a death blow to The Circle, and nothing will be able to stop the KOVYN and their langustinian minions.";
 				the rule succeeds.
-			
-The block stage business while-looking rule is listed after the block stage business while-raising the stakes rule in the stage business rules.
-
-This is the block stage business while-looking rule:
-	if the current action is looking:
-		the rule succeeds.
-	
+		
 The Environmental stage business rule is listed last in the stage business rules.
 
 This is the Environmental stage business rule:
-	if a random chance of 7 in 20 succeeds:
+	if a random chance of 4 in 20 succeeds:
 		pick a phrase from the Table of Environmental Stage Business;
 		say ".";
 		the rule succeeds.
@@ -391,7 +428,6 @@ times-used		verbage
 0		"A wave of nausea hits you;  the smell of human blood and melted butter"
 0		"Salt water rolls down your cheek and into your mouth"
 0		"How did the KOVYN located this plane so quickly?  This is way above your pay grade"
-0		"Why lobsters?  Why now?  It's too much for one Retriever to handle"
 0		"Time is running out.  You can hear them splashing closer"
 0		"You grumble to yourself.  Perhaps this whole lobster stunt is karmic revenge for last Friday's surf-and-turf dinner"
 0		"They say a man can bleed to death in three minutes, if sliced on the leg just so.  Let's not verify this"
@@ -402,9 +438,16 @@ Book 2 Places
 
 Chapter Bathroom
 
-The Lavatory is a room. The description of the lavatory is "[one of]A claustrophobic vertical coffin, lit by blue-tinted fluorescent bulbs and smelling of disinfectant. A uselessly small vestigial sink, a unisex toilet, and a mirror are the only furnishings in the room[or]A tight, poorly lit, aircraft bathroom. Ordinarily, a welcome refuge from the demanding mortal customers who need to use planes to move from one place to another, but now a safe haven from the carnivorous lobsters infesting the plane[stopping]. The [list of fixed in place things in the lavatory] are unremarkable. Your uncanny (yet invariably useful) sense of direction tells you that the tail compartment of the plane is to the west." Understand "bathroom" as the lavatory.
+The Lavatory is a room. The description of the lavatory is "[one of]A claustrophobic vertical coffin, lit by blue-tinted fluorescent bulbs and smelling of disinfectant. A uselessly small vestigial sink, a unisex toilet, and a mirror are the only furnishings in the room[or]A tight, poorly lit, aircraft bathroom. Ordinarily, a welcome refuge from the demanding mortal customers who need to use planes to move from one place to another, but now a safe haven from the carnivorous lobsters infesting the plane. The [list of furniture in the lavatory] are unremarkable[stopping]. Your uncanny (yet invariably useful) sense of direction tells you that the tail compartment of the plane is to the west." Understand "bathroom" or "coffin" as the lavatory.
 
 The sink is a container in the lavatory. The sink is fixed in place. The description of the sink is "A small metal bowl with two knobs, marked [quotation mark]hot[quotation mark] and [quotation mark]cold[quotation mark], and a faucet. The sink is bone dry." The cold knob is part of the the sink. The hot knob is part of the sink. The faucet is part of the sink. The carrying capacity of the sink is one.
+
+The bulb is a backdrop in the lavatory. Understand "light" or "fluorescent" or "blue-tinted" or "bulbs" as the bulb.
+
+The coffin is a backdrop in the lavatory. 
+
+Instead of examining the coffin:
+	say "It's not really a coffin. That was just a description. It's like a coffin. Simile. Jeez."
 
 Instead of inserting something (called the item) into the sink:
 	if the item is not small:
@@ -419,7 +462,7 @@ Instead of switching on or switching off the sink:
 	say "[sink-disabled]."
 	
 To say sink-disabled:
-	say "As a security precaution, the TSA has disabled in-flight use of devices involving water. If you wash your hands, the terrorists win."
+	say "As a security precaution, the TSA has disabled in-flight use of devices involving water. If you wash your hands, the terrorists win"
 	
 The mirror is a furniture in the lavatory. The description of the mirror is "A small, slightly smeared mirror. In it, you see your tired self, worn down by this loathesomely boring (until the lobsters) assignment."
 
@@ -447,7 +490,7 @@ Instead of pushing or pulling the latch:
 
 Chapter Tail Section
 
-The Tail Section is a room.  The description of the tail section is "A cramped storage section in the rear of the plane, where, if you remember correctly, some emergency supplies are supposed to be stored. The floor slopes upward to the coach section. The emergency escape hatch is inset into the wall." The tail section is down from Coach.
+The Tail Section is a room.  The description of the tail section is "A cramped storage section in the rear of the plane, where, if you remember correctly, some emergency supplies are supposed to be stored. The floor slopes upward to the economy section. The emergency escape hatch is inset into the wall." The tail section is down from Economy.
 
 The equipment bin is a closed openable container in the tail section. The description of the equipment bin is "A carbon-composite module built into the side panel of the plane. The bin is labeled [quotation mark]Emergency Equipment[quotation mark]." 
 
@@ -465,16 +508,16 @@ After magic-pushing the emergency escape hatch:
 	change the endgame to drowned;
 	end the game in death.
 
-Chapter Coach 
+Chapter Economy 
 
-Coach is a room. The description of coach is "Row after row of tightly packed seats, with minimal padding, sharp corners, and ratty seat belts. Back in Greek times, there would have been three tiers of such seats, each with an oar and chains. Ah, for the old days." Coach is down from the galley.
+Economy is a room. The description of Economy is "Row after row of tightly packed seats, with minimal padding, sharp corners, and ratty seat belts. Back in Greek times, there would have been three tiers of such seats, each with an oar and chains. Ah, for the old days." Economy is down from the galley.
 
-The movie screen is a furniture in the coach. The description of the movie screen is "A dirty gray panel mounted on the dirtier and grayer panels of the coach section. Movies are shown here to take people's minds off how very unpleasant it is to fly coach."
+The movie screen is a furniture in the Economy. The description of the movie screen is "A dirty gray panel mounted on the dirtier and grayer panels of the economy section. Movies are shown here to take people's minds off how very unpleasant it is to fly economy."
 
-The cart is a supporter in coach. The cart can be jammed. The cart is jammed. The description of the cart is "A food cart, meant to be pushed Sisyphus-fashion up and down the aisles of this plane until your penance is complete.[if the cart is jammed] It appears to be tilted and solldly wedged against the seats, unmoving.[end if]"  
+The cart is a supporter in Economy. The cart can be jammed. The cart is jammed. The description of the cart is "A food cart, meant to be pushed Sisyphus-fashion up and down the aisles of this plane until your penance is complete.[if the cart is jammed] It appears to be tilted and solldly wedged against the seats, unmoving.[end if]"  
 
-Instead of going up when the player is in coach:
-	if the cart is in coach and the cart is jammed:
+Instead of going up when the player is in Economy:
+	if the cart is in Economy and the cart is jammed:
 		say "The cart is wedged across the aisle, blocking your path. You can't get around it, nor will it budge.";
 	otherwise:
 		continue the action.
@@ -482,7 +525,7 @@ Instead of going up when the player is in coach:
 
 Chapter Galley
 
-The Galley is a room. The description of the galley is "A stainless steel compartment between the self-absorbed slobs in business class up ahead and the unwashed masses and screaming babies in coach down below." The Galley is down from the business section.
+The Galley is a room. The description of the galley is "A stainless steel compartment between the self-absorbed slobs in business class up ahead and the unwashed masses and screaming babies in economy down below." The Galley is down from the business.
 
 The counter is a furniture in the galley. The description of the counter is "A brushed aluminum counter where you have prepared countless plasticky meals for unwitting passengers."
 
@@ -490,15 +533,15 @@ The microwave is a container. The carrying capacity of the microwave is one. The
 
 The sticker is part of the microwave. The description of the sticker is "A picture of a black cat. There is a blue circle around the cat, and a diagonal slash extends through the cat."
 
-Chapter Business Section
+Chapter Business
 
-The Business Section is a room. The description of the business section is "Rows of seats that are spaced the way coach seats used to be spaced about five years ago. It is enough to make the gullible mortals feel superior to those in coach, while still stripping them subtly of their humanity. It is your favorite section of the plane.[paragraph break]Northward, a narrow, spiral staircase upwards to the first class section. Just above the business section is the bulkhead that leads to the cockpit." The business section is down from the bulkhead.
+The Business is a room. The description of Business is "Rows of seats that are spaced the way economy seats used to be spaced about five years ago. It is enough to make the gullible mortals feel superior to those in economy, while still stripping them subtly of their humanity. It is your favorite section of the plane.[paragraph break]Northward, a narrow, spiral staircase upwards to the first class section. Just above the business is the bulkhead that leads to the cockpit." The Business is down from the bulkhead.
 
 Chapter Cockpit
 
 The Cockpit is a room. The cockpit is up from the bulkhead. The description of the cockpit is "A cone-shaped room bristling with those blinking lights and other technical knick-knacks that mortals consider fancy."
 
-The bulkhead is a door. The bulkhead is up from the business section. The bulkhead is closed and locked.
+The bulkhead is a door. The bulkhead is up from Business. The bulkhead is closed and locked.
 
 The yoke is a furniture in the cockpit. The description of the yoke is "A semicircular steering wheel mounted on a stick. You have seen the pilot move it back and forth to steer the direction of the plane."
 
@@ -508,7 +551,7 @@ The control panel is a furniture in the cockpit. The description of the control 
 
 Chapter Staircase
 
-The Staircase is a door. The staircase is north from the business section. The description of the staircase is "A twisty, winding staircase connects the upper class deck with the more mundane decks below."
+The Staircase is a door. The staircase is north from Business. The description of the staircase is "A twisty, winding staircase connects the upper class deck with the more mundane decks below."
 
 Chapter First Class
 
@@ -535,6 +578,14 @@ Chapter Antagonist
 
 Chapter Extras
 
+Table of Passengers
+compartment		seat			appearance					behavior	
+Economy			"44A"			"a mild manner school marm"		"yells"
+Business			"10C"			"a grouchy executive"			"screams"
+First Class		"1A"			"an old man"					"drools"
+
+
+
 Book 4 Tables and Boxed Text
 
 Section Tables
@@ -548,52 +599,12 @@ Chapter Default Messages
 
 Section Boxted Text
 
-Book 5  Scenes
- 
-Chapter Introduction
-
-Introduction is a scene. Introduction begins when play begins. 
-
-The player is in the lavatory. The description of the player is "Four-hundred and eighty-six years, and you look like a supermodel. That's partly due to your inherently superior breeding, and partly attributable to the plastic surgery, cybernetic implants and magical enhancements all courtesty of The Circle."
-
-Chapter Disaster Strikes
-
-Disaster Strikes is a scene. Disaster strikes begins when the player is in the Tail Section.
-
-The stakes is a value that varies. The stakes is zero.
-
-When disaster strikes begins:
-	say "The plane slams into the ocean, skipping like a rock, before sinking like one.[paragraph break]The aft section of the plane pitches downward, flipping you sideways. Water jets into the cabin from seams that are not as tight as you had hoped. Moments later, you are ankle-deep in frigid salt water."
-	
-	
-Chapter Denouement
-
-[using enclosure here because climbing the stool means that Rick is not in the jail cell]
-Denouement is a scene. 
-	
-Chapter Finale
-
-The Finale is a scene. 
-
-Rule for printing the player's obituary:
-	if the endgame is:
-		-- drowned:
-			say "A tidal bore of cold ocean water slams into the cabin like pile driver, smearing you on the opposite wall like a toddler with craypas in a heat wave.";
-		-- lost:
-			say "*** LOST ***";
-		-- won:
-			say "*** WON ***".
-						
-Rule for amusing a victorious player:
-say "Amusing stuff".
-
-
-Book 6 Magic
+Book 5 Magic
 
 
 Chapter Magic Wand
 
-The magic wand is carried by the player.  The description of the wand is "[one of]Your wand is a mid-19th century Celtic model, passed down to you on your Father's side (who used it to conjure food during the great Irish Potato Famine). It appears to be broken in the disaster, though; you'll have to take a second look.[or]Once capable of casting nearly any class-N spell, the spell-selector switch seems utterly broken. You're unsure what will happen when you USE WAND ON SOMETHING.[stopping]".  Understand "wand" as the magic wand.
+The magic wand is carried by the player. The magic wand is small. The description of the wand is "[one of]Your wand is a mid-19th century Celtic model, passed down to you on your Father's side (who used it to conjure food during the great Irish Potato Famine). It appears to be broken in the disaster, though; you'll have to take a second look.[or]Once capable of casting nearly any class-N spell, the spell-selector switch seems utterly broken. You're unsure what will happen when you USE WAND ON SOMETHING.[stopping]".  Understand "wand" as the magic wand.
 
 Wanding at is an action applying to one visible thing.  Understand "Use wand on [something]" as wanding at.
 
@@ -633,6 +644,13 @@ Carry out wanding at something (called the target):
 
 Chapter Spells
 
+Section Doh
+
+Dohing is an action applying to nothing. Understand "use wand on something" or "use the wand on something" as dohing.
+
+Carry out Dohing:
+	say "Gods, you are literal. I suppose that you have been looking for the [quotation mark]Any Key[quotation mark] for years. Don't type [quotation mark]something[quotation mark]; type whatever the heck you want to use the wand on. Seriously."
+
 Section Freeze
 
 A thing can be frozen.  Things are usually not frozen.
@@ -665,7 +683,13 @@ Instead of doing something with something (called the item):
 		let localverb be "appear";
 		say "You can't do that;  [the item] [localverb in correct agreement] to be frozen, and thus impervious to all interaction.".
 	
+Section Unfreeze
 
+Unfreezing is an action applying to one thing. Understand "unfreeze [something]" as unfreezing.
+
+Before Unfreezing:
+	say "You wish. Casting an N-type spell without a spellbook or components? Get real.";
+	stop the action.
 
 Section Push-Pop
 
@@ -707,7 +731,7 @@ Carry out magic-popping:
 			move the player to the players-popped-location;
 		otherwise:
 			let localverb be "appear";
-			say "Out of nowhere, [the limboed-thing] suddenly [localverb in correct agreement]!";
+			say "Out of nowhere, [a limboed-thing] suddenly [localverb in correct agreement]!";
 			move the limboed-thing to the location;
 	otherwise:
 		say "Nothing happens.".
@@ -747,4 +771,44 @@ Carry out unjamming something (called the item):
 		let localverb2 be "come";
 		say "[The item] [localverb in correct agreement] for a moment, and suddenly [localverb2 in correct agreement] unstuck!";
 		now the item is not jammed.
-		
+
+Book 6  Scenes
+ 
+Chapter Introduction
+
+Introduction is a scene. Introduction begins when play begins. The introduction ends when the player is in the Tail section.
+
+The player is in the lavatory. The description of the player is "Four-hundred and eighty-six years, and you look like a supermodel. That's partly due to your inherently superior breeding, and partly attributable to the plastic surgery, cybernetic implants and magical enhancements all courtesty of The Circle."
+
+Chapter Disaster Strikes
+
+Disaster Strikes is a scene. Disaster strikes begins when the introduction ends.
+
+The stakes is a value that varies. The stakes is zero.
+
+When disaster strikes begins:
+	say "The plane slams into the ocean, skipping like a rock, before sinking like one.[paragraph break]The aft section of the plane pitches downward, flipping you sideways. Water jets into the cabin from seams that are not as tight as you had hoped. Moments later, you are ankle-deep in frigid salt water."
+	
+	
+Chapter Denouement
+
+[using enclosure here because climbing the stool means that Rick is not in the jail cell]
+Denouement is a scene. 
+	
+Chapter Finale
+
+The Finale is a scene. 
+
+Rule for printing the player's obituary:
+	if the endgame is:
+		-- drowned:
+			say "A tidal bore of cold ocean water slams into the cabin like pile driver, smearing you on the opposite wall like a toddler with craypas in a heat wave.";
+		-- lost:
+			say "*** LOST ***";
+		-- won:
+			say "*** WON ***".
+						
+Rule for amusing a victorious player:
+say "Amusing stuff".
+
+
