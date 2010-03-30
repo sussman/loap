@@ -653,35 +653,31 @@ Carry out Dohing:
 
 Section Freeze
 
-A thing can be frozen.  Things are usually not frozen.
-
 The currently-frozen-object is a thing that varies.  The currently-frozen-object is the statuette.
 
 Freezing is an action applying to one thing.
 
 Carry out freezing something (called the target):
 	if the target is the player:
-		say "Luckily, every novice mage learns to repel this effect in first year of academy.  The energy dissipates around you.";
+		say "Luckily, every novice mage learns to repel this effect in first year of academy. The energy dissipates around you.";
 	otherwise:
 		say "A bolt of icy-blue lightning shoots from the wand towards [the target], freezing [pronoun-accusative] instantly.[paragraph break]";
-		now the target is frozen;
-		now the currently-frozen-object is not frozen;
 		if the currently-frozen-object is visible:
 			let localverb be "thaw";
 			say "In response, [the currently-frozen-object] [localverb in correct agreement] out.";
 		now the currently-frozen-object is the target;
 
-Instead of doing something with something (called the item):
-	if the item is not frozen:
-		continue the action;
-	otherwise if the current action is examining:
+Instead of doing something with the currently-frozen-object (this is the frozen-solid rule):
+	if the current action is examining:
 		let localverb be "appear";
-		say "[The item] [localverb in correct agreement] to be frozen.";
+		say "[The currently-frozen-object] [localverb in correct agreement] to be frozen.";
 	otherwise if the current action is smelling or dropping:  [or other verbs...]
 		continue the action;
 	otherwise:
 		let localverb be "appear";
-		say "You can't do that;  [the item] [localverb in correct agreement] to be frozen, and thus impervious to all interaction.".
+		say "You can't do that;  [the currently-frozen-object] [localverb in correct agreement] to be frozen, and thus impervious to all interaction.".
+		
+The frozen-solid rule is listed first in the instead rules.
 	
 Section Unfreeze
 
