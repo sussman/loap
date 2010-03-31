@@ -7,7 +7,7 @@ The story genre is "Disaster".
 
 The story description is "A flying tube of riveted aluminum the length of a football field, a swarm of angry carnivorous lobsters, a seething mass of frightened mortal passengers, and traitorous wizard you are sworn to deliver to your masters. Hope you brought a bib."
 
-The intro-text is a text that varies.  Intro-text is "There is an actinic flash. The seat belt signs illuminate. On the overhead speakers, the pilot reassures the passengers that the minor turbulence is no cause for concern. A second, more abrupt crash and the plane lurches. Air masks drop. An overhead baggage bin flies open, and lobsters pour out. Ignoring the passengers in your section, you let the food cart topple forward, the potatoes au gratin mixing with the fettuccine and mango compote. You climb towards the lavatory and throw the latch from 'vacant' to 'occupied.' The plane revolves slowly -- pushing you towards the wall -- even as the sudden loss of altitude makes you feel lighter.[paragraph break]".
+The intro-text is a text that varies.  Intro-text is "There is an actinic flash. The seat belt signs illuminate. On the overhead speakers, the pilot mechanically reassures the passengers that the minor turbulence is no cause for concern. A second, more abrupt crash and the plane lurches. Air masks drop. An overhead baggage bin flies open, and lobsters pour out. Ignoring the passengers in your section, you let the food cart topple forward, the potatoes au gratin mixing with the fettuccine and mango compote. You climb towards the lavatory and throw the latch from 'vacant' to 'occupied.' The plane revolves slowly -- pushing you towards the wall -- even as the sudden loss of altitude makes you feel lighter.[paragraph break]".
 
 Use full-length room descriptions, american dialect and the serial comma.
 
@@ -134,7 +134,7 @@ Chapter Verbs
 Helping is an action out of world. Understand "help" as helping.
 
 Carry out helping:
-	say "You make the sigil in the air with your wand...but nothing happens. It's like there is no resistance at all in the ethereal fabric. You are cut off. On your own.[paragraph break]Except for the carnivorous lobsters."
+	say "You make the sigil in the air with your wand... but nothing happens. It's like there is no resistance at all in the ethereal fabric. You are cut off. On your own.[paragraph break]Except for the carnivorous lobsters."
 
 Section Answering
 
@@ -419,15 +419,15 @@ This is the block stage Business while-raising the stakes rule:
 	if disaster strikes is happening and the player is not in Limbo:
 		increase the stakes by one;
 		if the stakes is:
-			-- 2: say "Obviously, someone from the KOVYN got wind of Meretzko's presence on this flight. Apparently, you guessed wrong about them wanting to recover him alive."; 
+			-- 2: say "Obviously, someone from the FOB got wind of Meretzky's presence on this flight. Apparently, you guessed wrong about them wanting to recover him alive."; 
 				the rule succeeds;
 			-- 3: say "Why lobsters? Why now? It's too much for one Retriever to handle.[paragraph break]Like there is [italic type]ever[roman type] a good time for lobsters...";
 				the rule succeeds;
-			-- 4: say "Lobsters scuttle along the aisle, between seats, provoking screams of fear from the crash survivors.[paragraph break]How clichéd. This may have worked back in the day, but come on. Carnivorous lobsters? Have they no decency?";
+			-- 4: say "Lobsters scuttle along the aisle, between seats, provoking screams of fear from the crash survivors.[paragraph break]How clichéd. This may have worked back in the day, but come on. Carnivorous lobsters? Have they no decency? You conclude that they are called the [quotation mark]Forces of Banality[quotation mark] for a good reason.";
 				the rule succeeds;
-			-- 5: say "You had worked your way through most of the economy and business class, but still hadn't located High Wizard Meretzko. You had assumed that he would not be so obvious as to fly first class, but this is not a good day for your assumptions."; 
+			-- 5: say "Before the magical attack, you had worked your way through most of the economy and business class, but still hadn't located High Wizard Meretzky. You had assumed that he would not be so obvious as to fly first class, but this is not a good day for your assumptions."; 
 				the rule succeeds;
-			-- 7: say "Two years of deep cover as a stewardess. A bloody stewardess! Waiting hand and foot on these sink holes of attentions. And for what? The biggest failure of your career. If you lose Meretzko, it will be a death blow to The Circle, and nothing will be able to stop the KOVYN and their langustinian minions.";
+			-- 7: say "Two years of deep cover as a stewardess. A bloody stewardess! Waiting hand and foot on these sink holes of attentions. And for what? The biggest failure of your career. If you lose Meretzky, it will be a death blow to The Republic, and nothing will be able to stop the Forces of Banality and their langustinian minions.";
 				the rule succeeds.
 		
 The Environmental stage Business rule is listed last in the stage Business rules.
@@ -451,22 +451,22 @@ times-used		verbage
 0		"The hull creaks and groans from stress.  You wonder how much time you have"
 0		"A wave of nausea hits you;  the smell of human blood and melted butter"
 0		"Salt water rolls down your cheek and into your mouth"
-0		"How did the KOVYN located this plane so quickly?  This is way above your pay grade"
+0		"How did the Forces of Banality located this plane so quickly?  This is way above your pay grade"
 0		"Time is running out.  You can hear them splashing closer"
 0		"You grumble to yourself.  Perhaps this whole lobster stunt is karmic revenge for last Friday's surf-and-turf dinner"
 0		"They say a man can bleed to death in three minutes, if sliced on the leg just so.  Let's not verify this"
-0		"Snap, crackle, pop!  The big ones are molting.  And advancing."
+0		"Snap, crackle, pop!  The big ones are molting.  And advancing"
 0		"A lobster scuttles towards your foot, but you quickly punt it back"
 
 Book 2 Places
 
 Chapter The Plane! The Plane!
 
-The Plane Area is a region. The bathroom, tail section, economy, galley, business, cockpit, and first class are rooms in the Plane Area.
+The Plane Area is a region. The Bathroom, Tail Section, Economy, Galley, Business, Cockpit, and First Class are rooms in the Plane Area.
 
 Chapter Bathroom
 
-The Lavatory is a room. The description of the lavatory is "[one of]A claustrophobic vertical coffin, lit by blue-tinted fluorescent bulbs and smelling of disinfectant. A uselessly small vestigial sink, a unisex toilet, and a mirror are the only furnishings in the room[or]A tight, poorly lit, aircraft bathroom. Ordinarily, a welcome refuge from the demanding mortal customers who need to use planes to move from one place to another, but now a safe haven from the carnivorous lobsters infesting the plane. The [list of furniture in the lavatory] are unremarkable[stopping]. Your uncanny (yet invariably useful) sense of direction tells you that the tail compartment of the plane is to the west." Understand "bathroom" or "coffin" as the lavatory.
+The Lavatory is a room. The description of the lavatory is "[one of]A claustrophobic vertical coffin, lit by blue-tinted fluorescent bulbs and smelling of disinfectant. A uselessly small vestigial sink, a unisex toilet, and a mirror are the only furnishings in the room[or]A tight, poorly lit, aircraft bathroom. Ordinarily, a welcome refuge from the demanding mortal customers who need to use planes to move from one place to another, but now a safe haven from the carnivorous lobsters infesting the plane. The [list of furniture in the lavatory] are unremarkable[stopping]. Your uncanny (yet invariably useful) sense of direction tells you that the aft compartment of the plane is to the west." Understand "bathroom" or "coffin" as the lavatory.
 
 The sink is a container in the lavatory. The sink is fixed in place. The description of the sink is "A small metal bowl with two knobs, marked [quotation mark]hot[quotation mark] and [quotation mark]cold[quotation mark], and a faucet. The sink is bone dry." The cold knob is part of the the sink. The hot knob is part of the sink. The faucet is part of the sink. The carrying capacity of the sink is one.
 
@@ -475,7 +475,7 @@ The bulb is a backdrop in the lavatory. Understand "light" or "fluorescent" or "
 The coffin is a backdrop in the lavatory. 
 
 Instead of examining the coffin:
-	say "It's not really a coffin. That was just a description. It's like a coffin. Simile. Jeez."
+	say "It's not really a coffin. That was just a description. It's [italic type]like[roman type] a coffin. Simile. Jeez."
 
 Instead of inserting something (called the item) into the sink:
 	if the item is not small:
@@ -559,7 +559,7 @@ After magic-pushing the emergency escape hatch:
 
 Chapter Economy 
 
-Economy is a room. The description of Economy is "Row after row of tightly packed seats, with minimal padding, sharp corners, and ratty seat belts. Back in Greek times, there would have been three tiers of such seats, each with an oar and chains. Ah, for the old days." Economy is down from the Galley.
+Economy is a room. The description of Economy is "Row after row of tightly packed seats, with minimal padding, sharp corners, and ratty seat belts[one of]. Back in the day, these seats would have come with heavy oars and leg irons. Well, nostalgia will have to wait. You have a plane full of lobsters to deal with, and a High Wizard to find[or][stopping]." Economy is down from the Galley.
 
 The movie screen is a furniture in the Economy. The description of the movie screen is "A dirty gray panel mounted on the dirtier and grayer panels of the economy section. Movies are shown here to take people's minds off how very unpleasant it is to fly economy."
 
@@ -588,15 +588,51 @@ The Business is a room. The description of Business is "Rows of seats that are s
 
 Chapter Cockpit
 
-The Cockpit is a room. The cockpit is up from the bulkhead. The description of the cockpit is "A cone-shaped room bristling with those blinking lights and other technical knick-knacks that mortals consider fancy."
+The Cockpit is a room. The cockpit is up from the bulkhead. The description of the cockpit is "A cone-shaped room bristling with those blinking lights and other technical knick-knacks that mortals consider fancy[if the cockpit is unvisited]. You notice immediately that there isn't anyone in cockpit -- no pilot, no copilot, no navigator or engineer. Ironically, you realize that you are the most senior member of the crew, and you're not even a real stewardess[end if]."
 
-The bulkhead is a door. The bulkhead is up from Business. The bulkhead is closed and locked.
+The bulkhead is a door. The bulkhead is up from Business. The bulkhead is closed and jammed. The description of the bulkhead is "[bulkhead status]." Understand "security" and "heavy" and "door" as the bulkhead.
+
+To say bulkhead status:
+	say "A security bulkhead that separates the business section from the flight deck. The bulkhead ";
+	if the bulkhead is jammed:
+		say "seems to be jammed shut";
+	otherwise:
+		say "is [if the bulkhead is open]open[otherwise]closed[end if]".
+		
+Before pulling the bulkhead:
+	if the location is business:
+		try opening the bulkhead;
+	otherwise:
+		try closing the bulkhead;
+	stop the action.
+		
+Before pushing the bulkhead:
+	if the location is the cockpit:
+		try opening the bulkhead;
+	otherwise:
+		try closing the bulkhead;
+	stop the action.
+		
+Instead of opening the bulkhead when the bulkhead is jammed:
+	say "[one of]The crash must have slightly warped the heavy metal door. It[or]The bulkhead[stopping] appears to be jammed shut."
 
 The yoke is a furniture in the cockpit. The description of the yoke is "A semicircular steering wheel mounted on a stick. You have seen the pilot move it back and forth to steer the direction of the plane."
 
-The control panel is a furniture in the cockpit. The description of the control panel is "A flat U-shaped panel that wraps around the forward section of the aircraft and sports all kinds of controls, dials, switched and other doo-hickeys."
+The control panel is a furniture in the cockpit. The description of the control panel is "A flat U-shaped panel that wraps around the forward section of the aircraft and sports all kinds of controls, dials, switched and other doo-hickeys." Understand "side" as the control panel.
 
+There is a button. The description of the button is "A brilliant orange button, shaped like a mushroom. It sticks up above all of the other buttons on the panel and looks important. It is labeled [quotation mark][button-text][quotation mark].[one of][paragraph break]The High Wizard glances at the prominent, well-marked button and chides, [quotation mark]I can see how you missed that one.[quotation mark][or][stopping]". The inscription of the button is "[button-text]". The button can be once-pushed. The button is not once-pushed. Understand "fluorescent" or "brilliant" or "orange" or "transmit" or "mushroom" as the button.
 
+To say button-text:
+	say "Transmit".
+
+Instead of pushing the button:
+	if the button is once-pushed:
+		say "The button depresses, but nothing happens.";
+	otherwise:
+		say "There is a crackle, and then a familiar voice answers: it is Kevin Jackson-Mead, First Class Mage of the People's Republic of Interactive Fiction. He reports that the Repubic has locked onto your radio signal and that help is on the way.[paragraph break]Before you can protest the direness of your situation, a whirling vortex of photopian colors forms in the cockpit. For once, High Wizard Meretzky himself is taken by surprise, and stares in amazement as the vortex enlarges to fill the flight deck. Barely audible, he whispers, [quotation mark]That's [italic type]impossible...[roman type][quotation mark] A strong wind whips papers around and the air crackles with electricity.";
+		move the Whirling Vortex to the Cockpit;
+		now the button is once-pushed.
+		
 Chapter Staircase
 
 The staircase is a door. The staircase is north from Business. The description of the staircase is "A twisty, winding staircase connects the upper class deck with the more mundane decks below." The staircase is open. The staircase is south from First Class.
@@ -607,7 +643,7 @@ First Class is a room. The description of first class is "A posh, nightclub-like
 
 The billiards table is a furniture in first class. The description of the billiard table is "A hefty wood-paneled table, covered in dark green felt.[paragraph break]With the plane tilted at this angle, however, the balls and pool cues must have rolled off into the recesses of the room."
 
-Meretzko is a man in first class. The description of Meretzko is "A tall man, with an intelligent look about him." Understand "wizard" as Meretzko.
+Steve Meretzky is a man in first class. The description of Steve Meretsky is "A tall man, with an intelligent look about him." Understand "high" and "wizard" as Meretzky.
 
 Chapter Limbo
 
@@ -617,7 +653,7 @@ Limbo is a room.
 
 Chapter Whirling Vortex
 
-The Vortex Entrance is an open container. The Whirling Vortex is fixed in place.
+The Whirling Vortex is an open enterable container. The Whirling Vortex is fixed in place.
 
 Chapter Hynes Convention Center
 
@@ -625,9 +661,7 @@ The Hynes Convention Center is a room.
 
 Chapter Room 2305
 
-There is a room called Room 2305. 
-
-
+There is a room called Room 2305. Understand "IF" and "suite" as Room 2305. 
 
 Book 3 Characters
 
@@ -662,7 +696,6 @@ Chapter Default Messages
 Section Boxted Text
 
 Book 5 Magic
-
 
 Chapter Magic Wand
 
@@ -836,7 +869,7 @@ Chapter Introduction
 
 Introduction is a scene. Introduction begins when play begins. The introduction ends when the player is in the Tail section.
 
-The player is in the lavatory. The description of the player is "Four-hundred and eighty-six years, and you look like a supermodel. That's partly due to your inherently superior breeding, and partly attributable to the plastic surgery, cybernetic implants and magical enhancements all courtesty of The Circle."
+The player is in the lavatory. The description of the player is "Four-hundred and eighty-six years, and you look like a supermodel. That's partly due to your inherently superior breeding, and partly attributable to the plastic surgery, cybernetic implants and magical enhancements all courtesy of The Republic."
 
 Chapter Disaster Strikes
 
@@ -849,8 +882,23 @@ When disaster strikes begins:
 	
 Chapter Breakout
 
+Cockpit-Steve is a truth state that varies. Cockpit-Steve is false.
+
 Breakout is a scene. Breakout begins when Disaster Strikes ends. Breakout ends when the player is in the Hynes Convention Center.	
+
+When Breakout begins:
+	change the block stage business flag to true;
+	say "As you climb sideways into the First Class cabin, you are not surprised by the sight of its sole occupant: an unusually tall man in flamboyant chartreuse robes. He stands paradoxically upright despite the steep tilt of the deck. With an effortless wave of one hand dispells an attacking Arch Grue.[paragraph break]Stunned by the realization that you are mere feet from High Wizard Steve Meretzky (on a carnivorous lobster-infested sinking plane), you are momentarily speechless. When you recover, you stutter, [quotation mark]High Wizard Meretzky, your honor,[quotation mark] your voice slips up an octave, and you hope you don't come across as too much of a fangirl. You make an effort to slow down and appear dignified, [quotation mark]I was sent by the Republic to see that you reach the Summit safely.[quotation mark][paragraph break]Meretzky appears amused, [quotation mark]Yeah? And how's that going?[quotation mark] He deftly flicks his wand and the giant lobster that was sneaking up on you disappears in a puff of smoke. Becoming more serious, he explains, [quotation mark]I'm afraid we're surrounded by an antimagic shield. Not even [italic type]I[roman type] am powerful enough to penetrate it. Our only hope is to get a message out to the Republic... You lead, I'll take up the rear. You can never be too careful with grues and lobsters, you know.[quotation mark][paragraph break]".
 	
+After going when breakout is happening:
+	say "Meretzky follows you, taking pot shots at lobsters with his wand as he does so. Lobster pot shots."
+	
+After going when Breakout is happening and the location is the Cockpit:
+	if Cockpit-Steve is false:
+		change Cockpit-Steve to true;
+		say "You burst into the cockpit, and Steve follows close behind you, laying down some magical suppressing fire with his wand. Shards of chitin fly through the air.[paragraph break]You scan the control panel for anything that looks like a radio, but you are just not familiar with mortal technology. Steve sees your confusion and reaches over to a side panel, flipping a switch marked [quotation mark]IF Filter[quotation mark]. There is a burst of static.[paragraph break]The High Wizard points to the panel and says, [quotation mark]It should work now. Press the orange button to transmit. It won't help though,[quotation mark] he remarks with a sigh, [quotation mark]it would take incredible power to penetrate the magical barrier around this plane. Beings that powerful have not existed since the Early Times. I'm afraid we're doomed.[quotation mark] With a hint of resignation, he adds, [quotation mark]well, at least you can say good-bye.[quotation mark][paragraph break]";
+		change the block stage business flag to true;
+		now the button is part of the control panel.
 	
 Chapter Finale
 
