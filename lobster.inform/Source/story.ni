@@ -678,18 +678,20 @@ Instead of going east from the Tube:
 	say "You can't! The tube is collapsing. The only way to go is West!"
 
 
-Chapter Nigh Impenetrable Darkness
-[TODO rewrite these place-holder paragraph]
+Chapter Conventional Warfare
 
-
-The Hynes Convention Center is a room. The Hynes Convention Center is west of the Tube.
+The Hynes Convention Center is a room. The Hynes Convention Center is west of the Tube. The description of the Hynes Convention Center is "The lights have been lowered, and everyone eagerly awaits the premier of a documentary, which will chronicle the history of interactive fiction. The audience waits patiently[if a random chance of one in three succeeds].[paragraph break]You try to recall the name of the movie[end if]."
 
 After going when the location is the Hynes Convention Center and the Hynes Convention Center is unvisited:
 	try looking; 
-	say "As you emerge from the Vortex and step into the Hynes Convention Center, The Forces of Banality attack in unison. The convention center shudders. Moretsky assumes a position forming an equilateral triangle with Leibling and Moriarity. The energy flows between them once more, creating a Trinity barrier between the crowd and the Darkness. Market Forces attack once, again, but David Cornelson case Textfyreballs at them, driving them off. Zarf casts a Unite Spell, and the audience holds hands, and together, in one reverberating shout lets loose with the most primal of spells, [quotation mark]]Xyzzy[quotation mark]. Banality is banished.[paragraph break][italic type]And thus begins the Third Age of Interactive Fiction.[roman type][paragraph break]Jason Scott waves his hand and a silence falls over the crowd. The lights in the room fade, and you barely catch sight of a metallic glint before you are surrounded by darkness. Surrounded by friends, you have no worry about grues.";
-	change the block stage business flag to true.
+	say "As you emerge from the Vortex and step into the Hynes Convention Center, The Forces of Banality attack in unison. High Wizards Lebling, Moriarity and Meretzky reflexively move to equilateral positions around the gathering. The energy flows between them once more, creating a Trinity barrier between the IF community and the hordes of shambling Farmvillains.[paragraph break]Market Forces conspire to bring down the defenses, but David Cornelson casts Textfyre Balls at them, driving them off.[paragraph break]In the midst of it all, Zarf casts the elaborate Glkian Ritual of Unity. Around him, the masses hold each others' hands and add power to his spell. One word is repeated over and over, quietly at first, but soon building to a thunderous roar. Finally, the word can no longer be restrained. It breaks loose and reverberates, filling the room, and then flooding outward in every direction. It is an ancient word, of great power, the oldest of the spells: [quotation mark]Xyzzy[quotation mark].[paragraph break]Banality is banished. The community is saved.[paragraph break][italic type]And thus begins the Third Age of Interactive Fiction.[roman type][paragraph break]Jason Scott waves his hand and a silence falls over the crowd. The lights in the room fade, and you barely catch sight of a metallic glint before you are surrounded by darkness. Surrounded by friends, you have no worry about grues.";
+	change the block stage business flag to true;
+	move the lamp to the Hynes Convention Center.
 	
-The lamp is in the Hynes Convention Center. The lamp is a prop.  
+The lamp is a prop. 
+
+Rule for listing nondescript items of the Hynes Convention Center:
+	do nothing.
 
 Instead of doing something with the lamp:
 	if the current action is taking:
@@ -699,7 +701,8 @@ Instead of doing something with the lamp:
 		say "It is pitch dark."
 		
 Instead of dropping something (called the item) in the Hynes Convention Center:
-	say "[The item] falls into the darkness without a sound.";
+	let the localverb be "fall";
+	say "[The item] [localverb in correct agreement] into the darkness without a sound.";
 	move the item to Limbo.
 
 Chapter Room 2305
@@ -708,7 +711,9 @@ There is a room called Room 2305. Understand "IF" and "suite" as Room 2305. The 
 
 The laptop is a prop in Room 2305.
 
-[When the player interacts with the laptop, it ends the game in victory...]
+[TODO: Finish the final room description and mechanics. When the player interacts with the laptop, it ends the game in victory...]
+
+[TODO: From the vortex onward, stage business should be suppressed]
 
 Book 3 Characters
 
