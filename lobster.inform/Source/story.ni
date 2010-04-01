@@ -5,7 +5,7 @@ The release number is 1.
 The story creation year is 2010.
 The story genre is "Disaster".
 
-The story description is "A flying tube of riveted aluminum the length of a football field, a swarm of angry carnivorous lobsters, a seething mass of frightened mortal passengers, and traitorous wizard you are sworn to deliver to your masters. Hope you brought a bib."
+The story description is "A flying tube of riveted aluminum the length of a football field, a swarm of angry carnivorous lobsters, a seething mass of frightened mortal passengers, and a renowned High Wizard who you sworn to protect. Hope you brought a bib."
 
 The intro-text is a text that varies.  Intro-text is "There is an actinic flash. The seat belt signs illuminate. On the overhead speakers, the pilot mechanically reassures the passengers that the minor turbulence is no cause for concern. A second, more abrupt crash and the plane lurches. Air masks drop. An overhead baggage bin flies open, and lobsters pour out. Ignoring the passengers in your section, you let the food cart topple forward, the potatoes au gratin mixing with the fettuccine and mango compote. You climb towards the lavatory and throw the latch from 'vacant' to 'occupied.' The plane revolves slowly -- pushing you towards the wall -- even as the sudden loss of altitude makes you feel lighter.[paragraph break]".
 
@@ -34,6 +34,14 @@ Time-checking is an action applying to nothing.  Understand "time" as time-check
 Carry out time-checking:
 	[consider adding a check to make sure that a time-telling device is in the room, or that the player would reasonable know the time of day.]
 	say "It is [time of day + 1 minute]."
+	
+Chapter Logically Negate
+
+To logically negate (the boolean - a truth state):
+	if the boolean is true:
+		change the boolean to false;
+	otherwise:
+		change the boolean to true.
 		
 
 Section Award the Escape
@@ -50,8 +58,13 @@ The last mentioned thing is a thing that varies.
 
 Muted is a truth state that varies. Muted is false.
 
+Debug mode is a truth state that varies. Debug mode is false.
+[This relates to the fake debugging verbs that are used.]
+
+Rules-active is a truth state that varies. Rules-active is false.
 
 Chapter Class Definitions
+
 
 A prop is a kind of thing. It is usually portable. [If props can be carried out of their initial room, they should not be in the room description, but appear in the room contents list.]
 
@@ -139,6 +152,257 @@ Carry out helping:
 Section Answering
 
 Section Asking
+
+Section Fake Debugging
+
+Treeing is an action applying to nothing. 
+
+Carry out treeing:
+	let N be 44;
+	say "compass (6)[line break]
+  the north[line break]
+  the northeast[line break]
+  the northwest[line break]
+  the south[line break]
+  the southeast[line break]
+  the southwest[line break]
+  the east[line break]
+  the west[line break]
+  the up[line break]
+  the down[line break]
+  the inside[line break]
+  the outside[line break]
+(LibraryMessages) (7) [line break]
+(darkness object) (8) [line break]
+(Inform Parser) (9) [line break]
+(Inform Library) (10) [line break]
+(property_numberspace_forcer) (11) [line break]
+(ValuePropertyHolder) (31) [line break]";
+	say "[Location] ([N])[line break]";
+	repeat with outeritem running through things in the location:
+		say "  [outeritem][line break]";
+		increase N by one;
+		repeat with inneritem running through the things enclosed by the outeritem:
+			say "    [inneritem][line break]";
+			increase N by one;
+	repeat with J running from 1 to a random number between 5 and 10:
+		pick a phrase from the Table of Fake Places;
+		say " ([N]) [line break]";
+		increase N by one;
+		repeat with K running from 1 to a random number between 1 and 5:
+			say "  ";
+			pick a phrase from the Table of Fake Furnishings;
+			say line break;
+			increase N by one.
+		
+Table of Fake Furnishings
+times-used		verbage
+0		"cantalope (half eaten)"
+0		"shotgun"
+0		"can of depilatory cream (empty)"
+0		"garden weasel"
+0		"extension cord"
+0		"barbeque tongs"
+0		"pail (empty)"
+0		"small bird"
+0		"anvil"
+0		"Madagascar Dragon Tree"
+0		"eight drachma"
+0		"wad of chewing gum"
+0		"fish tank tubing"
+0		"men at work sign"
+0		"dental floss"
+0		"personal jet pack"
+0		"ivory key"
+0		"swivel-mount grommet adapter"
+0		"ballista"
+0		"corn cob pipe"
+0		"rod of atomic devastation"
+0		"kinky outfit"
+0		"drink coasters"
+0		"miniature pink umbrella"
+0		"swizzle stick"
+0		"pH paper"
+0		"cocktail shaker"
+0		"one time pad"
+0		"accordion of gold"
+0		"bobby pin"
+0		"potion of Freakish Strength"
+0		"Orcish pie"
+0		"kitchen apron"
+0		"ice cream scoop"
+0		"bottle opener"
+0		"ancient leather-covered book"
+0		"can of beans"
+0		"harmonica"
+0		"Paving Stone of Good Intention"
+0		"caving gear"
+0		"Helmet of Total Information Awareness"
+0		"escape pod"
+0		"optical gyroscope"
+0		"lasso"
+0		"soap-on-a-rope"
+0		"glaive"
+0		"17th century Portugese blunderbuss"
+0		"unicycle"
+0		"crowbar"
+0		"waffle iron"
+0		"wedding ring"
+0		"staple gun"
+0		"irony detector"
+0		"fuzzy dice"
+0		"scroll of Rock to Cheese"
+0		"device of warranty inactivation"
+0		"potion of chicken splendor"
+0		"lotion of petrification"
+0		"mandolin of mango ripening"
+0		"triangle of canine obedience"
+0		"glockenspiel of prismatic monkey"
+0		"bootlaces of trap detection"
+0		"suspenders of disbelief"
+0		"goggles of alchemy"
+0		"earmuffs of stealth"
+0		"leather breeches of etiquette"
+0		"rune stones of recent acquaintance"
+0		"beanstalk seeds"
+0		"stovied totties"
+0		"theatrical handcuffs"
+0		"pith helmet"
+0		"diving helmet"
+0		"escargot forks"
+
+
+
+
+Table of Fake Places
+times-used	verbage
+0		"Truck Stop"
+0		"Aft Cargo Bay"
+0		"Sheriff's Office"
+0		"Changing Room"
+0		"Copying Room"
+0		"The Lodge"
+0		"Locker Room"
+0		"Underground Crypt"
+0		"Aunt Murna's Apartment in Topeka"
+0		"Death Star, Command Deck"
+0		"The Gallows"
+0		"Mineshaft"
+0		"Lava Chamber"
+0		"Abandoned Warehouse"
+0		"Toyota Dealership"
+0		"Sector 3, Quadrant A4"
+0		"Driveway"
+0		"Attic"
+0		"Tundra"
+0		"Goblin's Lair"
+0		"The Garden"
+0		"Footbridge"
+0		"The Temple of Katallakh"
+0		"Aix-la-Chapelle"
+0		"Inner Sanctum"
+0		"Bletchley Park, 1943"
+0		"The Khan's Pleasure Suite"
+0		"Ambassadorial Shuttle"
+0		"Sound Booth One"
+0		"Castle Ramparts"
+0		"Trash-strewn Alley"
+0		"Projector Room"
+0		"Major Appliances"
+0		"Ambulance"
+0		"Alcove"
+0		"Parlour"
+0		"Corn Field"
+0		"Workshop"
+
+Gonearing is an action applying to nothing.
+
+Carry out gonearing:
+	say "Your teleport spell fizzles."
+
+Purloining is an action applying to nothing.. 
+
+Carry out purloining:
+	say "You are too old-school for that -- purloining would offend your Lawful Good alignment. You resist the brief wave of kleptomania."
+
+Showmeing is an action applying to nothing..
+
+Carry out showmeing:
+	say "Your powers of observation seem to have been affected by whatever spell hit the plane." 
+
+Actioning is an action applying to nothing. 
+
+Carry out actioning:
+	say "[bracket]the actions action - succeeded[close bracket]."
+	
+Ruling is an action applying to nothing.  
+
+Carry out ruling:
+	If rules-active is true:
+		change rules-active to false;
+	otherwise:
+		change rules-active to true.
+		
+Report Ruling:
+	Say "Rules tracing now switched [quotation mark][if rules-active is true]on[otherwise]off[end if][quotation mark]. Type [quotation mark]rules[quotation mark] to switch it [if rules-active is true]off[otherwise]on[end if] again."
+	
+Table of Rulings
+times-used	verbage
+0		"don't mention things that haven't happened or aren't really likely to happen"
+0		"don't mention things that could be disturbing or create anxiety"
+0		"offer to write a paragraph about something, but don't really mean it"
+0		"offer support to supporters, if they seem to need it"
+0		"consider the moral alternatives versus the pragmatic outcomes"
+0		"flip a coin to determine the ultimate fate of the character"
+0		"ignore things that are difficult and just do the easy stuff"
+0		"vague generalizations may have some non-specific effect or not"
+0		"set pronouns to [one of]stun[or]vaporize[or]kill[or]decapitate[or]liquify[or]obliterate[or]exterminate[or]gender-neutralized[at random]"
+0		"make snap judgement based on initial appearances"
+0		"don't mention items that are at odds with your world view"
+0		"spawn killer [one of]monkey[or]ninja[or]leprechaun[or]robot[or]pirate[or]toddler[at random] daemon"
+0		"don't mention scenery if it is inconvenient"
+0		"allow the player to do something that really shouldn't be permitted"
+0		"check is in the mail"
+0		"random waterfowl disambiguation"
+0		"things that man should not know"
+0		"instead of doing the right thing"
+0		"ponder the imponderable"
+0		"re-initialize self-destruct timer"
+0		"random vapor pressure"
+0		"ignite flammable liquids"
+0		"determine why the ceiling is visible"
+0		"don't mess with stuff that is beyond the ken of science"
+
+
+Scening is an action applying to nothing.
+
+Carry out scening:
+	say "todo".
+
+After reading a command when the debug mode is false:
+	let T be indexed text;
+	let T be the player's command;
+	if T matches the regular expression "^tree":
+		try treeing;
+		the rule succeeds;
+	otherwise if T matches the regular expression "^gonear":
+		try gonearing;
+		the rule succeeds;
+	otherwise if T matches the regular expression "^purloin":
+		try purloining;
+		the rule succeeds;
+	otherwise if T matches the regular expression "^showme":
+		try showmeing;
+		the rule succeeds;
+	otherwise if T matches the regular expression "^(action|actions)":
+		try actioning;
+		the rule succeeds;
+	otherwise if T matches the regular expression "^(rule|rules)":
+		try ruling;
+		the rule succeeds;
+	otherwise if T matches the regular expression "^(scene|scenes)":
+		try scening;
+		the rule succeeds.
 
 Section Flushing
 
@@ -283,7 +547,7 @@ The xyzzy-flag is a truth state that varies. The xyzzy-flag is false.
 
 Carry out xyzzying:
 	if the xyzzy-flag is false:
-		say "Something arcane happens, or so you think.";
+		say "Unfortunately, you are too drained to cast this word of power.";
 		now the xyzzy-flag is true;
 	otherwise:
 		say "Absolutely nothing happens.".
@@ -292,6 +556,19 @@ Carry out xyzzying:
 Chapter General Insteads
 
 Chapter Not Ready For Prime Time - Not for release
+
+Section Fake Debugging
+
+Debugging is an action applying to nothing. Understand "debug" as debugging.
+
+Carry out Debugging:
+	If the debug mode is true:
+		change the debug mode to false;
+	otherwise:
+		change the debug mode to true.
+		
+Report Debugging:
+	Say "The debug mode is now [if debug mode is true]Activated. Debugging verbs will functional normally[otherwise]Deactivated. Fake debug verbs are now enabled, overriding the usual behavior of debug verbs (e.g., gonear, purloin, tree, etc.)[no line break][end if]."
 
 Section Muting
 
@@ -332,8 +609,10 @@ When play begins:
 	Need this until parchement is patched to accomodate the default "ENTER"
 	change right entry to "SPACE = Select".]
 
-After printing the banner text:
-	say "Type [quotation mark]help[quotation mark] for instructions.[paragraph break]";
+[Note - generating fake banner text. Not a generally good practice, but making an exception in this case to add the fake "SD" on the released version. Presumably, this game will be run by people who are very familiar with I7 and will tolerate all of the inside gags and historical references.]
+
+Rule for printing the banner text:
+	say "[bold type]Lobsters On A Plane[roman type][line break]Parboiled crustaceans at 30,000 feet by Ben and Jack[line break]Release [release number] / Serial number 100401 / Inform 7 build 5Z71 (I6/v6.31 lib 6/12N) SD[line break]Type [quotation mark]help[quotation mark] for instructions.[paragraph break]" instead.
 
 	
 Chapter Every Turn
@@ -346,7 +625,12 @@ Every turn:
 	if muted is false:
 		Consider the stage Business rules;
 	[unblock stage Business for next turn]
-	Change the block stage Business flag to false.
+	Change the block stage Business flag to false;
+	if rules-active is true and debug mode is false:
+		repeat with N running from 1 to a random number between three and five:
+			say "[bracket]Rule [quotation mark]";
+			pick a phrase from the Table of Rulings;
+			say "[quotation mark] applies.[close bracket][line break]".
 		
 Section Phrase Picker
 [To select a canned phrase from a table, choosing randomly amongst the less frequently said phrases. Tables need at least two entries.]
@@ -401,7 +685,7 @@ This is the introduction stage Business rule:
 		
 Table of Introductory Stage Business
 times-used		verbage
-0					"The plane shudders and the strained airframe groans ominously under the strain"
+0					"The plane shudders and the aluminum airframe groans ominously under the strain"
 0					"In the cabin, the shrill of warning buzzers is barely audible over the frenzied panic in the passenger compartment"
 0					"You are thrown against the wall as the plane pitches over violently. The harried passengers are whipped to an ever more desperate state of alarm"
 0					"Above the chaos in the plane's cabin, you can just make out the automated message, [quotation mark][one of]We realize that you have choices, and thank you for making TRANSGLOBAL AIRLINES your...[paragraph break][italic type]Oh my God! Where's Jimmy? Where's my boy? Jimmy? The lobsters! They have Jimmy![roman type][paragraph break]...and wherever your journey may take you with its TRANSGLOBAL AWARDS program[or]Please turn off all electronic devices including cell phones and two-way pagers. The flight crew will instruct...[paragraph break][italic type]It's got my eye! My eye! I can't see! Get it off me! Get it off me![roman type][paragraph break]...thank you for complying with these regulations, which contribute to everyone's safety[or]First place the mask on your own face, and then pull down on the...[paragraph break][italic type]My seat belt is stuck. Someone help me. It's got my leg![roman type][paragraph break]...can be used as a life vest[at random].[quotation mark] The rest is lost in the screaming"
@@ -761,8 +1045,16 @@ Check wanding at:
 	otherwise:
 		say "You don't have the magic wand in hand.".
 
+The player wears some high-heeled shoes. The description of the shoes is "Shiny, high-heeled shoes. Part of the TRANSGLOBAL AIRLINES uniform." The shoes are plural-named. The indefinite article of the shoes is "a pair of".
 
-The player wears some high-heeled shoes. The description of the shoes is "Shiny, stewardess shoes." The shoes are plural-named. The indefinite article of the shoes is "a pair of".[TODO]
+Instead of going when the player wears the high-heeled shoes:
+	say "You stumble and lurch, unable to maintain your balance on the sloping floor[if a random chance of one in four succeeds]. Your shoes may be fashionable, but are not very functional when it comes to airplane disasters[end if]."
+	
+The player wears a flight attendant uniform. The description of the flight attendant uniform is "A dark blue pants suit, with smart, military-style epaulets, a stripe down each sleeve, and gold embroidery on the cuffs. A pair of silver wings is pinned to your left breast, just below your name tag. The pressed, pleated pants continue the faux-military look. You are surprised that TRANSGLOBAL AIRLINES spent so much time and effort on designing the uniforms and so little effort verifying your identity before handing it over to you."
+
+The silver wings are part of the flight attendant uniform. The silver wings are plural-named. The description of the silver wings is "A stylized gyre falcon, the trademark of TRANSGLOBAL AIRINES. The wings are sewn to the uniform, so you never have to worry about losing them."
+
+The name tag is part of the flight attendant uniform. The description of the name tag is "A plastic badge engraved with your cover identity." Understand "plastic" and "badge" and "identity" as the name tag. The inscription of the name tag is "It reads: [quotation mark]F. Mignon[quotation mark]."
 
 [The wand basically cycles through all known spells each time it is used -- it initiates one of the spell verbs. The spells are a circular queue.]
 	
@@ -944,7 +1236,9 @@ When Breakout begins:
 	say "As you climb sideways into the First Class cabin, you are not surprised by the sight of its sole occupant: an unusually tall man in flamboyant chartreuse robes. He stands paradoxically upright despite the steep tilt of the deck. With an effortless wave of one hand dispells an attacking Arch Grue.[paragraph break]Stunned by the realization that you are mere feet from High Wizard Steve Meretzky (on a carnivorous lobster-infested sinking plane), you are momentarily speechless. When you recover, you stutter, [quotation mark]High Wizard Meretzky, your honor,[quotation mark] your voice slips up an octave, and you hope you don't come across as too much of a fangirl. You make an effort to slow down and appear dignified, [quotation mark]I was sent by the Republic to see that you reach the Summit safely.[quotation mark][paragraph break]Meretzky appears amused, [quotation mark]Yeah? And how's that going?[quotation mark] He deftly flicks his wand and the giant lobster that was sneaking up on you disappears in a puff of smoke. Becoming more serious, he explains, [quotation mark]I'm afraid we're surrounded by an antimagic shield. Not even [italic type]I[roman type] am powerful enough to penetrate it. Our only hope is to get a message out to the Republic... You lead, I'll take up the rear. You can never be too careful with grues and lobsters, you know.[quotation mark][paragraph break]".
 	
 After going when breakout is happening:
-	say "Meretzky follows you, taking pot shots at lobsters with his wand as he does so. Lobster pot shots."
+	say "[one of]Meretzky follows you, taking pot shots at lobsters with his wand as he does so. Lobster pot shots[or]You glance behind you. Meretzky follows closely behind you, his wand held at the ready[at random]."
+	
+[TODO add a bunch more of these, above]
 	
 After going when Breakout is happening and the location is the Cockpit:
 	if Cockpit-Steve is false:
