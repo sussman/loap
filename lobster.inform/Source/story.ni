@@ -774,6 +774,8 @@ Chapter The Plane! The Plane!
 
 The Plane Area is a region. The Lavatory, Tail Section, Economy, Galley, Business, Cockpit, and First Class are rooms in the Plane Area.
 
+[Todo: implement floor, walls, ceiling as a backdrop]
+
 Chapter Bathroom
 
 The Lavatory is a room. The description of the lavatory is "[one of]A claustrophobic vertical coffin, lit by blue-tinted fluorescent bulbs and smelling of disinfectant. A uselessly small vestigial sink, a unisex toilet, and a mirror are the only furnishings in the room[or]A tight, poorly lit, aircraft bathroom. Ordinarily, a welcome refuge from the demanding mortal customers who need to use planes to move from one place to another, but now a safe haven from the carnivorous lobsters infesting the plane. The [list of furniture in the lavatory] are unremarkable[stopping]. Your uncanny (yet invariably useful) sense of direction tells you that the aft compartment of the plane is to the west." Understand "bathroom" or "coffin" as the lavatory.
@@ -998,11 +1000,13 @@ The statuette is a prop in Limbo.  The description of the statuette is "It abstr
 
 Chapter Whirling Vortex
 
+[TODO the vortex needs to be described from the cockpit ... i.e., x vortex. Also, ente vortex, go vortex, etc., show work appropriately.]
+
 The Whirling Vortex is a room. The Whirling Vortex is west from the cockpit. The description of the Whirling Vortex is "The undulating spiral walls of the vortex rotate hypnotically, drawing you in."
 
 After going when the location is the Whirling Vortex and the Whirling Vortex is unvisited:
 	try looking;
-	say "At the far end of the tunnel a great figure holds the vortex open, his hands held above his head like Moses parting the Red Sea. His salt-and-pepper ponytail flaps behind him in brewing hurricane. You have only heard tell of him in legends, but there is no doubt in your mind that the figure is none other than Don Woods, one of the Fathers of the Genre.[paragraph break]Even with his great power, Woods is struggling to hold the portal open. In each of his mighty fists, he has gathered bundles of ethernet cords, which lead away in every direction. Woods calls upon the power of the Internet itself, tapping into the raw flow of energy from the IFwiki, IFDb, IFMud, and Baf's guide, Brass Lantern, Xyzzy News, R.A.I.F.  He reaches out through the thousands of works of interactive fiction in the repository, all the way back the original Adventure. He draws on the pleasure and sense of challenge felt by the millions who have ever played a text adventure, and channels it into the whirling vortex. As sweat pours from his brow, he beckons you forward.[paragraph break]".;
+	say "At the far end of the tunnel a great figure holds the vortex open, his hands held above his head like Moses parting the Red Sea. His salt-and-pepper ponytail flaps behind him in arising maelstrom. You have only heard tell of him in legends, but there is no doubt in your mind that the figure is none other than Don Woods, one of the Fathers of the Genre.[paragraph break]Even with his great power, Woods is struggling to hold the portal open. In each of his mighty fists, he has gathered bundles of ethernet cords, which lead away in every direction. Woods calls upon the power of the Internet itself, tapping into the raw flow of energy from the IFwiki, IFDb, IFMud, and Baf's guide, Brass Lantern, R.A.I.F.  He reaches out through the thousands of works of interactive fiction in the repository, all the way back the original Adventure. He draws on the pleasure and sense of challenge felt by the millions who have ever played a text adventure, and channels it into the whirling vortex. As sweat pours from his brow, he beckons you forward.[paragraph break]".;
 	change the block stage business flag to true.
 
 Instead of going west from the cockpit:
@@ -1013,7 +1017,7 @@ Instead of going west from the cockpit:
 
 Chapter Tube
 
-The Tube is a room. The Tube is west from the Whirling Vortex. The description of the Tube is "An extradimensional wormhole which snakes back and forth chaotically. It connects the cockpit of the plane somewhere in the Atlantic Ocean with the Hynes Convention Center in Boston, Massachusetts. The end of the tube leading the plane is shrinking."
+The Tube is a room. The Tube is west from the Whirling Vortex. The description of the Tube is "An extradimensional wormhole which snakes back and forth chaotically. It connects the cockpit of the plane somewhere in the Atlantic Ocean with the Hynes Convention Center in Boston, Massachusetts. The end of the tube leading back to the plane is shrinking."
 
 After going when the location is the Tube and the Tube is unvisited:
 	try looking;
@@ -1025,6 +1029,10 @@ Instead of going east from the Tube:
 
 
 Chapter Conventional Warfare
+
+[TODO: Room description needs to change (or intially be suppressed) upon emergence from vortex. The vortex should collapse behind.
+
+  TODO: block examining/interacting with stuff aside from the lamp when it is dark.]
 
 The Hynes Convention Center is a room. The Hynes Convention Center is west of the Tube. The description of the Hynes Convention Center is "The lights have been lowered, and everyone eagerly awaits the premier of a documentary, which will chronicle the history of interactive fiction. The audience waits patiently[if a random chance of one in three succeeds].[paragraph break]You try to recall the name of the movie[end if]."
 
@@ -1294,7 +1302,7 @@ Breakout is a scene. Breakout begins when Disaster Strikes ends. Breakout ends w
 
 When Breakout begins:
 	change the block stage business flag to true;
-	say "As you climb sideways into the First Class cabin, you are not surprised by the sight of its sole occupant: an unusually tall man in flamboyant chartreuse robes. He stands paradoxically upright despite the steep tilt of the deck. With an effortless wave of one hand dispells an attacking Arch Grue.[paragraph break]Stunned by the realization that you are mere feet from High Wizard Steve Meretzky (on a carnivorous lobster-infested sinking plane), you are momentarily speechless. When you recover, you stutter, [quotation mark]High Wizard Meretzky, your honor,[quotation mark] your voice slips up an octave, and you hope you don't come across as too much of a fangirl. You make an effort to slow down and appear dignified, [quotation mark]I was sent by the Republic to see that you reach the Summit safely.[quotation mark][paragraph break]Meretzky appears amused, [quotation mark]Yeah? And how's that going?[quotation mark] He deftly flicks his wand and the giant lobster that was sneaking up on you disappears in a puff of smoke. Becoming more serious, he explains, [quotation mark]I'm afraid we're surrounded by an antimagic shield. Not even [italic type]I[roman type] am powerful enough to penetrate it. Our only hope is to get a message out to the Republic... You lead, I'll take up the rear. You can never be too careful with grues and lobsters, you know.[quotation mark][paragraph break]".
+	say "As you climb sideways into the First Class cabin, you are not surprised by the sight of its sole occupant: an unusually tall man in flamboyant chartreuse robes. He stands paradoxically upright despite the steep tilt of the deck. With an effortless wave of one hand, he dispels an attacking Arch Grue.[paragraph break]Stunned by the realization that you are mere feet from High Wizard Steve Meretzky (on a carnivorous lobster-infested sinking plane), you are momentarily speechless. When you recover, you stutter, [quotation mark]High Wizard Meretzky, your honor,[quotation mark] your voice slips up an octave, and you hope you don't come across as too much of a fangirl. You make an effort to slow down and appear dignified, [quotation mark]I was sent by the Republic to see that you reach the Summit safely.[quotation mark][paragraph break]Meretzky appears amused, [quotation mark]Yeah? And how's that going?[quotation mark] He deftly flicks his wand and the giant lobster that was sneaking up on you disappears in a puff of smoke. Becoming more serious, he explains, [quotation mark]I'm afraid we're surrounded by an antimagic shield. Not even [italic type]I[roman type] am powerful enough to penetrate it. Our only hope is to get a message out to the Republic... You lead, I'll take up the rear. You can never be too careful with grues and lobsters, you know.[quotation mark][paragraph break]".
 	
 After going when breakout is happening:
 	say "[one of]Meretzky follows you, taking pot shots at lobsters with his wand as he does so. Lobster pot shots[or]You glance behind you. Meretzky follows closely behind you, his wand held at the ready[at random]."
