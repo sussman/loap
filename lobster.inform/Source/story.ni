@@ -604,10 +604,11 @@ When play begins:
         	change the left hand status line to "[location]";
         	change right hand status line to "Score: [score]/[maximum score]";
 			try silently switching score notification off;
-			[puts the onus on us to display messags about score updates]
+			[puts the onus on us to display messages about score updates]
 		[choose row with a left of " P = Previous" in the Table of Deep Menu Status;
 	Need this until parchement is patched to accomodate the default "ENTER"
 	change right entry to "SPACE = Select".]
+			change wand counter to a random number between 0 and 5.
 
 [Note - generating fake banner text. Not a generally good practice, but making an exception in this case to add the fake "SD" on the released version. Presumably, this game will be run by people who are very familiar with I7 and will tolerate all of the inside gags and historical references.]
 
@@ -621,7 +622,9 @@ Every turn:
 	[avoid penalizing time for non-actions, a nuance]
 	if the current action is taking inventory or the current action is looking:
 		change the time of day to 1 minute before the time of day;
-		[stage Business]
+	[cod behavior]		
+	Consider the fish rules;
+	[stage Business]
 	if muted is false:
 		Consider the stage Business rules;
 	[unblock stage Business for next turn]
@@ -691,7 +694,7 @@ times-used		verbage
 0					"Above the chaos in the plane's cabin, you can just make out the automated message, [quotation mark][one of]We realize that you have choices, and thank you for making TRANSGLOBAL AIRLINES your...[paragraph break][italic type]Oh my God! Where's Jimmy? Where's my boy? Jimmy? The lobsters! They have Jimmy![roman type][paragraph break]...and wherever your journey may take you with its TRANSGLOBAL AWARDS program[or]Please turn off all electronic devices including cell phones and two-way pagers. The flight crew will instruct...[paragraph break][italic type]It's got my eye! My eye! I can't see! Get it off me! Get it off me![roman type][paragraph break]...thank you for complying with these regulations, which contribute to everyone's safety[or]First place the mask on your own face, and then pull down on the...[paragraph break][italic type]My seat belt is stuck. Someone help me. It's got my leg![roman type][paragraph break]...can be used as a life vest[at random].[quotation mark] The rest is lost in the screaming"
 0					"You hear the sound of metal scraping against metal"
 0					"The plane rolls, and you hear the dull thud of lifeless bodies hurled against the metal walls of the cabin"
-0					"There is a plaintive whine from the motors that are supposed to lower the landing gears"
+0					"There is a plaintive whine from the motors that are supposed to lower the landing gears. Back when the plane [italic type]had[roman type] landing gears"
 0					"The plane whips back and forth, as if the rudder controls are no longer working properly"
 0					"You almost slip as the plane pulls up suddenly. Good thing you had the mango compote for lunch and not the fettucine"
 0					"From the cabin you hear someone trying to reason with a carnivorous lobster"
@@ -742,6 +745,24 @@ times-used		verbage
 0		"Snap, crackle, pop!  The big ones are molting.  And advancing"
 0		"A lobster scuttles towards your foot, but you quickly punt it back"
 
+Section Fish Rules
+
+The fish rules is a rulebook.
+
+The fish swims off rule is listed first in the fish rules.
+
+This is the fish swims off rule:
+	do nothing.
+	
+The fish antics rule is listed after the fish swims off rule in the fish rules.
+
+This is the fish antics rule:
+	if the cod is in the location:
+		if introduction is happening:
+			say "The cod flails on the floor, gasping for breath.";
+		otherwise:
+			say "The cod does stuff."
+
 Book 2 Places
 
 Chapter The Plane! The Plane!
@@ -752,7 +773,7 @@ Chapter Bathroom
 
 The Lavatory is a room. The description of the lavatory is "[one of]A claustrophobic vertical coffin, lit by blue-tinted fluorescent bulbs and smelling of disinfectant. A uselessly small vestigial sink, a unisex toilet, and a mirror are the only furnishings in the room[or]A tight, poorly lit, aircraft bathroom. Ordinarily, a welcome refuge from the demanding mortal customers who need to use planes to move from one place to another, but now a safe haven from the carnivorous lobsters infesting the plane. The [list of furniture in the lavatory] are unremarkable[stopping]. Your uncanny (yet invariably useful) sense of direction tells you that the aft compartment of the plane is to the west." Understand "bathroom" or "coffin" as the lavatory.
 
-The sink is a container in the lavatory. The sink is fixed in place. The description of the sink is "A small metal bowl with two knobs, marked [quotation mark]hot[quotation mark] and [quotation mark]cold[quotation mark], and a faucet. The sink is bone dry." The cold knob is part of the the sink. The hot knob is part of the sink. The faucet is part of the sink. The carrying capacity of the sink is one.
+The sink is a container in the lavatory. The sink is fixed in place. The description of the sink is "A small metal bowl with two knobs, marked [quotation mark]hot[quotation mark] and [quotation mark]cold[quotation mark], and a faucet. The sink is bone dry." The cold knob is part of the the sink. The hot knob is part of the sink. The faucet is part of the sink. The carrying capacity of the sink is one. Understand "basin" or "drain" as the sink. Understand "tap" as the faucet.
 
 The bulb is a backdrop in the lavatory. Understand "light" or "fluorescent" or "blue-tinted" or "bulbs" as the bulb.
 
@@ -780,8 +801,11 @@ The mirror is a furniture in the lavatory. The description of the mirror is "A s
 
 Instead of rubbing the mirror:
 	say "You spread the smudges around a bit."
+	
+Instead of searching the mirror:
+	say "The bathroom lighting is less than flattering."
 
-The toilet is a furniture in the lavatory. The description of the toilet is "A vaguely seat-like bump on the wall of the bathroom. The hole leads nowhere, of course, as toilets were banned on planes years ago as a security precaution." The hole is part of the toilet. The hole is a container. The carrying capacity of the hole is 1. Understand "unisex" as the toilet.
+The toilet is a furniture in the lavatory. The description of the toilet is "A vaguely seat-like bump on the wall of the bathroom. The hole leads nowhere, of course, as toilets were banned on planes years ago as a security precaution." The hole is part of the toilet. The hole is a container. The description of the hole is "You'd rather not look too closely." The carrying capacity of the hole is 1. Understand "unisex" and "bowl" as the toilet.
 
 Instead of entering the toilet:
 	say "No way. Even with your level of magical warding, it's not worth chancing it."
@@ -809,7 +833,23 @@ Instead of opening the latch:
 Instead of pushing or pulling the latch:
 	say "You yank back and forth on the latch, when you realize that what you really want to do is just open or close it. Clearly, your mind is too powerful for the trivial devices that clutter the meaningless existence of mortals."
 	
-The paper roll is a furniture in the lavatory. The description of the paper roll is "An empty roll that once supported toilet paper. It's been a long time, though, since there has been toilet paper in economy class."
+Instead of pulling the bathroom door when the player is in the Lavatory:
+	try opening the bathroom door.
+	
+Instead of pushing the bathroom door when the player is in the Lavatory:
+	say "[wrong way]."
+	
+Instead of pulling the bathroom door when the player is in the Tail Section:
+	say "[wrong way]."
+	
+Instead of pushing the bathroom door when the player in the Tail Section:
+	try opening the bathroom door.
+	
+To say wrong way:
+	say "The door doesn't fold that way".
+	
+	
+The paper roll is a furniture in the lavatory. The description of the paper roll is "An empty roll that once dispensed toilet paper. It's been a long time, though, since airlines provided free toilet paper."
 
 The smoke detector is a furniture in the lavatory. The description of the smoke detector is "A flat plastic panel on the ceiling with airvents and a small warning label."
 
@@ -1035,22 +1075,22 @@ Book 5 Magic
 
 Chapter Magic Wand
 
-The magic wand is carried by the player. The magic wand is small. The description of the wand is "[one of]Your wand is a mid-19th century Celtic model, passed down to you on your Father's side (who used it to conjure food during the great Irish Potato Famine). It appears to be broken in the disaster, though; you'll have to take a second look.[or]Once capable of casting nearly any class-N spell, the spell-selector switch seems utterly broken. You're unsure what will happen when you USE WAND ON SOMETHING.[stopping]".  Understand "wand" as the magic wand.
+The magic wand is carried by the player. The magic wand is small. The description of the wand is "[one of]Your wand is a mid-19th century Celtic model, passed down to you on your Father's side (who used it to conjure food during the great Irish Potato Famine). It appears to be broken in the disaster, though; you'll have to take a second look.[or]Once capable of casting nearly any class-N spell, the spell-selector dial seems utterly broken. You're unsure what will happen when you USE WAND ON SOMETHING.[stopping]".  Understand "wand" or "spell-selector" or "dial" as the magic wand.
 
 Wanding at is an action applying to one visible thing.  Understand "Use wand on [something]" as wanding at.
 
 Check wanding at:
-	if the player carries the wand:
-		continue the action;
-	otherwise:
-		say "You don't have the magic wand in hand.".
+	if the player does not carry the wand:
+		say "You don't have the magic wand in hand." instead;
+	if the noun is the wand:
+		say "Your hand tingles as the wand's self-referential recursion dampener sucks the spell back in before it can affect the very wand that cast it." instead.
 
 The player wears some high-heeled shoes. The description of the shoes is "Shiny, high-heeled shoes. Part of the TRANSGLOBAL AIRLINES uniform." The shoes are plural-named. The indefinite article of the shoes is "a pair of".
 
 Instead of going when the player wears the high-heeled shoes:
 	say "You stumble and lurch, unable to maintain your balance on the sloping floor[if a random chance of one in four succeeds]. Your shoes may be fashionable, but are not very functional when it comes to airplane disasters[end if]."
 	
-The player wears a flight attendant uniform. The description of the flight attendant uniform is "A dark blue pants suit, with smart, military-style epaulets, a stripe down each sleeve, and gold embroidery on the cuffs. A pair of silver wings is pinned to your left breast, just below your name tag. The pressed, pleated pants continue the faux-military look. You are surprised that TRANSGLOBAL AIRLINES spent so much time and effort on designing the uniforms and so little effort verifying your identity before handing it over to you."
+The player wears a flight attendant uniform. The description of the flight attendant uniform is "A dark blue pants suit, with smart, military-style epaulets, a stripe down each sleeve, and gold embroidery on the cuffs. A pair of silver wings is pinned to your left breast, just below your name tag. The pressed, pleated pants continue the faux-military look. You are surprised that TRANSGLOBAL AIRLINES spent so much time and effort on designing the uniforms and so little effort verifying your identity before handing it over to you." Understand "suit" or "epaulet" or "epaulets" or "sleeve" or "sleeves" or "cuff" or "cuffs" or "pants" as the flight attendant uniform.
 
 The silver wings are part of the flight attendant uniform. The silver wings are plural-named. The description of the silver wings is "A stylized gyre falcon, the trademark of TRANSGLOBAL AIRINES. The wings are sewn to the uniform, so you never have to worry about losing them."
 
@@ -1058,7 +1098,7 @@ The name tag is part of the flight attendant uniform. The description of the nam
 
 [The wand basically cycles through all known spells each time it is used -- it initiates one of the spell verbs. The spells are a circular queue.]
 	
-The wand counter is a number that varies.  The wand counter is 0.
+The wand counter is a number that varies.
 	
 Carry out wanding at something (called the target):
 	Say "The wand glows with energy as you flick it... [no line break]";
@@ -1174,7 +1214,7 @@ Carry out magic-popping:
 
 Section Cod
 
-The cod is an animal.  The description of the cod is "A three-foot long, reddish-brown predatory fish. You guess it weighs at least 25 pounds, and it appears fairly mean and hungry. Crustaceans are its main food."  The cod is in Limbo.
+The cod is an animal. The description of the cod is "A three-foot long, reddish-brown predatory fish. You guess it weighs at least 25 pounds, and it appears fairly mean and hungry. Crustaceans are its main food[if the introduction is happening]. It is not happy to be out of the water[end if]."  The cod is in Limbo.
 
 Instead of eating the cod, say "Now is not the time for sashimi. Besides, these guys are endangered."
 
@@ -1187,8 +1227,9 @@ Carry out cod-summoning:
 		say "The cod sparks a bit, but nothing happens.";
 	otherwise:
 		move the cod to the location;
-		say "You hear a strange tingling sound; a large cod fish suddenly materializes, swimming in the water around your ankles."
-
+		say "You hear a strange tingling sound; a large cod fish suddenly materializes[if introduction is happening] and falls the the floor, where it flops around spasmotically, straining to breathe[otherwise], swimming in the water around your [end if]."
+		
+[also see section cod rules for per-turn cod behavior]
 
 Section Unjamming
 
