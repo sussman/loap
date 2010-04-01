@@ -462,7 +462,7 @@ Book 2 Places
 
 Chapter The Plane! The Plane!
 
-The Plane Area is a region. The Bathroom, Tail Section, Economy, Galley, Business, Cockpit, and First Class are rooms in the Plane Area.
+The Plane Area is a region. The Lavatory, Tail Section, Economy, Galley, Business, Cockpit, and First Class are rooms in the Plane Area.
 
 Chapter Bathroom
 
@@ -588,9 +588,9 @@ The Business is a room. The description of Business is "Rows of seats that are s
 
 Chapter Cockpit
 
-The Cockpit is a room. The cockpit is up from the bulkhead. The description of the cockpit is "A cone-shaped room bristling with those blinking lights and other technical knick-knacks that mortals consider fancy[if the cockpit is unvisited]. You notice immediately that there isn't anyone in cockpit -- no pilot, no copilot, no navigator or engineer. Ironically, you realize that you are the most senior member of the crew, and you're not even a real stewardess[end if]."
+The Cockpit is a room. The cockpit is up from the bulkhead. The description of the cockpit is "A cone-shaped room bristling with those blinking lights and other technical knick-knacks that mortals consider fancy[if the cockpit is unvisited]. You notice immediately that there isn't anyone in cockpit -- no pilot, no copilot, no navigator or engineer. Ironically, you realize that you are the most senior member of the crew, and you're not even a real stewardess[end if][if the button is once-pushed].[paragraph break]To the west, a twirling magical vortex of incredible energy awaits you[end if]."
 
-The bulkhead is a door. The bulkhead is up from Business. The bulkhead is closed and jammed. The description of the bulkhead is "[bulkhead status]." Understand "security" and "heavy" and "door" as the bulkhead.
+The bulkhead is a door. The bulkhead is up from Business. The bulkhead is closed and jammed. The description of the bulkhead is "[bulkhead status]." Understand "security" and "heavy" and "door" as the bulkhead. The printed name of the bulkhead is "[if the bulkhead is open]open[otherwise]closed[end if] bulkhead".
 
 To say bulkhead status:
 	say "A security bulkhead that separates the business section from the flight deck. The bulkhead ";
@@ -629,8 +629,7 @@ Instead of pushing the button:
 	if the button is once-pushed:
 		say "The button depresses, but nothing happens.";
 	otherwise:
-		say "There is a crackle, and then a familiar voice answers: it is Kevin Jackson-Mead, First Class Mage of the People's Republic of Interactive Fiction. He reports that the Repubic has locked onto your radio signal and that help is on the way.[paragraph break]Before you can protest the direness of your situation, a whirling vortex of photopian colors forms in the cockpit. For once, High Wizard Meretzky himself is taken by surprise, and stares in amazement as the vortex enlarges to fill the flight deck. Barely audible, he whispers, [quotation mark]That's [italic type]impossible...[roman type][quotation mark] A strong wind whips papers around and the air crackles with electricity.";
-		move the Whirling Vortex to the Cockpit;
+		say "There is a crackle, and then a familiar voice answers: it is Kevin Jackson-Mead, First Class Mage of the People's Republic of Interactive Fiction. He reports that the Repubic has locked onto your radio signal and that help is on the way.[paragraph break]Before you can protest the direness of your situation, a whirling vortex of photopian colors forms in the cockpit. For once, High Wizard Meretzky himself is taken by surprise, and stares in amazement as the vortex enlarges to fill the flight deck to your west. He whispers, [quotation mark]That's [italic type]impossible...[roman type][quotation mark] A strong wind whips papers around and the air crackles with electricity.";
 		now the button is once-pushed.
 		
 Chapter Staircase
@@ -653,15 +652,63 @@ Limbo is a room.
 
 Chapter Whirling Vortex
 
-The Whirling Vortex is an open enterable container. The Whirling Vortex is fixed in place.
+The Whirling Vortex is a room. The Whirling Vortex is west from the cockpit. The description of the Whirling Vortex is "The undulating spiral walls of the vortex rotate hypnotically, drawing you in."
 
-Chapter Hynes Convention Center
+After going when the location is the Whirling Vortex and the Whirling Vortex is unvisited:
+	try looking;
+	say "At the far end of the tunnel a great figure holds the vortex open, his hands held above his head like Moses parting the Red Sea. His salt-and-pepper ponytail flaps behind him in brewing hurricane. You have only heard tell of him in legends, but there is no doubt in your mind that the figure is none other than Don Woods, one of the Fathers of the Genre.[paragraph break]Even with his great power, Woods is struggling to hold the portal open. In each of his mighty fists, he has gathered bundles of ethernet cords, which lead away in every direction. Woods calls upon the power of the Internet itself, tapping into the raw flow of energy from the IFwiki, IFDb, IFMud, and Baf's guide, Brass Lantern, Xyzzy News, R.A.I.F.  He reaches out through the thousands of works of interactive fiction in the repository, all the way back the original Adventure. He draws on the pleasure and sense of challenge felt by the millions who have ever played a text adventure, and channels it into the whirling vortex. As sweat pours from his brow, he beckons you forward.[paragraph break]".;
+	change the block stage business flag to true.
 
-The Hynes Convention Center is a room.
+Instead of going west from the cockpit:
+	if the button is once-pushed:
+		continue the action;
+	otherwise:
+		say "You can't go that way."
+
+Chapter Tube
+
+The Tube is a room. The Tube is west from the Whirling Vortex. The description of the Tube is "An extradimensional wormhole which snakes back and forth chaotically. It connects the cockpit of the plane somewhere in the Atlantic Ocean with the Hynes Convention Center in Boston, Massachusetts. The end of the tube leading the plane is shrinking."
+
+After going when the location is the Tube and the Tube is unvisited:
+	try looking;
+	say "Don Woods strains to maintain the wormhole through time and space.";
+	change the block stage business flag to true.
+
+Instead of going east from the Tube:
+	say "You can't! The tube is collapsing. The only way to go is West!"
+
+
+Chapter Nigh Impenetrable Darkness
+[TODO rewrite these place-holder paragraph]
+
+
+The Hynes Convention Center is a room. The Hynes Convention Center is west of the Tube.
+
+After going when the location is the Hynes Convention Center and the Hynes Convention Center is unvisited:
+	try looking; 
+	say "As you emerge from the Vortex and step into the Hynes Convention Center, The Forces of Banality attack in unison. The convention center shudders. Moretsky assumes a position forming an equilateral triangle with Leibling and Moriarity. The energy flows between them once more, creating a Trinity barrier between the crowd and the Darkness. Market Forces attack once, again, but David Cornelson case Textfyreballs at them, driving them off. Zarf casts a Unite Spell, and the audience holds hands, and together, in one reverberating shout lets loose with the most primal of spells, [quotation mark]]Xyzzy[quotation mark]. Banality is banished.[paragraph break][italic type]And thus begins the Third Age of Interactive Fiction.[roman type][paragraph break]Jason Scott waves his hand and a silence falls over the crowd. The lights in the room fade, and you barely catch sight of a metallic glint before you are surrounded by darkness. Surrounded by friends, you have no worry about grues.";
+	change the block stage business flag to true.
+	
+The lamp is in the Hynes Convention Center. The lamp is a prop.  
+
+Instead of doing something with the lamp:
+	if the current action is taking:
+		say "Taken.[paragraph break]You are transported to a place of brightness and comraderie.";
+		move the player to Room 2305;
+	otherwise:
+		say "It is pitch dark."
+		
+Instead of dropping something (called the item) in the Hynes Convention Center:
+	say "[The item] falls into the darkness without a sound.";
+	move the item to Limbo.
 
 Chapter Room 2305
 
-There is a room called Room 2305. Understand "IF" and "suite" as Room 2305. 
+There is a room called Room 2305. Understand "IF" and "suite" as Room 2305. The description of Room 2305 is "TODO: Room Description".
+
+The laptop is a prop in Room 2305.
+
+[When the player interacts with the laptop, it ends the game in victory...]
 
 Book 3 Characters
 
@@ -883,6 +930,7 @@ When disaster strikes begins:
 Chapter Breakout
 
 Cockpit-Steve is a truth state that varies. Cockpit-Steve is false.
+[cockpit-steve becomes true when you and Steve enter the cockpit for the first time]
 
 Breakout is a scene. Breakout begins when Disaster Strikes ends. Breakout ends when the player is in the Hynes Convention Center.	
 
@@ -896,9 +944,10 @@ After going when breakout is happening:
 After going when Breakout is happening and the location is the Cockpit:
 	if Cockpit-Steve is false:
 		change Cockpit-Steve to true;
-		say "You burst into the cockpit, and Steve follows close behind you, laying down some magical suppressing fire with his wand. Shards of chitin fly through the air.[paragraph break]You scan the control panel for anything that looks like a radio, but you are just not familiar with mortal technology. Steve sees your confusion and reaches over to a side panel, flipping a switch marked [quotation mark]IF Filter[quotation mark]. There is a burst of static.[paragraph break]The High Wizard points to the panel and says, [quotation mark]It should work now. Press the orange button to transmit. It won't help though,[quotation mark] he remarks with a sigh, [quotation mark]it would take incredible power to penetrate the magical barrier around this plane. Beings that powerful have not existed since the Early Times. I'm afraid we're doomed.[quotation mark] With a hint of resignation, he adds, [quotation mark]well, at least you can say good-bye.[quotation mark][paragraph break]";
+		say "You burst into the cockpit, and Steve follows close behind you, laying down some magical suppressing fire with his wand. Shards of chitin fly through the air.[paragraph break]You scan the control panel for anything that looks like a radio, but you are just not familiar with mortal technology. Steve sees your confusion and reaches over to a side panel, flipping a switch marked [quotation mark]IF Filter[quotation mark]. There is a burst of static.[paragraph break]The High Wizard points to the panel and says, [quotation mark]It should work now. Press the orange button to transmit. It won't help though,[quotation mark] he remarks with a sigh, [quotation mark]it would take incredible power to penetrate the magical barrier around this plane. I'm sorry to say that beings that powerful have not existed since the Early Times. Not to put a damper on things, but -- we're doomed.[quotation mark] With a hint of resignation, he adds, [quotation mark]well, at least you can say good-bye.[quotation mark][paragraph break]";
 		change the block stage business flag to true;
-		now the button is part of the control panel.
+		now the button is part of the control panel;
+		
 	
 Chapter Finale
 
