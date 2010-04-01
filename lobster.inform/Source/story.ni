@@ -758,10 +758,12 @@ The fish antics rule is listed after the fish swims off rule in the fish rules.
 
 This is the fish antics rule:
 	if the cod is in the location:
-		if introduction is happening:
+		if the cod is in Limbo:
+			say "The cod floats placidly, weaving back and forth in the mists of infinity.";
+		otherwise if introduction is happening:
 			say "The cod flails on the floor, gasping for breath.";
 		otherwise:
-			say "The cod does stuff."
+			say "The cod swims around."
 
 Book 2 Places
 
@@ -972,7 +974,21 @@ Chapter Limbo
 
 [A place for offstage stuff]
 
-Limbo is a room. 
+Limbo is a room. "[if unvisited]Uh oh. Not good.[paragraph break][end if]Grey mists swirl around you. You are lost somewhere between universes."
+
+Every turn when in Limbo:
+	change the block stage Business flag to true.
+
+The mists are scenery in Limbo. The mists are plural-named. Understand "mist" as the mists. The description of the mists is "Colorless, formless, and timeless."
+
+The limboed-thing is a thing that varies.  The limboed-thing is the twinkie.
+
+The twinkie is a prop in Limbo.  The description of the twinkie is "Golden brown, and every bit as edible as the day it rolled off the assembly line." The twinkie is edible.
+
+After eating the twinkie:
+	say "You swallow the twinkie in one unladylike gulp. It has absolutely no taste. None. It is like eating mushy kreme-filled foam rubber, but with less aftertaste."
+
+The statuette is a prop in Limbo.  The description of the statuette is "It abstractly resembles a tornado of some sort.  On the bottom is some intricate inscription. There is just enough light here to read it." The inscription of the statuette is "Welcome to Limbo!  You may be the unlucky target of an angry mage, but if you believe you arrived here in error, please don't hesitate to file a 951-EZ-5C report with your local dimensional constabulary. Assuming you have a popping spell to exit this place, that is. Have a great day." Understand "inscription" or "bottom" as the statuette.
 
 Chapter Whirling Vortex
 
@@ -1083,9 +1099,12 @@ Check wanding at:
 	if the player does not carry the wand:
 		say "You don't have the magic wand in hand." instead;
 	if the noun is the wand:
-		say "Your hand tingles as the wand's self-referential recursion dampener sucks the spell back in before it can affect the very wand that cast it." instead.
+		say "Your hand tingles as the wand's self-referential recursion dampener sucks the spell back in before it can affect the very wand that cast it." instead;
+	if the noun is the mirror:
+		say "The spell hits the mirror and is reflected back at you!";
+		change the noun to the player.
 
-The player wears some high-heeled shoes. The description of the shoes is "Shiny, high-heeled shoes. Part of the TRANSGLOBAL AIRLINES uniform." The shoes are plural-named. The indefinite article of the shoes is "a pair of".
+The player wears some high-heeled shoes. The description of the shoes is "Shiny, high-heeled shoes. Part of the TRANSGLOBAL AIRLINES uniform." The shoes are plural-named. The indefinite article of the shoes is "a pair of". Understand "pumps" or "heels" as high-heeled shoes.
 
 Instead of going when the player wears the high-heeled shoes:
 	say "You stumble and lurch, unable to maintain your balance on the sloping floor[if a random chance of one in four succeeds]. Your shoes may be fashionable, but are not very functional when it comes to airplane disasters[end if]."
@@ -1168,34 +1187,31 @@ Before Unfreezing:
 
 Section Push-Pop
 
-Limbo is a room. "[if unvisited]Uhoh. Not good.[paragraph break][end if]Grey mists swirl around you. You are lost somewhere between universes."
-
-The banana is a prop in Limbo.  The description of the banana is "Quite golden."
-
-The statuette is a prop in Limbo.  The description of the statuette is "It abstractly resembles a tornado of some sort.  On the bottom is some intricate inscription." The inscription of the statuette is "Welcome to Limbo!  You may be the unlucky target of an angry mage, but if you believe you arrived here in error, please don't hesitate to file a 951-EZ-5C report with your local dimensional constabulary. Assuming you have a popping spell to exit this place, that is. Have a great day."
-
-Every turn when in Limbo:
-	change the block stage Business flag to true.
-
-The limboed-thing is a thing that varies.  The limboed-thing is the banana.
-
 Magic-pushing is an action applying to one thing.
 
 The players-popped-location is a room that varies.
 
-Carry out magic-pushing something (called the target):
-	if the target is a door:
+Check magic-pushing:
+	if the location is Limbo:
+		say "[The noun] blurs momentarily, but otherwise seems unaffected." instead;
+	if the noun is part of something (called the parent):
+		change the noun to the parent.
+
+Carry out magic-pushing:
+	if the noun is a door:
 		let localverb be "flicker";
-		say "[The target] [localverb in correct agreement] a moment, but seems immune to the spell. You figure it's probably some sort of built-in safeguard.";
+		say "[The noun] [localverb in correct agreement] a moment, but seems immune to the spell. You figure it's probably some sort of built-in safeguard.";
 	otherwise:
-		if the target is the player:
+		if the noun is the player:
 			say "You feel sick as the world suddenly turns inside-out.";
 			now the players-popped-location is the location;
 		otherwise:
 			let localverb be "blink";
-			say "[The target] suddenly [localverb in correct agreement] out of existence!";
-		move the target to Limbo;
-		now the limboed-thing is the target.
+			say "[The noun] suddenly [localverb in correct agreement] out of existence![paragraph break]";
+		if the noun is the flight attendant uniform:
+			say "The loss of your clothing is of little concern. You have bigger fish to fry. Or at least, lobsters to steam.";
+		move the noun to Limbo;
+		now the limboed-thing is the noun.
 
 Magic-popping is an action applying to one thing.
 
@@ -1214,7 +1230,7 @@ Carry out magic-popping:
 
 Section Cod
 
-The cod is an animal. The description of the cod is "A three-foot long, reddish-brown predatory fish. You guess it weighs at least 25 pounds, and it appears fairly mean and hungry. Crustaceans are its main food[if the introduction is happening]. It is not happy to be out of the water[end if]."  The cod is in Limbo.
+The cod is an animal. The description of the cod is "A three-foot long, reddish-brown predatory fish. You guess it weighs at least 25 pounds, and it appears fairly mean and hungry. Crustaceans are its main food[if the introduction is happening]. It is not happy to be out of the water[end if]."
 
 Instead of eating the cod, say "Now is not the time for sashimi. Besides, these guys are endangered."
 
@@ -1227,7 +1243,7 @@ Carry out cod-summoning:
 		say "The cod sparks a bit, but nothing happens.";
 	otherwise:
 		move the cod to the location;
-		say "You hear a strange tingling sound; a large cod fish suddenly materializes[if introduction is happening] and falls the the floor, where it flops around spasmotically, straining to breathe[otherwise], swimming in the water around your [end if]."
+		say "You hear a strange tingling sound; a large cod fish suddenly materializes."
 		
 [also see section cod rules for per-turn cod behavior]
 
@@ -1240,7 +1256,7 @@ Unjamming is an action applying to one thing.
 Carry out unjamming something (called the item):
 	let localverb be "vibrate";
 	if the item is the player:
-		say "This spell certainly won't get you out of this predicament.";
+		say "Unfortunately, this spell is certainly not enough to get you out of this predicament.";
 	otherwise if the item is not jammed:
 		say "[The item] [localverb in correct agreement] a bit, but nothing else happens.";
 	otherwise:
@@ -1254,7 +1270,7 @@ Chapter Introduction
 
 Introduction is a scene. Introduction begins when play begins. The introduction ends when the player is in the Tail section.
 
-The player is in the lavatory. The description of the player is "Four-hundred and eighty-six years, and you look like a supermodel. That's partly due to your inherently superior breeding, and partly attributable to the plastic surgery, cybernetic implants and magical enhancements all courtesy of The Republic."
+The player is in the lavatory. The description of the player is "Four-hundred and eighty-six years, and you look like a supermodel[if the player does not wear the flight attendant uniform] (even more so, without your clothes)[end if]. That's partly due to your inherently superior breeding, and partly attributable to the plastic surgery, cybernetic implants and magical enhancements all courtesy of The Republic."
 
 Chapter Disaster Strikes
 
