@@ -86,6 +86,8 @@ Conclusion is a kind of value. The conclusions are drowned, lost and won.
 
 Endgame is a conclusion that varies. The endgame is usually won.
 
+Everything can be jammed. Things are usually not jammed.
+
 Chapter General Routines
 		
 [borrowed from example I7 documentation, example 424 Odins:]
@@ -708,7 +710,7 @@ This is the block stage Business while-raising the stakes rule:
 		if the stakes is:
 			-- 2: say "Obviously, someone from the FOB got wind of Meretzky's presence on this flight. Apparently, you guessed wrong about them wanting to recover him alive."; 
 				the rule succeeds;
-			-- 3: say "Why lobsters? Why now? It's too much for one Retriever to handle.[paragraph break]Like there is [italic type]ever[roman type] a good time for lobsters...";
+			-- 3: say "Why lobsters? Why now? It's too much for one Guardian to handle.[paragraph break]Like there is [italic type]ever[roman type] a good time for lobsters...";
 				the rule succeeds;
 			-- 4: say "Lobsters scuttle along the aisle, between seats, provoking screams of fear from the crash survivors.[paragraph break]How clichéd. This may have worked back in the day, but come on. Carnivorous lobsters? Have they no decency? You conclude that they are called the [quotation mark]Forces of Banality[quotation mark] for a good reason.";
 				the rule succeeds;
@@ -756,12 +758,13 @@ This is the fish swims off rule:
 	
 The fish antics rule is listed after the fish swims off rule in the fish rules.
 
+[TODO expand fish behavior repetoire]
 This is the fish antics rule:
-	if the cod is in the location:
+	if the cod is in the location and a random chance of one in five succeeds:
 		if the cod is in Limbo:
 			say "The cod floats placidly, weaving back and forth in the mists of infinity.";
 		otherwise if introduction is happening:
-			say "The cod flails on the floor, gasping for breath.";
+			say "The cod [one of]flails on the floor, gasping for breath[or]looks at you curiously[or]struggles on the ground[or]does not approve of being out of water[or]lies on the ground[or]flaps back and forth on the floor[or]waits patiently for his chance to act[or]grins at you knowingly[at random].";
 		otherwise:
 			say "The cod swims around."
 
@@ -867,7 +870,10 @@ Chapter Tail Section
 
 The Tail Section is a room.  The description of the tail section is "A cramped storage section in the rear of the plane, where, if you remember correctly, some emergency supplies are supposed to be stored. The floor slopes upward to the economy section. The emergency escape hatch is inset into the wall." The tail section is down from Economy.
 
-The equipment bin is a closed openable container in the tail section. The description of the equipment bin is "A carbon-composite module built into the side panel of the plane. The bin is labeled [quotation mark]Emergency Equipment[quotation mark]." 
+The equipment bin is a closed openable container in the tail section. The description of the equipment bin is "A carbon-composite module built into the side panel of the plane. The bin is labeled [quotation mark]Emergency Equipment[quotation mark]." The equipment bin is jammed.
+
+Instead of opening the equipment bin when the equipment bin is jammed:
+	say "What lousy equipment. The bin has never been easy to open and seems stuck shut."
 
 After opening the equipment bin for the first time:
 	say "As you open the equipment bin, you wonder if you should have played the role of flight attendant more carefully. Following the standard procedures of the airline would have meant that you would have made sure that the emergency equipment bin was full of, well, emergency equipment.[paragraph break]A small piece of paper lies on the bottom of the bin."
@@ -889,7 +895,7 @@ Economy is a room. The description of Economy is "Row after row of tightly packe
 
 The movie screen is a furniture in the Economy. The description of the movie screen is "A dirty gray panel mounted on the dirtier and grayer panels of the economy section. Movies are shown here to take people's minds off how very unpleasant it is to fly economy."
 
-The cart is a supporter in Economy. The cart can be jammed. The cart is jammed. The description of the cart is "A food cart, meant to be pushed Sisyphus-fashion up and down the aisles of this plane until your penance is complete.[if the cart is jammed] It appears to be tilted and solldly wedged against the seats, unmoving.[end if]"  
+The cart is a supporter in Economy. The cart is jammed. The description of the cart is "A food cart, meant to be pushed Sisyphus-fashion up and down the aisles of this plane until your penance is complete.[if the cart is jammed] It appears to be tilted and solldly wedged against the seats, unmoving.[end if]"  
 
 Instead of going up when the player is in Economy:
 	if the cart is in Economy and the cart is jammed:
@@ -1104,7 +1110,7 @@ Check wanding at:
 		say "The spell hits the mirror and is reflected back at you!";
 		change the noun to the player.
 
-The player wears some high-heeled shoes. The description of the shoes is "Shiny, high-heeled shoes. Part of the TRANSGLOBAL AIRLINES uniform." The shoes are plural-named. The indefinite article of the shoes is "a pair of". Understand "pumps" or "heels" as high-heeled shoes.
+The player wears some high-heeled shoes. The description of the shoes is "Shiny, high-heeled shoes. Part of the TRANSGLOBAL AIRLINES uniform. Your [italic type]least[roman type] favorite part." The shoes are plural-named. The indefinite article of the shoes is "a pair of". Understand "pumps" or "heels" as high-heeled shoes.
 
 Instead of going when the player wears the high-heeled shoes:
 	say "You stumble and lurch, unable to maintain your balance on the sloping floor[if a random chance of one in four succeeds]. Your shoes may be fashionable, but are not very functional when it comes to airplane disasters[end if]."
@@ -1248,8 +1254,6 @@ Carry out cod-summoning:
 [also see section cod rules for per-turn cod behavior]
 
 Section Unjamming
-
-A thing can be jammed.  Things are usually not jammed.
 
 Unjamming is an action applying to one thing.
 
