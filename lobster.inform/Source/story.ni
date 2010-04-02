@@ -1055,7 +1055,16 @@ After going when the location is the Tube and the Tube is unvisited:
 	change the block stage business flag to true.
 
 Instead of going east from the Tube:
-	say "You can't! The tube is collapsing. The only way to go is West!"
+	say "[go-west]";
+	
+Instead of going east from the Whirling Vortex:
+	say "[go-west]";
+	
+To say go-west:
+	say "You can't! The tube is collapsing behind you. The only way to go is West!" 
+	
+Instead of going east from the Hynes Convention Center:
+	say "You can't! The Vortex has evaporated, leaving no trace."
 
 
 Chapter Conventional Warfare
@@ -1064,7 +1073,15 @@ Chapter Conventional Warfare
 
   TODO: block examining/interacting with stuff aside from the lamp when it is dark.]
 
-The Hynes Convention Center is a room. The Hynes Convention Center is west of the Tube. The description of the Hynes Convention Center is "The lights have been lowered, and everyone eagerly awaits the premier of a documentary, which will chronicle the history of interactive fiction. The audience waits patiently[if a random chance of one in three succeeds].[paragraph break]You try to recall the name of the movie[end if]."
+The Hynes Convention Center is a room. The Hynes Convention Center is west of the Tube. The description of the Hynes Convention Center is "[theater][no line break]"
+
+To say theater:
+	if the Hynes Convention Center is unvisited:
+		say "[no line break]";
+	otherwise if the lamp is in the Hynes Convention Center:
+		say "It is pitch dark. The audience eagerly awaits the premier of a documentary, which will chronicle the history of interactive fiction.";
+	otherwise:
+		say "A large room has been reserved for the premier of a documentary about the history of text adventures. The room is packed."
 
 After going when the location is the Hynes Convention Center and the Hynes Convention Center is unvisited:
 	try looking; 
@@ -1077,17 +1094,25 @@ The lamp is a prop.
 Rule for listing nondescript items of the Hynes Convention Center:
 	do nothing.
 
-Instead of doing something with the lamp:
-	if the current action is taking:
-		say "Taken.[paragraph break]You are transported to a place of brightness and comraderie.";
-		move the player to Room 2305;
-	otherwise:
-		say "It is pitch dark."
-		
 Instead of dropping something (called the item) in the Hynes Convention Center:
 	let the localverb be "fall";
 	say "[The item] [localverb in correct agreement] into the darkness without a sound.";
 	move the item to Limbo.
+	
+Instead of doing something with something when the location is the Hynes Convention Center:
+	if the current action is examining:
+		say "You can't see a thing.";
+	if the current action is touching:
+		if the noun is the lamp:
+			continue the action;
+		otherwise if the noun is the player:
+			say "Ew.";
+	otherwise if the current action is taking:
+		if the noun is the lamp:
+			say "Taken.[paragraph break]You are transported to a place of brightness and comraderie.";
+			move the player to Room 2305;
+		otherwise:
+			say "You can't find anything in this darkness."
 
 Chapter Room 2305
 
@@ -1335,7 +1360,7 @@ Chapter Breakout
 Cockpit-Steve is a truth state that varies. Cockpit-Steve is false.
 [cockpit-steve becomes true when you and Steve enter the cockpit for the first time]
 
-Breakout is a scene. Breakout begins when Disaster Strikes ends. Breakout ends when the player is in the Hynes Convention Center.	
+Breakout is a scene. Breakout begins when Disaster Strikes ends. Breakout ends when the player is in the Whirling Vortex.	
 
 When Breakout begins:
 	change the block stage business flag to true;
@@ -1353,10 +1378,15 @@ After going when Breakout is happening and the location is the Cockpit:
 		change the block stage business flag to true;
 		now the button is part of the control panel;
 		
+
+Chapter Denouement
+
+The Denouement is a scene. The Denouement begins when Breakout ends. The Denouement ends when the player is in Room 2305.
+
 	
 Chapter Finale
 
-The Finale is a scene. The Finale begins when Breakout ends.
+The Finale is a scene. The Finale begins when the Denouement ends.
 
 Rule for printing the player's obituary:
 	if the endgame is:
@@ -1365,4 +1395,4 @@ Rule for printing the player's obituary:
 		-- lost:
 			say "*** LOST ***";
 		-- won:
-			say "The laptop screen looks odd -- smaller and smaller echoes of itself trailing off into the distance.[paragraph break]The game banner prints. It's odd name is typical of hastily written speedIF. Still, it might be worth playing: [quotation mark]Lobsters On A Plane[quotation mark]. You decide to give it the benefit of the doubt and start typing in commmands. Friends gather around you to see what you are doing, making occassional comments as you trip over your high-heels and learn to use your wand.[paragraph break]Congratulations, player. You are home."
+			say "The laptop screen looks odd -- smaller and smaller echoes of itself trailing off into the distance.[paragraph break]The game banner prints. It's odd name (something about lobsters) is typical of hastily written speedIF. Still, it might be worth playing.[paragraph break]You decide to give it the benefit of the doubt and start typing in commmands. Friends gather around you to see what you are doing, making occassional comments as you trip over your high-heels and learn to use your wand.[paragraph break]Congratulations, player. You are home."
