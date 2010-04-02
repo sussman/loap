@@ -1,0 +1,1400 @@
+"Lobsters On A Plane" by Ben and Jack
+
+The story headline is "Parboiled crustaceans at 30,000 feet".
+The release number is 1.
+The story creation year is 2010.
+The story genre is "Disaster".
+
+The story description is "A flying tube of riveted aluminum the length of a football field, a swarm of angry carnivorous lobsters, a seething mass of frightened mortal passengers, and a renowned High Wizard who you sworn to protect. Hope you brought a bib."
+
+The intro-text is a text that varies.  Intro-text is "There is an actinic flash. The seat belt signs illuminate. On the overhead speakers, the pilot mechanically reassures the passengers that the minor turbulence is no cause for concern. A second, more abrupt crash and the plane lurches. Air masks drop. An overhead baggage bin flies open, and lobsters pour out. Ignoring the passengers in your section, you let the food cart topple forward, the potatoes au gratin mixing with the fettuccine and mango compote. You climb towards the lavatory and throw the latch from 'vacant' to 'occupied.' The plane revolves slowly -- pushing you towards the wall -- even as the sudden loss of altitude makes you feel lighter.[paragraph break]".
+
+Use full-length room descriptions, american dialect and the serial comma.
+
+Book 1 Mechanics
+
+Chapter No More Get All
+[A more efficient no more get all, suggested by Radical Al:]
+
+After reading a command:
+	if the player's command includes "all":
+		say "One thing at a time, please.";
+		reject the player's command.
+	
+Chapter Rules Modifications
+
+[Override inherent prudeness -- allow PC to kiss anything]
+The block kissing rule is not listed in any rulebook.
+The kissing yourself rule is not listed in any rulebook.
+
+Chapter Time
+
+Time-checking is an action applying to nothing.  Understand "time" as time-checking.
+
+Carry out time-checking:
+	[consider adding a check to make sure that a time-telling device is in the room, or that the player would reasonable know the time of day.]
+	say "It is [time of day + 1 minute]."
+	
+Chapter Logically Negate
+
+To logically negate (the boolean - a truth state):
+	if the boolean is true:
+		change the boolean to false;
+	otherwise:
+		change the boolean to true.
+		
+
+Section Award the Escape
+
+[from example 135]
+A room can be scored or unscored.
+
+Carry out going to an unvisited scored room:
+	adjust points by 5.
+
+Chapter Declare Global Variables
+
+The last mentioned thing is a thing that varies.
+
+Muted is a truth state that varies. Muted is false.
+
+Debug mode is a truth state that varies. Debug mode is false.
+[This relates to the fake debugging verbs that are used.]
+
+Rules-active is a truth state that varies. Rules-active is false.
+
+Chapter Class Definitions
+
+
+A prop is a kind of thing. It is usually portable. [If props can be carried out of their initial room, they should not be in the room description, but appear in the room contents list.]
+
+A furniture is a kind of supporter. It is usually scenery and fixed in place. [In general, furniture descriptions should be integrated into room descriptions.] 
+
+Size is a kind of value. The sizes are large, medium, and small.
+
+Everything has a size. The size of something is usually medium.
+
+Everything has some text called texture. The texture of something is usually "".
+
+Everything has some text called scent. The scent of something is usually "". 
+
+A thing has some text called the inscription. The inscription of something is usually "".
+
+A fardrop is a kind of backdrop.
+
+Conclusion is a kind of value. The conclusions are drowned, lost and won.  
+
+Endgame is a conclusion that varies. The endgame is usually won.
+
+Everything can be jammed. Things are usually not jammed.
+
+Chapter General Routines
+		
+[borrowed from example I7 documentation, example 424 Odins:]
+After printing the name of something (called the target): 
+    change the last mentioned thing [quotation mark][paragraph break][quotation mark]to the target.
+
+To say is-are: 
+    if the last mentioned thing is plural-named, say "are"; 
+    otherwise say "is".
+
+To say that-those:
+	if the last mentioned thing is plural-named:
+		say "them";[note, this only works in this dialect]
+	otherwise:
+		say "that".
+
+To say it-they:
+	if the last mentioned thing is plural-named:
+		say "they"; 
+	otherwise:
+		if the last mentioned thing is a person:
+			if the last mentioned thing is male:
+				say "he";
+			otherwise:
+				say "she";
+		otherwise:
+			say "it".
+			
+To say pronoun-accusative:
+	if the last mentioned thing is plural-named:
+		say "them";
+	otherwise:
+		if the last mentioned thing is a person:
+			if the last mentioned thing is male:
+				say "him";
+			otherwise:
+				say "her";
+		otherwise:
+			say "it".
+
+To say (regular verb - some text) in correct agreement:
+	say "[regular verb][if the last mentioned thing is not plural-named]s".
+
+
+Chapter Adjust Points
+
+
+To adjust points by (amount - a number):
+	say "[bracket]Your score has just gone ";
+	if amount is less than zero:
+		say "down";
+	otherwise:
+		say "up";
+	say " by [amount in words][close bracket][paragraph break]";
+	change the score to the score plus amount.
+
+Chapter Verbs
+
+Helping is an action out of world. Understand "help" as helping.
+
+Carry out helping:
+	say "You make the sigil in the air with your wand... but nothing happens. It's like there is no resistance at all in the ethereal fabric. You are cut off. On your own.[paragraph break]Except for the carnivorous lobsters."
+
+Section Answering
+
+Section Asking
+
+Section Fake Debugging
+
+Treeing is an action applying to nothing. 
+
+Carry out treeing:
+	let N be 44;
+	say "compass (6)[line break]
+  the north[line break]
+  the northeast[line break]
+  the northwest[line break]
+  the south[line break]
+  the southeast[line break]
+  the southwest[line break]
+  the east[line break]
+  the west[line break]
+  the up[line break]
+  the down[line break]
+  the inside[line break]
+  the outside[line break]
+(LibraryMessages) (7) [line break]
+(darkness object) (8) [line break]
+(Inform Parser) (9) [line break]
+(Inform Library) (10) [line break]
+(property_numberspace_forcer) (11) [line break]
+(ValuePropertyHolder) (31) [line break]";
+	say "[Location] ([N])[line break]";
+	repeat with outeritem running through things in the location:
+		say "  [outeritem][line break]";
+		increase N by one;
+		repeat with inneritem running through the things enclosed by the outeritem:
+			say "    [inneritem][line break]";
+			increase N by one;
+	repeat with J running from 1 to a random number between 5 and 10:
+		pick a phrase from the Table of Fake Places;
+		say " ([N]) [line break]";
+		increase N by one;
+		repeat with K running from 1 to a random number between 1 and 5:
+			say "  ";
+			pick a phrase from the Table of Fake Furnishings;
+			say line break;
+			increase N by one.
+		
+Table of Fake Furnishings
+times-used		verbage
+0		"cantalope (half eaten)"
+0		"shotgun"
+0		"can of depilatory cream (empty)"
+0		"garden weasel"
+0		"extension cord"
+0		"barbeque tongs"
+0		"pail (empty)"
+0		"small bird"
+0		"anvil"
+0		"Madagascar Dragon Tree"
+0		"eight drachma"
+0		"wad of chewing gum"
+0		"fish tank tubing"
+0		"men at work sign"
+0		"dental floss"
+0		"personal jet pack"
+0		"ivory key"
+0		"swivel-mount grommet adapter"
+0		"ballista"
+0		"corn cob pipe"
+0		"rod of atomic devastation"
+0		"kinky outfit"
+0		"drink coasters"
+0		"miniature pink umbrella"
+0		"swizzle stick"
+0		"pH paper"
+0		"cocktail shaker"
+0		"one time pad"
+0		"accordion of gold"
+0		"bobby pin"
+0		"potion of Freakish Strength"
+0		"Orcish pie"
+0		"kitchen apron"
+0		"ice cream scoop"
+0		"bottle opener"
+0		"ancient leather-covered book"
+0		"can of beans"
+0		"harmonica"
+0		"Paving Stone of Good Intention"
+0		"caving gear"
+0		"Helmet of Total Information Awareness"
+0		"escape pod"
+0		"optical gyroscope"
+0		"lasso"
+0		"soap-on-a-rope"
+0		"glaive"
+0		"17th century Portugese blunderbuss"
+0		"unicycle"
+0		"crowbar"
+0		"waffle iron"
+0		"wedding ring"
+0		"staple gun"
+0		"irony detector"
+0		"fuzzy dice"
+0		"scroll of Rock to Cheese"
+0		"device of warranty inactivation"
+0		"potion of chicken splendor"
+0		"lotion of petrification"
+0		"mandolin of mango ripening"
+0		"triangle of canine obedience"
+0		"glockenspiel of prismatic monkey"
+0		"bootlaces of trap detection"
+0		"suspenders of disbelief"
+0		"goggles of alchemy"
+0		"earmuffs of stealth"
+0		"leather breeches of etiquette"
+0		"rune stones of recent acquaintance"
+0		"beanstalk seeds"
+0		"stovied totties"
+0		"theatrical handcuffs"
+0		"pith helmet"
+0		"diving helmet"
+0		"escargot forks"
+
+
+
+
+Table of Fake Places
+times-used	verbage
+0		"Truck Stop"
+0		"Aft Cargo Bay"
+0		"Sheriff's Office"
+0		"Changing Room"
+0		"Copying Room"
+0		"The Lodge"
+0		"Locker Room"
+0		"Underground Crypt"
+0		"Aunt Murna's Apartment in Topeka"
+0		"Death Star, Command Deck"
+0		"The Gallows"
+0		"Mineshaft"
+0		"Lava Chamber"
+0		"Abandoned Warehouse"
+0		"Toyota Dealership"
+0		"Sector 3, Quadrant A4"
+0		"Driveway"
+0		"Attic"
+0		"Tundra"
+0		"Goblin's Lair"
+0		"The Garden"
+0		"Footbridge"
+0		"The Temple of Katallakh"
+0		"Aix-la-Chapelle"
+0		"Inner Sanctum"
+0		"Bletchley Park, 1943"
+0		"The Khan's Pleasure Suite"
+0		"Ambassadorial Shuttle"
+0		"Sound Booth One"
+0		"Castle Ramparts"
+0		"Trash-strewn Alley"
+0		"Projector Room"
+0		"Major Appliances"
+0		"Ambulance"
+0		"Alcove"
+0		"Parlour"
+0		"Corn Field"
+0		"Workshop"
+
+Gonearing is an action applying to nothing.
+
+Carry out gonearing:
+	say "Your teleport spell fizzles."
+
+Purloining is an action applying to nothing.. 
+
+Carry out purloining:
+	say "You are too old-school for that -- purloining would offend your Lawful Good alignment. You resist the brief wave of kleptomania."
+
+Showmeing is an action applying to nothing..
+
+Carry out showmeing:
+	say "Your powers of observation seem to have been affected by whatever spell hit the plane." 
+
+Actioning is an action applying to nothing. 
+
+Carry out actioning:
+	say "[bracket]the actions action - succeeded[close bracket]."
+	
+Ruling is an action applying to nothing.  
+
+Carry out ruling:
+	If rules-active is true:
+		change rules-active to false;
+	otherwise:
+		change rules-active to true.
+		
+Report Ruling:
+	Say "Rules tracing now switched [quotation mark][if rules-active is true]on[otherwise]off[end if][quotation mark]. Type [quotation mark]rules[quotation mark] to switch it [if rules-active is true]off[otherwise]on[end if] again."
+	
+Table of Rulings
+times-used	verbage
+0		"don't mention things that haven't happened or aren't really likely to happen"
+0		"don't mention things that could be disturbing or create anxiety"
+0		"offer to write a paragraph about something, but don't really mean it"
+0		"offer support to supporters, if they seem to need it"
+0		"consider the moral alternatives versus the pragmatic outcomes"
+0		"flip a coin to determine the ultimate fate of the character"
+0		"ignore things that are difficult and just do the easy stuff"
+0		"vague generalizations may have some non-specific effect or not"
+0		"set pronouns to [one of]stun[or]vaporize[or]kill[or]decapitate[or]liquify[or]obliterate[or]exterminate[or]gender-neutralized[at random]"
+0		"make snap judgement based on initial appearances"
+0		"don't mention items that are at odds with your world view"
+0		"spawn killer [one of]monkey[or]ninja[or]leprechaun[or]robot[or]pirate[or]toddler[at random] daemon"
+0		"don't mention scenery if it is inconvenient"
+0		"allow the player to do something that really shouldn't be permitted"
+0		"check is in the mail"
+0		"random waterfowl disambiguation"
+0		"things that man should not know"
+0		"instead of doing the right thing"
+0		"ponder the imponderable"
+0		"re-initialize self-destruct timer"
+0		"random vapor pressure"
+0		"ignite flammable liquids"
+0		"determine why the ceiling is visible"
+0		"don't mess with stuff that is beyond the ken of science"
+
+
+Scening is an action applying to nothing.
+
+Carry out scening:
+	say "Scene [apostrophe]Entire Game[apostrophe] playing (for [turn count] mins now)[line break]";
+	repeat with N running from 1 to a random number between 2 and 4:
+		say "Scene [apostrophe]";
+		pick a phrase from the Table of Scenic Items;
+		say "[apostrophe] playing (for [a random number from 1 to turn count] mins now)[line break]";
+		
+
+Table of Scenic Items
+times-used		verbage
+0					"Mrs. Harper meets the spider queen"
+0					"Into the frying pan"
+0					"Player death scene"
+0					"Monkey is my uncle"
+0					"Undersea kingdom"
+0					"Invasion of the zombie surf dudes"
+0					"Mandlebrot"
+0					"Reinitialize"
+0					"Alternate ending"
+0					"Bridging dialogue"
+0					"Something interesting"
+0					"Filler"
+0					"I wrote this at midnight"
+0					"Escapades in g-minor"
+0					"Always a woman to me"
+0					"Thirty ways to die"
+0					"Molybdenum is not edible"
+0					"Passionate Nymph Intro"
+0					"Gone Fishing"
+0					"Up the creek"
+	
+
+After reading a command when the debug mode is false:
+	let T be indexed text;
+	let T be the player's command;
+	if T matches the regular expression "^tree":
+		try treeing;
+		the rule succeeds;
+	otherwise if T matches the regular expression "^gonear":
+		try gonearing;
+		the rule succeeds;
+	otherwise if T matches the regular expression "^purloin":
+		try purloining;
+		the rule succeeds;
+	otherwise if T matches the regular expression "^showme":
+		try showmeing;
+		the rule succeeds;
+	otherwise if T matches the regular expression "^(action|actions)":
+		try actioning;
+		the rule succeeds;
+	otherwise if T matches the regular expression "^(rule|rules)":
+		try ruling;
+		the rule succeeds;
+	otherwise if T matches the regular expression "^(scene|scenes)":
+		try scening;
+		the rule succeeds.
+
+Section Flushing
+
+Flushing is an action applying to one thing. Understand "flush [something]" as flushing.
+
+Check Flushing:
+	if the noun is not the toilet:
+		say "You can't flush [a noun]." instead;
+	otherwise:
+		say "The designers never anticipated that anyone would want to flush this toilet." instead.
+		
+Section Listening
+[Listen is implemented through insteads. Override this general instead rule with more specific ones as needed]
+
+Instead of listening:
+	pick a phrase from the Table of Ambient Noise;
+	say ".";
+	[to avoid conflicting with some other sound-generating random event]
+	change the block stage Business flag to true.
+	
+Table of Ambient Noise
+times-used		verbage
+0			"You hear yourself breathing"
+0			"In the distace you hear singing"
+
+Section Looking Under
+
+Instead of looking under the noun:
+	try searching the noun instead.
+	
+Section Looking
+
+Understand "look [a visible thing]" as examining.
+['Look outside' or 'look stool' should work.]
+
+Section Navigating
+
+Navigating is an action applying to nothing. Understand "port" or "starboard" or "aft" or "abaft" or "fore" as navigating.
+
+Carry out navigating:
+	say "You remember hearing all that fancy direction talk when you were training for this mission. Maybe you should have taken notes, but with your absolute sense of direction, you just couldn't be bothered to learn all that mortal jargon."
+
+Section Opening
+
+Understand "slide [something]" as opening.
+		
+Section Putting
+
+Understand the command "place" as "put".
+
+Section Reading
+		
+Understand the command "read" as something new. Reading is an action applying to one thing. Understand "read [a thing]" as reading.
+
+Check reading:
+	If the noun is a man:
+		say "You've never been good at reading people." instead;
+	otherwise if the inscription of the noun is "":
+		say "That's not something you can read." instead.
+			
+Carry out reading:
+	say the inscription of the noun;
+	say paragraph break.
+	
+Section Repairing
+
+[TODO -- add a fix/repair verb in case someone tries to fix the wand which is described as damaged]
+	
+[
+Section Showing
+
+Rule for reaching inside a room when the current action is showing:
+	allow access.
+	
+Instead of showing something (called the thingie) to a person (called the observer):
+	if the observer is:
+		-- bob:
+]
+
+Section Smelling
+	
+[Like listening, smelling is performed through instead rules. The generic smell rule tracks bad smells, which decay over time.]
+
+[
+Section Talking
+
+Talking is an action applying to one thing. Understand "talk to [something]" as talking.
+
+Rule for reaching inside a room when the current action is talking:
+	allow access.
+
+Check talking:
+	if the noun is not a person:
+		say "People will say you're odd if you make of habit of talking to [the noun]." instead.
+		
+Carry out talking:
+	say "[lame talk]".
+	
+To say lame talk:
+	say "You can ASK someone ABOUT something or SHOW something TO someone."
+	]
+	
+Section Telling
+
+	
+Section Touch
+[Touching is implemented through an after rule, which is nice in terms of making use of existing relationships about whether something is touchable or not. If an item has a texture attribute, this rule makes use of it.]
+
+Instead of touching a fardrop:
+	say "[The noun] is too far away to touch."
+
+After touching something (called the item):
+	if the item is the player:
+		say "You feel normal. Nothing out of the ordinary, really.";
+	otherwise:
+		let the regverb be "feel";
+		if the texture of the item is "":
+			let the T be "[one of]unremarkable[or]as you'd expect[or]like [it-they] should[or]normal[in random order]";
+		otherwise:
+			let T be the texture of the item;
+		if the item is part of the player:
+			say "Your";
+		otherwise:
+			if the item is not proper-named:
+				say "The";
+		say " [item] [the regverb in correct agreement] [T]."
+	
+[So many things are smooth and possibly metallic that we'll indulge in this petty optimization. Or, at least, I think it is an optimization.]
+To say smooth:
+	say "smooth".
+	
+To say metallic:
+	say "[smooth] and metallic". 
+	
+Section Using
+
+
+Section Xyzzying
+
+Xyzzying is an action applying to nothing.  Understand "xyzzy" as xyzzying.
+
+The xyzzy-flag is a truth state that varies. The xyzzy-flag is false.
+
+Carry out xyzzying:
+	if the xyzzy-flag is false:
+		say "Unfortunately, you are too drained to cast this word of power.";
+		now the xyzzy-flag is true;
+	otherwise:
+		say "Absolutely nothing happens.".
+		
+
+Chapter General Insteads
+
+Chapter Not Ready For Prime Time - Not for release
+
+Section Fake Debugging
+
+Debugging is an action applying to nothing. Understand "debug" as debugging.
+
+Carry out Debugging:
+	If the debug mode is true:
+		change the debug mode to false;
+	otherwise:
+		change the debug mode to true.
+		
+Report Debugging:
+	Say "The debug mode is now [if debug mode is true]Activated. Debugging verbs will functional normally[otherwise]Deactivated. Fake debug verbs are now enabled, overriding the usual behavior of debug verbs (e.g., gonear, purloin, tree, etc.)[no line break][end if]."
+
+Section Muting
+
+[To reduce the clutter during debugging; suppresses stage Business]
+Muting is an action out of world. Understand "mute" as muting.
+
+Carry out muting:
+	say "[bracket]Mute[if muted is true]Off[otherwise]On[end if][close bracket][line break]";
+	if muted is true:
+		change muted to false;
+	otherwise:
+		change muted to true;
+		
+Section Magic
+
+Understand "freeze [something visible]" as freezing.
+
+Understand "mpush [something visible]" as magic-pushing.
+
+Understand "mpop [something visible]" as magic-popping.
+
+Understand "mcod" as cod-summoning.
+
+Understand "knock [something visible]" as unjamming.
+	
+Chapter Initialize
+
+The maximum score is 100. [TODO:  change this later]
+
+When play begins:
+	say the intro-text;
+	change the time of day to 09:00 AM;
+        	change the left hand status line to "[location]";
+        	change right hand status line to "Score: [score]/[maximum score]";
+			try silently switching score notification off;
+			[puts the onus on us to display messages about score updates]
+		[choose row with a left of " P = Previous" in the Table of Deep Menu Status;
+	Need this until parchement is patched to accomodate the default "ENTER"
+	change right entry to "SPACE = Select".]
+			change wand counter to a random number between 0 and 5.
+
+[Note - generating fake banner text. Not a generally good practice, but making an exception in this case to add the fake "SD" on the released version. Presumably, this game will be run by people who are very familiar with I7 and will tolerate all of the inside gags and historical references.]
+
+Rule for printing the banner text:
+	say "[bold type]Lobsters On A Plane[roman type][line break]Parboiled crustaceans at 30,000 feet by Ben and Jack[line break]Release [release number] / Serial number 100401 / Inform 7 build 5Z71 (I6/v6.31 lib 6/12N) SD[line break]Type [quotation mark]help[quotation mark] for instructions.[paragraph break]" instead.
+
+	
+Chapter Every Turn
+
+Every turn:
+	[avoid penalizing time for non-actions, a nuance]
+	if the current action is taking inventory or the current action is looking:
+		change the time of day to 1 minute before the time of day;
+	[cod behavior]		
+	Consider the fish rules;
+	[stage Business]
+	if muted is false:
+		Consider the stage Business rules;
+	[unblock stage Business for next turn]
+	Change the block stage Business flag to false;
+	if rules-active is true and debug mode is false:
+		repeat with N running from 1 to a random number between three and five:
+			say "[bracket]Rule [quotation mark]";
+			pick a phrase from the Table of Rulings;
+			say "[quotation mark] applies.[close bracket][line break]".
+		
+Section Phrase Picker
+[To select a canned phrase from a table, choosing randomly amongst the less frequently said phrases. Tables need at least two entries.]
+
+To pick a phrase from (source - a table-name):
+	let R be a number;
+	sort the source in times-used order;
+	repeat with N running from 2 to the number of rows in the source:
+		change R to N;
+		if times-used in row N of the source is greater than times-used in row 1 of the source, break;
+	if R is not the number of rows in the source:
+		decrease R by one;
+	let T be a random number between 1 and R;
+	choose row T in the source;
+	increase the times-used entry by one;
+	say "[verbage entry]".
+
+Section Stage Business
+
+[Set the block stage Business flag to suppress stage Business at the end of that turn sequence -- helpful for scenes with long dialogue and descriptions. To make something not come up until at least one cycle through, change the times-used to "1" in the table]
+
+The block stage Business flag is a truth state that varies. The block stage Business flag is false.
+
+The stage Business rules is a rulebook.
+
+The endgame block stage Business rule is listed first in the stage Business rules.
+
+This is the endgame block stage Business rule:
+	if the finale is happening:
+		the rule succeeds.
+
+The block all stage Business rule is listed after the endgame block stage Business rule in the stage Business rules. 
+
+This is the block all stage Business rule:
+	if the block stage Business flag is true:
+		the rule succeeds.
+		
+The block stage Business while-looking rule is listed after the block all stage Business rule in the stage Business rules.
+
+This is the block stage Business while-looking rule:
+	if the current action is looking:
+		the rule succeeds.
+		
+The introduction stage Business rule is listed after the block stage Business while-looking rule in the stage Business rules.
+
+This is the introduction stage Business rule:
+	if the introduction is happening:
+		if a random chance of 6 in 20 succeeds:
+			pick a phrase from the Table of Introductory Stage Business;
+			say ".";
+		the rule succeeds.
+		
+Table of Introductory Stage Business
+times-used		verbage
+0					"The plane shudders and the aluminum airframe groans ominously under the strain"
+0					"In the cabin, the shrill of warning buzzers is barely audible over the frenzied panic in the passenger compartment"
+0					"You are thrown against the wall as the plane pitches over violently. The harried passengers are whipped to an ever more desperate state of alarm"
+0					"Above the chaos in the plane's cabin, you can just make out the automated message, [quotation mark][one of]We realize that you have choices, and thank you for making TRANSGLOBAL AIRLINES your...[paragraph break][italic type]Oh my God! Where's Jimmy? Where's my boy? Jimmy? The lobsters! They have Jimmy![roman type][paragraph break]...and wherever your journey may take you with its TRANSGLOBAL AWARDS program[or]Please turn off all electronic devices including cell phones and two-way pagers. The flight crew will instruct...[paragraph break][italic type]It's got my eye! My eye! I can't see! Get it off me! Get it off me![roman type][paragraph break]...thank you for complying with these regulations, which contribute to everyone's safety[or]First place the mask on your own face, and then pull down on the...[paragraph break][italic type]My seat belt is stuck. Someone help me. It's got my leg![roman type][paragraph break]...can be used as a life vest[at random].[quotation mark] The rest is lost in the screaming"
+0					"You hear the sound of metal scraping against metal"
+0					"The plane rolls, and you hear the dull thud of lifeless bodies hurled against the metal walls of the cabin"
+0					"There is a plaintive whine from the motors that are supposed to lower the landing gears. Back when the plane [italic type]had[roman type] landing gears"
+0					"The plane whips back and forth, as if the rudder controls are no longer working properly"
+0					"You almost slip as the plane pulls up suddenly. Good thing you had the mango compote for lunch and not the fettucine"
+0					"From the cabin you hear someone trying to reason with a carnivorous lobster"
+
+		
+The block stage Business while-raising the stakes rule is listed after the block stage Business while-looking rule in the stage Business rules.
+
+This is the block stage Business while-raising the stakes rule:
+	if disaster strikes is happening and the player is not in Limbo:
+		increase the stakes by one;
+		if the stakes is:
+			-- 2: say "Obviously, someone from the FOB got wind of Meretzky's presence on this flight. Apparently, you guessed wrong about them wanting to recover him alive."; 
+				the rule succeeds;
+			-- 3: say "Why lobsters? Why now? It's too much for one Guardian to handle.[paragraph break]Like there is [italic type]ever[roman type] a good time for lobsters...";
+				the rule succeeds;
+			-- 4: say "Lobsters scuttle along the aisle, between seats, provoking screams of fear from the crash survivors.[paragraph break]How clichéd. This may have worked back in the day, but come on. Carnivorous lobsters? Have they no decency? You conclude that they are called the [quotation mark]Forces of Banality[quotation mark] for a good reason.";
+				the rule succeeds;
+			-- 5: say "Before the magical attack, you had worked your way through most of the economy and business class, but still hadn't located High Wizard Meretzky. You had assumed that he would not be so obvious as to fly first class, but this is not a good day for your assumptions."; 
+				the rule succeeds;
+			-- 7: say "Two years of deep cover as a stewardess. A bloody stewardess! Waiting hand and foot on these sink holes of attentions. And for what? The biggest failure of your career. If you lose Meretzky, it will be a death blow to The Republic, and nothing will be able to stop the Forces of Banality and their langustinian minions.";
+				the rule succeeds.
+		
+The Environmental stage Business rule is listed last in the stage Business rules.
+
+This is the Environmental stage Business rule:
+	if a random chance of 4 in 20 succeeds:
+		pick a phrase from the Table of Environmental Stage Business;
+		say ".";
+		the rule succeeds.
+		
+Table of Environmental Stage Business
+times-used		verbage
+0		"You hear the clickety-clack of angry claws somewhere nearby"
+0		"Some water drips onto your head from a ceiling leak somewhere"
+0		"Distant screams echo from elsewhere;  the cracking of human skulls by vorpal claws"
+0		"The plane shudders, then angles downward just a bit more"
+0		"The lobsters scuttle and screetch in malicious glee"
+0		"The smell of malevolent arthropods burns your nose"
+0		"Sobs of the still-living reach your ears;  moans you cannot bear to hear"
+0                                                  		"The cockpit radio crackles to life for a moment, burps static, then falls silent"
+0		"The hull creaks and groans from stress.  You wonder how much time you have"
+0		"A wave of nausea hits you;  the smell of human blood and melted butter"
+0		"Salt water rolls down your cheek and into your mouth"
+0		"How did the Forces of Banality located this plane so quickly?  This is way above your pay grade"
+0		"Time is running out.  You can hear them splashing closer"
+0		"You grumble to yourself.  Perhaps this whole lobster stunt is karmic revenge for last Friday's surf-and-turf dinner"
+0		"They say a man can bleed to death in three minutes, if sliced on the leg just so.  Let's not verify this"
+0		"Snap, crackle, pop!  The big ones are molting.  And advancing"
+0		"A lobster scuttles towards your foot, but you quickly punt it back"
+
+Section Fish Rules
+
+The fish rules is a rulebook.
+
+The fish swims off rule is listed first in the fish rules.
+
+This is the fish swims off rule:
+	do nothing.
+	
+The fish antics rule is listed after the fish swims off rule in the fish rules.
+
+[TODO expand fish behavior repetoire]
+This is the fish antics rule:
+	if the cod is in the location and a random chance of one in five succeeds:
+		if the cod is in Limbo:
+			say "The cod floats placidly, weaving back and forth in the mists of infinity.";
+		otherwise if introduction is happening:
+			say "The cod [one of]flails on the floor, gasping for breath[or]looks at you curiously[or]struggles on the ground[or]does not approve of being out of water[or]lies on the ground[or]flaps back and forth on the floor[or]waits patiently for his chance to act[or]grins at you knowingly[at random].";
+		otherwise:
+			say "The cod swims around."
+
+Book 2 Places
+
+Chapter The Plane! The Plane!
+
+The Plane Area is a region. The Lavatory, Tail Section, Economy, Galley, Business, Cockpit, and First Class are rooms in the Plane Area.
+
+[Todo: implement floor, walls, ceiling as a backdrop]
+
+Chapter Bathroom
+
+The Lavatory is a room. The description of the lavatory is "[one of]A claustrophobic vertical coffin, lit by blue-tinted fluorescent bulbs and smelling of disinfectant. A uselessly small vestigial sink, a unisex toilet, and a mirror are the only furnishings in the room[or]A tight, poorly lit, aircraft bathroom. Ordinarily, a welcome refuge from the demanding mortal customers who need to use planes to move from one place to another, but now a safe haven from the carnivorous lobsters infesting the plane. The [list of furniture in the lavatory] are unremarkable[stopping]. Your uncanny (yet invariably useful) sense of direction tells you that the aft compartment of the plane is to the west." Understand "bathroom" or "coffin" as the lavatory.
+
+The sink is a container in the lavatory. The sink is fixed in place. The description of the sink is "A small metal bowl with two knobs, marked [quotation mark]hot[quotation mark] and [quotation mark]cold[quotation mark], and a faucet. The sink is bone dry." The cold knob is part of the the sink. The hot knob is part of the sink. The faucet is part of the sink. The carrying capacity of the sink is one. Understand "basin" or "drain" as the sink. Understand "tap" as the faucet.
+
+The bulb is a backdrop in the lavatory. Understand "light" or "fluorescent" or "blue-tinted" or "bulbs" as the bulb.
+
+The coffin is a backdrop in the lavatory. 
+
+Instead of examining the coffin:
+	say "It's not really a coffin. That was just a description. It's [italic type]like[roman type] a coffin. Simile. Jeez."
+
+Instead of inserting something (called the item) into the sink:
+	if the item is not small:
+		say "[The item] [is-are] too big to fit in the undersized sink.";
+	otherwise:
+		continue the action.
+
+Instead of switching on or switching off something that is part of the sink:
+	say "[sink-disabled]."
+	
+Instead of switching on or switching off the sink:
+	say "[sink-disabled]."
+	
+To say sink-disabled:
+	say "As a security precaution, the TSA has disabled in-flight use of devices involving water. If you wash your hands, the terrorists win"
+	
+The mirror is a furniture in the lavatory. The description of the mirror is "A small, slightly smeared mirror. In it, you see your tired self, worn down by this loathesomely boring (until the lobsters) assignment."
+
+Instead of rubbing the mirror:
+	say "You spread the smudges around a bit."
+	
+Instead of searching the mirror:
+	say "The bathroom lighting is less than flattering."
+
+The toilet is a furniture in the lavatory. The description of the toilet is "A vaguely seat-like bump on the wall of the bathroom. The hole leads nowhere, of course, as toilets were banned on planes years ago as a security precaution." The hole is part of the toilet. The hole is a container. The description of the hole is "You'd rather not look too closely." The carrying capacity of the hole is 1. Understand "unisex" and "bowl" as the toilet.
+
+Instead of entering the toilet:
+	say "No way. Even with your level of magical warding, it's not worth chancing it."
+
+Instead of inserting something into the hole:
+	say "Yech. Not even a consideration."
+	
+Instead of inserting something (called the item) into the toilet:
+	try inserting the item into the hole.
+
+The bathroom door is a door. The bathroom door is openable and closed. The bathroom door is west from the lavatory and east from Tail Section. The description of the door is "A folding door, with a small latch." 
+
+The latch is part of the bathroom door. The latch can be vacant or occupied. The description of the latch is "The latch reads [if the latch is vacant]VACANT[otherwise]OCCUPIED[end if]."
+
+Instead of opening the bathroom door when the latch is not vacant:
+	say "You rattle the door, but it won't open."
+	
+Instead of opening the latch:
+	if the latch is vacant:
+		say "The latch is not engaged.";
+	otherwise:
+		say "The latch slips to the side.";
+		now the latch is vacant.
+		
+Instead of pushing or pulling the latch:
+	say "You yank back and forth on the latch, when you realize that what you really want to do is just open or close it. Clearly, your mind is too powerful for the trivial devices that clutter the meaningless existence of mortals."
+	
+Instead of pulling the bathroom door when the player is in the Lavatory:
+	try opening the bathroom door.
+	
+Instead of pushing the bathroom door when the player is in the Lavatory:
+	say "[wrong way]."
+	
+Instead of pulling the bathroom door when the player is in the Tail Section:
+	say "[wrong way]."
+	
+Instead of pushing the bathroom door when the player in the Tail Section:
+	try opening the bathroom door.
+	
+To say wrong way:
+	say "The door doesn't fold that way".
+	
+	
+The paper roll is a furniture in the lavatory. The description of the paper roll is "An empty roll that once dispensed toilet paper. It's been a long time, though, since airlines provided free toilet paper."
+
+The smoke detector is a furniture in the lavatory. The description of the smoke detector is "A flat plastic panel on the ceiling with airvents and a small warning label."
+
+The small warning label is part of the smoke detector. The description of the small warning label is "A metallic sticker, with red writing. It looks official." The inscription of the small warning label is "[quotation mark]Warning: Federal Law Prohibits Tampering With...[quotation mark] the rest of the warning has been scratched off.[paragraph break]Which is just as good, considering that the smoke detectors were inactivated years ago to prevent people from being able to tamper with them."
+
+Instead of doing something with the smoke detector:
+	if the current action is examining or smelling or listening:
+		continue the action;
+	otherwise:
+		say "You tamper briefly with the smoke detector and enjoy the feeling of naughtiness."
+
+Chapter Tail Section
+
+The Tail Section is a room.  The description of the tail section is "A cramped storage section in the rear of the plane, where, if you remember correctly, some emergency supplies are supposed to be stored. The floor slopes upward to the economy section. The emergency escape hatch is inset into the wall." The tail section is down from Economy.
+
+The equipment bin is a closed openable container in the tail section. The description of the equipment bin is "A carbon-composite module built into the side panel of the plane. The bin is labeled [quotation mark]Emergency Equipment[quotation mark]." The equipment bin is jammed.
+
+Instead of opening the equipment bin when the equipment bin is jammed:
+	say "What lousy equipment. The bin has never been easy to open and seems stuck shut."
+
+After opening the equipment bin for the first time:
+	say "As you open the equipment bin, you wonder if you should have played the role of flight attendant more carefully. Following the standard procedures of the airline would have meant that you would have made sure that the emergency equipment bin was full of, well, emergency equipment.[paragraph break]A small piece of paper lies on the bottom of the bin."
+	
+The memo is a prop in the equipment bin. The description of the memo is "A handwritten note on TRANSGLOBAL AIRWAYS stationary." The inscription of the memo is "Flight crew: please be sure that this compartment contains the following items prior to departure:[paragraph break]* First Aid Kit[line break]* Flare Gun[line break]* Emergency Radio[line break]* Crustacean Repellent[line break]* Mountain Climbing Gear[line break]* Shark Defense Cage[line break]* Personal Jet Pack[line break]* Entertainment System, Mark V". Understand "small" and "paper" and "note" as memo.
+
+The emergency escape hatch is a furniture in the Tail Section. The emergency escape hatch can be open. The emergency escape hatch is closed. Understand "exit" as the emergency escape hatch. "A sturdy curved door mounted on heavy internal hinges. For emergency use only, as it says."
+
+Instead of opening the emergency escape hatch:
+	say "The exit only pushes outward, but thousands of tons of ocean water hold it closed against your feeble attempts."
+	
+After magic-pushing the emergency escape hatch:
+	change the endgame to drowned;
+	end the game in death.
+
+Chapter Economy 
+
+Economy is a room. The description of Economy is "Row after row of tightly packed seats, with minimal padding, sharp corners, and ratty seat belts[one of]. Back in the day, these seats would have come with heavy oars and leg irons. Well, nostalgia will have to wait. You have a plane full of lobsters to deal with, and a High Wizard to find[or][stopping]." Economy is down from the Galley.
+
+The movie screen is a furniture in the Economy. The description of the movie screen is "A dirty gray panel mounted on the dirtier and grayer panels of the economy section. Movies are shown here to take people's minds off how very unpleasant it is to fly economy."
+
+The cart is a supporter in Economy. The cart is jammed. The description of the cart is "A food cart, meant to be pushed Sisyphus-fashion up and down the aisles of this plane until your penance is complete.[if the cart is jammed] It appears to be tilted and solldly wedged against the seats, unmoving.[end if]"  
+
+Instead of going up when the player is in Economy:
+	if the cart is in Economy and the cart is jammed:
+		say "The cart is wedged across the aisle, blocking your path. You can't get around it, nor will it budge.";
+	otherwise:
+		continue the action.
+
+
+Chapter Galley
+
+The Galley is a room. The description of the Galley is "A stainless steel compartment between the self-absorbed slobs in business class up ahead and the unwashed masses and screaming babies in economy down below." The Galley is down from the Business.
+
+The counter is a furniture in the Galley. The description of the counter is "A brushed aluminum counter where you have prepared countless plasticky meals for unwitting passengers."
+
+The microwave is a container. The microwave is on the counter. The carrying capacity of the microwave is one. The microwave can be open. The microwave is closed. The microwave can be switched on. The microwave is switched off. The microwave is fixed in place. The scent of the microwave is "like buttered popcorn". The description of the microwave is "A brown commercial microwave that has seen more than its fair share of activity over the years. There is a sticker on the microwave."
+
+The sticker is part of the microwave. The description of the sticker is "A picture of a black cat. There is a red circle around the cat, and a diagonal slash extends through the cat."
+
+Chapter Business
+
+The Business is a room. The description of Business is "Rows of seats that are spaced the way economy seats used to be spaced about five years ago. It is enough to make the gullible mortals feel superior to those in economy, while still stripping them subtly of their humanity. It is your favorite section of the plane.[paragraph break]Northward, a narrow, staircase spirals toward to the first class section. Just above the business is the bulkhead that leads to the cockpit." The Business is down from the bulkhead.
+
+Chapter Cockpit
+
+The Cockpit is a room. The cockpit is up from the bulkhead. The description of the cockpit is "A cone-shaped room bristling with those blinking lights and other technical knick-knacks that mortals consider fancy[if the cockpit is unvisited]. You notice immediately that there isn't anyone in cockpit -- no pilot, no copilot, no navigator or engineer. Ironically, you realize that you are the most senior member of the crew, and you're not even a real stewardess[end if][if the button is once-pushed].[paragraph break]To the west, a twirling magical vortex of incredible energy awaits you[end if]."
+
+The bulkhead is a door. The bulkhead is up from Business. The bulkhead is closed and jammed. The description of the bulkhead is "[bulkhead status]." Understand "security" and "heavy" and "door" as the bulkhead. The printed name of the bulkhead is "[if the bulkhead is open]open[otherwise]closed[end if] bulkhead".
+
+To say bulkhead status:
+	say "A security bulkhead that separates the business section from the flight deck. The bulkhead ";
+	if the bulkhead is jammed:
+		say "seems to be jammed shut";
+	otherwise:
+		say "is [if the bulkhead is open]open[otherwise]closed[end if]".
+		
+Before pulling the bulkhead:
+	if the location is business:
+		try opening the bulkhead;
+	otherwise:
+		try closing the bulkhead;
+	stop the action.
+		
+Before pushing the bulkhead:
+	if the location is the cockpit:
+		try opening the bulkhead;
+	otherwise:
+		try closing the bulkhead;
+	stop the action.
+		
+Instead of opening the bulkhead when the bulkhead is jammed:
+	say "[one of]The crash must have slightly warped the heavy metal door. It[or]The bulkhead[stopping] appears to be jammed shut."
+
+The yoke is a furniture in the cockpit. The description of the yoke is "A semicircular steering wheel mounted on a stick. You have seen the pilot move it back and forth to steer the direction of the plane."
+
+The control panel is a furniture in the cockpit. The description of the control panel is "A flat U-shaped panel that wraps around the forward section of the aircraft and sports all kinds of controls, dials, switched and other doo-hickeys." Understand "side" as the control panel.
+
+There is a button. The description of the button is "A brilliant orange button, shaped like a mushroom. It sticks up above all of the other buttons on the panel and looks important. It is labeled [quotation mark][button-text][quotation mark].[one of][paragraph break]The High Wizard glances at the prominent, well-marked button and chides, [quotation mark]I can see how you missed that one.[quotation mark][or][stopping]". The inscription of the button is "[button-text]". The button can be once-pushed. The button is not once-pushed. Understand "fluorescent" or "brilliant" or "orange" or "transmit" or "mushroom" as the button.
+
+To say button-text:
+	say "Transmit".
+
+Instead of pushing the button:
+	if the button is once-pushed:
+		say "The button depresses, but nothing happens.";
+	otherwise:
+		say "There is a crackle, and then a familiar voice answers: it is Kevin Jackson-Mead, First Class Mage of the People's Republic of Interactive Fiction. He reports that the Repubic has locked onto your radio signal and that help is on the way.[paragraph break]Before you can protest the direness of your situation, a whirling vortex of photopian colors forms in the cockpit. For once, High Wizard Meretzky himself is taken by surprise, and stares in amazement as the vortex enlarges to fill the flight deck to your west. He whispers, [quotation mark]That's [italic type]impossible...[roman type][quotation mark] A strong wind whips papers around and the air crackles with electricity.";
+		now the button is once-pushed.
+		
+Chapter Staircase
+
+The staircase is a door. The staircase is north from Business. The description of the staircase is "A twisty, winding staircase connects the upper class deck with the more mundane decks below." The staircase is open. The staircase is south from First Class.
+
+Chapter First Class
+
+First Class is a room. The description of first class is "A posh, nightclub-like bubble on the front of the plane. Through the transparent ceiling, green light filters down and you can see fish swimming by."
+
+The billiards table is a furniture in first class. The description of the billiard table is "A hefty wood-paneled table, covered in dark green felt.[paragraph break]With the plane tilted at this angle, however, the balls and pool cues must have rolled off into the recesses of the room."
+
+Steve Meretzky is a man in first class. The description of Steve Meretzky is "A tall bearded man, with an intelligent look about him." Understand "high" and "wizard" as Meretzky.
+
+Chapter Limbo
+
+[A place for offstage stuff]
+
+Limbo is a room. "[if unvisited]Uh oh. Not good.[paragraph break][end if]Grey mists swirl around you. You are lost somewhere between universes."
+
+Every turn when in Limbo:
+	change the block stage Business flag to true.
+
+The mists are scenery in Limbo. The mists are plural-named. Understand "mist" as the mists. The description of the mists is "Colorless, formless, and timeless."
+
+The limboed-thing is a thing that varies.  The limboed-thing is the twinkie.
+
+The twinkie is a prop in Limbo.  The description of the twinkie is "Golden brown, and every bit as edible as the day it rolled off the assembly line." The twinkie is edible.
+
+After eating the twinkie:
+	say "You swallow the twinkie in one unladylike gulp. It has absolutely no taste. None. It is like eating mushy kreme-filled foam rubber, but with less aftertaste."
+
+The statuette is a prop in Limbo.  The description of the statuette is "It abstractly resembles a tornado of some sort.  On the bottom is some intricate inscription. There is just enough light here to read it." The inscription of the statuette is "Welcome to Limbo!  You may be the unlucky target of an angry mage, but if you believe you arrived here in error, please don't hesitate to file a 951-EZ-5C report with your local dimensional constabulary. Assuming you have a popping spell to exit this place, that is. Have a great day." Understand "inscription" or "bottom" as the statuette.
+
+Chapter Whirling Vortex
+
+[TODO the vortex needs to be described from the cockpit ... i.e., x vortex. Also, ente vortex, go vortex, etc., show work appropriately.]
+
+The Whirling Vortex is a room. The Whirling Vortex is west from the cockpit. The description of the Whirling Vortex is "The undulating spiral walls of the vortex rotate hypnotically, drawing you in. It crackles with actinic lightning flashes."  Understand "vortex" and "tornado" and "hurricane" as the Whirling Vortex.
+
+After going when the location is the Whirling Vortex and the Whirling Vortex is unvisited:
+	try looking;
+	say "At the far end of the tunnel a great figure holds the vortex open, his hands held above his head like Moses parting the Red Sea. His salt-and-pepper ponytail flaps behind him in arising maelstrom. You have only heard tell of him in legends, but there is no doubt in your mind that the figure is none other than Don Woods, one of the Fathers of the Genre.[paragraph break]Even with his great power, Woods is struggling to hold the portal open. In each of his mighty fists, he has gathered bundles of ethernet cords, which lead away in every direction. Woods calls upon the power of the Internet itself, tapping into the raw flow of energy from the IFwiki, IFDb, IFMud, and Baf's guide, Brass Lantern, R.A.I.F.  He reaches out through the thousands of works of interactive fiction in the repository, all the way back the original Adventure. He draws on the pleasure and sense of challenge felt by the millions who have ever played a text adventure, and channels it into the whirling vortex. As sweat pours from his brow, he beckons you forward.[paragraph break]".;
+	change the block stage business flag to true.
+
+Instead of going west from the cockpit:
+	if the button is once-pushed:
+		continue the action;
+	otherwise:
+		say "You can't go that way."
+
+Chapter Tube
+
+The Tube is a room. The Tube is west from the Whirling Vortex. The description of the Tube is "An extradimensional wormhole which snakes back and forth chaotically. It connects the cockpit of the plane somewhere in the Atlantic Ocean with the Hynes Convention Center in Boston, Massachusetts. The end of the tube leading back to the plane is shrinking."
+
+After going when the location is the Tube and the Tube is unvisited:
+	try looking;
+	say "Don Woods strains to maintain the wormhole through time and space.";
+	change the block stage business flag to true.
+
+Instead of going east from the Tube:
+	say "[go-west]";
+	
+Instead of going east from the Whirling Vortex:
+	say "[go-west]";
+	
+To say go-west:
+	say "You can't! The tube is collapsing behind you. The only way to go is West!" 
+	
+Instead of going east from the Hynes Convention Center:
+	say "You can't! The Vortex has evaporated, leaving no trace."
+
+
+Chapter Conventional Warfare
+
+[TODO: Room description needs to change (or intially be suppressed) upon emergence from vortex. The vortex should collapse behind.
+
+  TODO: block examining/interacting with stuff aside from the lamp when it is dark.]
+
+The Hynes Convention Center is a room. The Hynes Convention Center is west of the Tube. The description of the Hynes Convention Center is "[theater][no line break]"
+
+To say theater:
+	if the Hynes Convention Center is unvisited:
+		say "[no line break]";
+	otherwise if the lamp is in the Hynes Convention Center:
+		say "It is pitch dark. The audience eagerly awaits the premier of a documentary, which will chronicle the history of interactive fiction.";
+	otherwise:
+		say "A large room has been reserved for the premier of a documentary about the history of text adventures. The room is packed."
+
+After going when the location is the Hynes Convention Center and the Hynes Convention Center is unvisited:
+	try looking; 
+	say "As you emerge from the Vortex and step into the Hynes Convention Center, The Forces of Banality attack in unison. High Wizards Lebling, Moriarity and Meretzky reflexively move to equilateral positions around the gathering. The energy flows between them once more, creating a Trinity barrier between the IF community and the hordes of shambling Farmvillains.[paragraph break]Market Forces conspire to bring down the defenses, but David Cornelson casts Textfyre Balls at them, driving them off.[paragraph break]In the midst of it all, Zarf casts the elaborate Glkian Ritual of Unity. Around him, the masses hold each others' hands and add power to his spell. One word is repeated over and over, quietly at first, but soon building to a thunderous roar. Finally, the word can no longer be restrained. It breaks loose and reverberates, filling the room, and then flooding outward in every direction. It is an ancient word, of great power, the oldest of the spells: [quotation mark]Xyzzy[quotation mark].[paragraph break]Banality is banished. The community is saved.[paragraph break][italic type]And thus begins the Third Age of Interactive Fiction.[roman type][paragraph break]Jason Scott waves his hand and a silence falls over the crowd. The lights in the room fade, and you barely catch sight of a metallic glint before you are surrounded by darkness. Surrounded by friends, you have no worry about grues.";
+	change the block stage business flag to true;
+	move the lamp to the Hynes Convention Center.
+	
+The lamp is a prop in the Hynes Convention Center.
+
+Rule for listing nondescript items of the Hynes Convention Center:
+	do nothing.
+
+Instead of dropping something (called the item) in the Hynes Convention Center:
+	let the localverb be "fall";
+	say "[The item] [localverb in correct agreement] into the darkness without a sound.";
+	move the item to Limbo.
+	
+Instead of doing something with something when the location is the Hynes Convention Center:
+	if the current action is examining:
+		say "You can't see a thing.";
+	if the current action is touching:
+		if the noun is the lamp:
+			continue the action;
+		otherwise if the noun is the player:
+			say "Ew.";
+	otherwise if the current action is taking:
+		if the noun is the lamp:
+			say "Taken.[paragraph break]You are transported to a place of brightness and comraderie.";
+			move the player to Room 2305;
+		otherwise:
+			say "You can't find anything in this darkness."
+
+Chapter Room 2305
+
+There is a room called Room 2305. Understand "IF" and "suite" as Room 2305. The description of Room 2305 is "A room full of people who you have known from emails, usenet posts, forum discussions, chats on the IFmud, and of course, through their games. There are pockets of discussion about text adventures played in the past, and interactive fiction to be written in the future. The overall impression is one of warmth and welcomeness."
+
+The desk is furniture in Room 2305. The description of the desk is "A wooden writing desk."
+
+The laptop is a prop. The laptop is on the desk. The description of the laptop is "A plain black laptop, its keys polished smooth with use. On the screen, a text adventure awaits you."
+
+Instead of doing something with the laptop:
+	if the current action is examining: 
+		continue the action;
+	otherwise:
+		change the endgame to won;
+		end the game in victory.
+
+[TODO: From the vortex onward, stage business should be suppressed]
+
+Book 3 Characters
+
+Chapter Player
+
+The player is in the lavatory. The description of the player is "Four-hundred and eighty-six years, and you look like a supermodel[if the player does not wear the flight attendant uniform] (even more so, without your clothes)[end if]. That's partly due to your inherently superior breeding, and partly attributable to the plastic surgery, cybernetic implants and magical enhancements all courtesy of The Republic."
+
+The player wears some high-heeled shoes. The description of the shoes is "Shiny, high-heeled shoes. Part of the TRANSGLOBAL AIRLINES uniform. Your [italic type]least[roman type] favorite part." The shoes are plural-named. The indefinite article of the shoes is "a pair of". Understand "pumps" or "heels" as high-heeled shoes.
+
+Instead of going when the player wears the high-heeled shoes:
+	say "You stumble and lurch, unable to maintain your tip-toed balance on the sloping floor[if a random chance of one in four succeeds]. Your shoes may be fashionable, but are not very functional when it comes to airplane disasters[end if]."
+	
+The player wears a flight attendant uniform. The description of the flight attendant uniform is "A dark blue pants suit, with smart, military-style epaulets, a stripe down each sleeve, and gold embroidery on the cuffs. A pair of silver wings is pinned to your left breast, just below your name tag. The pressed, pleated pants continue the faux-military look. You are surprised that TRANSGLOBAL AIRLINES spent so much time and effort on designing the uniforms and so little effort verifying your identity before handing it over to you." Understand "suit" or "epaulet" or "epaulets" or "sleeve" or "sleeves" or "cuff" or "cuffs" or "pants" as the flight attendant uniform.
+
+The silver wings are part of the flight attendant uniform. The silver wings are plural-named. The description of the silver wings is "A stylized gyre falcon, the trademark of TRANSGLOBAL AIRINES. The wings are sewn to the uniform, so you never have to worry about losing them."
+
+The name tag is part of the flight attendant uniform. The description of the name tag is "A plastic badge engraved with your cover identity." Understand "plastic" and "badge" and "identity" as the name tag. The inscription of the name tag is "It reads: [quotation mark]F. Mignon[quotation mark]."
+
+
+Chapter Sidekick
+
+Chapter Antagonist
+
+Chapter Extras
+[not quite sure what to do with the extras at the moment. Likely, they'll get some behaviour and then be killed in interesting ways. For now, this isn't rigged up to the rest of the story and only serves as a template if we want to do something with extras.]
+
+Table of Passengers
+compartment		seat			appearance					behavior	
+Economy			"44A"			"a mild manner school marm"		"yells"
+Business			"10C"			"a grouchy executive"			"screams"
+First Class		"1A"			"an old man"					"drools"
+
+
+
+Book 4 Tables and Boxed Text
+
+Section Tables
+
+Chapter Menus
+
+Section Hints
+[Note: In thinking about hint activation, remember that the set up of the extension is such that once a hint is deactivated, the activation rule will not reset it. The table row is deleted, so one doesn't need to worry about recurrent activation of a hint. Still, it's good to make the activation rules specific.]
+
+Chapter Default Messages
+
+Section Boxted Text
+
+Book 5 Magic
+
+Chapter Magic Wand
+
+The magic wand is carried by the player. The magic wand is small. The description of the wand is "[one of]Your wand is a mid-19th century Celtic model, passed down to you on your Father's side (who used it to conjure food during the great Irish Potato Famine). It appears to be broken in the disaster, though; you'll have to take a second look.[or]Once capable of casting nearly any class-N spell, the spell-selector dial seems utterly broken. You're unsure what will happen when you USE WAND ON SOMETHING.[stopping]".  Understand "wand" or "spell-selector" or "dial" as the magic wand.
+
+Wanding at is an action applying to one visible thing.  Understand "Use wand on [something]" as wanding at.
+
+Check wanding at:
+	if the player does not carry the wand:
+		say "You don't have the magic wand in hand." instead;
+	if the noun is the wand:
+		say "Your hand tingles as the wand's self-referential recursion dampener sucks the spell back in before it can affect the very wand that cast it." instead;
+	if the noun is the mirror:
+		say "The spell hits the mirror and is reflected back at you!";
+		change the noun to the player.
+
+[The wand basically cycles through all known spells each time it is used -- it initiates one of the spell verbs. The spells are a circular queue.]
+	
+The wand counter is a number that varies.
+	
+Carry out wanding at something (called the target):
+	Say "The wand glows with energy as you flick it... [no line break]";
+	if the remainder after dividing the wand counter by 5 is:
+		-- 0:  [freeze]
+			say "and you quickly recognize the FREEZE spell, which magically holds things fixed in place.[paragraph break]";
+			try freezing the target;
+		-- 1:  [push]
+			say "and you witness the PUSH spell, which sends things to limbo.[paragraph break]";
+			try magic-pushing the target;
+		-- 2:  [summon cod]
+			say "and you realize it's the BALANCE spell, which summons elements to even out a situation.[paragraph break]";
+			try cod-summoning;
+		-- 3:  [knock]
+			say "and you discover it's the JIGGER spell, which un-jams things.[paragraph break]";
+			try unjamming the target;
+		-- 4: [pop]
+			say "and you watch the POP spell surface, which returns things from limbo.[paragraph break]";
+			try magic-popping the target;
+	increase the wand counter by one.
+	
+
+Chapter Spells
+
+Section Doh
+
+Dohing is an action applying to nothing. Understand "use wand on something" or "use the wand on something" as dohing.
+
+Carry out Dohing:
+	say "Gods, you are literal. I suppose that you have been looking for the [quotation mark]Any Key[quotation mark] for years. Don't type [quotation mark]something[quotation mark]; type whatever the heck you want to use the wand on. Seriously."
+
+Section Freeze
+
+The currently-frozen-object is a thing that varies.  The currently-frozen-object is the statuette.
+
+Freezing is an action applying to one thing.
+
+Carry out freezing something (called the target):
+	if the target is the player:
+		say "Luckily, every novice mage learns to repel this effect in first year of academy. The energy dissipates around you.";
+	otherwise:
+		say "A bolt of icy-blue lightning shoots from the wand towards [the target], freezing [pronoun-accusative] instantly.[paragraph break]";
+		if the currently-frozen-object is visible:
+			let localverb be "thaw";
+			say "In response, [the currently-frozen-object] [localverb in correct agreement] out.";
+		now the currently-frozen-object is the target;
+
+Instead of doing something with the currently-frozen-object (this is the frozen-solid rule):
+	if the current action is examining:
+		let localverb be "appear";
+		say "[The currently-frozen-object] [localverb in correct agreement] to be frozen.";
+	otherwise if the current action is smelling or dropping:  [or other verbs...]
+		continue the action;
+	otherwise:
+		let localverb be "appear";
+		say "You can't do that;  [the currently-frozen-object] [localverb in correct agreement] to be frozen, and thus impervious to all interaction.".
+		
+The frozen-solid rule is listed first in the instead rules.
+	
+Section Unfreeze
+
+Unfreezing is an action applying to one thing. Understand "unfreeze [something]" as unfreezing.
+
+Before Unfreezing:
+	say "You wish. Casting an N-type spell without a spellbook or components? Get real.";
+	stop the action.
+
+Section Push-Pop
+
+Magic-pushing is an action applying to one thing.
+
+The players-popped-location is a room that varies.
+
+Check magic-pushing:
+	if the location is Limbo:
+		say "[The noun] blurs momentarily, but otherwise seems unaffected." instead;
+	if the noun is part of something (called the parent):
+		change the noun to the parent.
+
+Carry out magic-pushing:
+	if the noun is a door:
+		let localverb be "flicker";
+		say "[The noun] [localverb in correct agreement] a moment, but seems immune to the spell. You figure it's probably some sort of built-in safeguard.";
+	otherwise:
+		if the noun is the player:
+			say "You feel sick as the world suddenly turns inside-out.";
+			now the players-popped-location is the location;
+		otherwise:
+			let localverb be "blink";
+			say "[The noun] suddenly [localverb in correct agreement] out of existence![paragraph break]";
+		if the noun is the flight attendant uniform:
+			say "The loss of your clothing is of little concern. You have bigger fish to fry. Or at least, lobsters to steam.";
+		move the noun to Limbo;
+		now the limboed-thing is the noun.
+
+Magic-popping is an action applying to one thing.
+
+Carry out magic-popping:
+	if the limboed-thing is in Limbo:
+		if the limboed-thing is the player:
+			say "Your head reels as everything turns outside-in again.";
+			move the player to the players-popped-location;
+		otherwise:
+			let localverb be "appear";
+			say "Out of nowhere, [a limboed-thing] suddenly [localverb in correct agreement] next to [the noun]!";
+			move the limboed-thing to the location;
+	otherwise:
+		say "Nothing happens."
+
+
+Section Cod
+
+The cod is an animal. The description of the cod is "A three-foot long, reddish-brown predatory fish. You guess it weighs at least 25 pounds, and it appears fairly mean and hungry. Crustaceans are its main food[if the introduction is happening]. It is not happy to be out of the water[end if]."
+
+Instead of eating the cod, say "Now is not the time for sashimi. Besides, these guys are endangered."
+
+Instead of taking the cod, say "You're sure it would snap your fingers off if you tried!".
+
+Cod-summoning is an action applying to nothing.
+
+Carry out cod-summoning:
+	if the cod is in the location:
+		say "The cod sparks a bit, but nothing happens.";
+	otherwise:
+		move the cod to the location;
+		say "You hear a strange tingling sound; a large cod fish suddenly materializes."
+		
+[also see section cod rules for per-turn cod behavior]
+
+Section Unjamming
+
+Unjamming is an action applying to one thing.
+
+Carry out unjamming something (called the item):
+	let localverb be "vibrate";
+	if the item is the player:
+		say "Unfortunately, this spell is certainly not enough to get you out of this predicament.";
+	otherwise if the item is not jammed:
+		say "[The item] [localverb in correct agreement] a bit, but nothing else happens.";
+	otherwise:
+		let localverb2 be "come";
+		say "[The item] [localverb in correct agreement] for a moment, and suddenly [localverb2 in correct agreement] unstuck!";
+		now the item is not jammed.
+
+Book 6  Scenes
+ 
+Chapter Introduction
+
+Introduction is a scene. Introduction begins when play begins. The introduction ends when the player is in the Tail section.
+
+
+Chapter Disaster Strikes
+
+Disaster Strikes is a scene. Disaster strikes begins when the introduction ends. Disaster strikes ends when the player is in First Class.
+
+The stakes is a value that varies. The stakes is zero.
+
+When disaster strikes begins:
+	say "The plane slams into the ocean, skipping like a rock, before sinking like one.[paragraph break]The aft section of the plane pitches downward, flipping you sideways. Water jets into the cabin from seams that are not as tight as you had hoped. Moments later, you are ankle-deep in frigid salt water."
+	
+Chapter Breakout
+
+Cockpit-Steve is a truth state that varies. Cockpit-Steve is false.
+[cockpit-steve becomes true when you and Steve enter the cockpit for the first time]
+
+Breakout is a scene. Breakout begins when Disaster Strikes ends. Breakout ends when the player is in the Whirling Vortex.	
+
+When Breakout begins:
+	change the block stage business flag to true;
+	say "As you climb sideways into the First Class cabin, you are not surprised by the sight of its sole occupant: an unusually tall man in flamboyant chartreuse robes. He stands paradoxically upright despite the steep tilt of the deck. With an effortless wave of one hand, he dispels an attacking Arch Grue.[paragraph break]Stunned by the realization that you are mere feet from High Wizard Steve Meretzky (on a carnivorous lobster-infested sinking plane), you are momentarily speechless. When you recover, you stutter, [quotation mark]High Wizard Meretzky, your honor,[quotation mark] your voice slips up an octave, and you hope you don't come across as too much of a fangirl. You make an effort to slow down and appear dignified, [quotation mark]I was sent by the Republic to see that you reach the Summit safely.[quotation mark][paragraph break]Meretzky appears amused, [quotation mark]Yeah? And how's that going?[quotation mark] He deftly flicks his wand and the giant lobster that was sneaking up on you disappears in a puff of smoke. Becoming more serious, he explains, [quotation mark]I'm afraid we're surrounded by an antimagic shield. Not even [italic type]I[roman type] am powerful enough to penetrate it. Our only hope is to get a message out to the Republic... You lead, I'll take up the rear. You can never be too careful with grues and lobsters, you know.[quotation mark][paragraph break]".
+	
+After going when breakout is happening:
+	say "[one of]Meretzky follows you, taking pot shots at lobsters with his wand as he does so. Lobster pot shots[or]You glance behind you. Meretzky follows closely behind you, his wand held at the ready[at random]."
+	
+[TODO add a bunch more of these, above]
+	
+After going when Breakout is happening and the location is the Cockpit:
+	if Cockpit-Steve is false:
+		change Cockpit-Steve to true;
+		say "You burst into the cockpit, and Steve follows close behind you, laying down some magical suppressing fire with his wand. Shards of chitin fly through the air.[paragraph break]You scan the control panel for anything that looks like a radio, but you are just not familiar with mortal technology. Steve sees your confusion and reaches over to a side panel, flipping a switch marked [quotation mark]IF Filter[quotation mark]. There is a burst of static.[paragraph break]The High Wizard points to the panel and says, [quotation mark]It should work now. Press the orange button to transmit. It won't help though,[quotation mark] he remarks with a sigh, [quotation mark]it would take incredible power to penetrate the magical barrier around this plane. I'm sorry to say that beings that powerful have not existed since the Early Times. Not to put a damper on things, but -- we're doomed.[quotation mark] With a hint of resignation, he adds, [quotation mark]well, at least you can say good-bye.[quotation mark][paragraph break]";
+		change the block stage business flag to true;
+		now the button is part of the control panel;
+		
+
+Chapter Denouement
+
+The Denouement is a scene. The Denouement begins when Breakout ends. The Denouement ends when the player is in Room 2305.
+
+	
+Chapter Finale
+
+The Finale is a scene. The Finale begins when the Denouement ends.
+
+Rule for printing the player's obituary:
+	if the endgame is:
+		-- drowned:
+			say "A tidal bore of cold ocean water slams into the cabin like pile driver, smearing you on the opposite wall like a toddler with craypas in a heat wave.";
+		-- lost:
+			say "*** LOST ***";
+		-- won:
+			say "The laptop screen looks odd -- smaller and smaller echoes of itself trailing off into the distance.[paragraph break]The game banner prints. It's odd name (something about lobsters) is typical of hastily written speedIF. Still, it might be worth playing.[paragraph break]You decide to give it the benefit of the doubt and start typing in commmands. Friends gather around you to see what you are doing, making occassional comments as you trip over your high-heels and learn to use your wand.[paragraph break]Congratulations, player. You are home."
