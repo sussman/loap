@@ -274,8 +274,6 @@ times-used		verbage
 0		"escargot forks"
 
 
-
-
 Table of Fake Places
 times-used	verbage
 0		"Truck Stop"
@@ -374,6 +372,12 @@ times-used	verbage
 0		"ignite flammable liquids"
 0		"determine why the ceiling is visible"
 0		"don't mess with stuff that is beyond the ken of science"
+0		"angels on head of pin must not exceed pin head capacity"
+0		"conservation of energy"
+0		"Pauli exclusion principle"
+0		"Heisenburg uncertainty principle for objects other than cats"
+0		"exclude objects that are not conceivable"
+0		"defer resolution of circular logic"
 
 
 Scening is an action applying to nothing.
@@ -1053,20 +1057,13 @@ After going when the location is the Tube and the Tube is unvisited:
 	try looking;
 	say "Don Woods strains to maintain the wormhole through time and space.";
 	change the block stage business flag to true.
-
-Instead of going east from the Tube:
-	say "[go-west]";
 	
-Instead of going east from the Whirling Vortex:
-	say "[go-west]";
+Instead of going east when the Denouement is happening (this is the you can't go back during the denouement rule):
+	if the location is the Hynes Convention Center:
+		say "You can't! The Vortex has evaporated, leaving no trace.";
+	otherwise:
+		say "You can't! The tube is collapsing behind you. The only way to go is West!"
 	
-To say go-west:
-	say "You can't! The tube is collapsing behind you. The only way to go is West!" 
-	
-Instead of going east from the Hynes Convention Center:
-	say "You can't! The Vortex has evaporated, leaving no trace."
-
-
 Chapter Conventional Warfare
 
 [TODO: Room description needs to change (or intially be suppressed) upon emergence from vortex. The vortex should collapse behind.
@@ -1383,7 +1380,6 @@ Chapter Denouement
 
 The Denouement is a scene. The Denouement begins when Breakout ends. The Denouement ends when the player is in Room 2305.
 
-	
 Chapter Finale
 
 The Finale is a scene. The Finale begins when the Denouement ends.
