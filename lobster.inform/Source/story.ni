@@ -88,6 +88,9 @@ Endgame is a conclusion that varies. The endgame is usually won.
 
 Everything can be jammed. Things are usually not jammed.
 
+Everything can be immune. Things are usually not immune.
+[immune items cannot be magic-pushed]
+
 Chapter General Routines
 		
 [borrowed from example I7 documentation, example 424 Odins:]
@@ -274,8 +277,6 @@ times-used		verbage
 0		"escargot forks"
 
 
-
-
 Table of Fake Places
 times-used	verbage
 0		"Truck Stop"
@@ -374,6 +375,13 @@ times-used	verbage
 0		"ignite flammable liquids"
 0		"determine why the ceiling is visible"
 0		"don't mess with stuff that is beyond the ken of science"
+0		"angels on head of pin must not exceed pin head capacity"
+0		"conservation of energy"
+0		"Pauli exclusion principle"
+0		"Heisenburg uncertainty principle for objects other than cats"
+0		"exclude objects that are not conceivable"
+0		"defer resolution of circular logic"
+0		"can't do that thing that you really wanted to do"
 
 
 Scening is an action applying to nothing.
@@ -860,7 +868,7 @@ Instead of inserting something into the hole:
 Instead of inserting something (called the item) into the toilet:
 	try inserting the item into the hole.
 
-The bathroom door is a door. The bathroom door is openable and closed. The bathroom door is west from the lavatory and east from Tail Section. The description of the door is "A folding door, with a small latch." 
+The bathroom door is a door. The bathroom door is openable and closed. The bathroom door is west from the lavatory and east from Tail Section. The description of the door is "A folding door, with a small latch." The bathroom door is immune.
 
 The latch is part of the bathroom door. The latch can be vacant or occupied. The description of the latch is "The latch reads [if the latch is vacant]VACANT[otherwise]OCCUPIED[end if]."
 
@@ -1037,7 +1045,7 @@ Chapter Cockpit
 
 The Cockpit is a room. The cockpit is up from the bulkhead. The description of the cockpit is "A cone-shaped room bristling with those blinking lights and other technical knick-knacks that mortals consider fancy[if the cockpit is unvisited]. You notice immediately that there isn't anyone in cockpit -- no pilot, no copilot, no navigator or engineer. Ironically, you realize that you are the most senior member of the crew, and you're not even a real stewardess[end if][if the button is once-pushed].[paragraph break]To the west, a twirling magical vortex of incredible energy awaits you[end if]."
 
-The bulkhead is a door. The bulkhead is up from Business. The bulkhead is closed and jammed. The description of the bulkhead is "[bulkhead status]." Understand "security" and "heavy" and "door" as the bulkhead. The printed name of the bulkhead is "[if the bulkhead is open]open[otherwise]closed[end if] bulkhead".
+The bulkhead is a door. The bulkhead is up from Business. The bulkhead is closed and jammed. The description of the bulkhead is "[bulkhead status]." Understand "security" and "heavy" and "door" as the bulkhead. The printed name of the bulkhead is "[if the bulkhead is open]open[otherwise]closed[end if] bulkhead". The bulkhead is immune.
 
 To say bulkhead status:
 	say "A security bulkhead that separates the business section from the flight deck. The bulkhead ";
@@ -1065,7 +1073,7 @@ Instead of opening the bulkhead when the bulkhead is jammed:
 
 The yoke is a furniture in the cockpit. The description of the yoke is "A semicircular steering wheel mounted on a stick. You have seen the pilot move it back and forth to steer the direction of the plane."
 
-The control panel is a furniture in the cockpit. The description of the control panel is "A flat U-shaped panel that wraps around the forward section of the aircraft and sports all kinds of controls, dials, switched and other doo-hickeys." Understand "side" as the control panel.
+The control panel is a furniture in the cockpit. The description of the control panel is "A flat U-shaped panel that wraps around the forward section of the aircraft and sports all kinds of controls, dials, switched and other doo-hickeys[if Cockpit-Steve is true]. You also notice the orange button that Steve mentioned[end if]." Understand "side" as the control panel.
 
 There is a button. The description of the button is "A brilliant orange button, shaped like a mushroom. It sticks up above all of the other buttons on the panel and looks important. It is labeled [quotation mark][button-text][quotation mark].[one of][paragraph break]The High Wizard glances at the prominent, well-marked button and chides, [quotation mark]I can see how you missed that one.[quotation mark][or][stopping]". The inscription of the button is "[button-text]". The button can be once-pushed. The button is not once-pushed. Understand "fluorescent" or "brilliant" or "orange" or "transmit" or "mushroom" as the button.
 
@@ -1077,11 +1085,12 @@ Instead of pushing the button:
 		say "The button depresses, but nothing happens.";
 	otherwise:
 		say "There is a crackle, and then a familiar voice answers: it is Kevin Jackson-Mead, First Class Mage of the People's Republic of Interactive Fiction. He reports that the Repubic has locked onto your radio signal and that help is on the way.[paragraph break]Before you can protest the direness of your situation, a whirling vortex of photopian colors forms in the cockpit. For once, High Wizard Meretzky himself is taken by surprise, and stares in amazement as the vortex enlarges to fill the flight deck to your west. He whispers, [quotation mark]That's [italic type]impossible...[roman type][quotation mark] A strong wind whips papers around and the air crackles with electricity.";
-		now the button is once-pushed.
+		now the button is once-pushed;
+		move the twirling magical vortex to the cockpit.
 		
 Chapter Staircase
 
-The staircase is a door. The staircase is north from Business. The description of the staircase is "A twisty, winding staircase connects the upper class deck with the more mundane decks below." The staircase is open. The staircase is south from First Class.
+The staircase is a door. The staircase is north from Business. The description of the staircase is "A twisty, winding staircase connects the upper class deck with the more mundane decks below." The staircase is open. The staircase is south from First Class. The staircase is immune.
 
 Chapter First Class
 
@@ -1121,7 +1130,7 @@ The Whirling Vortex is a room. The Whirling Vortex is west from the cockpit. The
 
 After going when the location is the Whirling Vortex and the Whirling Vortex is unvisited:
 	try looking;
-	say "At the far end of the tunnel a great figure holds the vortex open, his hands held above his head like Moses parting the Red Sea. His salt-and-pepper ponytail flaps behind him in arising maelstrom. You have only heard tell of him in legends, but there is no doubt in your mind that the figure is none other than Don Woods, one of the Fathers of the Genre.[paragraph break]Even with his great power, Woods is struggling to hold the portal open. In each of his mighty fists, he has gathered bundles of ethernet cords, which lead away in every direction. Woods calls upon the power of the Internet itself, tapping into the raw flow of energy from the IFwiki, IFDb, IFMud, and Baf's guide, Brass Lantern, R.A.I.F.  He reaches out through the thousands of works of interactive fiction in the repository, all the way back the original Adventure. He draws on the pleasure and sense of challenge felt by the millions who have ever played a text adventure, and channels it into the whirling vortex. As sweat pours from his brow, he beckons you forward.[paragraph break]".;
+	say "At the far end of the tunnel a great figure holds the vortex open, his hands held above his head like Moses parting the Red Sea. His salt-and-pepper ponytail flaps behind him in arising maelstrom. You have only heard tell of him in legends, but there is no doubt in your mind that the figure is none other than Don Woods, one of the Fathers of the Genre.[paragraph break]Even with his great power, Woods is struggling to hold the portal open. In each of his mighty fists, he has gathered bundles of ethernet cords, which lead away in every direction. Woods calls upon the power of the Internet itself, tapping into the raw flow of energy from the IFwiki, IFDb, IFMud, and Baf's guide, Brass Lantern, and R.A.I.F.  He reaches out through the thousands of works of interactive fiction in the repository, all the way back the original Adventure. He draws on the pleasure and sense of challenge felt by the millions who have ever played a text adventure, and channels it into the whirling vortex. As sweat pours from his brow, he beckons you forward.[paragraph break]".;
 	change the block stage business flag to true.
 
 Instead of going west from the cockpit:
@@ -1129,6 +1138,14 @@ Instead of going west from the cockpit:
 		continue the action;
 	otherwise:
 		say "You can't go that way."
+		
+The twirling magical vortex is an open enterable scenery container. The description of the twirling magical vortex is "The gaping maw of the energy vortex shimmers with energy. It leads into a long tunnel through time and space." Understand "tunnel" or "gaping" or "maw" or "energy" as the twirling magical vortex. The twirling magical vortex is immune.
+
+Instead of entering the twirling magical vortex:
+	try going west.
+	
+Instead of taking the twirling magical vortex:
+	say "Not even vaguely within the realm of possiblity."
 
 Chapter Tube
 
@@ -1138,19 +1155,13 @@ After going when the location is the Tube and the Tube is unvisited:
 	try looking;
 	say "Don Woods strains to maintain the wormhole through time and space.";
 	change the block stage business flag to true.
+	
+Instead of going east when the Denouement is happening (this is the you can't go back during the denouement rule):
+	if the location is the Hynes Convention Center:
+		say "You can't! The Vortex has evaporated, leaving no trace.";
+	otherwise:
+		say "You can't! The tube is collapsing behind you. The only way to go is west!"
 
-Instead of going east from the Tube:
-	say "[go-west]";
-	
-Instead of going east from the Whirling Vortex:
-	say "[go-west]";
-	
-To say go-west:
-	say "You can't! The tube is collapsing behind you. The only way to go is West!" 
-	
-Instead of going east from the Hynes Convention Center:
-	say "You can't! The Vortex has evaporated, leaving no trace."
-	
 
 Chapter Conventional Warfare
 
@@ -1158,26 +1169,35 @@ Chapter Conventional Warfare
 
   TODO: block examining/interacting with stuff aside from the lamp when it is dark.]
 
-The Hynes Convention Center is a room. The Hynes Convention Center is west of the Tube. The description of the Hynes Convention Center is "[theater][no line break]"
+The Hynes Convention Center is a room. The Hynes Convention Center is west of the Tube. The description of the Hynes Convention Center is "[theater]"
 
 To say theater:
 	if the Hynes Convention Center is unvisited:
-		say "[no line break]";
+		say "A large conference room, full of IF Fans and authors.[no line break]";
 	otherwise if the lamp is in the Hynes Convention Center:
-		say "It is pitch dark. The audience eagerly awaits the premier of a documentary, which will chronicle the history of interactive fiction.";
+		say "It is pitch dark. The audience eagerly awaits the premier of a documentary, which will chronicle the history of interactive fiction.[no line break]";
 	otherwise:
-		say "A large room has been reserved for the premier of a documentary about the history of text adventures. The room is packed."
+		say "A large room has been reserved for the premier of a documentary about the history of text adventures. The room is packed.[no line break]"
 
 After going when the location is the Hynes Convention Center and the Hynes Convention Center is unvisited:
-	try looking; 
-	say "As you emerge from the Vortex and step into the Hynes Convention Center, The Forces of Banality attack in unison. High Wizards Lebling, Moriarity and Meretzky reflexively move to equilateral positions around the gathering. The energy flows between them once more, creating a Trinity barrier between the IF community and the hordes of shambling Farmvillains.[paragraph break]Market Forces conspire to bring down the defenses, but David Cornelson casts Textfyre Balls at them, driving them off.[paragraph break]In the midst of it all, Zarf casts the elaborate Glkian Ritual of Unity. Around him, the masses hold each others' hands and add power to his spell. One word is repeated over and over, quietly at first, but soon building to a thunderous roar. Finally, the word can no longer be restrained. It breaks loose and reverberates, filling the room, and then flooding outward in every direction. It is an ancient word, of great power, the oldest of the spells: [quotation mark]Xyzzy[quotation mark].[paragraph break]Banality is banished. The community is saved.[paragraph break][italic type]And thus begins the Third Age of Interactive Fiction.[roman type][paragraph break]Jason Scott waves his hand and a silence falls over the crowd. The lights in the room fade, and you barely catch sight of a metallic glint before you are surrounded by darkness. Surrounded by friends, you have no worry about grues.";
+	try looking;
+	say "As you emerge from the Vortex and step into the Hynes Convention Center, The Forces of Banality attack in unison. High Wizards Lebling, Moriarity and Meretzky reflexively move to equilateral positions around the gathering. The energy flows between them once more, creating a Trinity barrier between the IF community and the hordes of shambling Farmvillains.[paragraph break]Market Forces conspire to bring down the defenses, but David Cornelson casts Textfyre Balls at them, driving them off.[paragraph break]In the midst of it all, Zarf casts the elaborate Glkian Ritual of Unity (a ritual that, truth be told, no one else understands quite so well). Around him, people in the crowd hold each others[apostrophe] hands, contributing power to his spell. One word is repeated over and over, quietly at first, but soon building to a thunderous roar. Finally, the word can no longer be restrained. It breaks loose and reverberates, filling the room, and then flooding outward in every direction. It is an ancient word, of great power, the oldest of the spells: [quotation mark]xyzzy![quotation mark][paragraph break]Banality is banished. The community is saved.[paragraph break][italic type]And thus begins the Third Age of Interactive Fiction.[roman type][paragraph break]Jason Scott, dressed in fine Victorian regalia, waves his hand and a silence falls over the crowd. The lights in the room fade, and you barely catch sight of a metallic glint before you are enveloped by darkness. Surrounded by friends, you have no worry about grues.";
 	change the block stage business flag to true;
-	move the lamp to the Hynes Convention Center.
+	move the lamp to the Hynes Convention Center;
+	the lamp shines in three turns from now.	
+
+At the time when the lamp shines:
+	if the location is the Hynes Convention Center:
+		say "From somewhere near the back of the room, an old film projector stutters to life, and film slowly threads it way through the gears. Gradually, the image of an antique brass lamp forms in front of you.";
+		now the lamp is projected.
 	
-The lamp is a prop in the Hynes Convention Center.
+The lamp is a prop. The description of the lamp is "A shiny brass lamp, which emits a dim light." The lamp can be projected. The lamp is not projected.
 
 Rule for listing nondescript items of the Hynes Convention Center:
-	do nothing.
+	if the lamp is projected:
+		say "You see nothing here but an antique brass lamp.";
+	otherwise:
+		do nothing.
 
 Instead of dropping something (called the item) in the Hynes Convention Center:
 	let the localverb be "fall";
@@ -1275,6 +1295,8 @@ Check wanding at:
 		say "You don't have the magic wand in hand." instead;
 	if the noun is the wand:
 		say "Your hand tingles as the wand's self-referential recursion dampener sucks the spell back in before it can affect the very wand that cast it." instead;
+	if the denouement is happening or the finale is happening:
+		say "Your wand seems drained of energy. It's been a long day." instead;
 	if the noun is the mirror:
 		say "The spell hits the mirror and is reflected back at you!";
 		change the noun to the player.
@@ -1367,7 +1389,7 @@ Check magic-pushing:
 		change the noun to the parent.
 
 Carry out magic-pushing:
-	if the noun is a door:
+	if the noun is immune:
 		let localverb be "flicker";
 		say "[The noun] [localverb in correct agreement] a moment, but seems immune to the spell. You figure it's probably some sort of built-in safeguard.";
 	otherwise:
@@ -1458,7 +1480,7 @@ Breakout is a scene. Breakout begins when Disaster Strikes ends. Breakout ends w
 
 When Breakout begins:
 	change the block stage business flag to true;
-	say "As you climb sideways into the First Class cabin, you are not surprised by the sight of its sole occupant: an unusually tall man in flamboyant chartreuse robes. He stands paradoxically upright despite the steep tilt of the deck. With an effortless wave of one hand, he dispels an attacking Arch Grue.[paragraph break]Stunned by the realization that you are mere feet from High Wizard Steve Meretzky (on a carnivorous lobster-infested sinking plane), you are momentarily speechless. When you recover, you stutter, [quotation mark]High Wizard Meretzky, your honor,[quotation mark] your voice slips up an octave, and you hope you don't come across as too much of a fangirl. You make an effort to slow down and appear dignified, [quotation mark]I was sent by the Republic to see that you reach the Summit safely.[quotation mark][paragraph break]Meretzky appears amused, [quotation mark]Yeah? And how's that going?[quotation mark] He deftly flicks his wand and the giant lobster that was sneaking up on you disappears in a puff of smoke. Becoming more serious, he explains, [quotation mark]I'm afraid we're surrounded by an antimagic shield. Not even [italic type]I[roman type] am powerful enough to penetrate it. Our only hope is to get a message out to the Republic... You lead, I'll take up the rear. You can never be too careful with grues and lobsters, you know.[quotation mark][paragraph break]".
+	say "As you climb sideways into the First Class cabin, you are not surprised by the sight of its sole occupant: an unusually tall man in flamboyant chartreuse robes. He stands paradoxically upright despite the steep tilt of the deck. With an effortless wave of one hand, he dispels an attacking Arch Grue.[paragraph break]Stunned by the realization that you are mere feet from High Wizard Steve Meretzky (on a carnivorous lobster-infested sinking plane), you are momentarily speechless. When you recover, you stutter, [quotation mark]High Wizard Meretzky, your honor,[quotation mark] your voice slips up an octave, and you hope you don't come across as too much of a fangirl. You make an effort to slow down and appear dignified, [quotation mark]I was sent by the Republic to see that you reach the Summit safely.[quotation mark][paragraph break]Meretzky appears amused, [quotation mark]Yeah? And how's that going?[quotation mark] He deftly flicks his wand and the giant lobster that was sneaking up on you disappears in a puff of smoke. Becoming more serious, he explains, [quotation mark]I'm afraid we're surrounded by an antimagic shell. Not even [italic type]I[roman type] am powerful enough to penetrate it. Our only hope is to get a message out to the Republic... You lead, I'll take up the rear. You can never be too careful with grues and lobsters, you know.[quotation mark][paragraph break]".
 	
 After going when breakout is happening:
 	say "[one of]Meretzky follows you, taking pot shots at lobsters with his wand as he does so. Lobster pot shots[or]You glance behind you. Meretzky follows closely behind you, his wand held at the ready[at random]."
@@ -1471,13 +1493,18 @@ After going when Breakout is happening and the location is the Cockpit:
 		say "You burst into the cockpit, and Steve follows close behind you, laying down some magical suppressing fire with his wand. Shards of chitin fly through the air.[paragraph break]You scan the control panel for anything that looks like a radio, but you are just not familiar with mortal technology. Steve sees your confusion and reaches over to a side panel, flipping a switch marked [quotation mark]IF Filter[quotation mark]. There is a burst of static.[paragraph break]The High Wizard points to the panel and says, [quotation mark]It should work now. Press the orange button to transmit. It won't help though,[quotation mark] he remarks with a sigh, [quotation mark]it would take incredible power to penetrate the magical barrier around this plane. I'm sorry to say that beings that powerful have not existed since the Early Times. Not to put a damper on things, but -- we're doomed.[quotation mark] With a hint of resignation, he adds, [quotation mark]well, at least you can say good-bye.[quotation mark][paragraph break]";
 		change the block stage business flag to true;
 		now the button is part of the control panel;
+	otherwise:
+		say "Steve looks suggestively at the ";
+		if the button is once-pushed:
+			say "vortex.";
+		otherwise:
+			say "orange button."
 		
 
 Chapter Denouement
 
 The Denouement is a scene. The Denouement begins when Breakout ends. The Denouement ends when the player is in Room 2305.
 
-	
 Chapter Finale
 
 The Finale is a scene. The Finale begins when the Denouement ends.
