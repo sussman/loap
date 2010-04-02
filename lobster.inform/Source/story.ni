@@ -620,7 +620,7 @@ Understand "freeze [something visible]" as freezing.
 
 Understand "mpush [something visible]" as magic-pushing.
 
-Understand "mpop [something visible]" as magic-popping.
+Understand "mpop" as magic-popping.
 
 Understand "mcod" as cod-summoning.
 
@@ -772,7 +772,6 @@ times-used		verbage
 0		"Salt water rolls down your cheek and into your mouth"
 0		"How did the Forces of Banality located this plane so quickly?  This is way above your pay grade"
 0		"Time is running out.  You can hear them splashing closer"
-0		"You grumble to yourself.  Perhaps this whole lobster stunt is karmic revenge for last Friday's surf-and-turf dinner"
 0		"They say a man can bleed to death in three minutes, if sliced on the leg just so.  Let's not verify this"
 0		"Snap, crackle, pop!  The big ones are molting.  And advancing"
 0		"A lobster scuttles towards your foot, but you quickly punt it back"
@@ -784,7 +783,14 @@ The fish rules is a rulebook.
 The fish swims off rule is listed first in the fish rules.
 
 This is the fish swims off rule:
-	do nothing.
+	if the cod is in the Galley:
+		say "The cod, having no water to swim in, gasps for breath and flops around on the floor.  Before you can help it, it expires and fizzles into smoke.";
+		move the cod to Limbo;
+	if the cod is in Business and the lobster mob is not dead:
+		say "HUGE BATTLE!";
+		now the lobster mob is dead;
+		say "The cod, having rebalanced the karmic forces of the universe, happily blinks out of existence.";
+		move the cod to Limbo2.
 	
 The fish antics rule is listed after the fish swims off rule in the fish rules.
 
@@ -796,7 +802,7 @@ This is the fish antics rule:
 		otherwise if introduction is happening:
 			say "The cod [one of]flails on the floor, gasping for breath[or]looks at you curiously[or]struggles on the ground[or]does not approve of being out of water[or]lies on the ground[or]flaps back and forth on the floor[or]waits patiently for his chance to act[or]grins at you knowingly[at random].";
 		otherwise:
-			say "The cod swims around."
+			say "The rather large cod swims around, looking for food."
 
 Book 2 Places
 
@@ -955,6 +961,9 @@ Instead of going up when the player is in Economy:
 Instead of taking the spiny lobster:
 	say "Do you have some sort of deathwish?"
 	
+Instead of eating the spiny lobster:
+	say "Actually, you're somewhat allergic to shellfish."
+	
 Instead of freezing or magic-pushing the spiny lobster:
 	say "Alas, this one is too big;  you recognize an antimagic aura glowing around it."
 
@@ -973,7 +982,7 @@ Instead of asking the schoolmarm about something:
 
 Chapter Galley
 
-The Galley is a room. The description of the Galley is "A stainless steel compartment between the self-absorbed slobs in business class up ahead and the unwashed masses and screaming babies in economy down below." The Galley is down from the Business.
+The Galley is a room. The description of the Galley is "A stainless steel compartment between the self-absorbed slobs in business class up ahead and the unwashed masses and screaming babies in economy down below.  Interestingly, whereas other parts of the plane are sloshing in a foot of water, this area remains totally dry." The Galley is down from the Business.
 
 The counter is a furniture in the Galley. The description of the counter is "A brushed aluminum counter where you have prepared countless plasticky meals for unwitting passengers."
 
@@ -983,7 +992,35 @@ The sticker is part of the microwave. The description of the sticker is "A pictu
 
 Chapter Business
 
-The Business is a room. The description of Business is "Rows of seats that are spaced the way economy seats used to be spaced about five years ago. It is enough to make the gullible mortals feel superior to those in economy, while still stripping them subtly of their humanity. It is your favorite section of the plane.[paragraph break]Northward, a narrow, staircase spirals toward to the first class section. Just above the business is the bulkhead that leads to the cockpit." The Business is down from the bulkhead.
+The Business is a room. The description of Business is "Rows of seats that are spaced the way economy seats used to be spaced about five years ago. It is enough to make the gullible mortals feel superior to those in economy, while still stripping them subtly of their humanity. It is your favorite section of the plane.[paragraph break]Northward, a narrow, staircase spirals toward to the first class section. Just above the business is the bulkhead that leads to the cockpit.[if unvisited][paragraph break]And clearly the vast mass of hungry lobsters have decided to make a final stand against you here.   They stop their flesh-feeding, teem and swarm, then all spin around to face you.  They take up battle positions along the central aisle.  You have no idea how you're going to get past the lobster mob." The Business is down from the bulkhead.
+
+The lobster mob is an animal in Business.  "[if the mob is dead]Remains of many dead lobsters are strewn about.[otherwise]The lobster mob pulsates and wiggles threateningly at you, claws at the ready.[end if]".   Understand "mob" and "lobsters" as the lobster mob.  The description of the lobster mob is "A heinous conglomeration of angry arthropods[if the mob is dead] scattered in death and ruin[otherwise], ready to defend their territory.  And possibly devour your leg in the process[end if].".  The mob can be dead.  The mob is not dead.
+
+Instead of going up from Business:
+	if the lobster mob is not dead:
+		say "[one of]With the lobster mob there?  Are you kidding?[or]Not with the crusteacean army there, you won't.[or]You need some serious help getting past those lobsters first.[stopping]";
+	otherwise:
+		say "You carefully step over the eviscerated remains of the angry lobster mob...";
+		continue the action.
+		
+[TODO:  remove this redundant code below!]
+Instead of going north from Business:
+	if the lobster mob is not dead:
+		say "[one of]With the lobster mob there?  Are you kidding?[or]Not with the crusteacean army there, you won't.[or]You need some serious help getting past those lobsters first.[stopping]";
+	otherwise:
+		say "You carefully step over the eviscerated remains of the angry lobster mob...";
+		continue the action.
+
+Instead of taking the mob:
+	if the mob is dead:
+		say "With what, your dumptruck?  Get real.";
+	otherwise:
+		say "I think they'd prefer to tear you to shreds first."
+		
+Instead of eating the mob:
+	say "Actually, you're somewhat allergic to shellfish."
+	
+
 
 Chapter Cockpit
 
@@ -1252,7 +1289,7 @@ Carry out wanding at something (called the target):
 			try unjamming the target;
 		-- 4: [pop]
 			say "and you watch the POP spell surface, which returns things from limbo.[paragraph break]";
-			try magic-popping the target;
+			try magic-popping;
 	increase the wand counter by one.
 	
 
@@ -1329,7 +1366,7 @@ Carry out magic-pushing:
 		move the noun to Limbo;
 		now the limboed-thing is the noun.
 
-Magic-popping is an action applying to one thing.
+Magic-popping is an action applying to nothing.
 
 Carry out magic-popping:
 	if the limboed-thing is in Limbo:
@@ -1338,7 +1375,7 @@ Carry out magic-popping:
 			move the player to the players-popped-location;
 		otherwise:
 			let localverb be "appear";
-			say "Out of nowhere, [a limboed-thing] suddenly [localverb in correct agreement] next to [the noun]!";
+			say "Out of nowhere, [a limboed-thing] suddenly [localverb in correct agreement]!";
 			move the limboed-thing to the location;
 	otherwise:
 		say "Nothing happens."
@@ -1357,6 +1394,8 @@ Cod-summoning is an action applying to nothing.
 Carry out cod-summoning:
 	if the cod is in the location:
 		say "The cod sparks a bit, but nothing happens.";
+	if the location is Business:
+		say "You attempt to summon a creature, but the sheer quantity of radiant animal magic overpowers your wand.  There will be no summoning in Business class today.";
 	otherwise:
 		move the cod to the location;
 		say "You hear a strange tingling sound; a large cod fish suddenly materializes."
