@@ -770,11 +770,12 @@ times-used		verbage
 0		"The hull creaks and groans from stress.  You wonder how much time you have"
 0		"A wave of nausea hits you;  the smell of human blood and melted butter"
 0		"Salt water rolls down your cheek and into your mouth"
-0		"How did the Forces of Banality located this plane so quickly?  This is way above your pay grade"
+0		"You mumble to yourself.  How did the Forces of Banality located this plane so quickly?  This is definitely above your pay grade"
 0		"Time is running out.  You can hear them splashing closer"
-0		"They say a man can bleed to death in three minutes, if sliced on the leg just so.  Let's not verify this"
+0		"They say a man can bleed to death in three minutes if sliced on the leg just so.  Let's not verify this"
 0		"Snap, crackle, pop!  The big ones are molting.  And advancing"
 0		"A lobster scuttles towards your foot, but you quickly punt it back"
+0		"Seriously. When this ordeal is over, you're definitely going to put in for that pay raise."
 
 Section Fish Rules
 
@@ -980,6 +981,11 @@ Instead of asking the schoolmarm about something:
 	say "She stares at you hopelessly, attempting to form words on her near-lifeless lips.  There's not much you can do to help her at this point."
 
 
+Instead of going up from Economy when the lobster is in the location:
+	say "[one of]You're stopped in your tracks by the pitiful moans of the schoolmarm being eaten alive.[or]Your morals won't let you, you've got to save that pathetic woman first![stopping]".
+
+
+
 Chapter Galley
 
 The Galley is a room. The description of the Galley is "A stainless steel compartment between the self-absorbed slobs in business class up ahead and the unwashed masses and screaming babies in economy down below.  Interestingly, whereas other parts of the plane are sloshing in a foot of water, this area remains totally dry." The Galley is down from the Business.
@@ -992,7 +998,7 @@ The sticker is part of the microwave. The description of the sticker is "A pictu
 
 Chapter Business
 
-The Business is a room. The description of Business is "Rows of seats that are spaced the way economy seats used to be spaced about five years ago. It is enough to make the gullible mortals feel superior to those in economy, while still stripping them subtly of their humanity. It is your favorite section of the plane.[paragraph break]Northward, a narrow, staircase spirals toward to the first class section. Just above the business is the bulkhead that leads to the cockpit.[if unvisited][paragraph break]And clearly the vast mass of hungry lobsters have decided to make a final stand against you here.   They stop their flesh-feeding, teem and swarm, then all spin around to face you.  They take up battle positions along the central aisle.  You have no idea how you're going to get past the lobster mob." The Business is down from the bulkhead.
+The Business is a room. The description of Business is "Rows of seats that are spaced the way economy seats used to be spaced about five years ago. It is enough to make the gullible mortals feel superior to those in economy, while still stripping them subtly of their humanity. It is your favorite section of the plane.[paragraph break]Northward, a narrow, staircase spirals toward to the first class section. Just above the business class is the bulkhead that leads to the cockpit.[if unvisited][paragraph break]And clearly the vast mass of hungry lobsters have decided to make a final stand against you here.   They stop their flesh-feeding, teem and swarm, then all spin around to face you.  They take up battle positions along the central aisle.  You have no idea how you're going to get past the lobster mob." The Business is down from the bulkhead.
 
 The lobster mob is an animal in Business.  "[if the mob is dead]Remains of many dead lobsters are strewn about.[otherwise]The lobster mob pulsates and wiggles threateningly at you, claws at the ready.[end if]".   Understand "mob" and "lobsters" as the lobster mob.  The description of the lobster mob is "A heinous conglomeration of angry arthropods[if the mob is dead] scattered in death and ruin[otherwise], ready to defend their territory.  And possibly devour your leg in the process[end if].".  The mob can be dead.  The mob is not dead.
 
@@ -1011,6 +1017,9 @@ Instead of going north from Business:
 		say "You carefully step over the eviscerated remains of the angry lobster mob...";
 		continue the action.
 
+Instead of attacking the mob:
+	say "[one of]You and what army?[or]With what, your good looks and charm?[or]You need a friend to help, I think.  Perhaps your enemy's enemy.[stopping]".
+
 Instead of taking the mob:
 	if the mob is dead:
 		say "With what, your dumptruck?  Get real.";
@@ -1020,6 +1029,8 @@ Instead of taking the mob:
 Instead of eating the mob:
 	say "Actually, you're somewhat allergic to shellfish."
 	
+Instead of magic-pushing the mob:
+	say "Your wand fizzles as you try to blink them away.  They're way too powerful for that trick, it seems."
 
 
 Chapter Cockpit
@@ -1311,6 +1322,11 @@ Freezing is an action applying to one thing.
 Carry out freezing something (called the target):
 	if the target is the player:
 		say "Luckily, every novice mage learns to repel this effect in first year of academy. The energy dissipates around you.";
+	if the target is the lobster mob:
+		say "There are just too many of them;  the freeze-spell can't handle them all and fizzles out.";
+	if the target is the spiny lobster:
+		say "The magic bolt deflects off the spiny lobster's tail and onto the poor woman instead!";
+		try freezing the schoolmarm;
 	otherwise:
 		say "A bolt of icy-blue lightning shoots from the wand towards [the target], freezing [pronoun-accusative] instantly.[paragraph break]";
 		if the currently-frozen-object is visible:
