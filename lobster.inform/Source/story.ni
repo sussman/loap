@@ -379,7 +379,36 @@ times-used	verbage
 Scening is an action applying to nothing.
 
 Carry out scening:
-	say "todo".
+	say "Scene [apostrophe]Entire Game[apostrophe] playing (for [turn count] mins now)[line break]";
+	repeat with N running from 1 to a random number between 2 and 4:
+		say "Scene [apostrophe]";
+		pick a phrase from the Table of Scenic Items;
+		say "[apostrophe] playing (for [a random number from 1 to turn count] mins now)[line break]";
+		
+
+Table of Scenic Items
+times-used		verbage
+0					"Mrs. Harper meets the spider queen"
+0					"Into the frying pan"
+0					"Player death scene"
+0					"Monkey is my uncle"
+0					"Undersea kingdom"
+0					"Invasion of the zombie surf dudes"
+0					"Mandlebrot"
+0					"Reinitialize"
+0					"Alternate ending"
+0					"Bridging dialogue"
+0					"Something interesting"
+0					"Filler"
+0					"I wrote this at midnight"
+0					"Escapades in g-minor"
+0					"Always a woman to me"
+0					"Thirty ways to die"
+0					"Molybdenum is not edible"
+0					"Passionate Nymph Intro"
+0					"Gone Fishing"
+0					"Up the creek"
+	
 
 After reading a command when the debug mode is false:
 	let T be indexed text;
@@ -428,6 +457,7 @@ Instead of listening:
 Table of Ambient Noise
 times-used		verbage
 0			"You hear yourself breathing"
+0			"In the distace you hear singing"
 
 Section Looking Under
 
@@ -1061,11 +1091,18 @@ Instead of dropping something (called the item) in the Hynes Convention Center:
 
 Chapter Room 2305
 
-There is a room called Room 2305. Understand "IF" and "suite" as Room 2305. The description of Room 2305 is "TODO: Room Description".
+There is a room called Room 2305. Understand "IF" and "suite" as Room 2305. The description of Room 2305 is "A room full of people who you have known from emails, usenet posts, forum discussions, chats on the IFmud, and of course, through their games. There are pockets of discussion about text adventures played in the past, and interactive fiction to be written in the future. The overall impression is one of warmth and welcomeness."
 
-The laptop is a prop in Room 2305.
+The desk is furniture in Room 2305. The description of the desk is "A wooden writing desk."
 
-[TODO: Finish the final room description and mechanics. When the player interacts with the laptop, it ends the game in victory...]
+The laptop is a prop. The laptop is on the desk. The description of the laptop is "A plain black laptop, its keys polished smooth with use. On the screen, a text adventure awaits you."
+
+Instead of doing something with the laptop:
+	if the current action is examining: 
+		continue the action;
+	otherwise:
+		change the endgame to won;
+		end the game in victory.
 
 [TODO: From the vortex onward, stage business should be suppressed]
 
@@ -1239,7 +1276,7 @@ Carry out magic-popping:
 			say "Out of nowhere, [a limboed-thing] suddenly [localverb in correct agreement] next to [the noun]!";
 			move the limboed-thing to the location;
 	otherwise:
-		say "Nothing happens.".
+		say "Nothing happens."
 
 
 Section Cod
@@ -1328,9 +1365,4 @@ Rule for printing the player's obituary:
 		-- lost:
 			say "*** LOST ***";
 		-- won:
-			say "*** WON ***".
-						
-Rule for amusing a victorious player:
-say "Amusing stuff".
-
-
+			say "The laptop screen looks odd -- smaller and smaller echoes of itself trailing off into the distance.[paragraph break]The game banner prints. It's odd name is typical of hastily written speedIF. Still, it might be worth playing: [quotation mark]Lobsters On A Plane[quotation mark]. You decide to give it the benefit of the doubt and start typing in commmands. Friends gather around you to see what you are doing, making occassional comments as you trip over your high-heels and learn to use your wand.[paragraph break]Congratulations, player. You are home."
