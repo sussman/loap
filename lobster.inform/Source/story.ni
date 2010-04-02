@@ -88,6 +88,9 @@ Endgame is a conclusion that varies. The endgame is usually won.
 
 Everything can be jammed. Things are usually not jammed.
 
+Everything can be immune. Things are usually not immune.
+[immune items cannot be magic-pushed]
+
 Chapter General Routines
 		
 [borrowed from example I7 documentation, example 424 Odins:]
@@ -858,7 +861,7 @@ Instead of inserting something into the hole:
 Instead of inserting something (called the item) into the toilet:
 	try inserting the item into the hole.
 
-The bathroom door is a door. The bathroom door is openable and closed. The bathroom door is west from the lavatory and east from Tail Section. The description of the door is "A folding door, with a small latch." 
+The bathroom door is a door. The bathroom door is openable and closed. The bathroom door is west from the lavatory and east from Tail Section. The description of the door is "A folding door, with a small latch." The bathroom door is immune.
 
 The latch is part of the bathroom door. The latch can be vacant or occupied. The description of the latch is "The latch reads [if the latch is vacant]VACANT[otherwise]OCCUPIED[end if]."
 
@@ -959,7 +962,7 @@ Chapter Cockpit
 
 The Cockpit is a room. The cockpit is up from the bulkhead. The description of the cockpit is "A cone-shaped room bristling with those blinking lights and other technical knick-knacks that mortals consider fancy[if the cockpit is unvisited]. You notice immediately that there isn't anyone in cockpit -- no pilot, no copilot, no navigator or engineer. Ironically, you realize that you are the most senior member of the crew, and you're not even a real stewardess[end if][if the button is once-pushed].[paragraph break]To the west, a twirling magical vortex of incredible energy awaits you[end if]."
 
-The bulkhead is a door. The bulkhead is up from Business. The bulkhead is closed and jammed. The description of the bulkhead is "[bulkhead status]." Understand "security" and "heavy" and "door" as the bulkhead. The printed name of the bulkhead is "[if the bulkhead is open]open[otherwise]closed[end if] bulkhead".
+The bulkhead is a door. The bulkhead is up from Business. The bulkhead is closed and jammed. The description of the bulkhead is "[bulkhead status]." Understand "security" and "heavy" and "door" as the bulkhead. The printed name of the bulkhead is "[if the bulkhead is open]open[otherwise]closed[end if] bulkhead". The bulkhead is immune.
 
 To say bulkhead status:
 	say "A security bulkhead that separates the business section from the flight deck. The bulkhead ";
@@ -1004,7 +1007,7 @@ Instead of pushing the button:
 		
 Chapter Staircase
 
-The staircase is a door. The staircase is north from Business. The description of the staircase is "A twisty, winding staircase connects the upper class deck with the more mundane decks below." The staircase is open. The staircase is south from First Class.
+The staircase is a door. The staircase is north from Business. The description of the staircase is "A twisty, winding staircase connects the upper class deck with the more mundane decks below." The staircase is open. The staircase is south from First Class. The staircase is immune.
 
 Chapter First Class
 
@@ -1042,7 +1045,7 @@ The Whirling Vortex is a room. The Whirling Vortex is west from the cockpit. The
 
 After going when the location is the Whirling Vortex and the Whirling Vortex is unvisited:
 	try looking;
-	say "At the far end of the tunnel a great figure holds the vortex open, his hands held above his head like Moses parting the Red Sea. His salt-and-pepper ponytail flaps behind him in arising maelstrom. You have only heard tell of him in legends, but there is no doubt in your mind that the figure is none other than Don Woods, one of the Fathers of the Genre.[paragraph break]Even with his great power, Woods is struggling to hold the portal open. In each of his mighty fists, he has gathered bundles of ethernet cords, which lead away in every direction. Woods calls upon the power of the Internet itself, tapping into the raw flow of energy from the IFwiki, IFDb, IFMud, and Baf's guide, Brass Lantern, R.A.I.F.  He reaches out through the thousands of works of interactive fiction in the repository, all the way back the original Adventure. He draws on the pleasure and sense of challenge felt by the millions who have ever played a text adventure, and channels it into the whirling vortex. As sweat pours from his brow, he beckons you forward.[paragraph break]".;
+	say "At the far end of the tunnel a great figure holds the vortex open, his hands held above his head like Moses parting the Red Sea. His salt-and-pepper ponytail flaps behind him in arising maelstrom. You have only heard tell of him in legends, but there is no doubt in your mind that the figure is none other than Don Woods, one of the Fathers of the Genre.[paragraph break]Even with his great power, Woods is struggling to hold the portal open. In each of his mighty fists, he has gathered bundles of ethernet cords, which lead away in every direction. Woods calls upon the power of the Internet itself, tapping into the raw flow of energy from the IFwiki, IFDb, IFMud, and Baf's guide, Brass Lantern, and R.A.I.F.  He reaches out through the thousands of works of interactive fiction in the repository, all the way back the original Adventure. He draws on the pleasure and sense of challenge felt by the millions who have ever played a text adventure, and channels it into the whirling vortex. As sweat pours from his brow, he beckons you forward.[paragraph break]".;
 	change the block stage business flag to true.
 
 Instead of going west from the cockpit:
@@ -1051,7 +1054,7 @@ Instead of going west from the cockpit:
 	otherwise:
 		say "You can't go that way."
 		
-The twirling magical vortex is an open enterable scenery container. The description of the twirling magical vortex is "The gaping maw of the energy vortex shimmers with energy. It leads into a long tunnel through time and space." Understand "tunnel" or "gaping" or "maw" or "energy" as the twirling magical vortex.
+The twirling magical vortex is an open enterable scenery container. The description of the twirling magical vortex is "The gaping maw of the energy vortex shimmers with energy. It leads into a long tunnel through time and space." Understand "tunnel" or "gaping" or "maw" or "energy" as the twirling magical vortex. The twirling magical vortex is immune.
 
 Instead of entering the twirling magical vortex:
 	try going west.
@@ -1292,7 +1295,7 @@ Check magic-pushing:
 		change the noun to the parent.
 
 Carry out magic-pushing:
-	if the noun is a door:
+	if the noun is immune:
 		let localverb be "flicker";
 		say "[The noun] [localverb in correct agreement] a moment, but seems immune to the spell. You figure it's probably some sort of built-in safeguard.";
 	otherwise:
