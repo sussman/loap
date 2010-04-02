@@ -923,17 +923,52 @@ After magic-pushing the emergency escape hatch:
 
 Chapter Economy 
 
-Economy is a room. The description of Economy is "Row after row of tightly packed seats, with minimal padding, sharp corners, and ratty seat belts[one of]. Back in the day, these seats would have come with heavy oars and leg irons. Well, nostalgia will have to wait. You have a plane full of lobsters to deal with, and a High Wizard to find[or][stopping]." Economy is down from the Galley.
+Economy is a room. The description of Economy is "Row after row of tightly packed seats, with minimal padding, sharp corners, and ratty seat belts[one of]. Back in the day, these seats would have come with heavy oars and leg irons. Well, nostalgia will have to wait. You have a plane full of lobsters to deal with, and a High Wizard to find[or][stopping].   A movie screen swings above one seat;  an overhead compartment lurks overhead.  Various half-eaten corpses of economy passengers lay strewn about, with crustaceans crawling over many of them.".  Economy is down from the Galley.
+
+The corpses are scenery in Economy.  The description of the corpses is "Hey, this is a PG-13 game, buddy."   
+Instead of doing anything with the corpses:
+	if the current action is examining:
+		continue the action;
+	otherwise:
+		say "Gross. You have a mission, remember?"
 
 The movie screen is a furniture in the Economy. The description of the movie screen is "A dirty gray panel mounted on the dirtier and grayer panels of the economy section. Movies are shown here to take people's minds off how very unpleasant it is to fly economy."
 
+The schoolmarm is a woman in Economy.  "Over in seat 31A, a schoolmarm-ish woman [if the spiny lobster is in the location]is attemping to scream in agony, but [end if]is too exhausted to make a sound.".  Understand "woman" as the schoolmarm.  The description of the schoolmarm is "Covered in blood and seawater, her eyes are shell-shocked.  She's barely alive.".
+
+The spiny lobster is an animal in Economy.  "A three-foot long spiny lobster [if the schoolmarm is in the location]gnaws on the schoolmarm's shoulder with wild abandon[otherwise] clicks at you menacingly with huge claws[end if]."  Understand "spiny" as the spiny lobster.
+
 The cart is a supporter in Economy. The cart is jammed. The description of the cart is "A food cart, meant to be pushed Sisyphus-fashion up and down the aisles of this plane until your penance is complete.[if the cart is jammed] It appears to be tilted and solldly wedged against the seats, unmoving.[end if]"  
+
+The overhead compartment is scenery in the Economy.  The overhead compartment is an openable container.  The overhead compartment is closed.  Understand "compartment" and "rack" as the overhead compartment.  The overhead compartment contains a banjo.   The banjo can be broken.  The banjo is not broken. The description of the banjo is "A Stelling Red Fox model, circa 2006.  [if the banjo is broken]It lies in shattered pieces.[otherwise]It glows with bluegrass goodness.[end if] You wonder which unfortunate bloke it belonged to." 
+
+Instead of taking the banjo when the banjo is broken:
+	say "It's fragmented into too many pieces to pick up.".
+
 
 Instead of going up when the player is in Economy:
 	if the cart is in Economy and the cart is jammed:
 		say "The cart is wedged across the aisle, blocking your path. You can't get around it, nor will it budge.";
 	otherwise:
 		continue the action.
+
+Instead of taking the spiny lobster:
+	say "Do you have some sort of deathwish?"
+	
+Instead of freezing or magic-pushing the spiny lobster:
+	say "Alas, this one is too big;  you recognize an antimagic aura glowing around it."
+
+Instead of attacking the spiny lobster:
+	if the player carries the banjo:
+		say "You invoke the mighty power of Earl Scruggs, and rein the instrument down upon the creature with full 5-string fury!  Its exoskeleton crunches mightily, reverberating through the exquistitely crafted walnut-and-chrome resonator.  The banjo is now in pieces, but so is the spiny lobster.  The lobster vaporizes into a magical haze.";
+		move the lobster to Limbo2;
+		now the banjo is broken;
+		move the banjo to the location;
+	otherwise:
+		say "Your bare hands are no good here.  You need a decent weapon!".
+
+Instead of asking the schoolmarm about something:
+	say "She stares at you hopelessly, attempting to form words on her near-lifeless lips.  There's not much you can do to help her at this point."
 
 
 Chapter Galley
@@ -1014,6 +1049,8 @@ Chapter Limbo
 
 Limbo is a room. "[if unvisited]Uh oh. Not good.[paragraph break][end if]Grey mists swirl around you. You are lost somewhere between universes."
 
+Limbo2 is a room.  [This is the place for ACTUALLY removing objects from the game!]
+
 Every turn when in Limbo:
 	change the block stage Business flag to true.
 
@@ -1065,7 +1102,7 @@ To say go-west:
 	
 Instead of going east from the Hynes Convention Center:
 	say "You can't! The Vortex has evaporated, leaving no trace."
-
+	
 
 Chapter Conventional Warfare
 
