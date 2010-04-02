@@ -1006,7 +1006,7 @@ First Class is a room. The description of first class is "A posh, nightclub-like
 
 The billiards table is a furniture in first class. The description of the billiard table is "A hefty wood-paneled table, covered in dark green felt.[paragraph break]With the plane tilted at this angle, however, the balls and pool cues must have rolled off into the recesses of the room."
 
-Steve Meretzky is a man in first class. The description of Steve Meretsky is "A tall man, with an intelligent look about him." Understand "high" and "wizard" as Meretzky.
+Steve Meretzky is a man in first class. The description of Steve Meretzky is "A tall bearded man, with an intelligent look about him." Understand "high" and "wizard" as Meretzky.
 
 Chapter Limbo
 
@@ -1032,7 +1032,7 @@ Chapter Whirling Vortex
 
 [TODO the vortex needs to be described from the cockpit ... i.e., x vortex. Also, ente vortex, go vortex, etc., show work appropriately.]
 
-The Whirling Vortex is a room. The Whirling Vortex is west from the cockpit. The description of the Whirling Vortex is "The undulating spiral walls of the vortex rotate hypnotically, drawing you in."
+The Whirling Vortex is a room. The Whirling Vortex is west from the cockpit. The description of the Whirling Vortex is "The undulating spiral walls of the vortex rotate hypnotically, drawing you in. It crackles with actinic lightning flashes."  Understand "vortex" and "tornado" and "hurricane" as the Whirling Vortex.
 
 After going when the location is the Whirling Vortex and the Whirling Vortex is unvisited:
 	try looking;
@@ -1089,7 +1089,7 @@ After going when the location is the Hynes Convention Center and the Hynes Conve
 	change the block stage business flag to true;
 	move the lamp to the Hynes Convention Center.
 	
-The lamp is a prop. 
+The lamp is a prop in the Hynes Convention Center.
 
 Rule for listing nondescript items of the Hynes Convention Center:
 	do nothing.
@@ -1133,7 +1133,21 @@ Instead of doing something with the laptop:
 
 Book 3 Characters
 
-Chapter Protagonist
+Chapter Player
+
+The player is in the lavatory. The description of the player is "Four-hundred and eighty-six years, and you look like a supermodel[if the player does not wear the flight attendant uniform] (even more so, without your clothes)[end if]. That's partly due to your inherently superior breeding, and partly attributable to the plastic surgery, cybernetic implants and magical enhancements all courtesy of The Republic."
+
+The player wears some high-heeled shoes. The description of the shoes is "Shiny, high-heeled shoes. Part of the TRANSGLOBAL AIRLINES uniform. Your [italic type]least[roman type] favorite part." The shoes are plural-named. The indefinite article of the shoes is "a pair of". Understand "pumps" or "heels" as high-heeled shoes.
+
+Instead of going when the player wears the high-heeled shoes:
+	say "You stumble and lurch, unable to maintain your tip-toed balance on the sloping floor[if a random chance of one in four succeeds]. Your shoes may be fashionable, but are not very functional when it comes to airplane disasters[end if]."
+	
+The player wears a flight attendant uniform. The description of the flight attendant uniform is "A dark blue pants suit, with smart, military-style epaulets, a stripe down each sleeve, and gold embroidery on the cuffs. A pair of silver wings is pinned to your left breast, just below your name tag. The pressed, pleated pants continue the faux-military look. You are surprised that TRANSGLOBAL AIRLINES spent so much time and effort on designing the uniforms and so little effort verifying your identity before handing it over to you." Understand "suit" or "epaulet" or "epaulets" or "sleeve" or "sleeves" or "cuff" or "cuffs" or "pants" as the flight attendant uniform.
+
+The silver wings are part of the flight attendant uniform. The silver wings are plural-named. The description of the silver wings is "A stylized gyre falcon, the trademark of TRANSGLOBAL AIRINES. The wings are sewn to the uniform, so you never have to worry about losing them."
+
+The name tag is part of the flight attendant uniform. The description of the name tag is "A plastic badge engraved with your cover identity." Understand "plastic" and "badge" and "identity" as the name tag. The inscription of the name tag is "It reads: [quotation mark]F. Mignon[quotation mark]."
+
 
 Chapter Sidekick
 
@@ -1179,17 +1193,6 @@ Check wanding at:
 	if the noun is the mirror:
 		say "The spell hits the mirror and is reflected back at you!";
 		change the noun to the player.
-
-The player wears some high-heeled shoes. The description of the shoes is "Shiny, high-heeled shoes. Part of the TRANSGLOBAL AIRLINES uniform. Your [italic type]least[roman type] favorite part." The shoes are plural-named. The indefinite article of the shoes is "a pair of". Understand "pumps" or "heels" as high-heeled shoes.
-
-Instead of going when the player wears the high-heeled shoes:
-	say "You stumble and lurch, unable to maintain your balance on the sloping floor[if a random chance of one in four succeeds]. Your shoes may be fashionable, but are not very functional when it comes to airplane disasters[end if]."
-	
-The player wears a flight attendant uniform. The description of the flight attendant uniform is "A dark blue pants suit, with smart, military-style epaulets, a stripe down each sleeve, and gold embroidery on the cuffs. A pair of silver wings is pinned to your left breast, just below your name tag. The pressed, pleated pants continue the faux-military look. You are surprised that TRANSGLOBAL AIRLINES spent so much time and effort on designing the uniforms and so little effort verifying your identity before handing it over to you." Understand "suit" or "epaulet" or "epaulets" or "sleeve" or "sleeves" or "cuff" or "cuffs" or "pants" as the flight attendant uniform.
-
-The silver wings are part of the flight attendant uniform. The silver wings are plural-named. The description of the silver wings is "A stylized gyre falcon, the trademark of TRANSGLOBAL AIRINES. The wings are sewn to the uniform, so you never have to worry about losing them."
-
-The name tag is part of the flight attendant uniform. The description of the name tag is "A plastic badge engraved with your cover identity." Understand "plastic" and "badge" and "identity" as the name tag. The inscription of the name tag is "It reads: [quotation mark]F. Mignon[quotation mark]."
 
 [The wand basically cycles through all known spells each time it is used -- it initiates one of the spell verbs. The spells are a circular queue.]
 	
@@ -1344,7 +1347,6 @@ Chapter Introduction
 
 Introduction is a scene. Introduction begins when play begins. The introduction ends when the player is in the Tail section.
 
-The player is in the lavatory. The description of the player is "Four-hundred and eighty-six years, and you look like a supermodel[if the player does not wear the flight attendant uniform] (even more so, without your clothes)[end if]. That's partly due to your inherently superior breeding, and partly attributable to the plastic surgery, cybernetic implants and magical enhancements all courtesy of The Republic."
 
 Chapter Disaster Strikes
 
