@@ -715,7 +715,7 @@ The stage Business rules is a rulebook.
 The endgame block stage Business rule is listed first in the stage Business rules.
 
 This is the endgame block stage Business rule:
-	if the finale is happening:
+	if the denouement is happening or the finale is happening:
 		the rule succeeds.
 
 The block all stage Business rule is listed after the endgame block stage Business rule in the stage Business rules. 
