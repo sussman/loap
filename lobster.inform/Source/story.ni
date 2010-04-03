@@ -1550,7 +1550,7 @@ Carry out cod-summoning:
 		say "Your attempt to summon a creature, but the sheer quantity of radiant animal magic overpowers your wand.  There will be no summoning in Business class today.";
 	otherwise:
 		move the cod to the location;
-		say "You hear a strange tingling sound; a large cod fish suddenly materializes."
+		say "You hear a strange tingling sound; a large cod fish suddenly materializes[if the spiny lobster is in the location]. The cod looks the spiny lobster over, and decides that its spiky carapace would not be a pleasant chew. In a suprisingly low and rich baritone, the cod says to you, [quotation mark]I can take care of some of the smaller ones -- I'm sure you can handle this one.[quotation mark] Before you can fret, he swims under the seats in search of dinner[end if]."
 		
 [also see section cod rules for per-turn cod behavior]
 
