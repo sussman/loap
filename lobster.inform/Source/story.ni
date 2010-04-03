@@ -493,6 +493,15 @@ Carry out navigating:
 Section Opening
 
 Understand "slide [something]" as opening.
+
+Section Playing
+
+[Override to play specific items]
+
+Playing is an action applying to one thing. Understand "play [something preferably held]" as playing.
+
+Carry out playing:
+	say "You never learned how to play [the noun]."
 		
 Section Putting
 
@@ -833,6 +842,9 @@ The Plane Area is a region. The Lavatory, Tail Section, Economy, Galley, Busines
 
 The floor is a backdrop. The floor is everywhere. The description of the floor is "The flat surface beneath your feet."
 
+Instead of doing something with the floor:
+	say "The only activity concerning the floor that interests you is standing on it. Indeed, standing on the floor briefly fills you with a sense of accomplishment, but then the sentiment passes."
+
 The seats are a backdrop in the Plane Area. The description of the seats is "[seat-details]." Understand "seat" as seats. The seats are plural-named.
 
 To say seat-details:
@@ -864,7 +876,7 @@ Instead of doing something with the seat belts:
 	otherwise:
 		continue the action;
 		
-The passengers are a backdrop in the Plane Area. The description of the passengers is "An assortment of people, about half of whom refuse to accept the reality of the situation." The passengers are plural-named.
+The passengers are a backdrop in the Plane Area. The description of the passengers is "An assortment of people, about half of whom refuse to accept the reality of the situation." The passengers are plural-named. Understand "corpse" or "corpses" as passengers.
 
 Instead of doing something with the passengers:
 	if the location is the lavatory or the location is the cockpit:
@@ -873,7 +885,6 @@ Instead of doing something with the passengers:
 		say "You are too well-trained and your mission is too important to spare more than a glance at the passengers. You must somehow see that the High Wizard is delivered safely to the Summit, or the Forces of Banality will conquer the world.";
 	otherwise:
 		continue the action.
-
 
 Chapter Bathroom
 
@@ -995,7 +1006,7 @@ After magic-pushing the emergency escape hatch:
 
 Chapter Economy 
 
-Economy is a room. The description of Economy is "Row after row of tightly packed seats, with minimal padding, sharp corners, and ratty seat belts[one of]. Back in the day, these seats would have come with heavy oars and leg irons. Well, nostalgia will have to wait. You have a plane full of lobsters to deal with, and a High Wizard to find[or][stopping].   A movie screen swings above one seat;  an overhead compartment lurks overhead.  Various half-eaten corpses of economy passengers lay strewn about, with crustaceans crawling over many of them.".  Economy is down from the Galley.
+Economy is a room. The description of Economy is "Row after row of tightly packed seats, with minimal padding, sharp corners, and ratty seat belts[one of]. Back in the day, these seats would have come with heavy oars and leg irons. Well, nostalgia will have to wait. You have a plane full of lobsters to deal with, and a High Wizard to find[or][stopping].   A movie screen swings above one seat;  [if the overhead compartment is closed]a closed[otherwise]an open[end if] overhead compartment limits the headroom in this section.  Various half-eaten corpses of economy passengers lay strewn about, with crustaceans crawling over many of them.".  Economy is down from the Galley.
 
 The corpses are scenery in Economy.  The description of the corpses is "Hey, this is a PG-13 game, buddy."   
 Instead of doing anything with the corpses:
@@ -1004,7 +1015,7 @@ Instead of doing anything with the corpses:
 	otherwise:
 		say "Gross. You have a mission, remember?"
 
-The movie screen is a furniture in the Economy. The description of the movie screen is "A dirty gray panel mounted on the dirtier and grayer panels of the economy section. Movies are shown here to take people's minds off how very unpleasant it is to fly economy."
+The movie screen is a furniture in the Economy. The description of the movie screen is "A dirty gray panel mounted on the overhead compartment. Movies are shown here to take people's minds off how very unpleasant it is to fly economy."
 
 The schoolmarm is a woman in Economy.  "Over in seat 31A, a schoolmarm-ish woman [if the spiny lobster is in the location]is attemping to scream in agony, but [end if]is too exhausted to make a sound.".  Understand "woman" as the schoolmarm.  The description of the schoolmarm is "Covered in blood and seawater, her eyes are shell-shocked.  She's barely alive." Understand "teacher" or "marm" as the schoolmarm.
 
@@ -1025,6 +1036,19 @@ The overhead compartment is scenery in the Economy.  The overhead compartment is
 
 Instead of taking the banjo when the banjo is broken:
 	say "It's fragmented into too many pieces to pick up.".
+	
+Instead of playing the banjo:
+	if the banjo is broken:
+		say "You can't play a broken banjo!";
+	otherwise:
+		if the spiny lobster is in the location:
+			say "The spiny lobster seems taken with the music. Who knew that spiny lobsters were country music fans? He closes his eyes and begins to sway with the music.[paragraph break]Sensing her opportunity, the staid schoolmarn in 31A dashes the lobster's brains out with a fire extinguisher. The lobster continues dancing for another half minute until its nervous system catches up with the situation, and collapses to the floor. A moment later, the spiny lobster vanishes in a magical haze. Unfortunately, the haze also sucks in the banjo and the fire extinguisher, both of which had such possiblities. Oh well.";
+			move the spiny lobster to Limbo2;
+			move the banjo to Limbo2;
+		otherwise:
+			say "You pluck out a short tune. Not bad, considering you haven't practiced in over three hundred years."
+			
+[TODO: Ben, feel free to add specific songs instead of "short tune", above.]
 
 
 Instead of going up when the player is in Economy:
@@ -1045,7 +1069,7 @@ Instead of freezing or magic-pushing the spiny lobster:
 Instead of attacking the spiny lobster:
 	if the player carries the banjo:
 		say "You invoke the mighty power of Earl Scruggs, and rein the instrument down upon the creature with full 5-string fury!  Its exoskeleton crunches mightily, reverberating through the exquistitely crafted walnut-and-chrome resonator.  The banjo is now in pieces, but so is the spiny lobster.  The lobster vaporizes into a magical haze.";
-		move the lobster to Limbo2;
+		move the spiny lobster to Limbo2;
 		now the banjo is broken;
 		move the banjo to the location;
 	otherwise:
@@ -1097,7 +1121,6 @@ Instead of eating the mob:
 	
 Instead of magic-pushing the mob:
 	say "Your wand fizzles as you try to blink them away.  They're way too powerful for that trick, it seems."
-
 
 Chapter Cockpit
 
