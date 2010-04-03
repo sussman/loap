@@ -831,7 +831,49 @@ Chapter The Plane! The Plane!
 
 The Plane Area is a region. The Lavatory, Tail Section, Economy, Galley, Business, Cockpit, and First Class are rooms in the Plane Area.
 
-[Todo: implement floor, walls, ceiling as a backdrop]
+The floor is a backdrop. The floor is everywhere. The description of the floor is "The flat surface beneath your feet."
+
+The seats are a backdrop in the Plane Area. The description of the seats is "[seat-details]." Understand "seat" as seats. The seats are plural-named.
+
+To say seat-details:
+	if the location is:
+		-- tail section:
+			say "Fold-down seats used by the crew";
+		-- economy:
+			say "Cramped, angular, and uncomfortable";
+		-- business:
+			say "Barely a step up from the torture devices found in Economy";
+		-- first class:
+			say "Expensive-looking leather recliners";
+		-- galley:
+			say "Fold down seats used by the crew";
+		-- cockpit:
+			say "Metal-framed, functional seats for the use of the pilot and co-pilot";
+		-- lavatory:
+			say "The only seat in here is, if you want to call it such, the toilet".
+			
+Before doing something with the seats:
+	if the current action is not examining:
+		say "The seats don't interest you. Your job is to deliver the High Wizard to the Summit, not gawk at furniture." instead.
+		
+The seat belts are a backdrop in the Plane Area. The description of the seat belts is "A fabric strap with a metal buckle." The seat belts are plural-named. Understand "belt" or "seat belt" or "seatbelt" as the seat belts.
+
+Instead of doing something with the seat belts:
+	if the current action is not examining:
+		say "You have always made a particular effort to avoid taking note of the seat belts, particularly during the safety demonstration. You are not about to change your ways now just because the plane has been plunged into a hellish nightmare.";
+	otherwise:
+		continue the action;
+		
+The passengers are a backdrop in the Plane Area. The description of the passengers is "An assortment of people, about half of whom refuse to accept the reality of the situation." The passengers are plural-named.
+
+Instead of doing something with the passengers:
+	if the location is the lavatory or the location is the cockpit:
+		say "There are no passengers here.";
+	otherwise if the current action is not examining:
+		say "You are too well-trained and your mission is too important to spare more than a glance at the passengers. You must somehow see that the High Wizard is delivered safely to the Summit, or the Forces of Banality will conquer the world.";
+	otherwise:
+		continue the action.
+
 
 Chapter Bathroom
 
@@ -839,12 +881,15 @@ The Lavatory is a room. The description of the lavatory is "[one of]A claustroph
 
 The sink is a container in the lavatory. The sink is fixed in place. The description of the sink is "A small metal bowl with two knobs, marked [quotation mark]hot[quotation mark] and [quotation mark]cold[quotation mark], and a faucet. The sink is bone dry." The cold knob is part of the the sink. The hot knob is part of the sink. The faucet is part of the sink. The carrying capacity of the sink is one. Understand "basin" or "drain" as the sink. Understand "tap" as the faucet.
 
-The bulb is a backdrop in the lavatory. Understand "light" or "fluorescent" or "blue-tinted" or "bulbs" as the bulb.
+The bulb is a backdrop in the lavatory. Understand "light" or "fluorescent" or "blue-tinted" or "bulbs" as the bulb. The description of the bulb is "A cheap, fluorescent bulb."
 
 The coffin is a backdrop in the lavatory. 
 
-Instead of examining the coffin:
-	say "It's not really a coffin. That was just a description. It's [italic type]like[roman type] a coffin. Simile. Jeez."
+Instead of doing something with the coffin:
+	if the current action is examining:
+		say "It's not really a coffin. That was just a description. It's [italic type]like[roman type] a coffin. Simile. Jeez.";
+	otherwise:
+		say "There really isn't a coffin here."	
 
 Instead of inserting something (called the item) into the sink:
 	if the item is not small:
@@ -1322,7 +1367,9 @@ Check wanding at:
 		say "Your wand seems drained of energy. It's been a long day." instead;
 	if the noun is the mirror:
 		say "The spell hits the mirror and is reflected back at you!";
-		change the noun to the player.
+		change the noun to the player;
+	if the noun is a backdrop:
+		say "Your wand only works on things that it considers important. Apparently, the wand considers [the noun] unworthy of its attention." instead.
 
 [The wand basically cycles through all known spells each time it is used -- it initiates one of the spell verbs. The spells are a circular queue.]
 	
