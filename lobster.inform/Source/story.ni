@@ -832,7 +832,7 @@ This is the fish swims off rule:
 		say "The cod, having no water to swim in, gasps for breath and flops around on the floor.  Before you can help it, it expires and fizzles into smoke.";
 		move the cod to Limbo;
 	if the cod is in Business and the lobster mob is in the location:
-		say "Fedora-brimmed lobster mobsters snear at the lone cod, like bullies on a playgroud. The mob boss, a three-and-a-half pounder with only one claw, steps forward, gesturing wildly with the Glöck in his good claw.[paragraph break][quotation mark]Well,[quotation mark] he taunts, [quotation mark]if it ain't the natural enemy of the lobster, [italic type]Gadus morhua[roman type], the Atlantic Cod.[quotation mark] At the mention of his taxonomic classification, some of the younger lobsters looks worried, their antennae flitting back and forth in concern. The boss continues brashly, [quotation mark]Boys, I think tonight's main dish is... sushi![paragraph break]The boss looks back at his mob, and there is a murmur of agreement. Before the boss is done gloating, however, the  fish pulls a modified Kalashnikov assault rifle from its bulky trenchcoat.[paragraph break]One of the hench-lobsters barely has time to say, [quotation mark]Boss, watch out for the cod piece![quotation mark] before the silver-scaled avenger lets loose with a barrage of phosphor-tipped rounds, which both cook and mince the lobster meat into a tasty salad. The passengers in the busines section, who are used to such things, merely assume it is the inflight meal, and quickly polish off the remains of the former gang.[paragraph break]";
+		say "Fedora-brimmed lobster mobsters snear at the lone cod, like bullies on a playgroud. The mob boss, a three-and-a-half pounder with only one claw, steps forward, gesturing wildly with the Glöck in his good claw.[paragraph break][quotation mark]Well,[quotation mark] he taunts, [quotation mark]if it ain't the natural enemy of the lobster, [italic type]Gadus morhua[roman type], the Atlantic Cod.[quotation mark] At the mention of his taxonomic classification, some of the younger lobsters looks worried, their antennae flitting back and forth in concern. The boss continues brashly, [quotation mark]Boys, I think tonight's main dish is... sushi![paragraph break]The boss looks back at his mob, and there is a murmur of agreement. Before the boss is done gloating, however, the  fish pulls a modified Kalashnikov assault rifle from its bulky trenchcoat.[paragraph break]One of the hench-lobsters barely has time to say, [quotation mark]Boss, watch out for the cod piece![quotation mark] before the silver-scaled avenger lets loose with a barrage of phosphor-tipped rounds, which both cook and mince the lobster meat into a tasty salad. The passengers in the business section, who are used to such things, merely assume it is the inflight meal, and quickly polish off the remains of the former gang.[paragraph break]";
 		say "The cod, having rebalanced the karmic forces of the universe, happily blinks out of existence.";
 		move the lobster mob to Limbo2;
 		move the cod to Limbo2.
@@ -1194,7 +1194,7 @@ First Class is a room. The description of first class is "A posh, nightclub-like
 
 The billiards table is a furniture in first class. The description of the billiard table is "A hefty wood-paneled table, covered in dark green felt.[paragraph break]With the plane tilted at this angle, however, the balls and pool cues must have rolled off into the recesses of the room."
 
-Steve Meretzky is a man in first class. The description of Steve Meretzky is "A tall bearded man, with an intelligent look about him[if a random chance of one in six succeeds] and a small fish in his right ear[end if]. He seems is waving his wand around, casting spells in all directions." Understand "high" and "wizard" as Steve Meretzky. 
+Steve Meretzky is a man in first class. The description of Steve Meretzky is "A tall bearded man, with an intelligent look about him[if a random chance of one in six succeeds] and a small fish in his right ear[end if]. He seems is waving his wand around, casting spells in all directions." Understand "high" and "wizard" and "man" and "tall" as Steve Meretzky. 
 
 Instead of talking to Steve Meretzky:
 	if greeted-flag is false:
@@ -1331,7 +1331,7 @@ There is a room called Room 2305. Understand "IF" and "suite" as Room 2305. The 
 
 The desk is furniture in Room 2305. The description of the desk is "A wooden writing desk."
 
-The laptop is a prop. The laptop is on the desk. The description of the laptop is "A plain black laptop, its keys polished smooth with use. On the screen, a text adventure awaits you."
+The laptop is a prop. The laptop is on the desk. The description of the laptop is "A plain black laptop, its keys polished smooth with use. On the screen, a text adventure awaits you." Understand "keyboard" as laptop.
 
 Instead of doing something with the laptop:
 	if the current action is examining: 
@@ -1340,7 +1340,10 @@ Instead of doing something with the laptop:
 		change the endgame to won;
 		end the game in victory.
 
-[TODO: From the vortex onward, stage business should be suppressed]
+The personnages are a backdrop in Room 2305. The description of the personnages is "Members of the IF community. They are urging you to try out the game on the laptop." The printed name of the personnages is "people". Understand "people" as the personnages.
+
+Instead of talking to the personnages:
+	say "They greet you warmly and suggest that you try out the game on the laptop."
 
 Book 3 Characters
 
