@@ -1,7 +1,7 @@
 "Lobsters On A Plane" by Ben and Jack
 
 The story headline is "Parboiled crustaceans at 30,000 feet".
-The release number is 1.
+The release number is 2.
 The story creation year is 2010.
 The story genre is "Disaster".
 
@@ -690,7 +690,7 @@ When play begins:
 [Note - generating fake banner text. Not a generally good practice, but making an exception in this case to add the fake "SD" on the released version. Presumably, this game will be run by people who are very familiar with I7 and will tolerate all of the inside gags and historical references.]
 
 Rule for printing the banner text:
-	say "[bold type]Lobsters On A Plane[roman type][line break]Parboiled crustaceans at 30,000 feet by Ben and Jack[line break]Release [release number] / Serial number 100401 / Inform 7 build 5Z71 (I6/v6.31 lib 6/12N) SD[line break]Type [quotation mark]help[quotation mark] for instructions.[paragraph break]" instead.
+	say "[bold type]Lobsters On A Plane[roman type][line break]Parboiled crustaceans at 30,000 feet by Ben and Jack[line break]Release [release number] / Serial number 100403 / Inform 7 build 5Z71 (I6/v6.31 lib 6/12N) SD[line break]Type [quotation mark]help[quotation mark] for instructions.[paragraph break]" instead.
 
 	
 Chapter Every Turn
