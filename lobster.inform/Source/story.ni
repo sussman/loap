@@ -961,12 +961,15 @@ Instead of doing anything with the corpses:
 
 The movie screen is a furniture in the Economy. The description of the movie screen is "A dirty gray panel mounted on the dirtier and grayer panels of the economy section. Movies are shown here to take people's minds off how very unpleasant it is to fly economy."
 
-The schoolmarm is a woman in Economy.  "Over in seat 31A, a schoolmarm-ish woman [if the spiny lobster is in the location]is attemping to scream in agony, but [end if]is too exhausted to make a sound.".  Understand "woman" as the schoolmarm.  The description of the schoolmarm is "Covered in blood and seawater, her eyes are shell-shocked.  She's barely alive."
+The schoolmarm is a woman in Economy.  "Over in seat 31A, a schoolmarm-ish woman [if the spiny lobster is in the location]is attemping to scream in agony, but [end if]is too exhausted to make a sound.".  Understand "woman" as the schoolmarm.  The description of the schoolmarm is "Covered in blood and seawater, her eyes are shell-shocked.  She's barely alive." Understand "teacher" or "marm" as the schoolmarm.
 
 Instead of talking to the schoolmarm:
 	say "She is too traumatized to speak coherently."
 
-The spiny lobster is an animal in Economy.  "A three-foot long spiny lobster [if the schoolmarm is in the location]gnaws on the schoolmarm's shoulder with wild abandon[otherwise] clicks at you menacingly with huge claws[end if]."  Understand "spiny" as the spiny lobster.
+The spiny lobster is an animal in Economy.  The description of the spiny lobster is "A three-foot long spiny lobster [if the schoolmarm is in the location]gnaws on the schoolmarm's shoulder with wild abandon[otherwise] clicks at you menacingly with huge claws[end if]."  Understand "spiny" as the spiny lobster.
+
+After taking the banjo when the spiny lobster is in the location:
+	say "The spiny lobster looks fearfully at the banjo."
 
 Instead of talking to the spiny lobster:
 	say "The spiny lobster replies in a thick South Atlantic accent and you can't quite understand what he is saying, but it doesn't sound friendly."
@@ -1010,17 +1013,18 @@ Instead of asking the schoolmarm about something:
 Instead of going up from Economy when the lobster is in the location:
 	say "[one of]You're stopped in your tracks by the pitiful moans of the schoolmarm being eaten alive.[or]Your morals won't let you, you've got to save that pathetic woman first![stopping]".
 
-
-
 Chapter Galley
 
 The Galley is a room. The description of the Galley is "A stainless steel compartment between the self-absorbed slobs in business class up ahead and the unwashed masses and screaming babies in economy down below.  Interestingly, whereas other parts of the plane are sloshing in a foot of water, this area remains totally dry." The Galley is down from the Business.
 
 The counter is a furniture in the Galley. The description of the counter is "A brushed aluminum counter where you have prepared countless plasticky meals for unwitting passengers."
 
-The microwave is a container. The microwave is on the counter. The carrying capacity of the microwave is one. The microwave can be open. The microwave is closed. The microwave can be switched on. The microwave is switched off. The microwave is fixed in place. The scent of the microwave is "like buttered popcorn". The description of the microwave is "A brown commercial microwave that has seen more than its fair share of activity over the years. There is a sticker on the microwave."
+The microwave is a closed openable container. The microwave is on the counter. The carrying capacity of the microwave is one. The microwave can be open. The microwave is closed. The microwave can be switched on. The microwave is switched off. The microwave is fixed in place. The scent of the microwave is "like buttered popcorn". The description of the microwave is "A brown commercial microwave that has seen more than its fair share of activity over the years. There is a sticker on the microwave."
 
 The sticker is part of the microwave. The description of the sticker is "A picture of a black cat. There is a red circle around the cat, and a diagonal slash extends through the cat."
+
+After opening the microwave:
+	say "A black cat darts out of the microwave, looks around uncertainly, and runs immediately through the wall of the plane."
 
 Chapter Business
 
