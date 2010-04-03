@@ -533,11 +533,18 @@ Section Smelling
 
 Section Talking
 
+SimpleTalking is an action applying to nothing. Understand "talk" as SimpleTalking.
+
+Check SimpleTalking:
+	say "[Talking is Cheaper]."
+
 [Implement talking to specific objects by overriding]
 
 Talking to is an action applying to one thing. Understand "talk to [thing]" or "talk [thing]" as talking to.
 
 Check talking to:
+	if the noun is the player:
+		say "You mumble to yourself." instead;
 	if the noun is not a person:
 		say "Talking to [the noun] may be therapeutic, but don't expect an answer." instead.
 		
@@ -954,10 +961,16 @@ Instead of doing anything with the corpses:
 
 The movie screen is a furniture in the Economy. The description of the movie screen is "A dirty gray panel mounted on the dirtier and grayer panels of the economy section. Movies are shown here to take people's minds off how very unpleasant it is to fly economy."
 
-The schoolmarm is a woman in Economy.  "Over in seat 31A, a schoolmarm-ish woman [if the spiny lobster is in the location]is attemping to scream in agony, but [end if]is too exhausted to make a sound.".  Understand "woman" as the schoolmarm.  The description of the schoolmarm is "Covered in blood and seawater, her eyes are shell-shocked.  She's barely alive.".
+The schoolmarm is a woman in Economy.  "Over in seat 31A, a schoolmarm-ish woman [if the spiny lobster is in the location]is attemping to scream in agony, but [end if]is too exhausted to make a sound.".  Understand "woman" as the schoolmarm.  The description of the schoolmarm is "Covered in blood and seawater, her eyes are shell-shocked.  She's barely alive."
+
+Instead of talking to the schoolmarm:
+	say "She is too traumatized to speak coherently."
 
 The spiny lobster is an animal in Economy.  "A three-foot long spiny lobster [if the schoolmarm is in the location]gnaws on the schoolmarm's shoulder with wild abandon[otherwise] clicks at you menacingly with huge claws[end if]."  Understand "spiny" as the spiny lobster.
 
+Instead of talking to the spiny lobster:
+	say "The spiny lobster replies in a thick South Atlantic accent and you can't quite understand what he is saying, but it doesn't sound friendly."
+	
 The cart is a supporter in Economy. The cart is jammed. The description of the cart is "A food cart, meant to be pushed Sisyphus-fashion up and down the aisles of this plane until your penance is complete.[if the cart is jammed] It appears to be tilted and solldly wedged against the seats, unmoving.[end if]"  
 
 The overhead compartment is scenery in the Economy.  The overhead compartment is an openable container.  The overhead compartment is closed.  Understand "compartment" and "rack" as the overhead compartment.  The overhead compartment contains a banjo.   The banjo can be broken.  The banjo is not broken. The description of the banjo is "A Stelling Red Fox model, circa 2006.  [if the banjo is broken]It lies in shattered pieces.[otherwise]It glows with bluegrass goodness.[end if] You wonder which unfortunate bloke it belonged to." 
@@ -1014,6 +1027,9 @@ Chapter Business
 The Business is a room. The description of Business is "Rows of seats that are spaced the way economy seats used to be spaced about five years ago. It is enough to make the gullible mortals feel superior to those in economy, while still stripping them subtly of their humanity. It is your favorite section of the plane.[paragraph break]Northward, a narrow, staircase spirals toward to the first class section. Just above the business class is the bulkhead that leads to the cockpit.[if unvisited][paragraph break]And clearly the vast mass of hungry lobsters have decided to make a final stand against you here.   They stop their flesh-feeding, teem and swarm, then all spin around to face you.  They take up battle positions along the central aisle.  You have no idea how you're going to get past the lobster mob." The Business is down from the bulkhead.
 
 The lobster mob is an animal in Business.  "The lobster mob pulsates and wiggles threateningly at you, claws at the ready.".   Understand "mob" and "lobsters" as the lobster mob.  The description of the lobster mob is "A heinous conglomeration of angry arthropods ready to defend their territory.  And possibly devour your leg in the process."  
+
+Instead of talking to the lobster mob:
+	say "The lobster mob bristles impatiently, looking for a fight. They are clearly not in the mood for civil discourse."
 
 Instead of going a direction (called way) from Business:
 	if the lobster mob is in Business and (the way is up or the way is north):
@@ -1425,6 +1441,9 @@ Carry out magic-popping:
 Section Cod
 
 The cod is an animal. The description of the cod is "A three-foot long, reddish-brown predatory fish. You guess it weighs at least 25 pounds, and it appears fairly mean and hungry. Crustaceans are its main food[if the introduction is happening]. It is not happy to be out of the water[end if]."
+
+Instead of talking to the cod:
+	say "The cod listens stoically to your rantings and then meditates to clear his mind."
 
 Instead of eating the cod, say "Now is not the time for sashimi. Besides, these guys are endangered."
 
