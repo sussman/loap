@@ -163,6 +163,29 @@ Section Asking
 
 Instead of asking someone about something:
 	say "[Talking is Cheaper]."
+	
+Section Attacking
+[effectively, just replaces the existing library message with a slightl less banal one]
+
+Instead of attacking:
+	say "Violence may not be the answer, but it feels good."
+
+Section Attacking it with
+
+Attacking it with is an action applying to two things. Understand "attack [something] with/using [something preferably held]" as attacking it with.
+
+Understand "hit [something] with/using [something preferably held]" as attacking it with.
+
+Check attacking it with:
+	if the player does not carry the second noun:
+		try taking the second noun.
+
+Carry out attacking it with:
+	if the second noun is not the banjo:
+		change the last mentioned thing to the second noun;
+		say "[The second noun] [is-are] not a very effective weapon. [The noun] is not impressed.";
+	otherwise:
+		try attacking the noun.
 
 Section Fake Debugging
 
@@ -523,18 +546,10 @@ Carry out reading:
 	
 Section Repairing
 
-[TODO -- add a fix/repair verb in case someone tries to fix the wand which is described as damaged]
-	
-[
-Section Showing
+Repairing is an action applying to one thing. Understand "fix [something]" as repairing. Understand "repair [something]" as repairing.
 
-Rule for reaching inside a room when the current action is showing:
-	allow access.
-	
-Instead of showing something (called the thingie) to a person (called the observer):
-	if the observer is:
-		-- bob:
-]
+Carry out repairing:
+	say "You are a Guardian of the People's Republic of IF -- not a repairwoman. Besides, you always end up with more parts than you start."
 
 Section Smelling
 	
@@ -1032,7 +1047,7 @@ Instead of talking to the spiny lobster:
 	
 The cart is a supporter in Economy. The cart is jammed. The description of the cart is "A food cart, meant to be pushed Sisyphus-fashion up and down the aisles of this plane until your penance is complete.[if the cart is jammed] It appears to be tilted and solldly wedged against the seats, unmoving.[end if]"  
 
-The overhead compartment is scenery in the Economy.  The overhead compartment is an openable container.  The overhead compartment is closed.  Understand "compartment" and "rack" as the overhead compartment.  The overhead compartment contains a banjo.   The banjo can be broken.  The banjo is not broken. The description of the banjo is "A Stelling Red Fox model, circa 2006.  [if the banjo is broken]It lies in shattered pieces.[otherwise]It glows with bluegrass goodness.[end if] You wonder which unfortunate bloke it belonged to." 
+The overhead compartment is scenery in the Economy.  The overhead compartment is an openable container.  The overhead compartment is closed.  Understand "compartment" and "rack" as the overhead compartment.  The overhead compartment contains a banjo.   The banjo can be broken.  The banjo is not broken. The description of the banjo is "A Stelling Red Fox model, circa 2006.  [if the banjo is broken]Unfortunately, it is now a splintered mass of useless junk.[otherwise]It glows with bluegrass goodness.[end if] You wonder which unfortunate bloke it belonged to." The printed name of the banjo is "[if the banjo is broken]broken [end if]banjo".
 
 Instead of taking the banjo when the banjo is broken:
 	say "It's fragmented into too many pieces to pick up.".
