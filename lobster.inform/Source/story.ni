@@ -63,6 +63,9 @@ Debug mode is a truth state that varies. Debug mode is false.
 
 Rules-active is a truth state that varies. Rules-active is false.
 
+Greeted-flag is a truth state that varies. Greeted-flag is false. 
+[Wanted to make this a property of Steve Meretzky, but having compiler issues doing so.]
+
 Chapter Class Definitions
 
 
@@ -157,6 +160,9 @@ Carry out helping:
 Section Answering
 
 Section Asking
+
+Instead of asking someone about something:
+	say "[Talking is Cheaper]."
 
 Section Fake Debugging
 
@@ -525,27 +531,27 @@ Section Smelling
 	
 [Like listening, smelling is performed through instead rules. The generic smell rule tracks bad smells, which decay over time.]
 
-[
 Section Talking
 
-Talking is an action applying to one thing. Understand "talk to [something]" as talking.
+[Implement talking to specific objects by overriding]
 
-Rule for reaching inside a room when the current action is talking:
-	allow access.
+Talking to is an action applying to one thing. Understand "talk to [thing]" or "talk [thing]" as talking to.
 
-Check talking:
+Check talking to:
 	if the noun is not a person:
-		say "People will say you're odd if you make of habit of talking to [the noun]." instead.
+		say "Talking to [the noun] may be therapeutic, but don't expect an answer." instead.
 		
-Carry out talking:
-	say "[lame talk]".
-	
-To say lame talk:
-	say "You can ASK someone ABOUT something or SHOW something TO someone."
-	]
+Carry out talking to:
+	say "[The noun] listens politely, but is too distracted by all the goings-on to really pay attention to you."
 	
 Section Telling
 
+Instead of telling someone about something:
+	say "[Talking is Cheaper]."
+	
+To say Talking is Cheaper:
+	say "Try TALK to SOMEONE".
+	
 	
 Section Touch
 [Touching is implemented through an after rule, which is nice in terms of making use of existing relationships about whether something is touchable or not. If an item has a texture attribute, this rule makes use of it.]
@@ -780,10 +786,9 @@ times-used		verbage
 0		"Salt water rolls down your cheek and into your mouth"
 0		"You mumble to yourself.  How did the Forces of Banality located this plane so quickly?  This is definitely above your pay grade"
 0		"Time is running out.  You can hear them splashing closer"
-0		"They say a man can bleed to death in three minutes if sliced on the leg just so.  Let's not verify this"
 0		"Snap, crackle, pop!  The big ones are molting.  And advancing"
 0		"A lobster scuttles towards your foot, but you quickly punt it back"
-0		"Seriously. When this ordeal is over, you're definitely going to put in for that pay raise."
+0		"Seriously. When this ordeal is over, you're definitely going to put in for that pay raise"
 
 Section Fish Rules
 
@@ -795,10 +800,10 @@ This is the fish swims off rule:
 	if the cod is in the Galley:
 		say "The cod, having no water to swim in, gasps for breath and flops around on the floor.  Before you can help it, it expires and fizzles into smoke.";
 		move the cod to Limbo;
-	if the cod is in Business and the lobster mob is not dead:
+	if the cod is in Business and the lobster mob is in the location:
 		say "Fedora-brimmed lobster mobsters snear at the lone cod, like bullies on a playgroud. The mob boss, a three-and-a-half pounder with only one claw, steps forward, gesturing wildly with the Glöck in his good claw.[paragraph break][quotation mark]Well,[quotation mark] he taunts, [quotation mark]if it ain't the natural enemy of the lobster, [italic type]Gadus morhua[roman type], the Atlantic Cod.[quotation mark] At the mention of his taxonomic classification, some of the younger lobsters looks worried, their antennae flitting back and forth in concern. The boss continues brashly, [quotation mark]Boys, I think tonight's main dish is... sushi![paragraph break]The boss looks back at his mob, and there is a murmur of agreement. Before the boss is done gloating, however, the  fish pulls a modified Kalashnikov assault rifle from its bulky trenchcoat.[paragraph break]One of the hench-lobsters barely has time to say, [quotation mark]Boss, watch out for the cod piece![quotation mark] before the silver-scaled avenger lets loose with a barrage of phosphor-tipped rounds, which both cook and mince the lobster meat into a tasty salad. The passengers in the busines section, who are used to such things, merely assume it is the inflight meal, and quickly polish off the remains of the former gang.[paragraph break]";
-		now the lobster mob is dead;
 		say "The cod, having rebalanced the karmic forces of the universe, happily blinks out of existence.";
+		move the lobster mob to Limbo2;
 		move the cod to Limbo2.
 	
 The fish antics rule is listed after the fish swims off rule in the fish rules.
@@ -1008,30 +1013,18 @@ Chapter Business
 
 The Business is a room. The description of Business is "Rows of seats that are spaced the way economy seats used to be spaced about five years ago. It is enough to make the gullible mortals feel superior to those in economy, while still stripping them subtly of their humanity. It is your favorite section of the plane.[paragraph break]Northward, a narrow, staircase spirals toward to the first class section. Just above the business class is the bulkhead that leads to the cockpit.[if unvisited][paragraph break]And clearly the vast mass of hungry lobsters have decided to make a final stand against you here.   They stop their flesh-feeding, teem and swarm, then all spin around to face you.  They take up battle positions along the central aisle.  You have no idea how you're going to get past the lobster mob." The Business is down from the bulkhead.
 
-The lobster mob is an animal in Business.  "[if the mob is dead]Remains of many dead lobsters are strewn about.[otherwise]The lobster mob pulsates and wiggles threateningly at you, claws at the ready.[end if]".   Understand "mob" and "lobsters" as the lobster mob.  The description of the lobster mob is "A heinous conglomeration of angry arthropods[if the mob is dead] scattered in death and ruin[otherwise], ready to defend their territory.  And possibly devour your leg in the process[end if].".  The mob can be dead.  The mob is not dead.
+The lobster mob is an animal in Business.  "The lobster mob pulsates and wiggles threateningly at you, claws at the ready.".   Understand "mob" and "lobsters" as the lobster mob.  The description of the lobster mob is "A heinous conglomeration of angry arthropods ready to defend their territory.  And possibly devour your leg in the process."  
 
-Instead of going up from Business:
-	if the lobster mob is not dead:
+Instead of going a direction (called way) from Business:
+	if the lobster mob is in Business and (the way is up or the way is north):
 		say "[one of]With the lobster mob there?  Are you kidding?[or]Not with the crusteacean army there, you won't.[or]You need some serious help getting past those lobsters first.[stopping]";
 	otherwise:
-		say "You carefully step over the eviscerated remains of the angry lobster mob...";
-		continue the action.
-		
-[TODO:  remove this redundant code below!]
-Instead of going north from Business:
-	if the lobster mob is not dead:
-		say "[one of]With the lobster mob there?  Are you kidding?[or]Not with the crusteacean army there, you won't.[or]You need some serious help getting past those lobsters first.[stopping]";
-	otherwise:
-		say "You carefully step over the eviscerated remains of the angry lobster mob...";
 		continue the action.
 
 Instead of attacking the mob:
 	say "[one of]You and what army?[or]With what, your good looks and charm?[or]You need a friend to help, I think.  Perhaps your enemy's enemy.[stopping]".
 
 Instead of taking the mob:
-	if the mob is dead:
-		say "With what, your dumptruck?  Get real.";
-	otherwise:
 		say "I think they'd prefer to tear you to shreds first."
 		
 Instead of eating the mob:
@@ -1098,7 +1091,17 @@ First Class is a room. The description of first class is "A posh, nightclub-like
 
 The billiards table is a furniture in first class. The description of the billiard table is "A hefty wood-paneled table, covered in dark green felt.[paragraph break]With the plane tilted at this angle, however, the balls and pool cues must have rolled off into the recesses of the room."
 
-Steve Meretzky is a man in first class. The description of Steve Meretzky is "A tall bearded man, with an intelligent look about him." Understand "high" and "wizard" as Meretzky.
+Steve Meretzky is a man in first class. The description of Steve Meretzky is "A tall bearded man, with an intelligent look about him[if a random chance of one in six succeeds] and a small fish in his right ear[end if]. He seems is waving his wand around, casting spells in all directions." Understand "high" and "wizard" as Steve Meretzky. 
+
+Instead of talking to Steve Meretzky:
+	if greeted-flag is false:
+		say "The great wizard pauses a moment from smiting the lobsters near his ankles and takes notice of you for the first time.[paragraph break]Fixed in his intense gaze, you stutter, [quotation mark]High Wizard Meretzky, your honor,[quotation mark] your voice slips up an octave, and you hope you don't come across as too much of a fangirl. You make an effort to slow down and appear dignified, [quotation mark]I was sent by the Republic to see that you reach the Summit safely.[quotation mark][paragraph break]Meretzky appears amused, [quotation mark]Yeah? And how's that going?[quotation mark] He deftly flicks his wand and the giant lobster that was sneaking up on you disappears in a puff of smoke. Becoming more serious, he explains, [quotation mark]I'm afraid we're surrounded by an antimagic shell. Not even [italic type]I[roman type] am powerful enough to penetrate it. Our only hope is to get a message out to the Republic... You lead, I'll take up the rear. You can never be too careful with grues and lobsters, you know.[quotation mark][paragraph break]";
+		change greeted-flag to true;
+	otherwise:
+		say "Save the chatter for IFmud, we've got work to do!"
+		
+After going 	when the location is first class and first class is unvisited:
+		say "As you climb sideways into the First Class cabin, you are not surprised by the sight of its sole occupant: an unusually tall man in flamboyant chartreuse robes. He stands paradoxically upright despite the steep tilt of the deck. With an effortless wave of one hand, he dispels an attacking Arch Grue.[paragraph break]Stunned by the realization that you are mere feet from High Wizard Steve Meretzky (on a carnivorous lobster-infested sinking plane), you are momentarily speechless."
 
 Chapter Limbo
 
@@ -1432,8 +1435,8 @@ Cod-summoning is an action applying to nothing.
 Carry out cod-summoning:
 	if the cod is in the location:
 		say "The cod sparks a bit, but nothing happens.";
-	if the location is Business:
-		say "You attempt to summon a creature, but the sheer quantity of radiant animal magic overpowers your wand.  There will be no summoning in Business class today.";
+	if the location is Business and the lobster mob is in the location:
+		say "Your attempt to summon a creature, but the sheer quantity of radiant animal magic overpowers your wand.  There will be no summoning in Business class today.";
 	otherwise:
 		move the cod to the location;
 		say "You hear a strange tingling sound; a large cod fish suddenly materializes."
@@ -1464,7 +1467,7 @@ Introduction is a scene. Introduction begins when play begins. The introduction 
 
 Chapter Disaster Strikes
 
-Disaster Strikes is a scene. Disaster strikes begins when the introduction ends. Disaster strikes ends when the player is in First Class.
+Disaster Strikes is a scene. Disaster strikes begins when the introduction ends. Disaster strikes ends when the greeted-flag is true.
 
 The stakes is a value that varies. The stakes is zero.
 
@@ -1479,11 +1482,10 @@ Cockpit-Steve is a truth state that varies. Cockpit-Steve is false.
 Breakout is a scene. Breakout begins when Disaster Strikes ends. Breakout ends when the player is in the Whirling Vortex.	
 
 When Breakout begins:
-	change the block stage business flag to true;
-	say "As you climb sideways into the First Class cabin, you are not surprised by the sight of its sole occupant: an unusually tall man in flamboyant chartreuse robes. He stands paradoxically upright despite the steep tilt of the deck. With an effortless wave of one hand, he dispels an attacking Arch Grue.[paragraph break]Stunned by the realization that you are mere feet from High Wizard Steve Meretzky (on a carnivorous lobster-infested sinking plane), you are momentarily speechless. When you recover, you stutter, [quotation mark]High Wizard Meretzky, your honor,[quotation mark] your voice slips up an octave, and you hope you don't come across as too much of a fangirl. You make an effort to slow down and appear dignified, [quotation mark]I was sent by the Republic to see that you reach the Summit safely.[quotation mark][paragraph break]Meretzky appears amused, [quotation mark]Yeah? And how's that going?[quotation mark] He deftly flicks his wand and the giant lobster that was sneaking up on you disappears in a puff of smoke. Becoming more serious, he explains, [quotation mark]I'm afraid we're surrounded by an antimagic shell. Not even [italic type]I[roman type] am powerful enough to penetrate it. Our only hope is to get a message out to the Republic... You lead, I'll take up the rear. You can never be too careful with grues and lobsters, you know.[quotation mark][paragraph break]".
+	change the block stage business flag to true.
 	
 After going when breakout is happening:
-	say "[one of]Meretzky follows you, taking pot shots at lobsters with his wand as he does so. Lobster pot shots[or]You glance behind you. Meretzky follows closely behind you, his wand held at the ready[at random]."
+	say "[one of]Meretzky follows you, taking pot shots at lobsters with his wand as he does so. Lobster pot shots[or]You glance behind you. Meretzky follows closely behind you, his wand held at the ready[or]Steve follows closely behind you[or]The High Wizard follows you silently[or]From behind you, you hear the sizzle of Meretzky's wand[at random]."
 	
 [TODO add a bunch more of these, above]
 	
