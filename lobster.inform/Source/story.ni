@@ -1,7 +1,7 @@
 "Lobsters On A Plane" by Ben and Jack
 
 The story headline is "Parboiled crustaceans at 30,000 feet".
-The release number is 2.
+The release number is 3.
 The story creation year is 2010.
 The story genre is "Disaster".
 
