@@ -1147,7 +1147,7 @@ Instead of magic-pushing the mob:
 
 Chapter Cockpit
 
-The Cockpit is a room. The cockpit is up from the bulkhead. The description of the cockpit is "A cone-shaped room bristling with those blinking lights and other technical knick-knacks that mortals consider fancy[if the cockpit is unvisited]. You notice immediately that there isn't anyone in cockpit -- no pilot, no copilot, no navigator or engineer. Ironically, you realize that you are the most senior member of the crew, and you're not even a real stewardess[end if][if the button is once-pushed].[paragraph break]To the west, a twirling magical vortex of incredible energy awaits you[end if]."
+The Cockpit is a room. The cockpit is up from the bulkhead. The description of the cockpit is "A cone-shaped room dominated by a control panel bristling with those blinking lights and other technical knick-knacks that mortals consider fancy[if the cockpit is unvisited]. You notice immediately that there isn't anyone in cockpit -- no pilot, no copilot, no navigator or engineer. Ironically, you realize that you are the most senior member of the crew, and you're not even a real stewardess[end if][if the button is once-pushed].[paragraph break]To the west, a twirling magical vortex of incredible energy awaits you[end if]."
 
 The bulkhead is a door. The bulkhead is up from Business. The bulkhead is closed and jammed. The description of the bulkhead is "[bulkhead status]." Understand "security" and "heavy" and "door" as the bulkhead. The printed name of the bulkhead is "[if the bulkhead is open]open[otherwise]closed[end if] bulkhead". The bulkhead is immune.
 
