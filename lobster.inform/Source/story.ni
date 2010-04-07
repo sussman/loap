@@ -94,6 +94,8 @@ Everything can be jammed. Things are usually not jammed.
 Everything can be immune. Things are usually not immune.
 [immune items cannot be magic-pushed]
 
+A room can be either wet or dry. A room is usually dry.
+
 Chapter General Routines
 		
 [borrowed from example I7 documentation, example 424 Odins:]
@@ -828,14 +830,20 @@ The fish rules is a rulebook.
 The fish swims off rule is listed first in the fish rules.
 
 This is the fish swims off rule:
-	if the cod is in the Galley:
+	if cod is in the Plane Area and the cod is not in the location:
+		move the cod to a random wet room adjacent to the location of the cod;
+		if the cod is in the location:
+			say "A cod fish swims into your section of the plane.";
+	if the cod is in a dry room:
 		say "The cod, having no water to swim in, gasps for breath and flops around on the floor.  Before you can help it, it expires and fizzles into smoke.";
 		move the cod to Limbo;
 	if the cod is in Business and the lobster mob is in the location:
-		say "Fedora-brimmed lobster mobsters snear at the lone cod, like bullies on a playgroud. The mob boss, a three-and-a-half pounder with only one claw, steps forward, gesturing wildly with the Glöck in his good claw.[paragraph break][quotation mark]Well,[quotation mark] he taunts, [quotation mark]if it ain't the natural enemy of the lobster, [italic type]Gadus morhua[roman type], the Atlantic Cod.[quotation mark] At the mention of his taxonomic classification, some of the younger lobsters looks worried, their antennae flitting back and forth in concern. The boss continues brashly, [quotation mark]Boys, I think tonight's main dish is... sushi![paragraph break]The boss looks back at his mob, and there is a murmur of agreement. Before the boss is done gloating, however, the  fish pulls a modified Kalashnikov assault rifle from its bulky trenchcoat.[paragraph break]One of the hench-lobsters barely has time to say, [quotation mark]Boss, watch out for the cod piece![quotation mark] before the silver-scaled avenger lets loose with a barrage of phosphor-tipped rounds, which both cook and mince the lobster meat into a tasty salad. The passengers in the business section, who are used to such things, merely assume it is the inflight meal, and quickly polish off the remains of the former gang.[paragraph break]";
+		say "Fedora-brimmed lobster mobsters snear at the lone cod, like bullies on a playgroud. The mob boss, a three-and-a-half pounder with only one claw, steps forward, gesturing wildly with the Glöck in his good claw.[paragraph break][quotation mark]Well,[quotation mark] he taunts, [quotation mark]if it ain't the natural enemy of the lobster, [italic type]Gadus morhua[roman type], the Atlantic Cod.[quotation mark] At the mention of his taxonomic classification, some of the younger lobsters looks worried, their antennae flitting back and forth in concern. The boss continues brashly, [quotation mark]Boys, I think tonight's main dish is... sushi![paragraph break]The boss looks back at his mob, and there is a murmur of agreement. Before the boss is done gloating, however, the  fish pulls a modified Kalashnikov assault rifle from its bulky trenchcoat.[paragraph break]One of the hench-lobsters barely has time to say, [quotation mark]Boss, watch out for the cod piece![quotation mark] before the silver-scaled avenger lets loose with a barrage of phosphor-tipped rounds, which both cook and mince the lobster meat into a tasty salad. The passengers in the business section, who are accustomed to such things, merely assume it is the inflight meal, and quickly polish off the remains of the former gang.[paragraph break]";
 		say "The cod, having rebalanced the karmic forces of the universe, happily blinks out of existence.";
 		move the lobster mob to Limbo2;
-		move the cod to Limbo2.
+		move the cod to Limbo2;
+	if the spiny lobster is in the location:
+		say "The cod looks the spiny lobster over[one of], and decides that its spiky carapace would not be a pleasant chew. In a suprisingly low and rich baritone, the cod says to you, [quotation mark]I can take care of some of the smaller ones -- I'm sure you can handle this one[or]Tag, you're it. Let me know when you've taken care of spiky[or]Oh, he's still around. I'll take care of some of these ankle biters[stopping].[quotation mark] Before you can fret, he swims under the seats in search of dinner."
 	
 The fish antics rule is listed after the fish swims off rule in the fish rules.
 
@@ -844,16 +852,14 @@ This is the fish antics rule:
 	if the cod is in the location and a random chance of one in five succeeds:
 		if the cod is in Limbo:
 			say "The cod floats placidly, weaving back and forth in the mists of infinity.";
-		otherwise if introduction is happening:
-			say "The cod [one of]flails on the floor, gasping for breath[or]looks at you curiously[or]struggles on the ground[or]does not approve of being out of water[or]lies on the ground[or]flaps back and forth on the floor[or]waits patiently for his chance to act[or]grins at you knowingly[at random].";
 		otherwise:
-			say "The rather large cod swims around, looking for food."
+			say "The [one of]rather large cod[or]Atlantic cod[or]sleek silvery fish[or]natural predator of the lobster[or]somewhat helpful fish[at random] [one of]swims around, looking for food[or]swims like a torpedo along the plane floor, hunting lobsters[or]gulps down an unwary lobster[or]makes quick work of a one-pounder[or]flips through the air and lands with a [quotation mark]plot[quotation mark] a couple aisles over[at random]."
 
 Book 2 Places
 
 Chapter The Plane! The Plane!
 
-The Plane Area is a region. The Lavatory, Tail Section, Economy, Galley, Business, Cockpit, and First Class are rooms in the Plane Area.
+The Plane Area is a region. The Lavatory, Tail Section, Economy, Galley, Business, Cockpit, and First Class are rooms in the Plane Area. The Tail Section, Economy, Business, Cockpit, and First Class are wet.
 
 The floor is a backdrop. The floor is everywhere. The description of the floor is "The flat surface beneath your feet."
 
@@ -1045,7 +1051,7 @@ After taking the banjo when the spiny lobster is in the location:
 Instead of talking to the spiny lobster:
 	say "The spiny lobster replies in a thick South Atlantic accent and you can't quite understand what he is saying, but it doesn't sound friendly."
 	
-The cart is a supporter in Economy. The cart is jammed. The description of the cart is "A food cart, meant to be pushed Sisyphus-fashion up and down the aisles of this plane until your penance is complete.[if the cart is jammed] It appears to be tilted and solldly wedged against the seats, unmoving.[end if]"  
+The cart is a supporter in Economy. The cart is jammed. The description of the cart is "A food cart, meant to be pushed Sisyphus-fashion up and down the aisles of this plane until your penance is complete.[if the cart is jammed] It appears to be tilted and solidly wedged against the seats, unmoving.[end if]"  
 
 The overhead compartment is scenery in the Economy.  The overhead compartment is an openable container.  The overhead compartment is closed.  Understand "compartment" and "rack" as the overhead compartment.  The overhead compartment contains a banjo.   The banjo can be broken.  The banjo is not broken. The description of the banjo is "A Stelling Red Fox model, circa 2006.  [if the banjo is broken]Unfortunately, it is now a splintered mass of useless junk.[otherwise]It glows with bluegrass goodness.[end if] You wonder which unfortunate bloke it belonged to." The printed name of the banjo is "[if the banjo is broken]broken [end if]banjo".
 
@@ -1210,7 +1216,7 @@ Chapter Limbo
 
 [A place for offstage stuff]
 
-Limbo is a room. "[if unvisited]Uh oh. Not good.[paragraph break][end if]Grey mists swirl around you. You are lost somewhere between universes."
+Limbo is a room. "[if unvisited]Uh oh. Not good.[paragraph break][end if]Grey mists swirl around you. You are lost somewhere between universes." Limbo is wet. [Yes, a litte known bit of trivia about Limbo: it is quite wet there, about 95% humidity. It's not so much the heat, you see. As a happy side effect, the cod is entirely happy about swimming around in Limbo.]
 
 Limbo2 is a room.  [This is the place for ACTUALLY removing objects from the game!]
 
@@ -1353,8 +1359,11 @@ The player is in the lavatory. The description of the player is "Four-hundred an
 
 The player wears some high-heeled shoes. The description of the shoes is "Shiny, high-heeled shoes. Part of the TRANSGLOBAL AIRLINES uniform. Your [italic type]least[roman type] favorite part." The shoes are plural-named. The indefinite article of the shoes is "a pair of". Understand "pumps" or "heels" as high-heeled shoes.
 
-Instead of going when the player wears the high-heeled shoes:
+Instead of going when the player wears the high-heeled shoes and the player is in the Plane Area:
 	say "You stumble and lurch, unable to maintain your tip-toed balance on the sloping floor[if a random chance of one in four succeeds]. Your shoes may be fashionable, but are not very functional when it comes to airplane disasters[end if]."
+	
+Instead of wearing the shoes when the player is not in the Plane Area:
+	say "You once again don your flimsy footwear[if Steve Meretzky is in the location], but Steve still has a significant height advantage[end if]."
 	
 The player wears a flight attendant uniform. The description of the flight attendant uniform is "A dark blue pants suit, with smart, military-style epaulets, a stripe down each sleeve, and gold embroidery on the cuffs. A pair of silver wings is pinned to your left breast, just below your name tag. The pressed, pleated pants continue the faux-military look. You are surprised that TRANSGLOBAL AIRLINES spent so much time and effort on designing the uniforms and so little effort verifying your identity before handing it over to you." Understand "suit" or "epaulet" or "epaulets" or "sleeve" or "sleeves" or "cuff" or "cuffs" or "pants" as the flight attendant uniform.
 
@@ -1525,7 +1534,12 @@ Carry out magic-popping:
 		otherwise:
 			let localverb be "appear";
 			say "Out of nowhere, [a limboed-thing] suddenly [localverb in correct agreement]!";
-			move the limboed-thing to the location;
+			if the location is First Class:
+				let localverb be "roll";
+				say "[The limboed-thing] [localverb in correct agreement] down the stairs and comes to a jarring stop downstairs in Business Class.";
+				move the limboed-thing to Business;
+			otherwise:	
+				move the limboed-thing to the location;
 	otherwise:
 		say "Nothing happens."
 
@@ -1545,14 +1559,13 @@ Cod-summoning is an action applying to nothing.
 
 Carry out cod-summoning:
 	if the cod is in the location:
-		say "The cod sparks a bit, but nothing happens.";
-	if the location is Business and the lobster mob is in the location:
+		say "The cod sparkles a bit, but nothing happens.";
+	if the lobster mob is in the location:
 		say "Your attempt to summon a creature, but the sheer quantity of radiant animal magic overpowers your wand.  There will be no summoning in Business class today.";
 	otherwise:
 		move the cod to the location;
-		say "You hear a strange tingling sound; a large cod fish suddenly materializes[if the spiny lobster is in the location]. The cod looks the spiny lobster over, and decides that its spiky carapace would not be a pleasant chew. In a suprisingly low and rich baritone, the cod says to you, [quotation mark]I can take care of some of the smaller ones -- I'm sure you can handle this one.[quotation mark] Before you can fret, he swims under the seats in search of dinner[end if]."
-		
-[also see section cod rules for per-turn cod behavior]
+		say "You hear a [one of]strange[or]familiar[stopping] tingling sound; a large cod fish suddenly materializes."
+
 
 Section Unjamming
 
