@@ -830,6 +830,8 @@ The fish rules is a rulebook.
 The fish swims off rule is listed first in the fish rules.
 
 This is the fish swims off rule:
+	if the cod is the currently-frozen-object:
+		the rule succeeds;
 	if cod is in the Plane Area and the cod is not in the location:
 		move the cod to a random wet room adjacent to the location of the cod;
 		if the cod is in the location:
