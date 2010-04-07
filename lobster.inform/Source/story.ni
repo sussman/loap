@@ -1461,20 +1461,22 @@ The currently-frozen-object is a thing that varies.  The currently-frozen-object
 
 Freezing is an action applying to one thing.
 
-Carry out freezing something (called the target):
-	if the target is the player:
-		say "Luckily, every novice mage learns to repel this effect in first year of academy. The energy dissipates around you.";
-	if the target is the lobster mob:
+Check freezing:
+	if the noun is the player:
+		say "Luckily, every novice mage learns to repel this effect in first year of academy. The energy dissipates around you." instead.
+
+Carry out freezing:
+	if the noun is the lobster mob:
 		say "There are just too many of them;  the freeze-spell can't handle them all and fizzles out.";
-	if the target is the spiny lobster:
+	if the noun is the spiny lobster:
 		say "The magic bolt deflects off the spiny lobster's tail and onto the poor woman instead!";
 		try freezing the schoolmarm;
 	otherwise:
-		say "A bolt of icy-blue lightning shoots from the wand towards [the target], freezing [pronoun-accusative] instantly.[paragraph break]";
+		say "A bolt of icy-blue lightning shoots from the wand towards [the noun], freezing [pronoun-accusative] instantly.[paragraph break]";
 		if the currently-frozen-object is visible:
 			let localverb be "thaw";
 			say "In response, [the currently-frozen-object] [localverb in correct agreement] out.";
-		now the currently-frozen-object is the target;
+		now the currently-frozen-object is the noun.
 
 Instead of doing something with the currently-frozen-object (this is the frozen-solid rule):
 	if the current action is examining:
