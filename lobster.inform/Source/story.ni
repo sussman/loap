@@ -1053,7 +1053,7 @@ After taking the banjo when the spiny lobster is in the location:
 Instead of talking to the spiny lobster:
 	say "The spiny lobster replies in a thick South Atlantic accent and you can't quite understand what he is saying, but it doesn't sound friendly."
 	
-The cart is a supporter in Economy. The cart is jammed. The description of the cart is "A food cart, meant to be pushed Sisyphus-fashion up and down the aisles of this plane until your penance is complete.[if the cart is jammed] It appears to be tilted and solidly wedged against the seats, unmoving.[end if]"  
+The cart is a supporter in Economy. The cart is jammed. The description of the cart is "A food cart, meant to be pushed Sisyphus-fashion up and down the aisles of this plane until your penance is complete[if the cart is jammed]. The cart seems impossible to push. It looks like the mango fettucine compote has worked its way into the wheels and has hardened like a rock[end if]."  Understand "wheel" or "wheels" or "compote" or "mango" or "fettucine" as the cart.
 
 The overhead compartment is scenery in the Economy.  The overhead compartment is an openable container.  The overhead compartment is closed.  Understand "compartment" and "rack" as the overhead compartment.  The overhead compartment contains a banjo.   The banjo can be broken.  The banjo is not broken. The description of the banjo is "A Stelling Red Fox model, circa 2006.  [if the banjo is broken]Unfortunately, it is now a splintered mass of useless junk.[otherwise]It glows with bluegrass goodness.[end if] You wonder which unfortunate bloke it belonged to." The printed name of the banjo is "[if the banjo is broken]broken [end if]banjo".
 
@@ -1065,7 +1065,7 @@ Instead of playing the banjo:
 		say "You can't play a broken banjo!";
 	otherwise:
 		if the spiny lobster is in the location:
-			say "The spiny lobster seems taken with the music. Who knew that spiny lobsters were country music fans? He closes his eyes and begins to sway with the music.[paragraph break]Sensing her opportunity, the staid schoolmarn in 31A dashes the lobster's brains out with a fire extinguisher. The lobster continues dancing for another half minute until its nervous system catches up with the situation, and collapses to the floor. A moment later, the spiny lobster vanishes in a magical haze. Unfortunately, the haze also sucks in the banjo and the fire extinguisher, both of which had such possiblities. Oh well.";
+			say "The spiny lobster seems taken with the music. Who knew that spiny lobsters were country music fans? He closes his eyes and begins to sway with the music.[paragraph break]Sensing her opportunity, the staid schoolmarn in 31A dashes the lobster's brains out with a fire extinguisher. The lobster continues dancing for another half minute until its nervous system catches up with the situation, and collapses to the floor. A moment later, the spiny lobster vanishes in a magical haze. Unfortunately, the haze also sucks in the banjo and the fire extinguisher, both of which had such possiblities. Oh, well.";
 			move the spiny lobster to Limbo2;
 			move the banjo to Limbo2;
 		otherwise:
@@ -1122,7 +1122,7 @@ Chapter Business
 
 The Business is a room. The description of Business is "Rows of seats that are spaced the way economy seats used to be spaced about five years ago. It is enough to make the gullible mortals feel superior to those in economy, while still stripping them subtly of their humanity. It is your favorite section of the plane.[paragraph break]Northward, a narrow, staircase spirals toward to the first class section. Just above the business class is the bulkhead that leads to the cockpit.[if unvisited][paragraph break]And clearly the vast mass of hungry lobsters have decided to make a final stand against you here.   They stop their flesh-feeding, teem and swarm, then all spin around to face you.  They take up battle positions along the central aisle.  You have no idea how you're going to get past the lobster mob." The Business is down from the bulkhead.
 
-The lobster mob is an animal in Business.  "The lobster mob pulsates and wiggles threateningly at you, claws at the ready.".   Understand "mob" and "lobsters" as the lobster mob.  The description of the lobster mob is "A heinous conglomeration of angry arthropods ready to defend their territory.  And possibly devour your leg in the process."  
+The lobster mob is an animal in Business.  "The lobster mob pulsates and wiggles threateningly at you, claws at the ready.".   Understand "mob" and "lobsters" as the lobster mob.  The description of the lobster mob is "A heinous conglomeration of angry arthropods ready to defend their territory.  And possibly devour your leg in the process." Understand "gang" or "mafia" as the lobster mob.
 
 Instead of talking to the lobster mob:
 	say "The lobster mob bristles impatiently, looking for a fight. They are clearly not in the mood for civil discourse."
@@ -1171,6 +1171,9 @@ Before pushing the bulkhead:
 	otherwise:
 		try closing the bulkhead;
 	stop the action.
+	
+Before doing something with the bulkhead when the lobster mob is in Business:
+	say "A gang of lowlife lobster thugs have gathered just outside the bulkhead leading to the cockpit -- real bottom feeders. They won't let you near the bulkhead."
 		
 Instead of opening the bulkhead when the bulkhead is jammed:
 	say "[one of]The crash must have slightly warped the heavy metal door. It[or]The bulkhead[stopping] appears to be jammed shut."
