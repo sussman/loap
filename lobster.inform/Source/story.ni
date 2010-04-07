@@ -1546,7 +1546,7 @@ Carry out magic-popping:
 
 Section Cod
 
-The cod is an animal. The description of the cod is "A three-foot long, reddish-brown predatory fish. You guess it weighs at least 25 pounds, and it appears fairly mean and hungry. Crustaceans are its main food[if the introduction is happening]. It is not happy to be out of the water[end if]."
+The cod is an animal. The description of the cod is "A three-foot long, reddish-brown predatory fish. You guess it weighs at least 25 pounds, and it appears fairly mean and hungry. Crustaceans are its main food[if the introduction is happening]. It is not happy to be out of the water[end if]." Understand "fish" or "Gadus" or "morhua" or "codfish" as the cod.
 
 Instead of talking to the cod:
 	say "The cod listens stoically to your rantings and then meditates to clear his mind."
