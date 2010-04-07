@@ -1109,7 +1109,9 @@ Chapter Galley
 
 The Galley is a room. The description of the Galley is "A stainless steel compartment between the self-absorbed slobs in business class up ahead and the unwashed masses and screaming babies in economy down below.  Interestingly, whereas other parts of the plane are sloshing in a foot of water, this area remains totally dry." The Galley is down from the Business.
 
-The counter is a furniture in the Galley. The description of the counter is "A brushed aluminum counter where you have prepared countless plasticky meals for unwitting passengers."
+The counter is a furniture in the Galley. The description of the counter is "A brushed aluminum counter where you have prepared countless plasticky meals for unwitting passengers. Under the counter, there is a hollow storage recess where you park the food cart when it is not in use."
+
+The hollow storage recess is part of the counter. The hollow storage recess is a container. The description of the hollow storage recess is "[if the hollow storage recess encloses the cart]The cart has been safely stowed in the hollow recess just under the counter[otherwise]A recessed storage space made for security the food cart when it is not being used[end if]."
 
 The microwave is a closed openable container. The microwave is on the counter. The carrying capacity of the microwave is one. The microwave can be open. The microwave is closed. The microwave can be switched on. The microwave is switched off. The microwave is fixed in place. The scent of the microwave is "like buttered popcorn". The description of the microwave is "A brown commercial microwave that has seen more than its fair share of activity over the years. There is a sticker on the microwave."
 
