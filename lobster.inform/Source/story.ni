@@ -793,7 +793,7 @@ This is the block stage Business while-raising the stakes rule:
 				the rule succeeds;
 			-- 5: say "Before the magical attack, you had worked your way through most of the economy and business class, but still hadn't located High Wizard Meretzky. You had assumed that he would not be so obvious as to fly first class, but this is not a good day for your assumptions."; 
 				the rule succeeds;
-			-- 7: say "Two years of deep cover as a stewardess. A bloody stewardess! Waiting hand and foot on these sink holes of attentions. And for what? The biggest failure of your career. If you lose Meretzky, it will be a death blow to The Republic, and nothing will be able to stop the Forces of Banality and their langustinian minions.";
+			-- 7: say "Two years of deep cover as a stewardess. A bloody stewardess! Waiting hand and foot on these sink holes of attention. And for what? The biggest failure of your career. If you lose Meretzky, it will be a death blow to The Republic, and nothing will be able to stop the Forces of Banality and their langustinian minions.";
 				the rule succeeds.
 		
 The Environmental stage Business rule is listed last in the stage Business rules.
