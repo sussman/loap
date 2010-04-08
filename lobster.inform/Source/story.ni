@@ -27,6 +27,9 @@ Chapter Rules Modifications
 The block kissing rule is not listed in any rulebook.
 The kissing yourself rule is not listed in any rulebook.
 
+[To allow pushing up and down:]
+The can't push vertically rule is not listed in any rulebook.
+
 Chapter Time
 
 Time-checking is an action applying to nothing.  Understand "time" as time-checking.
@@ -95,6 +98,8 @@ Everything can be immune. Things are usually not immune.
 [immune items cannot be magic-pushed]
 
 A room can be either wet or dry. A room is usually dry.
+
+The blocked direction is a direction that varies. The blocked direction is usually up.
 
 Chapter General Routines
 		
@@ -527,7 +532,7 @@ Playing is an action applying to one thing. Understand "play [something preferab
 
 Carry out playing:
 	say "You never learned how to play [the noun]."
-		
+
 Section Putting
 
 Understand the command "place" as "put".
@@ -614,7 +619,7 @@ To say smooth:
 	
 To say metallic:
 	say "[smooth] and metallic". 
-	
+
 Section Using
 
 
@@ -845,7 +850,7 @@ This is the fish swims off rule:
 		move the lobster mob to Limbo2;
 		move the cod to Limbo2;
 	if the spiny lobster is in the location:
-		say "The cod looks the spiny lobster over[one of], and decides that its spiky carapace would not be a pleasant chew. In a suprisingly low and rich baritone, the cod says to you, [quotation mark]I can take care of some of the smaller ones -- I'm sure you can handle this one[or]Tag, you're it. Let me know when you've taken care of spiky[or]Oh, he's still around. I'll take care of some of these ankle biters[stopping].[quotation mark] Before you can fret, he swims under the seats in search of dinner."
+		say "The cod looks the spiny lobster over, and decides that its spiky carapace would not be a pleasant chew. In a suprisingly low and rich baritone, the cod says to you, [quotation mark][one of]I can take care of some of the smaller ones -- I'm sure you can handle this one[or]Tag, you're it. Let me know when you've taken care of spiky[or]Oh, he's still around. I'll take care of some of these ankle biters[stopping].[quotation mark] Before you can fret, he swims under the seats in search of dinner."
 	
 The fish antics rule is listed after the fish swims off rule in the fish rules.
 
@@ -1053,7 +1058,48 @@ After taking the banjo when the spiny lobster is in the location:
 Instead of talking to the spiny lobster:
 	say "The spiny lobster replies in a thick South Atlantic accent and you can't quite understand what he is saying, but it doesn't sound friendly."
 	
-The cart is a supporter in Economy. The cart is jammed. The description of the cart is "A food cart, meant to be pushed Sisyphus-fashion up and down the aisles of this plane until your penance is complete[if the cart is jammed]. The cart seems impossible to push. It looks like the mango fettucine compote has worked its way into the wheels and has hardened like a rock[end if]."  Understand "wheel" or "wheels" or "compote" or "mango" or "fettucine" as the cart.
+The cart is a supporter in Economy. The cart is jammed. The cart is pushable between rooms. The description of the cart is "A food cart, meant to be pushed Sisyphus-fashion up and down the aisles of this plane until your penance is complete[if the cart is jammed]. The cart seems impossible to push. It looks like the spilled mango fettucine compote has worked its way into the wheels and has hardened like a rock[end if]."  Understand "wheel" or "wheels" or "compote" or "mango" or "fettucine" or "serving" as the cart.
+
+Instead of taking the cart:
+	if the hollow storage recess encloses the cart:
+		say "[clamped].";
+	otherwise:
+		say "The cart is too heavy to lift, even if you had a Scroll of Repair Hernia available. Normally, you just push these carts back and forth, up and down the aisle."
+	
+To say clamped:
+	say "The cart has clamped into the storage recess and cannot be easily removed".
+	
+Instead of pulling the cart:
+	say "You can't pull the cart. It is a push cart. Federal regulations prohibit the pulling of a push cart."
+	
+Instead of pushing the cart:
+	say "You have to say in which direction, as the cart isn't smart enough to think of that on its own."
+	
+Before inserting the cart into the hollow storage recess:
+	if the hollow storage recess encloses the cart:
+		say "It's already there.";
+	otherwise:
+		say "The cart glides smoothly into the recess and clicks into place.";
+		move the cart to the hollow storage recess;
+	stop the action.
+	
+Instead of inserting something into the hollow storage recess:
+	say "The recess was designed specifically to hold the cart, and to prevent it from rolling around the plane cabin. The [noun] does not fit in the recess and rolls right out.";
+	move the noun to the Galley.
+
+Instead of pushing the cart to a direction (called the way):
+	if the cart is jammed:
+		say "You are not able to move the cart at all[one of]. Odd[or][stopping].";
+		the rule fails;
+	if the hollow storage recess encloses the cart:
+		say "[clamped].";
+		the rule fails;
+	if the way is not the blocked direction:
+		say "The cart is facing [blocked direction]wards. That's the only way it can be pushed[if the cart is in the Plane Area], and there isn't enough room here to turn it around[end if].";
+	otherwise:
+		if the location is the lavatory:
+			change the blocked direction to up;
+		continue the action.		
 
 The overhead compartment is scenery in the Economy.  The overhead compartment is an openable container.  The overhead compartment is closed.  Understand "compartment" and "rack" as the overhead compartment.  The overhead compartment contains a banjo.   The banjo can be broken.  The banjo is not broken. The description of the banjo is "A Stelling Red Fox model, circa 2006.  [if the banjo is broken]Unfortunately, it is now a splintered mass of useless junk.[otherwise]It glows with bluegrass goodness.[end if] You wonder which unfortunate bloke it belonged to." The printed name of the banjo is "[if the banjo is broken]broken [end if]banjo".
 
@@ -1074,11 +1120,12 @@ Instead of playing the banjo:
 [TODO: Ben, feel free to add specific songs instead of "short tune", above.]
 
 
-Instead of going up when the player is in Economy:
-	if the cart is in Economy and the cart is jammed:
-		say "The cart is wedged across the aisle, blocking your path. You can't get around it, nor will it budge.";
-	otherwise:
-		continue the action.
+Instead of going a direction (called the way) when the cart is in the location and the player is in the Plane Area:
+	if the way is the blocked direction:
+		if the current action is pushing:
+			continue the action;
+		otherwise:
+			say "The food service cart is in your way, and there isn't enough room to slip past it."
 
 Instead of taking the spiny lobster:
 	say "Do you have some sort of deathwish?"
@@ -1111,7 +1158,7 @@ The Galley is a room. The description of the Galley is "A stainless steel compar
 
 The counter is a furniture in the Galley. The description of the counter is "A brushed aluminum counter where you have prepared countless plasticky meals for unwitting passengers. Under the counter, there is a hollow storage recess where you park the food cart when it is not in use."
 
-The hollow storage recess is part of the counter. The hollow storage recess is a container. The description of the hollow storage recess is "[if the hollow storage recess encloses the cart]The cart has been safely stowed in the hollow recess just under the counter[otherwise]A recessed storage space made for security the food cart when it is not being used[end if]."
+The hollow storage recess is part of the counter. The hollow storage recess is a container. The description of the hollow storage recess is "[if the hollow storage recess encloses the cart]The cart has been safely stowed in the hollow recess just under the counter[otherwise]A recessed storage space made for security the food cart when it is not being used[end if]." Understand "recessed" and "space" as the hollow storage recess.
 
 The microwave is a closed openable container. The microwave is on the counter. The carrying capacity of the microwave is one. The microwave can be open. The microwave is closed. The microwave can be switched on. The microwave is switched off. The microwave is fixed in place. The scent of the microwave is "like buttered popcorn". The description of the microwave is "A brown commercial microwave that has seen more than its fair share of activity over the years. There is a sticker on the microwave."
 
@@ -1542,13 +1589,24 @@ Carry out magic-popping:
 			move the player to the players-popped-location;
 		otherwise:
 			let localverb be "appear";
-			say "Out of nowhere, [a limboed-thing] suddenly [localverb in correct agreement]!";
+			say "Out of nowhere, [a limboed-thing] suddenly [localverb in correct agreement]![paragraph break]";
 			if the location is First Class:
 				let localverb be "roll";
 				say "[The limboed-thing] [localverb in correct agreement] down the stairs and comes to a jarring stop downstairs in Business Class.";
 				move the limboed-thing to Business;
 			otherwise:	
 				move the limboed-thing to the location;
+		if the limboed-thing is the cart:
+			[determine the orientation of the cart when it re-emerges]
+			if the location is the lavatory:
+				change the blocked direction to west;
+			otherwise if the location is in the Plane Area:
+				if a random chance of one in two succeeds:
+					change the blocked direction to up;
+				otherwise:
+					change the blocked direction to down;
+			otherwise:
+				change the blocked direction to north;
 	otherwise:
 		say "Nothing happens."
 
