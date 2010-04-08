@@ -849,7 +849,7 @@ This is the fish swims off rule:
 		say "The cod, having rebalanced the karmic forces of the universe, happily blinks out of existence.";
 		move the lobster mob to Limbo2;
 		move the cod to Limbo2;
-	if the spiny lobster is in the location:
+	if the spiny lobster is in the location and the cod is in the location:
 		say "The cod looks the spiny lobster over, and decides that its spiky carapace would not be a pleasant chew. In a suprisingly low and rich baritone, the cod says to you, [quotation mark][one of]I can take care of some of the smaller ones -- I'm sure you can handle this one[or]Tag, you're it. Let me know when you've taken care of spiky[or]Oh, he's still around. I'll take care of some of these ankle biters[stopping].[quotation mark] Before you can fret, he swims under the seats in search of dinner."
 	
 The fish antics rule is listed after the fish swims off rule in the fish rules.
