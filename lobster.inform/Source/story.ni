@@ -999,15 +999,17 @@ To say wrong way:
 	
 The paper roll is a furniture in the lavatory. The description of the paper roll is "An empty roll that once dispensed toilet paper. It's been a long time, though, since airlines provided free toilet paper."
 
-The smoke detector is a furniture in the lavatory. The description of the smoke detector is "A flat plastic panel on the ceiling with airvents and a small warning label."
+The smoke detector is a furniture in the lavatory. The description of the smoke detector is "A flat plastic panel on the ceiling bearing a small warning label."
 
 The small warning label is part of the smoke detector. The description of the small warning label is "A metallic sticker, with red writing. It looks official." The inscription of the small warning label is "[quotation mark]Warning: Federal Law Prohibits Tampering With...[quotation mark] the rest of the warning has been scratched off.[paragraph break]Which is just as good, considering that the smoke detectors were inactivated years ago to prevent people from being able to tamper with them."
+
+Understand "tamper with [something]" as touching.
 
 Instead of doing something with the smoke detector:
 	if the current action is examining or smelling or listening:
 		continue the action;
 	otherwise:
-		say "You tamper briefly with the smoke detector and enjoy the feeling of naughtiness."
+		say "You tamper [one of]briefly with the smoke detector and enjoy the feeling of naughtiness[or]momentarily with the smoke detector. It's less fun the second time[or]with the smoke detector, but it no longer fills you with excitement[stopping]."
 
 Chapter Tail Section
 
