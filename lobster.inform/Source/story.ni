@@ -918,7 +918,10 @@ Chapter Bathroom
 
 The Lavatory is a room. The description of the lavatory is "[one of]A claustrophobic vertical coffin, lit by blue-tinted fluorescent bulbs and smelling of disinfectant. A uselessly small vestigial sink, a unisex toilet, and a mirror are the only furnishings in the room[or]A tight, poorly lit, aircraft bathroom. Ordinarily, a welcome refuge from the demanding mortal customers who need to use planes to move from one place to another, but now a safe haven from the carnivorous lobsters infesting the plane. The [list of furniture in the lavatory] are unremarkable[stopping]. Your uncanny (yet invariably useful) sense of direction tells you that the aft compartment of the plane is to the west." Understand "bathroom" or "coffin" as the lavatory.
 
-The sink is a container in the lavatory. The sink is fixed in place. The description of the sink is "A small metal bowl with two knobs, marked [quotation mark]hot[quotation mark] and [quotation mark]cold[quotation mark], and a faucet. The sink is bone dry." The cold knob is part of the the sink. The hot knob is part of the sink. The faucet is part of the sink. The carrying capacity of the sink is one. Understand "basin" or "drain" as the sink. Understand "tap" as the faucet.
+The sink is a container in the lavatory. The sink is fixed in place. The description of the sink is "A small metal bowl with two knobs, marked [quotation mark]hot[quotation mark] and [quotation mark]cold[quotation mark], and a faucet. The sink is bone dry." The cold knob is part of the the sink. The hot knob is part of the sink. The faucet is part of the sink. The carrying capacity of the sink is one. Understand "basin" or "drain" as the sink. Understand "tap" as the faucet. Understand "knobs" as the sink.
+
+
+
 
 The bulb is a backdrop in the lavatory. Understand "light" or "fluorescent" or "blue-tinted" or "bulbs" as the bulb. The description of the bulb is "A cheap, fluorescent bulb."
 
@@ -1707,7 +1710,7 @@ The Finale is a scene. The Finale begins when the Denouement ends.
 Rule for printing the player's obituary:
 	if the endgame is:
 		-- drowned:
-			say "A tidal bore of cold ocean water slams into the cabin like pile driver, smearing you on the opposite wall like a toddler with craypas in a heat wave.";
+			say "A tidal bore of cold ocean water slams into the cabin like pile driver, smearing you on the opposite wall like a toddler with cray-pas in a heat wave.";
 		-- lost:
 			say "*** LOST ***";
 		-- won:
