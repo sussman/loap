@@ -601,6 +601,7 @@ After touching something (called the item):
 	if the item is the player:
 		say "You feel normal. Nothing out of the ordinary, really.";
 	otherwise:
+		let T be "";
 		let the regverb be "feel";
 		if the texture of the item is "":
 			let the T be "[one of]unremarkable[or]as you'd expect[or]like [it-they] should[or]normal[in random order]";
@@ -919,9 +920,6 @@ Chapter Bathroom
 The Lavatory is a room. The description of the lavatory is "[one of]A claustrophobic vertical coffin, lit by blue-tinted fluorescent bulbs and smelling of disinfectant. A uselessly small vestigial sink, a unisex toilet, and a mirror are the only furnishings in the room[or]A tight, poorly lit, aircraft bathroom. Ordinarily, a welcome refuge from the demanding mortal customers who need to use planes to move from one place to another, but now a safe haven from the carnivorous lobsters infesting the plane. The [list of furniture in the lavatory] are unremarkable[stopping]. Your uncanny (yet invariably useful) sense of direction tells you that the aft compartment of the plane is to the west." Understand "bathroom" or "coffin" as the lavatory.
 
 The sink is a container in the lavatory. The sink is fixed in place. The description of the sink is "A small metal bowl with two knobs, marked [quotation mark]hot[quotation mark] and [quotation mark]cold[quotation mark], and a faucet. The sink is bone dry." The cold knob is part of the the sink. The hot knob is part of the sink. The faucet is part of the sink. The carrying capacity of the sink is one. Understand "basin" or "drain" as the sink. Understand "tap" as the faucet. Understand "knobs" as the sink.
-
-
-
 
 The bulb is a backdrop in the lavatory. Understand "light" or "fluorescent" or "blue-tinted" or "bulbs" as the bulb. The description of the bulb is "A cheap, fluorescent bulb."
 
@@ -1665,7 +1663,7 @@ Chapter Disaster Strikes
 
 Disaster Strikes is a scene. Disaster strikes begins when the introduction ends. Disaster strikes ends when the greeted-flag is true.
 
-The stakes is a value that varies. The stakes is zero.
+The stakes is a number that varies. The stakes is zero.
 
 When disaster strikes begins:
 	say "The plane slams into the ocean, skipping like a rock, before sinking like one.[paragraph break]The aft section of the plane pitches downward, flipping you sideways. Water jets into the cabin from seams that are not as tight as you had hoped. Moments later, you are ankle-deep in frigid salt water."
