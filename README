@@ -39,7 +39,7 @@ To build the game:
 
 1. Create a working Inform project from your source tree:
 
-  $ hg clone URL
+  $ git clone URL
   $ cd XXX
   $ mv XXX.inform/ temp.inform/
 
