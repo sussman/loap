@@ -5,13 +5,15 @@ The release number is 3.
 The story creation year is 2010.
 The story genre is "Disaster".
 
-Use scoring.
-
 The story description is "A flying tube of riveted aluminum the length of a football field, a swarm of angry carnivorous lobsters, a seething mass of frightened mortal passengers, and a renowned High Wizard who you sworn to protect. Hope you brought a bib."
 
 The intro-text is a text that varies.  Intro-text is "There is an actinic flash. The seat belt signs illuminate. On the overhead speakers, the pilot mechanically reassures the passengers that the minor turbulence is no cause for concern. A second, more abrupt crash and the plane lurches. Air masks drop. An overhead baggage bin flies open, and lobsters pour out. Ignoring the passengers in your section, you let the food cart topple forward, the potatoes au gratin mixing with the fettuccine and mango compote. You climb towards the lavatory and throw the latch from 'vacant' to 'occupied.' The plane revolves slowly -- pushing you towards the wall -- even as the sudden loss of altitude makes you feel lighter.[paragraph break]".
 
-Use full-length room descriptions, american dialect and the serial comma.
+Use scoring, full-length room descriptions, american dialect and the serial comma.
+
+Release along with cover art ("A lobster surfs a jumbo jet above Boston") and a file of "Walkthrough" called "walkthrough.txt".
+
+
 
 Book 1 Mechanics
 
