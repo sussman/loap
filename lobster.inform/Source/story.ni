@@ -5,6 +5,8 @@ The release number is 3.
 The story creation year is 2010.
 The story genre is "Disaster".
 
+Use scoring.
+
 The story description is "A flying tube of riveted aluminum the length of a football field, a swarm of angry carnivorous lobsters, a seething mass of frightened mortal passengers, and a renowned High Wizard who you sworn to protect. Hope you brought a bib."
 
 The intro-text is a text that varies.  Intro-text is "There is an actinic flash. The seat belt signs illuminate. On the overhead speakers, the pilot mechanically reassures the passengers that the minor turbulence is no cause for concern. A second, more abrupt crash and the plane lurches. Air masks drop. An overhead baggage bin flies open, and lobsters pour out. Ignoring the passengers in your section, you let the food cart topple forward, the potatoes au gratin mixing with the fettuccine and mango compote. You climb towards the lavatory and throw the latch from 'vacant' to 'occupied.' The plane revolves slowly -- pushing you towards the wall -- even as the sudden loss of altitude makes you feel lighter.[paragraph break]".
@@ -42,9 +44,9 @@ Chapter Logically Negate
 
 To logically negate (the boolean - a truth state):
 	if the boolean is true:
-		change the boolean to false;
+		now the boolean is false;
 	otherwise:
-		change the boolean to true.
+		now the boolean is true.
 		
 
 Section Award the Escape
@@ -105,7 +107,7 @@ Chapter General Routines
 		
 [borrowed from example I7 documentation, example 424 Odins:]
 After printing the name of something (called the target): 
-    change the last mentioned thing [quotation mark][paragraph break][quotation mark]to the target.
+    now the last mentioned thing [quotation mark][paragraph break][quotation mark]is the target.
 
 To say is-are: 
     if the last mentioned thing is plural-named, say "are"; 
@@ -155,7 +157,7 @@ To adjust points by (amount - a number):
 	otherwise:
 		say "up";
 	say " by [amount in words][close bracket][paragraph break]";
-	change the score to the score plus amount.
+	now the score is the score plus amount.
 
 Chapter Verbs
 
@@ -189,7 +191,7 @@ Check attacking it with:
 
 Carry out attacking it with:
 	if the second noun is not the banjo:
-		change the last mentioned thing to the second noun;
+		now the last mentioned thing is the second noun;
 		say "[The second noun] [is-are] not a very effective weapon. [The noun] is not impressed.";
 	otherwise:
 		try attacking the noun.
@@ -378,9 +380,9 @@ Ruling is an action applying to nothing.
 
 Carry out ruling:
 	If rules-active is true:
-		change rules-active to false;
+		now rules-active is false;
 	otherwise:
-		change rules-active to true.
+		now rules-active is true.
 		
 Report Ruling:
 	Say "Rules tracing now switched [quotation mark][if rules-active is true]on[otherwise]off[end if][quotation mark]. Type [quotation mark]rules[quotation mark] to switch it [if rules-active is true]off[otherwise]on[end if] again."
@@ -496,7 +498,7 @@ Instead of listening:
 	pick a phrase from the Table of Ambient Noise;
 	say ".";
 	[to avoid conflicting with some other sound-generating random event]
-	change the block stage Business flag to true.
+	now the block stage Business flag is true.
 	
 Table of Ambient Noise
 times-used		verbage
@@ -648,9 +650,9 @@ Debugging is an action applying to nothing. Understand "debug" as debugging.
 
 Carry out Debugging:
 	If the debug mode is true:
-		change the debug mode to false;
+		now the debug mode is false;
 	otherwise:
-		change the debug mode to true.
+		now the debug mode is true.
 		
 Report Debugging:
 	Say "The debug mode is now [if debug mode is true]Activated. Debugging verbs will functional normally[otherwise]Deactivated. Fake debug verbs are now enabled, overriding the usual behavior of debug verbs (e.g., gonear, purloin, tree, etc.)[no line break][end if]."
@@ -663,9 +665,9 @@ Muting is an action out of world. Understand "mute" as muting.
 Carry out muting:
 	say "[bracket]Mute[if muted is true]Off[otherwise]On[end if][close bracket][line break]";
 	if muted is true:
-		change muted to false;
+		now muted is false;
 	otherwise:
-		change muted to true;
+		now muted is true;
 		
 Section Magic
 
@@ -685,15 +687,15 @@ The maximum score is 100. [TODO:  change this later]
 
 When play begins:
 	say the intro-text;
-	change the time of day to 09:00 AM;
-        	change the left hand status line to "[location]";
-        	change right hand status line to "Score: [score]/[maximum score]";
+	now the time of day is 09:00 AM;
+        	now the left hand status line is "[location]";
+        	now right hand status line is "Score: [score]/[maximum score]";
 			try silently switching score notification off;
 			[puts the onus on us to display messages about score updates]
 		[choose row with a left of " P = Previous" in the Table of Deep Menu Status;
 	Need this until parchement is patched to accomodate the default "ENTER"
 	change right entry to "SPACE = Select".]
-			change wand counter to a random number between 0 and 5.
+			now wand counter is a random number between 0 and 5.
 
 [Note - generating fake banner text. Not a generally good practice, but making an exception in this case to add the fake "SD" on the released version. Presumably, this game will be run by people who are very familiar with I7 and will tolerate all of the inside gags and historical references.]
 
@@ -706,14 +708,14 @@ Chapter Every Turn
 Every turn:
 	[avoid penalizing time for non-actions, a nuance]
 	if the current action is taking inventory or the current action is looking:
-		change the time of day to 1 minute before the time of day;
+		now the time of day is 1 minute before the time of day;
 	[cod behavior]		
-	Consider the fish rules;
+	Follow the fish rules;
 	[stage Business]
 	if muted is false:
-		Consider the stage Business rules;
+		Follow the stage Business rules;
 	[unblock stage Business for next turn]
-	Change the block stage Business flag to false;
+	Now the block stage Business flag is false;
 	if rules-active is true and debug mode is false:
 		repeat with N running from 1 to a random number between three and five:
 			say "[bracket]Rule [quotation mark]";
@@ -727,7 +729,7 @@ To pick a phrase from (source - a table-name):
 	let R be a number;
 	sort the source in times-used order;
 	repeat with N running from 2 to the number of rows in the source:
-		change R to N;
+		now R is N;
 		if times-used in row N of the source is greater than times-used in row 1 of the source, break;
 	if R is not the number of rows in the source:
 		decrease R by one;
@@ -1032,8 +1034,8 @@ Instead of opening the emergency escape hatch:
 	say "The exit only pushes outward, but thousands of tons of ocean water hold it closed against your feeble attempts."
 	
 After magic-pushing the emergency escape hatch:
-	change the endgame to drowned;
-	end the game in death.
+	now the endgame is drowned;
+	end the story finally.
 
 Chapter Economy 
 
@@ -1101,7 +1103,7 @@ Instead of pushing the cart to a direction (called the way):
 		say "The cart is facing [blocked direction]wards. That's the only way it can be pushed[if the cart is in the Plane Area], and there isn't enough room here to turn it around[end if].";
 	otherwise:
 		if the location is the lavatory:
-			change the blocked direction to up;
+			now the blocked direction is up;
 		continue the action.		
 
 The overhead compartment is scenery in the Economy.  The overhead compartment is an openable container.  The overhead compartment is closed.  Understand "compartment" and "rack" as the overhead compartment.  The overhead compartment contains a banjo.   The banjo can be broken.  The banjo is not broken. The description of the banjo is "A Stelling Red Fox model, circa 2006.  [if the banjo is broken]Unfortunately, it is now a splintered mass of useless junk.[otherwise]It glows with bluegrass goodness.[end if] You wonder which unfortunate bloke it belonged to." The printed name of the banjo is "[if the banjo is broken]broken [end if]banjo".
@@ -1262,7 +1264,7 @@ Steve Meretzky is a man in first class. The description of Steve Meretzky is "A 
 Instead of talking to Steve Meretzky:
 	if greeted-flag is false:
 		say "The great wizard pauses a moment from smiting the lobsters near his ankles and takes notice of you for the first time.[paragraph break]Fixed in his intense gaze, you stutter, [quotation mark]High Wizard Meretzky, your honor,[quotation mark] your voice slips up an octave, and you hope you don't come across as too much of a fangirl. You make an effort to slow down and appear dignified, [quotation mark]I was sent by the Republic to see that you reach the Summit safely.[quotation mark][paragraph break]Meretzky appears amused, [quotation mark]Yeah? And how's that going?[quotation mark] He deftly flicks his wand and the giant lobster that was sneaking up on you disappears in a puff of smoke. Becoming more serious, he explains, [quotation mark]I'm afraid we're surrounded by an antimagic shell. Not even [italic type]I[roman type] am powerful enough to penetrate it. Our only hope is to get a message out to the Republic... You lead, I'll take up the rear. You can never be too careful with grues and lobsters, you know.[quotation mark][paragraph break]";
-		change greeted-flag to true;
+		now the greeted-flag is true;
 	otherwise:
 		say "Save the chatter for IFmud, we've got work to do!"
 		
@@ -1277,8 +1279,8 @@ Limbo is a room. "[if unvisited]Uh oh. Not good.[paragraph break][end if]Grey mi
 
 Limbo2 is a room.  [This is the place for ACTUALLY removing objects from the game!]
 
-Every turn when in Limbo:
-	change the block stage Business flag to true.
+Every turn when the location is Limbo:
+	now the block stage Business flag is true.
 
 The mists are scenery in Limbo. The mists are plural-named. Understand "mist" as the mists. The description of the mists is "Colorless, formless, and timeless."
 
@@ -1299,8 +1301,8 @@ The Whirling Vortex is a room. The Whirling Vortex is west from the cockpit. The
 
 After going when the location is the Whirling Vortex and the Whirling Vortex is unvisited:
 	try looking;
-	say "At the far end of the tunnel a great figure holds the vortex open, his hands held above his head like Moses parting the Red Sea. His salt-and-pepper ponytail flaps behind him in arising maelstrom. You have only heard tell of him in legends, but there is no doubt in your mind that the figure is none other than Don Woods, one of the Fathers of the Genre.[paragraph break]Even with his great power, Woods is struggling to hold the portal open. In each of his mighty fists, he has gathered bundles of ethernet cords, which lead away in every direction. Woods calls upon the power of the Internet itself, tapping into the raw flow of energy from the IFwiki, IFDb, IFMud, and Baf's guide, Brass Lantern, and R.A.I.F.  He reaches out through the thousands of works of interactive fiction in the repository, all the way back the original Adventure. He draws on the pleasure and sense of challenge felt by the millions who have ever played a text adventure, and channels it into the whirling vortex. As sweat pours from his brow, he beckons you forward.[paragraph break]".;
-	change the block stage business flag to true.
+	say "At the far end of the tunnel a great figure holds the vortex open, his hands held above his head like Moses parting the Red Sea. His salt-and-pepper ponytail flaps behind him in arising maelstrom. You have only heard tell of him in legends, but there is no doubt in your mind that the figure is none other than Don Woods, one of the Fathers of the Genre.[paragraph break]Even with his great power, Woods is struggling to hold the portal open. In each of his mighty fists, he has gathered bundles of ethernet cords, which lead away in every direction. Woods calls upon the power of the Internet itself, tapping into the raw flow of energy from the IFwiki, IFDb, IFMud, and Baf's guide, Brass Lantern, and R.A.I.F.  He reaches out through the thousands of works of interactive fiction in the repository, all the way back the original Adventure. He draws on the pleasure and sense of challenge felt by the millions who have ever played a text adventure, and channels it into the whirling vortex. As sweat pours from his brow, he beckons you forward.[paragraph break]";
+	now the block stage business flag is true.
 
 Instead of going west from the cockpit:
 	if the button is once-pushed:
@@ -1323,7 +1325,7 @@ The Tube is a room. The Tube is west from the Whirling Vortex. The description o
 After going when the location is the Tube and the Tube is unvisited:
 	try looking;
 	say "Don Woods strains to maintain the wormhole through time and space.";
-	change the block stage business flag to true.
+	now the block stage business flag is true.
 	
 Instead of going east when the Denouement is happening (this is the you can't go back during the denouement rule):
 	if the location is the Hynes Convention Center:
@@ -1351,7 +1353,7 @@ To say theater:
 After going when the location is the Hynes Convention Center and the Hynes Convention Center is unvisited:
 	try looking;
 	say "As you emerge from the Vortex and step into the Hynes Convention Center, The Forces of Banality attack in unison. High Wizards Lebling, Moriarity and Meretzky reflexively move to equilateral positions around the gathering. The energy flows between them once more, creating a Trinity barrier between the IF community and the hordes of shambling Farmvillains.[paragraph break]Market Forces conspire to bring down the defenses, but David Cornelson casts Textfyre Balls at them, driving them off.[paragraph break]In the midst of it all, Zarf casts the elaborate Glkian Ritual of Unity (a ritual that, truth be told, no one else understands quite so well). Around him, people in the crowd hold each others[apostrophe] hands, contributing power to his spell. One word is repeated over and over, quietly at first, but soon building to a thunderous roar. Finally, the word can no longer be restrained. It breaks loose and reverberates, filling the room, and then flooding outward in every direction. It is an ancient word, of great power, the oldest of the spells: [quotation mark]xyzzy![quotation mark][paragraph break]Banality is banished. The community is saved.[paragraph break][italic type]And thus begins the Third Age of Interactive Fiction.[roman type][paragraph break]Jason Scott, dressed in fine Victorian regalia, waves his hand and a silence falls over the crowd. The lights in the room fade, and you barely catch sight of a metallic glint before you are enveloped by darkness. Surrounded by friends, you have no worry about grues.";
-	change the block stage business flag to true;
+	now the block stage business flag is true;
 	move the lamp to the Hynes Convention Center;
 	the lamp shines in three turns from now.	
 
@@ -1400,8 +1402,8 @@ Instead of doing something with the laptop:
 	if the current action is examining: 
 		continue the action;
 	otherwise:
-		change the endgame to won;
-		end the game in victory.
+		now the endgame is won;
+		end the story finally.
 
 The personnages are a backdrop in Room 2305. The description of the personnages is "Members of the IF community. They are urging you to try out the game on the laptop." The printed name of the personnages is "people". Understand "people" as the personnages.
 
@@ -1474,7 +1476,7 @@ Check wanding at:
 		say "Your wand seems drained of energy. It's been a long day." instead;
 	if the noun is the mirror:
 		say "The spell hits the mirror and is reflected back at you!";
-		change the noun to the player;
+		now the noun is the player;
 	if the noun is a backdrop:
 		say "Your wand only works on things that it considers important. Apparently, the wand considers [the noun] unworthy of its attention." instead.
 
@@ -1565,7 +1567,7 @@ Check magic-pushing:
 	if the location is Limbo:
 		say "[The noun] blurs momentarily, but otherwise seems unaffected." instead;
 	if the noun is part of something (called the parent):
-		change the noun to the parent.
+		now the noun is the parent.
 
 Carry out magic-pushing:
 	if the noun is immune:
@@ -1602,14 +1604,14 @@ Carry out magic-popping:
 		if the limboed-thing is the cart:
 			[determine the orientation of the cart when it re-emerges]
 			if the location is the lavatory:
-				change the blocked direction to west;
+				now the blocked direction is west;
 			otherwise if the location is in the Plane Area:
 				if a random chance of one in two succeeds:
-					change the blocked direction to up;
+					now the blocked direction is up;
 				otherwise:
-					change the blocked direction to down;
+					now the blocked direction is down;
 			otherwise:
-				change the blocked direction to north;
+				now the blocked direction is north;
 	otherwise:
 		say "Nothing happens."
 
@@ -1676,7 +1678,7 @@ Cockpit-Steve is a truth state that varies. Cockpit-Steve is false.
 Breakout is a scene. Breakout begins when Disaster Strikes ends. Breakout ends when the player is in the Whirling Vortex.	
 
 When Breakout begins:
-	change the block stage business flag to true.
+	now the block stage business flag is true.
 	
 After going when breakout is happening:
 	say "[one of]Meretzky follows you, taking pot shots at lobsters with his wand as he does so. Lobster pot shots[or]You glance behind you. Meretzky follows closely behind you, his wand held at the ready[or]Steve follows closely behind you[or]The High Wizard follows you silently[or]From behind you, you hear the sizzle of Meretzky's wand[at random]."
@@ -1685,9 +1687,9 @@ After going when breakout is happening:
 	
 After going when Breakout is happening and the location is the Cockpit:
 	if Cockpit-Steve is false:
-		change Cockpit-Steve to true;
+		now Cockpit-Steve is true;
 		say "You burst into the cockpit, and Steve follows close behind you, laying down some magical suppressing fire with his wand. Shards of chitin fly through the air.[paragraph break]You scan the control panel for anything that looks like a radio, but you are just not familiar with mortal technology. Steve sees your confusion and reaches over to a side panel, flipping a switch marked [quotation mark]IF Filter[quotation mark]. There is a burst of static.[paragraph break]The High Wizard points to the panel and says, [quotation mark]It should work now. Press the orange button to transmit. It won't help though,[quotation mark] he remarks with a sigh, [quotation mark]it would take incredible power to penetrate the magical barrier around this plane. I'm sorry to say that beings that powerful have not existed since the Early Times. Not to put a damper on things, but -- we're doomed.[quotation mark] With a hint of resignation, he adds, [quotation mark]well, at least you can say good-bye.[quotation mark][paragraph break]";
-		change the block stage business flag to true;
+		now the block stage business flag is true;
 		now the button is part of the control panel;
 	otherwise:
 		say "Steve looks suggestively at the ";
